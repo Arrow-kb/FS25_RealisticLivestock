@@ -1,0 +1,229 @@
+<l10n>
+	<texts>
+		<!-- COWS -->
+		
+		<text name="fillType_bull" text="Býk"/>
+		<text name="fillType_bull_swiss_brown" text="Býk plemene Brown-Swiss"/>
+		<text name="fillType_bull_holstein" text="Býk plemene Holštýn"/>
+		<text name="fillType_bull_angus" text="Býk plemene Angus"/>
+		<text name="fillType_bull_limousin" text="Býk plemene Limousin"/>
+		<text name="animal_descriptionBullFeed" text="Býci mají rádi trávu, seno a TMR (směsná krmná dávka)."/>
+		<text name="animal_descriptionBullYoung" text="Toto je tele býčka."/>
+		<text name="animal_descriptionBullReproduction" text="Býci, kteří jsou zdraví a starší 12 měsíců, se mohou rozmnožovat."/>
+
+		<!-- WATER BUFFALOS -->
+
+		<text name="fillType_bull_waterbuffalo" text="Býk vodního buvola"/>
+
+		<!-- PIGS -->
+		
+		<text name="fillType_boar" text="Vepř"/>
+		<text name="fillType_boar_landrace" text="Vepř plemene Landrace"/>
+		<text name="fillType_boar_black_pied" text="Černostrakatý vepř"/>
+		<text name="fillType_boar_berkshire" text="Vepř plemene Berkshire"/>
+		<text name="animal_descriptionBoarReproduction" text="Vepři, kteří jsou zdraví a starší 8 měsíců, se mohou rozmnožovat."/>
+		<text name="animal_descriptionBoarFeed" text="Vepři žerou téměř všechno. Můžete je krmit kukuřicí, pšenicí, ječmenem, řepkou, slunečnicí, sójou, bramborami, čirokem a cukrovou řepou."/>
+		<text name="animal_descriptionBoarYoung" text="Toto je sele vepře."/>
+
+		<!-- SHEEP -->
+		
+		<text name="fillType_ram" text="Beran"/>
+		<text name="fillType_ram_landrace" text="Beran plemene Landrace of Bentheim"/>
+		<text name="fillType_ram_steinschaf" text="Beran plemene Steinschaf"/>
+		<text name="fillType_ram_black_welsh" text="Beran plemene Black Welsh Mountain"/>
+		<text name="fillType_ram_swiss_mountain" text="Beran plemene Swiss Black-Brown Mountain"/>
+		<text name="animal_descriptionRamFeed" text="Berani žerou trávu a seno."/>
+		<text name="animal_descriptionRamYoung" text="Toto je jehně berana."/>
+		<text name="animal_descriptionRamReproduction" text="Berani, kteří jsou zdraví a starší 5 měsíců, se mohou rozmnožovat."/>
+
+		<!-- GOATS -->
+
+		<text name="fillType_ram_goat" text="Kozel"/>
+		
+		<!-- HORSES -->
+		
+		<text name="fillType_stallion" text="Hřebec"/>
+		<text name="fillType_stallion_gray" text="Šedý hřebec"/>
+		<text name="fillType_stallion_pinto" text="Strakatý hřebec"/>
+		<text name="fillType_stallion_palomino" text="Isabela hřebec"/>
+		<text name="fillType_stallion_chestnut" text="Ryzák"/>
+		<text name="fillType_stallion_bay" text="Hnědák"/>
+		<text name="fillType_stallion_black" text="Vraník"/>
+		<text name="fillType_stallion_seal_brown" text="Tmavohnědý hřebec"/>
+		<text name="fillType_stallion_dun" text="Plavák"/>
+		<text name="animal_descriptionStallionFeed" text="Hřebci mají rádi seno, oves a čirok."/>
+		<text name="animal_descriptionStallionProfit" text="Hřebci se dají prodat se ziskem."/>
+		<text name="animal_descriptionStallionReproduction" text="Hřebci, kteří jsou zdraví a starší 36 měsíců, se mohou rozmnožovat."/>
+
+
+        <!-- UI -->
+
+		
+        <text name="input_VisualAnimalsDialog" text="Změnit množství zobrazených zvířat"/>
+        <text name="rl_button_apply" text="Použít"/>
+        <text name="rl_button_confirm" text="Potvrdit"/>
+        <text name="rl_button_recommended" text="Doporučeno"/>
+        <text name="rl_button_cancel" text="Zrušit"/>
+        <text name="rl_button_random" text="Náhodný"/>
+        <text name="rl_dialog_title" text="Nastavit maximální počet zobrazených zvířat"/>
+
+        <text name="rl_ui_unhealthy" text="Příliš nezdravý"/>
+        <text name="rl_ui_unhealthyBracketed" text="Ne (příliš nezdravý)"/>
+        <text name="rl_ui_noMaleAnimal" text="Žádný vhodný samec"/>
+        <text name="rl_ui_noMaleAnimalBracketed" text="Ne (žádný vhodný samec)"/>
+        <text name="rl_ui_recoveringLastBirth" text="Zotavuje se z posledního porodu"/>
+        <text name="rl_ui_recoveringLastBirthBracketed" text="Ne (zotavuje se z posledního porodu)"/>
+        <text name="rl_ui_tooYoung" text="Příliš mladý"/>
+        <text name="rl_ui_tooYoungBracketed" text="Ne (příliš mladý)"/>
+        <text name="rl_ui_pregnant" text="Březí"/>
+        <text name="rl_ui_lactating" text="Kojící"/>
+        <text name="rl_ui_canReproduce" text="Může se rozmnožovat"/>
+        <text name="rl_ui_impregnatedBy" text="Oplodněn/a kým"/>
+        <text name="rl_ui_unknown" text="Neznámý"/>
+        <text name="rl_ui_yes" text="Ano"/>
+        <text name="rl_ui_no" text="Ne"/>
+        <text name="rl_ui_mother" text="Matka"/>
+        <text name="rl_ui_father" text="Otec"/>
+        <text name="rl_ui_uniqueId" text="Jedinečné ID"/>
+        <text name="rl_ui_farmId" text="ID farmy"/>
+        <text name="rl_ui_gender" text="Pohlaví"/>
+        <text name="rl_ui_male" text="Samec"/>
+        <text name="rl_ui_female" text="Samice"/>
+        <text name="rl_ui_weight" text="Váha"/>
+		<text name="rl_ui_targetWeight" text="Cílová váha"/>
+        <text name="rl_ui_value" text="Hodnota"/>
+        <text name="rl_ui_valuePerKilo" text="Hodnota za kg"/>
+		<text name="rl_ui_genetics" text="Genetika"/>
+		<text name="rl_ui_overall" text="Celkově"/>
+		<text name="rl_ui_rename" text="Změnit jméno"/>
+		<text name="rl_ui_cantFindAnimal" text="Zvíře nenalezeno"/>
+		<text name="rl_ui_maleNumImpregnatable" text="Zvířata ve výběhu schopná oplodnění"/>
+
+		<text name="rl_ui_breederQuality" text="Chovatelská kvalita"/>
+		<text name="rl_ui_birthday" text="Narozeniny"/>
+		<text name="rl_ui_pregnancyExpected" text="Očekávané"/>
+		<text name="rl_ui_pregnancyExpecting" text="Očekává"/>
+		<text name="rl_ui_pregnancyBaby" text="Mládě"/>
+		<text name="rl_ui_pregnancyBabies" text="Mláďata"/>
+		<text name="rl_ui_animalOrigin" text="Původ"/>
+		<text name="rl_ui_months" text="Měsíců"/>
+		<text name="rl_ui_month" text="Měsíc"/>
+		<text name="rl_ui_years" text="Let"/>
+		<text name="rl_ui_year" text="Rok"/>
+
+		<text name="rl_ui_milk" text="Produkce mléka"/>
+		<text name="rl_ui_wool" text="Produkce vlny"/>
+		<text name="rl_ui_eggs" text="Produkce vajec"/>
+		<text name="rl_ui_metabolism" text="Metabolismus"/>
+		<text name="rl_ui_meat" text="Kvalita"/>
+		<text name="rl_ui_health" text="Zdraví"/>
+		<text name="rl_ui_fertility" text="Plodnost"/>
+
+		<text name="rl_ui_genetics_extremelyLow" text="Extrémně nízká"/>
+		<text name="rl_ui_genetics_veryLow" text="Velmi nízká"/>
+		<text name="rl_ui_genetics_low" text="Nízká"/>
+		<text name="rl_ui_genetics_average" text="Průměrná"/>
+		<text name="rl_ui_genetics_high" text="Vysoká"/>
+		<text name="rl_ui_genetics_veryHigh" text="Velmi vysoká"/>
+		<text name="rl_ui_genetics_extremelyHigh" text="Extrémně vysoká"/>
+
+		<text name="rl_ui_genetics_extremelyBad" text="Extrémně špatná"/>
+		<text name="rl_ui_genetics_veryBad" text="Velmi špatná"/>
+		<text name="rl_ui_genetics_bad" text="Špatná"/>
+		<text name="rl_ui_genetics_good" text="Dobrá"/>
+		<text name="rl_ui_genetics_veryGood" text="Velmi dobrá"/>
+		<text name="rl_ui_genetics_extremelyGood" text="Extrémně dobrá"/>
+
+        <text name="rl_ui_cow_multipleBirths" text="Narodilo se %s telat" tag="format"/>
+        <text name="rl_ui_cow_singleBirth" text="Narodilo se 1 tele"/>
+        <text name="rl_ui_pig_multipleBirths" text="Narodilo se %s selat" tag="format"/>
+        <text name="rl_ui_pig_singleBirth" text="Narodilo se 1 sele"/>
+        <text name="rl_ui_sheep_multipleBirths" text="Narodilo se %s jehňat" tag="format"/>
+        <text name="rl_ui_sheep_singleBirth" text="Narodilo se 1 jehně"/>
+        <text name="rl_ui_chicken_multipleBirths" text="Narodilo se %s kuřat" tag="format"/>
+        <text name="rl_ui_chicken_singleBirth" text="Narodilo se 1 kuře"/>
+        <text name="rl_ui_horse_multipleBirths" text="Narodilo se %s hříbat" tag="format"/>
+        <text name="rl_ui_horse_singleBirth" text="Narodilo se 1 hříbě"/>
+
+        <text name="rl_ui_cow_multipleDeaths_birth" text="%s krav uhynulo kvůli problémům během březosti" tag="format"/>
+        <text name="rl_ui_cow_singleDeath_birth" text="1 kráva uhynula kvůli problémům během březosti"/>
+        <text name="rl_ui_pig_multipleDeaths_birth" text="%s prasat uhynulo kvůli problémům během březosti" tag="format"/>
+        <text name="rl_ui_pig_singleDeath_birth" text="1 prase uhynulo kvůli problémům během březosti"/>
+        <text name="rl_ui_sheep_multipleDeaths_birth" text="%s ovcí uhynulo kvůli problémům během březosti" tag="format"/>
+        <text name="rl_ui_sheep_singleDeath_birth" text="1 ovce uhynula kvůli problémům během březosti"/>
+        <text name="rl_ui_horse_multipleDeaths_birth" text="%s koní uhynulo kvůli problémům během březosti" tag="format"/>
+        <text name="rl_ui_horse_singleDeath_birth" text="1 kůň uhynul kvůli problémům během březosti"/>
+
+        <text name="rl_ui_cow_multipleSold_birth" text="%s telat prodáno při narození kvůli přemnožení" tag="format"/>
+        <text name="rl_ui_cow_singleSold_birth" text="1 tele prodáno při narození kvůli přemnožení"/>
+        <text name="rl_ui_pig_multipleSold_birth" text="%s selat prodáno při narození kvůli přemnožení" tag="format"/>
+        <text name="rl_ui_pig_singleSold_birth" text="1 sele prodáno při narození kvůli přemnožení"/>
+        <text name="rl_ui_sheep_multipleSold_birth" text="%s jehňat prodáno při narození kvůli přemnožení" tag="format"/>
+        <text name="rl_ui_sheep_singleSold_birth" text="1 jehně prodáno při narození kvůli přemnožení"/>
+        <text name="rl_ui_chicken_multipleSold_birth" text="%s kuřat prodáno při narození kvůli přemnožení" tag="format"/>
+        <text name="rl_ui_chicken_singleSold_birth" text="1 kuře prodáno při narození kvůli přemnožení"/>
+        <text name="rl_ui_horse_multipleSold_birth" text="%s hříbat prodáno při narození kvůli přemnožení" tag="format"/>
+        <text name="rl_ui_horse_singleSold_birth" text="1 hříbě prodáno při narození kvůli přemnožení"/>
+
+		<text name="rl_ui_cow_multipleDeaths_health" text="%s krav uhynulo kvůli špatnému zdraví" tag="format"/>
+		<text name="rl_ui_cow_singleDeath_health" text="1 kráva uhynula kvůli špatnému zdraví"/>
+		<text name="rl_ui_pig_multipleDeaths_health" text="%s prasat uhynulo kvůli špatnému zdraví" tag="format"/>
+		<text name="rl_ui_pig_singleDeath_health" text="1 prase uhynulo kvůli špatnému zdraví"/>
+		<text name="rl_ui_sheep_multipleDeaths_health" text="%s ovcí uhynulo kvůli špatnému zdraví" tag="format"/>
+		<text name="rl_ui_sheep_singleDeath_health" text="1 ovce uhynula kvůli špatnému zdraví"/>
+		<text name="rl_ui_chicken_multipleDeaths_health" text="%s slepic uhynulo kvůli špatnému zdraví" tag="format"/>
+		<text name="rl_ui_chicken_singleDeath_health" text="1 slepice uhynula kvůli špatnému zdraví"/>
+		<text name="rl_ui_horse_multipleDeaths_health" text="%s koní uhynulo kvůli špatnému zdraví" tag="format"/>
+		<text name="rl_ui_horse_singleDeath_health" text="1 kůň uhynul kvůli špatnému zdraví"/>
+
+		<text name="rl_ui_cow_multipleDeaths_age" text="%s krav uhynulo stářím" tag="format"/>
+		<text name="rl_ui_cow_singleDeath_age" text="1 kráva uhynula stářím"/>
+		<text name="rl_ui_pig_multipleDeaths_age" text="%s prasat uhynulo stářím" tag="format"/>
+		<text name="rl_ui_pig_singleDeath_age" text="1 prase uhynulo stářím"/>
+		<text name="rl_ui_sheep_multipleDeaths_age" text="%s ovcí uhynulo stářím" tag="format"/>
+		<text name="rl_ui_sheep_singleDeath_age" text="1 ovce uhynula stářím"/>
+		<text name="rl_ui_chicken_multipleDeaths_age" text="%s slepic uhynulo stářím" tag="format"/>
+		<text name="rl_ui_chicken_singleDeath_age" text="1 slepice uhynula stářím"/>
+		<text name="rl_ui_horse_multipleDeaths_age" text="%s koní uhynulo stářím" tag="format"/>
+		<text name="rl_ui_horse_singleDeath_age" text="1 kůň uhynul stářím"/>
+
+		<text name="rl_ui_cow_multipleDeaths_random" text="%s krav uhynulo kvůli náhodným nehodám a prodáno za %s" tag="format"/>
+		<text name="rl_ui_cow_singleDeath_random" text="1 kráva uhynula kvůli náhodné nehodě a prodána za %s" tag="format"/>
+		<text name="rl_ui_pig_multipleDeaths_random" text="%s prasat uhynulo kvůli náhodným nehodám a prodáno za %s" tag="format"/>
+		<text name="rl_ui_pig_singleDeath_random" text="1 prase uhynulo kvůli náhodné nehodě a prodáno za %s" tag="format"/>
+		<text name="rl_ui_sheep_multipleDeaths_random" text="%s ovcí uhynulo kvůli náhodným nehodám a prodáno za %s" tag="format"/>
+		<text name="rl_ui_sheep_singleDeath_random" text="1 ovce uhynula kvůli náhodné nehodě a prodána za %s" tag="format"/>
+		<text name="rl_ui_chicken_multipleDeaths_random" text="%s slepic uhynulo kvůli náhodným nehodám" tag="format"/>
+		<text name="rl_ui_chicken_singleDeath_random" text="1 slepice uhynula kvůli náhodné nehodě"/>
+		<text name="rl_ui_horse_multipleDeaths_random" text="%s koní uhynulo kvůli náhodným nehodám a prodáno za %s" tag="format"/>
+		<text name="rl_ui_horse_singleDeath_random" text="1 kůň uhynul kvůli náhodné nehodě a prodán za %s" tag="format"/>
+		
+		<text name="rl_ui_buySelected" text="Koupit vybrané"/>
+		<text name="rl_ui_sellSelected" text="Prodat vybrané"/>
+		<text name="rl_ui_moveSelected" text="Přesunout vybrané"/>
+		<text name="rl_ui_buyConfirmation" text="Jste si jistý/á, že chcete koupit %s zvířat za %s?" tag="format"/>
+		<text name="rl_ui_sellConfirmation" text="Jste si jistý/á, že chcete prodat %s zvířat za %s?" tag="format"/>
+		<text name="rl_ui_moveConfirmation" text="Jste si jistý/á, že chcete přesunout %s zvířat?" tag="format"/>
+		<text name="rl_ui_buyBulkResult" text="%s zvířat koupeno za %s" tag="format"/>
+		<text name="rl_ui_sellBulkResult" text="%s zvířat prodáno za %s" tag="format"/>
+		<text name="rl_ui_moveBulkResult" text="%s zvířat přesunuto" tag="format"/>
+
+
+
+		<!--  SETTINGS  -->
+		
+
+		<text name="rl_settings" text="Realistický chov dobytka"/>
+
+		<text name="rl_settings_off" text="Vypnuto"/>
+		<text name="rl_settings_on" text="Zapnuto"/>
+
+		<text name="rl_settings_deathEnabled_label" text="Uhynutí zvířat"/>
+		<text name="rl_settings_deathEnabled_tooltip_1" text="Zvířata nebudou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
+		<text name="rl_settings_deathEnabled_tooltip_2" text="Zvířata budou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
+
+		<text name="rl_settings_accidentsChance_label" text="Pravděpodobnost nehody"/>
+		<text name="rl_settings_accidentsChance_tooltip" text="Změnit pravděpodobnost uhynutí zvířat kvůli náhodným nehodám"/>
+		
+	</texts>
+</l10n>
