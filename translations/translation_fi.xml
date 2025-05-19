@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='utf-8'?>
+<l10n>
+	<texts>
+		<!-- COWS -->
+		
+		<text name="fillType_bull" text="Sonni" />
+		<text name="fillType_bull_swiss_brown" text="Brown Swiss Sonni" />
+		<text name="fillType_bull_holstein" text="Holstein Sonni" />
+		<text name="fillType_bull_angus" text="Angus Sonni" />
+		<text name="fillType_bull_limousin" text="Limousin Sonni" />
+		<text name="animal_descriptionBullFeed" text="Sonni syö mielellään ruohoa, heinää ja TMR-rehua." />
+		<text name="animal_descriptionBullYoung" text="Tämä on urosvasikka." />
+		<text name="animal_descriptionBullReproduction" text="Terveet ja yli 12 kuukauden ikäiset sonnit voivat lisääntyä." />
+
+		<!-- WATER BUFFALOS -->
+
+		<text name="fillType_bull_waterbuffalo" text="Vesipuhveli Sonni" />
+
+		<!-- PIGS -->
+		
+		<text name="fillType_boar" text="Karju" />
+		<text name="fillType_boar_landrace" text="Saksan Maatiassika Karju" />
+		<text name="fillType_boar_black_pied" text="Bunte Bentheimer Schwein Karju" />
+		<text name="fillType_boar_berkshire" text="Berkshire Karju" />
+		<text name="animal_descriptionBoarReproduction" text="Terveet ja yli 8 kuukauden ikäiset karjut voivat lisääntyä." />
+		<text name="animal_descriptionBoarFeed" text="Karjut syövät melkein mitä tahansa. Voit ruokkia niitä maissilla, vehnällä, ohralla, rypsillä, auringonkukilla, soijapavuilla, perunoilla, durralla ja sokerijuurikkailla." />
+		<text name="animal_descriptionBoarYoung" text="Tämä on urosporsas." />
+
+		<!-- SHEEP -->
+		
+		<text name="fillType_ram" text="Pässi" />
+		<text name="fillType_ram_landrace" text="Bentheimin Maatiaiskanta Pässi" />
+		<text name="fillType_ram_steinschaf" text="Steinschaf Pässi" />
+		<text name="fillType_ram_black_welsh" text="Black Welsh Mountain Pässi" />
+		<text name="fillType_ram_swiss_mountain" text="Sveitsiläinen Mustaruskea Vuoristopässi" />
+		<text name="animal_descriptionRamFeed" text="Pässit syövät ruohoa ja heinää." />
+		<text name="animal_descriptionRamYoung" text="Tämä on urospässi." />
+		<text name="animal_descriptionRamReproduction" text="Terveet ja yli 5 kuukauden ikäiset pässit voivat lisääntyä." />
+
+		<!-- GOATS -->
+
+		<text name="fillType_ram_goat" text="Vuohi Pässi" />
+		
+		<!-- HORSES -->
+		
+		<text name="fillType_stallion" text="Ori" />
+		<text name="fillType_stallion_gray" text="Harmaa Ori" />
+		<text name="fillType_stallion_pinto" text="Pinto Ori" />
+		<text name="fillType_stallion_palomino" text="Palomino Ori" />
+		<text name="fillType_stallion_chestnut" text="Raudikko Ori" />
+		<text name="fillType_stallion_bay" text="Ruunikko Ori" />
+		<text name="fillType_stallion_black" text="Musta Ori" />
+		<text name="fillType_stallion_seal_brown" text="Tummanruskea Ori" />
+		<text name="fillType_stallion_dun" text="Hallakko Ori" />
+		<text name="animal_descriptionStallionFeed" text="Orit syövät heinää, kauraa ja durraviljaa." />
+		<text name="animal_descriptionStallionProfit" text="Orit voidaan myydä voitolla." />
+		<text name="animal_descriptionStallionReproduction" text="Terveet ja yli 36 kuukauden ikäiset orit voivat lisääntyä." />
+
+
+        <!-- UI -->
+
+		
+        <text name="input_VisualAnimalsDialog" text="Vaihda visuaalisten eläinten määrä" />
+        <text name="rl_button_apply" text="Käytä" />
+        <text name="rl_button_confirm" text="Hyväksy" />
+        <text name="rl_button_recommended" text="Suositeltu" />
+        <text name="rl_button_cancel" text="Peruuta" />
+        <text name="rl_button_random" text="Satunnainen" />
+        <text name="rl_dialog_title" text="Aseta visuaalisten eläinten maksimimäärä" />
+
+        <text name="rl_ui_unhealthy" text="Liian huonokuntoinen" />
+        <text name="rl_ui_unhealthyBracketed" text="Ei (liian huonokuntoinen)" />
+        <text name="rl_ui_noMaleAnimal" text="Ei soveltuvaa uros eläintä" />
+        <text name="rl_ui_noMaleAnimalBracketed" text="Ei (ei soveltuvaa uros eläintä)" />
+        <text name="rl_ui_recoveringLastBirth" text="Toipumassa viimeisimmästä synnytyksestä" />
+        <text name="rl_ui_recoveringLastBirthBracketed" text="Ei (toipumassa viimeisimmästä synnytyksestä)" />
+        <text name="rl_ui_tooYoung" text="Liian nuori" />
+        <text name="rl_ui_tooYoungBracketed" text="Ei (liian nuori)" />
+        <text name="rl_ui_pregnant" text="Tiineenä" />
+        <text name="rl_ui_lactating" text="Imettävä" />
+        <text name="rl_ui_canReproduce" text="Voi lisääntyä" />
+        <text name="rl_ui_impregnatedBy" text="Siittänyt" />
+        <text name="rl_ui_unknown" text="Ei tiedossa" />
+        <text name="rl_ui_yes" text="Kyllä" />
+        <text name="rl_ui_no" text="Ei" />
+        <text name="rl_ui_mother" text="Emo" />
+        <text name="rl_ui_father" text="Isä" />
+        <text name="rl_ui_uniqueId" text="Yksilöllinen ID" />
+        <text name="rl_ui_farmId" text="Farmin ID" />
+        <text name="rl_ui_gender" text="Sukupuoli" />
+        <text name="rl_ui_male" text="Uros" />
+        <text name="rl_ui_female" text="Naaras" />
+        <text name="rl_ui_weight" text="Paino" />
+		<text name="rl_ui_targetWeight" text="Tavoitepaino" />
+        <text name="rl_ui_value" text="Arvo" />
+        <text name="rl_ui_valuePerKilo" text="Arvo kilolta" />
+		<text name="rl_ui_genetics" text="Genetiikka" />
+		<text name="rl_ui_overall" text="Kokonais" />
+		<text name="rl_ui_rename" text="Vaihda nimi" />
+		<text name="rl_ui_cantFindAnimal" text="Eläintä ei löytynyt" />
+		<text name="rl_ui_maleNumImpregnatable" text="Siitettäviä eläimiä aitauksessa" />
+		
+		<text name="rl_ui_breederQuality" text="Siittäjän laatu" />
+		<text name="rl_ui_birthday" text="Syntynyt" />
+		<text name="rl_ui_pregnancyExpected" text="Laskettu aika" />
+		<text name="rl_ui_pregnancyExpecting" text="Odottaa" />
+		<text name="rl_ui_pregnancyBaby" text="poikanen" />
+		<text name="rl_ui_pregnancyBabies" text="poikaset" />
+		<text name="rl_ui_animalOrigin" text="Alkuperä" />
+		<text name="rl_ui_months" text="kuukautta" />
+		<text name="rl_ui_month" text="kuukausi" />
+		<text name="rl_ui_years" text="vuotta" />
+		<text name="rl_ui_year" text="vuosi" />
+
+		<text name="rl_ui_milk" text="Maidon tuotto" />
+		<text name="rl_ui_wool" text="Villan tuotto" />
+		<text name="rl_ui_eggs" text="Munien tuotto" />
+		<text name="rl_ui_metabolism" text="Aineenvaihdunta" />
+		<text name="rl_ui_meat" text="Laatu" />
+		<text name="rl_ui_health" text="Terveys" />
+		<text name="rl_ui_fertility" text="Hedelmällisyys" />
+		
+		<text name="rl_ui_genetics_extremelyLow" text="Erittäin alhainen" />
+		<text name="rl_ui_genetics_veryLow" text="Hyvin alhainen" />
+		<text name="rl_ui_genetics_low" text="Alhainen" />
+		<text name="rl_ui_genetics_average" text="Keskiverto" />
+		<text name="rl_ui_genetics_high" text="Korkea" />
+		<text name="rl_ui_genetics_veryHigh" text="Hyvin korkea" />
+		<text name="rl_ui_genetics_extremelyHigh" text="Erittäin korkea" />
+
+		<text name="rl_ui_genetics_extremelyBad" text="Erittäin huono" />
+		<text name="rl_ui_genetics_veryBad" text="Hyvin huono" />
+		<text name="rl_ui_genetics_bad" text="Huono" />
+		<text name="rl_ui_genetics_good" text="Hyvä" />
+		<text name="rl_ui_genetics_veryGood" text="Todella hyvä" />
+		<text name="rl_ui_genetics_extremelyGood" text="Erittäin hyvä" />
+
+        <text name="rl_ui_cow_multipleBirths" text="%s vasikkaa syntyi" tag="format" />
+        <text name="rl_ui_cow_singleBirth" text="1 vasikka syntyi" />
+        <text name="rl_ui_pig_multipleBirths" text="%s porsasta syntyi" tag="format" />
+        <text name="rl_ui_pig_singleBirth" text="1 porsas syntyi" />
+        <text name="rl_ui_sheep_multipleBirths" text="%s karitsaa syntyi" tag="format" />
+        <text name="rl_ui_sheep_singleBirth" text="1 karitsa syntyi" />
+        <text name="rl_ui_chicken_multipleBirths" text="%s tipua syntyi" tag="format" />
+        <text name="rl_ui_chicken_singleBirth" text="1 tipu syntyi" />
+        <text name="rl_ui_horse_multipleBirths" text="%s varsaa syntyi" tag="format" />
+        <text name="rl_ui_horse_singleBirth" text="1 varsa syntyi" />
+
+        <text name="rl_ui_cow_multipleDeaths_birth" text="%s lehmää poistettu tiineysongelmien vuoksi" tag="format" />
+        <text name="rl_ui_cow_singleDeath_birth" text="1 lehmä poistettu tiineysongelmien vuoksi" />
+        <text name="rl_ui_pig_multipleDeaths_birth" text="%s emakkoa poistettu tiineysongelmien vuoksi" tag="format" />
+        <text name="rl_ui_pig_singleDeath_birth" text="1 emakko poistettu tiineysongelmien vuoksi" />
+        <text name="rl_ui_sheep_multipleDeaths_birth" text="%s lammasta poistettu tiineysongelmien vuoksi" tag="format" />
+        <text name="rl_ui_sheep_singleDeath_birth" text="1 lammas poistettu tiineysongelmien vuoksi" />
+        <text name="rl_ui_horse_multipleDeaths_birth" text="%s hevosta poistettu tiineysongelmien vuoksi" tag="format" />
+        <text name="rl_ui_horse_singleDeath_birth" text="1 hevonen poistettu tiineysongelmien vuoksi" />
+
+        <text name="rl_ui_cow_multipleSold_birth" text="%s syntynyttä vasikkaa myytiin tilanahtauden vuoksi" tag="format" />
+        <text name="rl_ui_cow_singleSold_birth" text="1 syntynyt vasikka myytiin tilanahtauden vuoksi" />
+        <text name="rl_ui_pig_multipleSold_birth" text="%s syntynyttä porsasta myytiin tilanahtauden vuoksi" tag="format" />
+        <text name="rl_ui_pig_singleSold_birth" text="1 syntynyt porsas myytiin tilanahtauden vuoksi" />
+        <text name="rl_ui_sheep_multipleSold_birth" text="%s syntynyttä karitsaa myytiin tilanahtauden vuoksi" tag="format" />
+        <text name="rl_ui_sheep_singleSold_birth" text="1 syntynyt karitsa myytiin tilanahtauden vuoksi" />
+        <text name="rl_ui_chicken_multipleSold_birth" text="%s syntynyttä tipua myytiin tilanahtauden vuoksi" tag="format" />
+        <text name="rl_ui_chicken_singleSold_birth" text="1 syntynyt tipu myytiin tilanahtauden vuoksi" />
+        <text name="rl_ui_horse_multipleSold_birth" text="%s syntynyttä varsaa myytiin tilanahtauden vuoksi" tag="format" />
+        <text name="rl_ui_horse_singleSold_birth" text="1 syntynyt varsa myytiin tilanahtauden vuoksi" />
+
+		<text name="rl_ui_cow_multipleDeaths_health" text="%s lehmää poistettiin huonon terveyden takia" tag="format" />
+		<text name="rl_ui_cow_singleDeath_health" text="1 lehmä poistettiin huonon terveyden takia" />
+		<text name="rl_ui_pig_multipleDeaths_health" text="%s sikaa poistettiin huonon terveyden takia" tag="format" />
+		<text name="rl_ui_pig_singleDeath_health" text="1 sika poistettiin huonon terveyden takia" />
+		<text name="rl_ui_sheep_multipleDeaths_health" text="%s lammasta poistettiin huonon terveyden takia" tag="format" />
+		<text name="rl_ui_sheep_singleDeath_health" text="1 lammas poistettiin huonon terveyden takia" />
+		<text name="rl_ui_chicken_multipleDeaths_health" text="%s kanaa poistettiin huonon terveyden takia" tag="format" />
+		<text name="rl_ui_chicken_singleDeath_health" text="1 kana poistettiin huonon terveyden takia" />
+		<text name="rl_ui_horse_multipleDeaths_health" text="%s hevosta poistettiin huonon terveyden takia" tag="format" />
+		<text name="rl_ui_horse_singleDeath_health" text="1 hevonen poistettiin huonon terveyden takia" />
+
+		<text name="rl_ui_cow_multipleDeaths_age" text="%s lehmää poistettiin vanhuuttaan" tag="format" />
+		<text name="rl_ui_cow_singleDeath_age" text="1 lehmä poistettiin vanhuuttaan" />
+		<text name="rl_ui_pig_multipleDeaths_age" text="%s sikaa poistettiin vanhuuttaan" tag="format" />
+		<text name="rl_ui_pig_singleDeath_age" text="1 sika poistettiin vanhuuttaan" />
+		<text name="rl_ui_sheep_multipleDeaths_age" text="%s lammasta poistettiin vanhuuttaan" tag="format" />
+		<text name="rl_ui_sheep_singleDeath_age" text="1 lammas poistettiin vanhuuttaan" />
+		<text name="rl_ui_chicken_multipleDeaths_age" text="%s kanaa poistettiin vanhuuttaan" tag="format" />
+		<text name="rl_ui_chicken_singleDeath_age" text="1 kana poistettiin vanhuuttaan" />
+		<text name="rl_ui_horse_multipleDeaths_age" text="%s hevosta poistettiin vanhuuttaan" tag="format" />
+		<text name="rl_ui_horse_singleDeath_age" text="1 hevonen poistettiin vanhuuttaan" />
+
+		<text name="rl_ui_cow_multipleDeaths_random" text="%s lehmää poistettiin satunnaisten onnettomuuksien takia ja myytiin %s:lla" tag="format" />
+		<text name="rl_ui_cow_singleDeath_random" text="1 lehmä poistettiin satunnaisen onnettomuuden takia ja myytiin %s:lla" tag="format" />
+		<text name="rl_ui_pig_multipleDeaths_random" text="%s sikaa poistettiin satunnaisten onnettomuuksien takia ja myytiin %s:lla" tag="format" />
+		<text name="rl_ui_pig_singleDeath_random" text="1 sika poistettiin satunnaisen onnettomuuden takia ja myytiin %s:lla" tag="format" />
+		<text name="rl_ui_sheep_multipleDeaths_random" text="%s lammasta poistettiin satunnaisten onnettomuuksien takia ja myytiin %s:lla" tag="format" />
+		<text name="rl_ui_sheep_singleDeath_random" text="1 lammas poistettiin satunnaisen onnettomuuden takia ja myytiin %s:lla" tag="format" />
+		<text name="rl_ui_chicken_multipleDeaths_random" text="%s kanaa poistettiin satunnaisten onnettomuuksien takia" tag="format" />
+		<text name="rl_ui_chicken_singleDeath_random" text="1 kana poistettiin satunnaisen onnettomuuden takia" />
+		<text name="rl_ui_horse_multipleDeaths_random" text="%s hevosta poistettiin satunnaisten onnettomuuksien takia ja myytiin %s:lla" tag="format" />
+		<text name="rl_ui_horse_singleDeath_random" text="1 hevonen poistettiin satunnaisen onnettomuuden takia ja myytiin %s:lla" tag="format" />
+		
+		<text name="rl_ui_buySelected" text="Osta valitut" />
+		<text name="rl_ui_sellSelected" text="Myy valitut" />
+		<text name="rl_ui_moveSelected" text="Siirrä valitut" />
+		<text name="rl_ui_buyConfirmation" text="Haluatko varmasti ostaa %s eläintä %s:lla?" tag="format" />
+		<text name="rl_ui_sellConfirmation" text="Haluatko varmasti myydä %s eläintä %s:lla?" tag="format" />
+		<text name="rl_ui_moveConfirmation" text="Haluatko varmasti siirtää %s eläintä?" tag="format" />
+		<text name="rl_ui_buyBulkResult" text="%s eläintä ostettiin %s:lla" tag="format" />
+		<text name="rl_ui_sellBulkResult" text="%s eläintä myytiin %s:lla" tag="format" />
+		<text name="rl_ui_moveBulkResult" text="%s eläintä siirrettiin" tag="format" />
+
+
+
+		<!--  SETTINGS  -->
+		
+
+		<text name="rl_settings" text="Realistic Livestock" />
+
+		<text name="rl_settings_off" text="Pois" />
+		<text name="rl_settings_on" text="Päällä" />
+
+		<text name="rl_settings_deathEnabled_label" text="Eläinten poistuminen" />
+		<text name="rl_settings_deathEnabled_tooltip_1" text="Eläimiä ei poisteta tiineyden, terveyden, vanhuuden tai onnettomuuden vuoksi"/>
+		<text name="rl_settings_deathEnabled_tooltip_2" text="Eläimiä poistetaan tiineyden, terveyden, vanhuuden tai onnettomuuden vuoksi" />
+
+		<text name="rl_settings_accidentsChance_label" text="Onnettomuuden todennäköisyys" />
+		<text name="rl_settings_accidentsChance_tooltip" text="Muuta eläinten poistamisen todennäköisyyttä satunnaisen onnettumuuden takia" />
+
+		<text name="rl_settings_foodScale_label" text="Ruokaskaala" />
+		<text name="rl_settings_foodScale_tooltip" text="Muuttaa eläinten kuluttamaa ruuan määrää" />
+
+		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
+		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
+		
+	</texts>
+</l10n>

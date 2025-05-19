@@ -1,0 +1,227 @@
+<l10n>
+    <texts>
+        <!-- KØER -->
+
+        <text name="fillType_bull" text="Tyr"/>
+        <text name="fillType_bull_swiss_brown" text="Brun-Swiss Tyr"/>
+        <text name="fillType_bull_holstein" text="Holstein Tyr"/>
+        <text name="fillType_bull_angus" text="Angus Tyr"/>
+        <text name="fillType_bull_limousin" text="Limousin Tyr"/>
+        <text name="animal_descriptionBullFeed" text="Tyre kan lide græs, hø og TMR."/>
+        <text name="animal_descriptionBullYoung" text="Dette er en han-kalv."/>
+        <text name="animal_descriptionBullReproduction" text="Tyre, der er raske og ældre end 12 måneder, kan reproducere."/>
+
+        <!-- VANDBUFALOER -->
+
+        <text name="fillType_bull_waterbuffalo" text="Vandbuffalo Tyr"/>
+
+        <!-- GRIS -->
+
+        <text name="fillType_boar" text="Orne"/>
+        <text name="fillType_boar_landrace" text="Landrace Orne"/>
+        <text name="fillType_boar_black_pied" text="Sort-fodet Orne"/>
+        <text name="fillType_boar_berkshire" text="Berkshire Orne"/>
+        <text name="animal_descriptionBoarReproduction" text="Orner, der er raske og ældre end 8 måneder, kan reproducere."/>
+        <text name="animal_descriptionBoarFeed" text="Orner spiser næsten alt. Du kan fodre dem med majs, hvede, byg, raps, solsikker, sojabønner, kartofler, sorghum og sukkerroer."/>
+        <text name="animal_descriptionBoarYoung" text="Dette er en han-grisling."/>
+
+        <!-- FÅR -->
+
+        <text name="fillType_ram" text="Væder"/>
+        <text name="fillType_ram_landrace" text="Bentheim Landrace Væder"/>
+        <text name="fillType_ram_steinschaf" text="Steinschaf Væder"/>
+        <text name="fillType_ram_black_welsh" text="Sort Welsh Mountain Væder"/>
+        <text name="fillType_ram_swiss_mountain" text="Schweizisk Sort-Brun Mountain Væder"/>
+        <text name="animal_descriptionRamFeed" text="Vædre spiser græs og hø."/>
+        <text name="animal_descriptionRamYoung" text="Dette er en han-lam."/>
+        <text name="animal_descriptionRamReproduction" text="Vædre, der er raske og ældre end 5 måneder, kan reproducere."/>
+
+        <!-- Geder -->
+
+        <text name="fillType_ram_goat" text="Ged Væder"/>
+
+        <!-- HESTE -->
+
+        <text name="fillType_stallion" text="Hingst"/>
+        <text name="fillType_stallion_gray" text="Grå Hingst"/>
+        <text name="fillType_stallion_pinto" text="Pinto Hingst"/>
+        <text name="fillType_stallion_palomino" text="Palomino Hingst"/>
+        <text name="fillType_stallion_chestnut" text="Kastanie Hingst"/>
+        <text name="fillType_stallion_bay" text="Bay Hingst"/>
+        <text name="fillType_stallion_black" text="Sort Hingst"/>
+        <text name="fillType_stallion_seal_brown" text="Sæl Brun Hingst"/>
+        <text name="fillType_stallion_dun" text="Dun Hingst"/>
+        <text name="animal_descriptionStallionFeed" text="Hingste kan lide hø, havre og sorghum."/>
+        <text name="animal_descriptionStallionProfit" text="Hingste kan sælges for profit."/>
+        <text name="animal_descriptionStallionReproduction" text="Hingste, der er sunde og ældre end 36 måneder, kan reproducere."/>
+
+        <!-- UI -->
+
+        <text name="input_VisualAnimalsDialog" text="Ændr visuelt antal dyr"/>
+        <text name="rl_button_apply" text="Anvend"/>
+        <text name="rl_button_confirm" text="Bekræft"/>
+        <text name="rl_button_recommended" text="Anbefalet"/>
+        <text name="rl_button_cancel" text="Annuller"/>
+        <text name="rl_button_random" text="Tilfældig"/>
+        <text name="rl_dialog_title" text="Indstil maksimalt antal visuelle dyr"/>
+
+        <text name="rl_ui_unhealthy" text="For usund"/>
+        <text name="rl_ui_unhealthyBracketed" text="Nej (for usund)"/>
+        <text name="rl_ui_noMaleAnimal" text="Ingen egnet han-dyr"/>
+        <text name="rl_ui_noMaleAnimalBracketed" text="Nej (ingen egnet han-dyr)"/>
+        <text name="rl_ui_recoveringLastBirth" text="Kommer sig efter sidst fødsel"/>
+        <text name="rl_ui_recoveringLastBirthBracketed" text="Nej (kommer sig efter sidst fødsel)"/>
+        <text name="rl_ui_tooYoung" text="For ung"/>
+        <text name="rl_ui_tooYoungBracketed" text="Nej (for ung)"/>
+        <text name="rl_ui_pregnant" text="Gravid"/>
+        <text name="rl_ui_lactating" text="Lakterende"/>
+        <text name="rl_ui_canReproduce" text="Kan reproducere"/>
+        <text name="rl_ui_impregnatedBy" text="Befrugtet af"/>
+        <text name="rl_ui_unknown" text="Ukendt"/>
+        <text name="rl_ui_yes" text="Ja"/>
+        <text name="rl_ui_no" text="Nej"/>
+        <text name="rl_ui_mother" text="Mor"/>
+        <text name="rl_ui_father" text="Far"/>
+        <text name="rl_ui_uniqueId" text="Unikt ID"/>
+        <text name="rl_ui_farmId" text="Farm ID"/>
+        <text name="rl_ui_gender" text="Køn"/>
+        <text name="rl_ui_male" text="Han"/>
+        <text name="rl_ui_female" text="Hun"/>
+        <text name="rl_ui_weight" text="Vægt"/>
+        <text name="rl_ui_targetWeight" text="Målvægt"/>
+        <text name="rl_ui_value" text="Værdi"/>
+        <text name="rl_ui_valuePerKilo" text="Værdi pr. kg"/>
+        <text name="rl_ui_genetics" text="Genetik"/>
+        <text name="rl_ui_overall" text="Samlet"/>
+        <text name="rl_ui_rename" text="Ændre navn"/>
+        <text name="rl_ui_cantFindAnimal" text="Kunne ikke finde dyr"/>
+        <text name="rl_ui_maleNumImpregnatable" text="Befrugtningsdygtige dyr i fold"/>
+
+        <text name="rl_ui_breederQuality" text="Opdrætterkvalitet"/>
+        <text name="rl_ui_birthday" text="Fødselsdag"/>
+        <text name="rl_ui_pregnancyExpected" text="Forventet"/>
+        <text name="rl_ui_pregnancyExpecting" text="Forventer"/>
+        <text name="rl_ui_pregnancyBaby" text="baby"/>
+        <text name="rl_ui_pregnancyBabies" text="babyer"/>
+        <text name="rl_ui_animalOrigin" text="Oprindelse"/>
+        <text name="rl_ui_months" text="måneder"/>
+        <text name="rl_ui_month" text="måned"/>
+        <text name="rl_ui_years" text="år"/>
+        <text name="rl_ui_year" text="år"/>
+
+        <text name="rl_ui_milk" text="Mælkeproduktion"/>
+        <text name="rl_ui_wool" text="Uldproduktion"/>
+        <text name="rl_ui_eggs" text="Ægproduktion"/>
+        <text name="rl_ui_metabolism" text="Metabolisme"/>
+        <text name="rl_ui_meat" text="Kvalitet"/>
+        <text name="rl_ui_health" text="Sundhed"/>
+        <text name="rl_ui_fertility" text="Fertilitet"/>
+
+        <text name="rl_ui_genetics_extremelyLow" text="Ekstremt lav"/>
+        <text name="rl_ui_genetics_veryLow" text="Meget lav"/>
+        <text name="rl_ui_genetics_low" text="Lav"/>
+        <text name="rl_ui_genetics_average" text="Gennemsnitlig"/>
+        <text name="rl_ui_genetics_high" text="Høj"/>
+        <text name="rl_ui_genetics_veryHigh" text="Meget høj"/>
+        <text name="rl_ui_genetics_extremelyHigh" text="Ekstremt høj"/>
+
+        <text name="rl_ui_genetics_extremelyBad" text="Ekstremt dårlig"/>
+        <text name="rl_ui_genetics_veryBad" text="Meget dårlig"/>
+        <text name="rl_ui_genetics_bad" text="Dårlig"/>
+        <text name="rl_ui_genetics_good" text="God"/>
+        <text name="rl_ui_genetics_veryGood" text="Meget god"/>
+        <text name="rl_ui_genetics_extremelyGood" text="Ekstremt god"/>
+
+        <text name="rl_ui_cow_multipleBirths" text="%s kalve blev født" tag="format"/>
+        <text name="rl_ui_cow_singleBirth" text="1 kalv blev født"/>
+        <text name="rl_ui_pig_multipleBirths" text="%s smågris blev født" tag="format"/>
+        <text name="rl_ui_pig_singleBirth" text="1 smågris blev født"/>
+        <text name="rl_ui_sheep_multipleBirths" text="%s lam blev født" tag="format"/>
+        <text name="rl_ui_sheep_singleBirth" text="1 lam blev født"/>
+        <text name="rl_ui_chicken_multipleBirths" text="%s kyllinger blev født" tag="format"/>
+        <text name="rl_ui_chicken_singleBirth" text="1 kylling blev født"/>
+        <text name="rl_ui_horse_multipleBirths" text="%s føl blev født" tag="format"/>
+        <text name="rl_ui_horse_singleBirth" text="1 føl blev født"/>
+
+        <text name="rl_ui_cow_multipleDeaths_birth" text="%s køer fjernet på grund af problemer under graviditet" tag="format"/>
+        <text name="rl_ui_cow_singleDeath_birth" text="1 ko fjernet på grund af problemer under graviditet"/>
+        <text name="rl_ui_pig_multipleDeaths_birth" text="%s grise fjernet på grund af problemer under graviditet" tag="format"/>
+        <text name="rl_ui_pig_singleDeath_birth" text="1 gris fjernet på grund af problemer under graviditet"/>
+        <text name="rl_ui_sheep_multipleDeaths_birth" text="%s får fjernet på grund af problemer under graviditet" tag="format"/>
+        <text name="rl_ui_sheep_singleDeath_birth" text="1 får fjernet på grund af problemer under graviditet"/>
+        <text name="rl_ui_horse_multipleDeaths_birth" text="%s heste fjernet på grund af problemer under graviditet" tag="format"/>
+        <text name="rl_ui_horse_singleDeath_birth" text="1 hest fjernet på grund af problemer under graviditet"/>
+
+        <text name="rl_ui_cow_multipleSold_birth" text="%s kalve blev solgt ved fødsel på grund af for mange dyr" tag="format"/>
+        <text name="rl_ui_cow_singleSold_birth" text="1 kalv blev solgt ved fødsel på grund af for mange dyr"/>
+        <text name="rl_ui_pig_multipleSold_birth" text="%s smågris blev solgt ved fødsel på grund af for mange dyr" tag="format"/>
+        <text name="rl_ui_pig_singleSold_birth" text="1 smågris blev solgt ved fødsel på grund af for mange dyr"/>
+        <text name="rl_ui_sheep_multipleSold_birth" text="%s lam blev solgt ved fødsel på grund af for mange dyr" tag="format"/>
+        <text name="rl_ui_sheep_singleSold_birth" text="1 lam blev solgt ved fødsel på grund af for mange dyr"/>
+        <text name="rl_ui_chicken_multipleSold_birth" text="%s kyllinger blev solgt ved fødsel på grund af for mange dyr" tag="format"/>
+        <text name="rl_ui_chicken_singleSold_birth" text="1 kylling blev solgt ved fødsel på grund af for mange dyr"/>
+        <text name="rl_ui_horse_multipleSold_birth" text="%s føl blev solgt ved fødsel på grund af for mange dyr" tag="format"/>
+        <text name="rl_ui_horse_singleSold_birth" text="1 føl blev solgt ved fødsel på grund af for mange dyr"/>
+
+        <text name="rl_ui_cow_multipleDeaths_health" text="%s køer fjernet på grund af lav sundhed" tag="format"/>
+        <text name="rl_ui_cow_singleDeath_health" text="1 ko fjernet på grund af lav sundhed"/>
+        <text name="rl_ui_pig_multipleDeaths_health" text="%s grise fjernet på grund af lav sundhed" tag="format"/>
+        <text name="rl_ui_pig_singleDeath_health" text="1 gris fjernet på grund af lav sundhed"/>
+        <text name="rl_ui_sheep_multipleDeaths_health" text="%s får fjernet på grund af lav sundhed" tag="format"/>
+        <text name="rl_ui_sheep_singleDeath_health" text="1 får fjernet på grund af lav sundhed"/>
+        <text name="rl_ui_chicken_multipleDeaths_health" text="%s kyllinger fjernet på grund af lav sundhed" tag="format"/>
+        <text name="rl_ui_chicken_singleDeath_health" text="1 kylling fjernet på grund af lav sundhed"/>
+        <text name="rl_ui_horse_multipleDeaths_health" text="%s heste fjernet på grund af lav sundhed" tag="format"/>
+        <text name="rl_ui_horse_singleDeath_health" text="1 hest blev fjernet på grund af lav sundhed"/>
+
+        <text name="rl_ui_cow_multipleDeaths_age" text="%s køer fjernet på grund af alderdom" tag="format"/>
+        <text name="rl_ui_cow_singleDeath_age" text="1 ko fjernet på grund af alderdom"/>
+        <text name="rl_ui_pig_multipleDeaths_age" text="%s grise fjernet på grund af alderdom" tag="format"/>
+        <text name="rl_ui_pig_singleDeath_age" text="1 gris fjernet på grund af alderdom"/>
+        <text name="rl_ui_sheep_multipleDeaths_age" text="%s får fjernet på grund af alderdom" tag="format"/>
+        <text name="rl_ui_sheep_singleDeath_age" text="1 får fjernet på grund af alderdom"/>
+        <text name="rl_ui_chicken_multipleDeaths_age" text="%s kyllinger fjernet på grund af alderdom" tag="format"/>
+        <text name="rl_ui_chicken_singleDeath_age" text="1 kylling fjernet på grund af alderdom"/>
+        <text name="rl_ui_horse_multipleDeaths_age" text="%s heste fjernet på grund af alderdom" tag="format"/>
+        <text name="rl_ui_horse_singleDeath_age" text="1 hest fjernet på grund af alderdom"/>
+
+        <text name="rl_ui_cow_multipleDeaths_random" text="%s køer fjernet på grund af tilfældige ulykker og blev solgt for %s" tag="format"/>
+        <text name="rl_ui_cow_singleDeath_random" text="1 ko fjernet på grund af en tilfældig ulykke og blev solgt for %s" tag="format"/>
+        <text name="rl_ui_pig_multipleDeaths_random" text="%s grise fjernet på grund af tilfældige ulykker og blev solgt for %s" tag="format"/>
+        <text name="rl_ui_pig_singleDeath_random" text="1 gris fjernet på grund af en tilfældig ulykke og blev solgt for %s" tag="format"/>
+        <text name="rl_ui_sheep_multipleDeaths_random" text="%s får fjernet på grund af tilfældige ulykker og blev solgt for %s" tag="format"/>
+        <text name="rl_ui_sheep_singleDeath_random" text="1 får fjernet på grund af en tilfældig ulykke og blev solgt for %s" tag="format"/>
+        <text name="rl_ui_chicken_multipleDeaths_random" text="%s kyllinger fjernet på grund af tilfældige ulykker" tag="format"/>
+        <text name="rl_ui_chicken_singleDeath_random" text="1 kylling fjernet på grund af en tilfældig ulykke"/>
+        <text name="rl_ui_horse_multipleDeaths_random" text="%s heste fjernet på grund af tilfældige ulykker og blev solgt for %s" tag="format"/>
+        <text name="rl_ui_horse_singleDeath_random" text="1 hest fjernet på grund af en tilfældig ulykke og blev solgt for %s" tag="format"/>
+
+        <text name="rl_ui_buySelected" text="Køb valgte"/>
+        <text name="rl_ui_sellSelected" text="Sælg valgte"/>
+        <text name="rl_ui_moveSelected" text="Flyt valgte"/>
+        <text name="rl_ui_buyConfirmation" text="Er du sikker på, at du vil købe %s dyr for %s?" tag="format"/>
+        <text name="rl_ui_sellConfirmation" text="Er du sikker på, at du vil sælge %s dyr for %s?" tag="format"/>
+        <text name="rl_ui_moveConfirmation" text="Er du sikker på, at du vil flytte %s dyr?" tag="format"/>
+        <text name="rl_ui_buyBulkResult" text="%s dyr købt for %s" tag="format"/>
+        <text name="rl_ui_sellBulkResult" text="%s dyr solgt for %s" tag="format"/>
+        <text name="rl_ui_moveBulkResult" text="%s dyr flyttet" tag="format"/>
+
+        <!-- INDSTILLINGER -->
+
+        <text name="rl_settings" text="Realistisk Dyrehold"/>
+
+        <text name="rl_settings_off" text="Fra"/>
+        <text name="rl_settings_on" text="Til"/>
+
+        <text name="rl_settings_deathEnabled_label" text="Dyrefjernelse"/>
+        <text name="rl_settings_deathEnabled_tooltip_1" text="Dyr vil ikke blive fjernet på grund af graviditet, sundhed, alder eller ulykker"/>
+        <text name="rl_settings_deathEnabled_tooltip_2" text="Dyr vil blive fjernet på grund af graviditet, sundhed, alder eller ulykker"/>
+
+        <text name="rl_settings_accidentsChance_label" text="Ulykkeschance"/>
+        <text name="rl_settings_accidentsChance_tooltip" text="Ændr sandsynligheden for, at dyr bliver fjernet på grund af tilfældige ulykker"/>
+
+		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
+		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
+
+    </texts>
+</l10n>

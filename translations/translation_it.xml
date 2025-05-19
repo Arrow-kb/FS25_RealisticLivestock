@@ -1,0 +1,232 @@
+<l10n>
+    <texts>
+        <!-- MUCCHE -->
+        
+        <text name="fillType_bull" text="Toro"/>
+        <text name="fillType_bull_swiss_brown" text="Toro Marrone-Svizzero"/>
+        <text name="fillType_bull_holstein" text="Toro Holstein"/>
+        <text name="fillType_bull_angus" text="Toro Angus"/>
+        <text name="fillType_bull_limousin" text="Toro Limousine"/>
+		<text name="animal_descriptionBullFeed" text="I Tori amano l'erba, il fieno e i mangimi a lunga conservazione"/>
+        <text name="animal_descriptionBullYoung" text="Questo è un vitello Maschio"/>
+        <text name="animal_descriptionBullReproduction" text="I Tori sani e di età superiore ai 12 mesi possono riprodursi"/>
+
+        <!-- BUFALI D'ACQUA -->
+
+        <text name="fillType_bull_waterbuffalo" text="Toro Bufalo d'acqua"/>
+
+        <!-- MAIALI -->
+        
+        <text name="fillType_boar" text="Maiale"/>
+        <text name="fillType_boar_landrace" text="Maiale Landrace"/>
+        <text name="fillType_boar_black_pied" text="Maiale Nero-Piedizzato"/>
+        <text name="fillType_boar_berkshire" text="Maiale del Berkshire"/>
+        <text name="animal_descriptionBoarReproduction" text="I maiali sani e di età superiore agli 8 mesi possono riprodursi"/>.
+        <text name="animal_descriptionBoarFeed" text="I maiali mangiano quasi tutto. Possono essere nutriti con mais, frumento, orzo, colza, girasoli, soia, patate, sorgo e barbabietole da zucchero"/>
+        <text name="animal_descriptionBoarYoung" text="Questo è un Maialino Maschio"/>
+
+        <!-- PECORE -->
+        
+        <text name="fillType_ram" text="Montone"/>
+        <text name="fillType_ram_landrace" text="Razza di Montone di Bentheim"/>
+        <text name="fillType_ram_steinschaf" text="Montone di Steinschaf"/>
+        <text name="fillType_ram_black_welsh" text="Montone Nero di Montagna Gallese"/>
+        <text name="fillType_ram_swiss_mountain" text="Montone di Montagna Svizzero Nero-Bruno"/>
+        <text name="animal_descriptionRamFeed" text="I Montoni mangiano erba e fieno."/>
+        <text name="animal_descriptionRamYoung" text="Questo è un Agnello Maschio"/>
+        <text name="animal_descriptionRamReproduction" text="I Montoni sani e di età superiore ai 5 mesi possono riprodursi"/>
+
+        <!-- CAPRE -->
+
+        <text name="fillType_ram_goat" text="Capra Montone" />
+
+        <!-- CAVALLI -->
+
+        <text name="fillType_stallion" text="Stallone"/>
+        <text name="fillType_stallion_gray" text="Stallone Grigio"/>
+        <text name="fillType_stallion_pinto" text="Stallone Pinto"/>
+        <text name="fillType_stallion_palomino" text="Stallone Palomino"/>
+        <text name="fillType_stallion_chestnut" text="Stallone Castagno"/>
+        <text name="fillType_stallion_bay" text="Stallone Bay"/>
+        <text name="fillType_stallion_black" text="Stallone Nero"/>
+        <text name="fillType_stallion_seal_brown" text="Stallone Marrone Foca" />
+        <text name="fillType_stallion_dun" text="Stallone Marrone" />
+        <text name="animal_descriptionStallionFeed" text="Gli Stalloni amano il fieno, l'avena e il sorgo."/>
+        <text name="animal_descriptionStallionProfit" text="Gli Stalloni possono essere venduti per ricavarne un profitto."/>
+        <text name="animal_descriptionStallionReproduction" text="Gli Stalloni sani e di età superiore ai 36 mesi possono riprodursi."/>
+
+        <!-- UI -->
+
+        <text name="input_VisualAnimalsDialog" text="Modifica quantità animali visivi"/>
+        <text name="rl_button_apply" text="Applica"/>
+        <text name="rl_button_confirm" text="Conferma"/>
+        <text name="rl_button_recommended" text="Consigliato"/>
+        <text name="rl_button_cancel" text="Annulla"/>
+        <text name="rl_button_random" text="Casuale"/>
+        <text name="rl_dialog_title" text="Imposta il numero massimo di animali visivi"/>
+
+        <text name="rl_ui_unhealthy" text="Troppo poco salutare"/>
+        <text name="rl_ui_unhealthyBracketed" text="No (troppo poco salutare)"/>
+        <text name="rl_ui_noMaleAnimal" text="Nessun animale maschio adatto" />
+        <text name="rl_ui_noMaleAnimalBracketed" text="No (non c'è un animale maschio adatto)"/>
+        <text name="rl_ui_recoveringLastBirth" text="Recupero dall'ultima nascita"/>
+        <text name="rl_ui_recoveringLastBirthBracketed" text="No (in fase di recupero dall'ultimo parto)"/>
+        <text name="rl_ui_tooYoung" text="Troppo giovane"/>
+        <text name="rl_ui_tooYoungBracketed" text="No (troppo giovane)"/>
+        <text name="rl_ui_pregnant" text="Incinta"/>
+        <text name="rl_ui_lactating" text="In allattamento"/>
+        <text name="rl_ui_canReproduce" text="Può riprodursi"/>
+        <text name="rl_ui_impregnatedBy" text="Impregnato da"/>
+        <text name="rl_ui_unknown" text="Sconosciuto"/>
+        <text name="rl_ui_yes" text="Sì"/>
+        <text name="rl_ui_no" text="No"/>
+        <text name="rl_ui_mother" text="Madre"/>
+        <text name="rl_ui_father" text="Padre"/>
+        <text name="rl_ui_uniqueId" text="ID univoco"/>
+        <text name="rl_ui_farmId" text="ID azienda agricola"/>
+        <text name="rl_ui_gender" text="Genere"/>
+        <text name="rl_ui_male" text="Maschio"/>
+        <text name="rl_ui_female" text="Femmina"/>
+        <text name="rl_ui_weight" text="Peso"/>
+        <text name="rl_ui_targetWeight" text="Peso obiettivo"/>
+        <text name="rl_ui_value" text="Valore"/>
+        <text name="rl_ui_valuePerKilo" text="Valore per kg"/>
+        <text name="rl_ui_genetics" text="Genetica"/>
+        <text name="rl_ui_overall" text="Overall"/>
+        <text name="rl_ui_rename" text="Cambia nome"/>
+        <text name="rl_ui_cantFindAnimal" text="Impossibile trovare l'animale"/>
+        <text name="rl_ui_maleNumImpregnatable" text="Animali imprigionabili nel recinto"/>
+
+		<text name="rl_ui_breederQuality" text="Breeder Quality"/>
+		<text name="rl_ui_birthday" text="Birthday"/>
+		<text name="rl_ui_pregnancyExpected" text="Expected"/>
+		<text name="rl_ui_pregnancyExpecting" text="Expecting"/>
+		<text name="rl_ui_pregnancyBaby" text="baby"/>
+		<text name="rl_ui_pregnancyBabies" text="babies"/>
+		<text name="rl_ui_animalOrigin" text="Origin"/>
+		<text name="rl_ui_months" text="months"/>
+		<text name="rl_ui_month" text="month"/>
+		<text name="rl_ui_years" text="years"/>
+		<text name="rl_ui_year" text="year"/>
+
+        <text name="rl_ui_milk" text="Produzione di latte"/>
+        <text name="rl_ui_wool" text="Produzione di lana"/>
+        <text name="rl_ui_eggs" text="Produzione di uova"/>
+        <text name="rl_ui_metabolismo" text="Metabolismo"/>
+        <text name="rl_ui_meat" text="Qualità"/>
+        <text name="rl_ui_health" text="Salute"/>
+        <text name="rl_ui_fertility" text="Fertilità"/>
+
+        <text name="rl_ui_genetics_extremelyLow" text="Estremamente bassa"/>
+        <text name="rl_ui_genetics_veryLow" text="Molto basso"/>
+        <text name="rl_ui_genetics_low" text="Basso"/>
+        <text name="rl_ui_genetics_average" text="Medio"/>
+        <text name="rl_ui_genetics_high" text="Alto"/>
+        <text name="rl_ui_genetics_veryHigh" text="Molto alto"/>
+        <text name="rl_ui_genetics_extremelyHigh" text="Estremamente elevato"/>
+
+        <text name="rl_ui_genetics_extremelyBad" text="Estremamente cattivo"/>
+        <text name="rl_ui_genetics_veryBad" text="Molto male"/>
+        <text name="rl_ui_genetics_bad" text="Pessimo"/>
+        <text name="rl_ui_genetics_good" text="Buona"/>
+        <text name="rl_ui_genetics_veryGood" text="Molto buono"/>
+        <text name="rl_ui_genetics_extremelyGood" text="Estremamente buono"/>
+
+        <text name="rl_ui_cow_multipleBirths" text="%s vitelli sono nati" tag="format"/>
+        <text name="rl_ui_cow_singleBirth" text="È nato 1 vitello" />
+        <text name="rl_ui_pig_multipleBirths" text="Sono nati %s suinetti" tag="format"/>
+        <text name="rl_ui_pig_singleBirth" text="È nato 1 maialino"/>
+        <text name="rl_ui_sheep_multipleBirths" text="Sono nati %s agnelli" tag="format"/>
+        <text name="rl_ui_sheep_singleBirth" text="È nato 1 agnello" />
+        <text name="rl_ui_chicken_multipleBirths" text="Sono nati %s pulcini" tag="format"/>
+        <text name="rl_ui_chicken_singleBirth" text="È nato 1 pulcino"/>
+        <text name="rl_ui_horse_multipleBirths" text="Sono nati %s puledri" tag="format"/>
+        <text name="rl_ui_horse_singleBirth" text="È nato 1 puledro"/>
+        <text name="rl_ui_cow_multipleDeaths_birth" text="%s vacche rimosse a causa di problemi durante la gravidanza" tag="format" />
+        <text name="rl_ui_cow_singleDeath_birth" text="1 vacca rimossa a causa di problemi durante la gravidanza"/>
+        <text name="rl_ui_pig_multipleDeaths_birth" text="%s suini rimossi a causa di problemi durante la gravidanza" tag="format"/>
+        <text name="rl_ui_pig_singleDeath_birth" text="1 maiale rimosso a causa di problemi durante la gravidanza"/>
+        <text name="rl_ui_sheep_multipleDeaths_birth" text="%s pecore rimosse a causa di problemi durante la gravidanza" tag="format"/>
+        <text name="rl_ui_sheep_singleDeath_birth" text="1 pecora rimossa a causa di problemi durante la gravidanza"/>
+        <text name="rl_ui_horse_multipleDeaths_birth" text="%s cavalli rimossi a causa di problemi durante la gravidanza" tag="format"/>
+        <text name="rl_ui_horse_singleDeath_birth" text="1 cavallo rimosso a causa di problemi durante la gravidanza"/>
+
+        <text name="rl_ui_cow_multipleSold_birth" text="%s vitelli sono stati venduti alla nascita a causa del sovraffollamento" tag="format"/>
+        <text name="rl_ui_cow_singleSold_birth" text="1 vitello è stato venduto alla nascita a causa del sovraffollamento"/>
+        <text name="rl_ui_pig_multipleSold_birth" text="%s suinetti sono stati venduti alla nascita a causa del sovraffollamento" tag="format"/>
+        <text name="rl_ui_pig_singleSold_birth" text="1 suinetto è stato venduto alla nascita a causa del sovraffollamento"/>
+        <text name="rl_ui_sheep_multipleSold_birth" text="%s agnelli sono stati venduti alla nascita a causa del sovraffollamento" tag="format"/>
+        <text name="rl_ui_sheep_singleSold_birth" text="1 agnello è stato venduto alla nascita a causa del sovraffollamento"/>
+        <text name="rl_ui_chicken_multipleSold_birth" text="%s pulcini sono stati venduti alla nascita a causa del sovraffollamento" tag="format"/>
+        <text name="rl_ui_chicken_singleSold_birth" text="1 pulcino è stato venduto alla nascita a causa del sovraffollamento"/>
+        <text name="rl_ui_horse_multipleSold_birth" text="%s puledri sono stati venduti alla nascita a causa del sovraffollamento" tag="format"/>
+        <text name="rl_ui_horse_singleSold_birth" text="1 puledro è stato venduto alla nascita a causa del sovraffollamento" />
+
+        <text name="rl_ui_cow_multipleDeaths_health" text="%s mucche rimosse a causa della bassa salute" tag="format"/>
+        <text name="rl_ui_cow_singleDeath_health" text="1 mucca rimossa a causa della salute bassa"/>
+        <text name="rl_ui_pig_multipleDeaths_health" text="%s maiali rimossi a causa della bassa salute" tag="format"/>
+        <text name="rl_ui_pig_singleDeath_health" text="1 maiale rimosso a causa di salute bassa"/>
+        <text name="rl_ui_sheep_multipleDeaths_health" text="%s pecore rimosse a causa della scarsa salute" tag="format"/>
+        <text name="rl_ui_sheep_singleDeath_health" text="1 pecora rimossa a causa della salute bassa"/>
+        <text name="rl_ui_chicken_multipleDeaths_health" text="%s polli rimossi a causa della bassa salute" tag="format"/>
+        <text name="rl_ui_chicken_singleDeath_health" text="1 pollo rimosso a causa della bassa salute"/>
+        <text name="rl_ui_horse_multipleDeaths_health" text="%s cavalli rimossi a causa della scarsa salute" tag="format"/>
+        <text name="rl_ui_horse_singleDeath_health" text="1 cavallo rimosso a causa della salute bassa"/>
+
+        <text name="rl_ui_cow_multipleDeaths_age" text="%s mucche rimosse per vecchiaia" tag="format"/>
+        <text name="rl_ui_cow_singleDeath_age" text="1 vacca rimossa per vecchiaia"/>
+        <text name="rl_ui_pig_multipleDeaths_age" text="%s suini rimossi per vecchiaia" tag="format"/>
+        <text name="rl_ui_pig_singleDeath_age" text="1 maiale rimosso per vecchiaia"/>
+        <text name="rl_ui_sheep_multipleDeaths_age" text="%s pecore rimosse per vecchiaia" tag="format"/>
+        <text name="rl_ui_sheep_singleDeath_age" text="1 pecora rimossa a causa dell'età avanzata"/>
+        <text name="rl_ui_chicken_multipleDeaths_age" text="%s polli rimossi per vecchiaia" tag="format"/>
+        <text name="rl_ui_chicken_singleDeath_age" text="1 pollo rimosso a causa della vecchiaia"/>
+        <text name="rl_ui_horse_multipleDeaths_age" text="%s cavalli rimossi a causa della vecchiaia" tag="format"/>
+        <text name="rl_ui_horse_singleDeath_age" text="1 cavallo rimosso a causa della vecchiaia"/>
+
+        <text name="rl_ui_cow_multipleDeaths_random" text="%s mucche rimosse a causa di incidenti casuali e vendute per %s" tag="format"/>
+        <text name="rl_ui_cow_singleDeath_random" text="1 mucca rimossa a causa di un incidente casuale e venduta per %s" tag="format"/>
+        <text name="rl_ui_pig_multipleDeaths_random" text="%s maiali rimossi a causa di incidenti casuali e venduti per %s" tag="format"/>
+        <text name="rl_ui_pig_singleDeath_random" text="1 maiale rimosso a causa di un incidente casuale ed è stato venduto per %s" tag="format"/>
+        <text name="rl_ui_sheep_multipleDeaths_random" text="%s pecore rimosse a causa di incidenti casuali e vendute per %s" tag="format"/>
+        <text name="rl_ui_sheep_singleDeath_random" text="1 pecora rimossa a causa di un incidente casuale e venduta per %s" tag="format"/>
+        <text name="rl_ui_chicken_multipleDeaths_random" text="%s polli rimossi a causa di incidenti casuali" tag="format"/>
+        <text name="rl_ui_chicken_singleDeath_random" text="1 pollo rimosso a causa di un incidente casuale"/>
+        <text name="rl_ui_horse_multipleDeaths_random" text="%s cavalli rimossi a causa di incidenti casuali e venduti per %s" tag="format"/>
+        <text name="rl_ui_horse_singleDeath_random" text="1 cavallo rimosso a causa di un incidente casuale e venduto per %s" tag="format"/>
+
+		<text name="rl_ui_buySelected" text="Buy selected"/>
+		<text name="rl_ui_sellSelected" text="Sell selected"/>
+		<text name="rl_ui_moveSelected" text="Move selected"/>
+		<text name="rl_ui_buyConfirmation" text="Are you sure you want to buy %s animals for %s?" tag="format"/>
+		<text name="rl_ui_sellConfirmation" text="Are you sure you want to sell %s animals for %s?" tag="format"/>
+		<text name="rl_ui_moveConfirmation" text="Are you sure you want to move %s animals?" tag="format"/>
+		<text name="rl_ui_buyBulkResult" text="%s animals bought for %s" tag="format"/>
+		<text name="rl_ui_sellBulkResult" text="%s animals sold for %s" tag="format"/>
+		<text name="rl_ui_moveBulkResult" text="%s animals moved" tag="format"/>
+
+
+
+		<!--  SETTINGS  -->
+
+
+		<text name="rl_settings" text="Realistic Livestock"/>
+
+		<text name="rl_settings_off" text="Off"/>
+		<text name="rl_settings_on" text="On"/>
+
+		<text name="rl_settings_deathEnabled_label" text="Animal Removal"/>
+		<text name="rl_settings_deathEnabled_tooltip_1" text="Animals will not be removed due to pregnancy, health, age or accidents"/>
+		<text name="rl_settings_deathEnabled_tooltip_2" text="Animals will be removed due to pregnancy, health, age or accidents"/>
+
+		<text name="rl_settings_accidentsChance_label" text="Accident Chance"/>
+		<text name="rl_settings_accidentsChance_tooltip" text="Change the likelihood of animals being removed due to random accidents"/>
+
+		<text name="rl_settings_foodScale_label" text="Food Scale"/>
+		<text name="rl_settings_foodScale_tooltip" text="Change the amount of food eaten by animals"/>
+
+		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
+		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
+
+    </texts>
+</l10n>

@@ -227,5 +227,8 @@
 
 		<text name="rl_settings_foodScale_label" text="Food Scale"/>
 		<text name="rl_settings_foodScale_tooltip" text="Change the amount of food eaten by animals"/>
+
+		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
+		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
 	</texts>
 </l10n>
