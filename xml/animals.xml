@@ -1606,7 +1606,7 @@
 					<description>$l10n_animal_descriptionSheepYoung</description>
 					<description>$l10n_animal_descriptionGoatReproduction</description>
 				</visual>
-				<visual minAge="16" visualAnimalIndex="15" image="$dataS/character/animals/domesticated/goat/store_goat.png" canBeBought="true" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0">
+				<visual minAge="12" visualAnimalIndex="15" image="$dataS/character/animals/domesticated/goat/store_goat.png" canBeBought="true" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0">
 					<description>$l10n_animal_descriptionGoatProfit</description>
 					<description>$l10n_animal_descriptionGoatFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
@@ -1640,6 +1640,7 @@
 			<output>
 				<pallets fillType="GOATMILK">
 					<key ageMonth="0" value="0"/>
+					<key ageMonth="6" value="0"/>
 					<key ageMonth="6" value="5"/>
 					<key ageMonth="18" value="25"/>
 				</pallets>
@@ -1659,7 +1660,7 @@
 					<description>$l10n_animal_descriptionRamYoung</description>
 					<description>$l10n_animal_descriptionRamReproduction</description>
 				</visual>
-				<visual minAge="16" visualAnimalIndex="15" image="$dataS/character/animals/domesticated/goat/store_goat.png" canBeBought="true" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0">
+				<visual minAge="12" visualAnimalIndex="15" image="$dataS/character/animals/domesticated/goat/store_goat.png" canBeBought="true" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0">
 					<description>$l10n_animal_descriptionRamFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
@@ -2499,7 +2500,13 @@
 		</subType>
 		<subType subType="CHICKEN_ROOSTER" fillTypeName="CHICKEN_ROOSTER" gender="male" minWeight="0.045" targetWeight="4.25" maxWeight="5.5">
 			<visuals>
-				<visual minAge="0" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/chicken/store_chickenRooster.png" canBeBought="true">
+				<visual minAge="0" visualAnimalIndex="3" image="$dataS/character/animals/domesticated/chicken/store_chickenChick.png" canBeBought="true">
+					<description>$l10n_animal_descriptionChickenRooster</description>
+					<description>$l10n_animal_descriptionChickenFeed</description>
+					<description>$l10n_animal_descriptionChickenYoung</description>
+					<description>$l10n_animal_descriptionChickenReproduction</description>
+				</visual>
+				<visual minAge="6" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/chicken/store_chickenRooster.png" canBeBought="true">
 					<description>$l10n_animal_descriptionChickenRooster</description>
 				</visual>
 			</visuals>
