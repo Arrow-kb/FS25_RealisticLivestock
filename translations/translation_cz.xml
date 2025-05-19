@@ -101,15 +101,15 @@
 
 		<text name="rl_ui_breederQuality" text="Chovatelská kvalita"/>
 		<text name="rl_ui_birthday" text="Narozeniny"/>
-		<text name="rl_ui_pregnancyExpected" text="Očekávané"/>
-		<text name="rl_ui_pregnancyExpecting" text="Očekává"/>
+		<text name="rl_ui_pregnancyExpected" text="Březost"/>
+		<text name="rl_ui_pregnancyExpecting" text="Březí"/>
 		<text name="rl_ui_pregnancyBaby" text="Mládě"/>
 		<text name="rl_ui_pregnancyBabies" text="Mláďata"/>
 		<text name="rl_ui_animalOrigin" text="Původ"/>
-		<text name="rl_ui_months" text="Měsíců"/>
-		<text name="rl_ui_month" text="Měsíc"/>
-		<text name="rl_ui_years" text="Roky"/>
-		<text name="rl_ui_year" text="Rok"/>
+		<text name="rl_ui_months" text="měsíců"/>
+		<text name="rl_ui_month" text="měsíc"/>
+		<text name="rl_ui_years" text="roky"/>
+		<text name="rl_ui_year" text="rok"/>
 
 		<text name="rl_ui_milk" text="Produkce mléka"/>
 		<text name="rl_ui_wool" text="Produkce vlny"/>
@@ -228,8 +228,8 @@
 		<text name="rl_settings_foodScale_label" text="Množství potravy"/>
 		<text name="rl_settings_foodScale_tooltip" text="Změna množství potravy, kterou zvířata konzumují"/>
 
-		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
-		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
+		<text name="rl_settings_maxDealerAnimals_label" text="Maximum zvířat u obchodníka"/>
+		<text name="rl_settings_maxDealerAnimals_tooltip" text="Změna maximálního počtu zvířat, která bude mít prodejce zvířat na skladě pro každý typ zvířete."/>
 
 	</texts>
 </l10n>
