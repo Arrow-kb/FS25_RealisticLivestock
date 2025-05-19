@@ -127,7 +127,7 @@ function AnimalScreenTrailerFarm:applyTargetBulk(animalTypeIndex, items)
 
     for i = #indexesToRemove, 1, -1 do table.remove(targetItems, indexesToRemove[i]) end
 
-    self.sourceActionFinished(nil, string.format(g_i18n:getText("rl_ui_moveBulkResult"), totalMovedAnimals))
+    self.targetActionFinished(nil, string.format(g_i18n:getText("rl_ui_moveBulkResult"), totalMovedAnimals))
 
 end
 

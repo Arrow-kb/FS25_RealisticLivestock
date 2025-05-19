@@ -133,6 +133,15 @@ function RealisticLivestock_AnimalClusterSystem:getClusterById(superFunc, id)
 
     if id == nil or self.animals == nil then return end
 
+    if string.contains(id, "-") then
+
+        for _, animal in pairs(self.animals) do
+            if animal.id == id then return animal end
+        end
+
+    end
+
+
     for _, animal in pairs(self.animals) do
         if animal.farmId .. " " .. animal.uniqueId == id then return animal end
     end

@@ -20,6 +20,21 @@ function RealisticLivestock_FSBaseMission:onStartMission()
 
 	RLSettings.applyDefaultSettings()
 
+    local temp = self.environment.weather.temperatureUpdater.currentMin or 20
+
+    for _, placeable in pairs(self.husbandrySystem.placeables) do
+
+        local animals = placeable:getClusters()
+
+        for _, animal in pairs(animals) do
+            animal:updateInput()
+            animal:updateOutput(temp)
+        end
+
+        if self.isServer then placeable:updateInputAndOutput(animals) end
+
+    end
+
 end
 
 FSBaseMission.onStartMission = Utils.prependedFunction(FSBaseMission.onStartMission, RealisticLivestock_FSBaseMission.onStartMission)

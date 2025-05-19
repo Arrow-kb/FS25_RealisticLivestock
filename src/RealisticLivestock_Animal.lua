@@ -6,6 +6,8 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
 
     local self = setmetatable({}, Animal_mt)
 
+    self.input, self.output = {}, {}
+
     self.clusterSystem = clusterSystem
 
     self.children = children or {}
@@ -310,7 +312,7 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
     local health = xmlFile:getFloat(key .. "#health")
     local monthsSinceLastBirth = xmlFile:getInt(key .. "#monthsSinceLastBirth")
     local gender = xmlFile:getString(key .. "#gender")
-    local reproduction = xmlFile:getFloat(key .. "#reproduction")
+    local reproduction = xmlFile:getFloat(key .. "#reproduction", 0)
     local isParent = xmlFile:getBool(key .. "#isParent")
     local isPregnant = xmlFile:getBool(key .. "#isPregnant")
     local isLactating = xmlFile:getBool(key .. "#isLactating")
@@ -448,7 +450,41 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 
     animal:setBirthday(birthday)
     
-    if pregnancy ~= nil and #pregnancy.pregnancies > 0 then animal.pregnancy = pregnancy end
+    if pregnancy ~= nil and #pregnancy.pregnancies > 0 then
+        animal.pregnancy = pregnancy
+    elseif reproduction > 0 then
+
+        if animal.clusterSystem ~= nil then
+
+            local childNum = animal:generateRandomOffspring()
+
+            if childNum > 0 then
+
+                local month = g_currentMission.environment.currentPeriod + 2
+                if month > 12 then month = month - 12 end
+                local year = g_currentMission.environment.currentYear
+
+                print(1)
+
+                animal:createPregnancy(childNum, month, year)
+
+                print(2)
+
+            else
+
+                animal.reproduction = 0
+                animal.isPregnant = false
+
+            end
+
+        else
+            
+            animal.reproduction = 0
+            animal.isPregnant = false
+
+        end
+
+    end
 
     return animal
 
@@ -999,7 +1035,7 @@ function Animal:showInfo(box)
             text = g_i18n:getText("rl_ui_tooYoungBracketed")
         elseif self.isParent and self.monthsSinceLastBirth <= 2 then
             text = g_i18n:getText("rl_ui_recoveringLastBirthBracketed")
-        elseif not RealisticLivestock.hasMaleAnimalInPen(self.clusterSystem.owner.spec_husbandryAnimals, name, self) and not self.isPregnant then
+        elseif self.clusterSystem ~= nil and not RealisticLivestock.hasMaleAnimalInPen(self.clusterSystem.owner.spec_husbandryAnimals, name, self) and not self.isPregnant then
             text = g_i18n:getText("rl_ui_noMaleAnimalBracketed")
         elseif healthFactor < subType.reproductionMinHealth then
             text = g_i18n:getText("rl_ui_unhealthyBracketed")
@@ -1527,6 +1563,13 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 
     if isSaleAnimal or self.clusterSystem ~= nil then
 
+        if self.reproduction > 0 and (self.pregnancy == nil or self.pregnancy.pregnancies == nil) then
+
+            self.pregnancy = nil
+            self.reproduction = 0
+
+        end
+
         if self.isPregnant then
 
             self:changeReproduction(self:getReproductionDelta())
@@ -1571,180 +1614,7 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
             local childNum = self:generateRandomOffspring()
 
 
-            if math.random() >= (2 - fertility) * 0.5 and childNum > 0 then
-
-                self.isPregnant = true
-
-                local father = {
-                    uniqueId = "-1",
-                    metabolism = 1.0,
-                    quality = 1.0,
-                    health = 1.0,
-                    fertility = 1.0,
-                    productivity = 1.0
-                }
-
-                local fatherSubTypeIndex
-
-                for _, animal in pairs(self.clusterSystem:getAnimals()) do
-
-                    if animal.gender ~= "male" then continue end
-
-                    if animal.subType == "BULL_WATERBUFFALO" and self.subType ~= "COW_WATERBUFFALO" then continue end
-                    if animal.subType == "RAM_GOAT" and self.subType ~= "GOAT" then continue end
-                    if self.subType == "COW_WATERBUFFALO" and animal.subType ~= "BULL_WATERBUFFALO" then continue end
-                    if self.subType == "GOAT" and animal.subType ~= "RAM_GOAT" then continue end
-
-                    local animalType = animal.animalTypeIndex
-
-
-                    local animalSubType = animal:getSubType()
-                    local maxFertilityMonth = (animalType == AnimalType.COW and 132) or (animalType == AnimalType.SHEEP and 72) or (animalType == AnimalType.HORSE and 300) or (animalType == AnimalType.CHICKEN and 1000) or (animalType == AnimalType.PIG and 48) or 120
-                    maxFertilityMonth = maxFertilityMonth * animal.genetics.fertility
-
-                    if animalSubType.reproductionMinAgeMonth ~= nil and animal:getAge() >= animalSubType.reproductionMinAgeMonth and animal:getAge() < maxFertilityMonth then
-
-                        fatherSubTypeIndex = animal.subTypeIndex
-
-                        father.uniqueId = animal.farmId .. " " .. animal.uniqueId
-                        father.metabolism = animal.genetics.metabolism
-                        father.quality = animal.genetics.quality
-                        father.health = animal.genetics.health
-                        father.fertility = animal.genetics.fertility
-                        father.productivity = animal.genetics.productivity or nil
-
-                        break
-
-                    end
-
-                end
-
-                self.impregnatedBy = father
-
-                self:changeReproduction(self:getReproductionDelta())
-
-                local genetics = self.genetics
-
-                local motherMetabolism = genetics.metabolism
-                local fatherMetabolism = father.metabolism
-                local minMetabolism = motherMetabolism >= fatherMetabolism and fatherMetabolism or motherMetabolism
-                local maxMetabolism = motherMetabolism < fatherMetabolism and fatherMetabolism or motherMetabolism
-                if maxMetabolism == minMetabolism then maxMetabolism = maxMetabolism + 0.01 end
-
-                local motherMeat = genetics.quality
-                local fatherMeat = father.quality
-                local minMeat = motherMeat >= fatherMeat and fatherMeat or motherMeat
-                local maxMeat = motherMeat < fatherMeat and fatherMeat or motherMeat
-                if maxMeat == minMeat then maxMeat = maxMeat + 0.01 end
-
-                local motherHealth = genetics.health
-                local fatherHealth = father.health
-                local minHealth = motherHealth >= fatherHealth and fatherHealth or motherHealth
-                local maxHealth = motherHealth < fatherHealth and fatherHealth or motherHealth
-                if maxHealth == minHealth then maxHealth = maxHealth + 0.01 end
-
-                local motherFertility = genetics.fertility
-                local fatherFertility = father.fertility
-                local minFertility = motherFertility >= fatherFertility and fatherFertility or motherFertility
-                local maxFertility = motherFertility < fatherFertility and fatherFertility or motherFertility
-                if maxFertility == minFertility then maxFertility = maxFertility + 0.01 end
-
-                local motherProductivity
-                local fatherProductivity
-                local minProductivity
-                local maxProductivity
-
-                if genetics.productivity ~= nil then
-                    motherProductivity = genetics.productivity
-                    fatherProductivity = father.productivity
-                    minProductivity = motherProductivity >= fatherProductivity and fatherProductivity or motherProductivity
-                    maxProductivity = motherProductivity < fatherProductivity and fatherProductivity or motherProductivity
-                    if maxProductivity == minProductivity then maxProductivity = maxProductivity + 0.01 end
-                end
-
-
-                local children = {}
-
-
-                for i = 1, childNum do
-
-
-                    local gender = math.random() >= 0.5 and "male" or "female"
-                    local subTypeIndex
-
-                    if fatherSubTypeIndex ~= nil and math.random() >= 0.5 then
-
-                        subTypeIndex = fatherSubTypeIndex + (gender == "male" and 0 or -1)
-
-                    else
-
-                        subTypeIndex = self.subTypeIndex + (gender == "male" and 1 or 0)
-
-                    end
-
-
-                    local child = Animal.new(-1, 100, 0, gender, subTypeIndex, 0, false, false, false, nil, nil, self.farmId .. " " .. self.uniqueId, father.uniqueId)
-                        
-                    local metabolism = math.random(minMetabolism * 100, maxMetabolism * 100) / 100
-                    local quality = math.random(minMeat * 100, maxMeat * 100) / 100
-                    local healthGenetics = math.random(minHealth * 100, maxHealth * 100) / 100
-                    local fertility = math.random(minFertility * 100, maxFertility * 100) / 100
-                    local productivity = nil
-                        
-                    if genetics.productivity ~= nil then productivity = math.random(minProductivity * 100, maxProductivity * 100) / 100 end
-
-
-                    child:setGenetics({
-                        ["metabolism"] = metabolism,
-                        ["quality"] = quality,
-                        ["health"] = healthGenetics,
-                        ["fertility"] = fertility,
-                        ["productivity"] = productivity
-                    })
-
-
-                    table.insert(children, child)
-
-                end
-
-
-                local reproductionDuration = self:getSubType().reproductionDurationMonth
-                    
-                if math.random() >= 0.99 then
-
-                    if math.random() >= 0.95 then
-                        reproductionDuration = reproductionDuration + math.random() >= 0.75 and -2 or 2
-                    else
-                        reproductionDuration = reproductionDuration + math.random() >= 0.85 and -1 or 1
-                    end
-
-                    reproductionDuration = math.max(reproductionDuration, 2)
-
-                end
-
-                local expectedYear = year + math.floor(reproductionDuration / 12)
-                local expectedMonth = month + (reproductionDuration % 12)
-
-                while expectedMonth > 12 do
-                    expectedMonth = expectedMonth - 12
-                    expectedYear = expectedYear + 1
-                end
-
-                local expectedDay = math.random(1, RealisticLivestock.DAYS_PER_MONTH[expectedMonth])
-
-
-                self.pregnancy = {
-                    ["duration"] = reproductionDuration,
-                    ["expected"] = {
-                        ["day"] = expectedDay,
-                        ["month"] = expectedMonth,
-                        ["year"] = expectedYear
-                    },
-                    ["pregnancies"] = children
-                }
-
-
-            end
+            if math.random() >= (2 - fertility) * 0.5 and childNum > 0 then self:createPregnancy(childNum, month, year) end
 
         end
 
@@ -1761,6 +1631,184 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
     end
 
     return children, deadAnimals, childrenSold, childrenSoldAmount, lowHealthDeath, oldDeath, randomDeath, randomDeathMoney
+
+end
+
+
+function Animal:createPregnancy(childNum, month, year)
+
+    local fertility = self.genetics.fertility
+
+    self.isPregnant = true
+
+    local father = {
+        uniqueId = "-1",
+        metabolism = 1.0,
+        quality = 1.0,
+        health = 1.0,
+        fertility = 1.0,
+        productivity = 1.0
+    }
+
+    local fatherSubTypeIndex
+
+    for _, animal in pairs(self.clusterSystem:getAnimals()) do
+
+        if animal.gender ~= "male" then continue end
+
+        if animal.subType == "BULL_WATERBUFFALO" and self.subType ~= "COW_WATERBUFFALO" then continue end
+        if animal.subType == "RAM_GOAT" and self.subType ~= "GOAT" then continue end
+        if self.subType == "COW_WATERBUFFALO" and animal.subType ~= "BULL_WATERBUFFALO" then continue end
+        if self.subType == "GOAT" and animal.subType ~= "RAM_GOAT" then continue end
+
+        local animalType = animal.animalTypeIndex
+
+
+        local animalSubType = animal:getSubType()
+        local maxFertilityMonth = (animalType == AnimalType.COW and 132) or (animalType == AnimalType.SHEEP and 72) or (animalType == AnimalType.HORSE and 300) or (animalType == AnimalType.CHICKEN and 1000) or (animalType == AnimalType.PIG and 48) or 120
+        maxFertilityMonth = maxFertilityMonth * animal.genetics.fertility
+
+        if animalSubType.reproductionMinAgeMonth ~= nil and animal:getAge() >= animalSubType.reproductionMinAgeMonth and animal:getAge() < maxFertilityMonth then
+
+            fatherSubTypeIndex = animal.subTypeIndex
+
+            father.uniqueId = animal.farmId .. " " .. animal.uniqueId
+            father.metabolism = animal.genetics.metabolism
+            father.quality = animal.genetics.quality
+            father.health = animal.genetics.health
+            father.fertility = animal.genetics.fertility
+            father.productivity = animal.genetics.productivity or nil
+
+            break
+
+        end
+
+    end
+
+    self.impregnatedBy = father
+    self.reproduction = 0
+
+    self:changeReproduction(self:getReproductionDelta())
+
+    local genetics = self.genetics
+
+    local motherMetabolism = genetics.metabolism
+    local fatherMetabolism = father.metabolism
+    local minMetabolism = motherMetabolism >= fatherMetabolism and fatherMetabolism or motherMetabolism
+    local maxMetabolism = motherMetabolism < fatherMetabolism and fatherMetabolism or motherMetabolism
+    if maxMetabolism == minMetabolism then maxMetabolism = maxMetabolism + 0.01 end
+
+    local motherMeat = genetics.quality
+    local fatherMeat = father.quality
+    local minMeat = motherMeat >= fatherMeat and fatherMeat or motherMeat
+    local maxMeat = motherMeat < fatherMeat and fatherMeat or motherMeat
+    if maxMeat == minMeat then maxMeat = maxMeat + 0.01 end
+
+    local motherHealth = genetics.health
+    local fatherHealth = father.health
+    local minHealth = motherHealth >= fatherHealth and fatherHealth or motherHealth
+    local maxHealth = motherHealth < fatherHealth and fatherHealth or motherHealth
+    if maxHealth == minHealth then maxHealth = maxHealth + 0.01 end
+
+    local motherFertility = genetics.fertility
+    local fatherFertility = father.fertility
+    local minFertility = motherFertility >= fatherFertility and fatherFertility or motherFertility
+    local maxFertility = motherFertility < fatherFertility and fatherFertility or motherFertility
+    if maxFertility == minFertility then maxFertility = maxFertility + 0.01 end
+
+    local motherProductivity
+    local fatherProductivity
+    local minProductivity
+    local maxProductivity
+
+    if genetics.productivity ~= nil then
+        motherProductivity = genetics.productivity
+        fatherProductivity = father.productivity
+        minProductivity = motherProductivity >= fatherProductivity and fatherProductivity or motherProductivity
+        maxProductivity = motherProductivity < fatherProductivity and fatherProductivity or motherProductivity
+        if maxProductivity == minProductivity then maxProductivity = maxProductivity + 0.01 end
+    end
+
+
+    local children = {}
+
+
+    for i = 1, childNum do
+
+
+        local gender = math.random() >= 0.5 and "male" or "female"
+        local subTypeIndex
+
+        if fatherSubTypeIndex ~= nil and math.random() >= 0.5 then
+
+            subTypeIndex = fatherSubTypeIndex + (gender == "male" and 0 or -1)
+
+        else
+
+            subTypeIndex = self.subTypeIndex + (gender == "male" and 1 or 0)
+
+        end
+
+
+        local child = Animal.new(-1, 100, 0, gender, subTypeIndex, 0, false, false, false, nil, nil, self.farmId .. " " .. self.uniqueId, father.uniqueId)
+                        
+        local metabolism = math.random(minMetabolism * 100, maxMetabolism * 100) / 100
+        local quality = math.random(minMeat * 100, maxMeat * 100) / 100
+        local healthGenetics = math.random(minHealth * 100, maxHealth * 100) / 100
+        local fertility = math.random(minFertility * 100, maxFertility * 100) / 100
+        local productivity = nil
+                        
+        if genetics.productivity ~= nil then productivity = math.random(minProductivity * 100, maxProductivity * 100) / 100 end
+
+
+        child:setGenetics({
+            ["metabolism"] = metabolism,
+            ["quality"] = quality,
+            ["health"] = healthGenetics,
+            ["fertility"] = fertility,
+            ["productivity"] = productivity
+        })
+
+
+        table.insert(children, child)
+
+    end
+
+
+    local reproductionDuration = self:getSubType().reproductionDurationMonth
+                    
+    if math.random() >= 0.99 then
+
+        if math.random() >= 0.95 then
+            reproductionDuration = reproductionDuration + math.random() >= 0.75 and -2 or 2
+        else
+            reproductionDuration = reproductionDuration + math.random() >= 0.85 and -1 or 1
+        end
+
+        reproductionDuration = math.max(reproductionDuration, 2)
+
+    end
+
+    local expectedYear = year + math.floor(reproductionDuration / 12)
+    local expectedMonth = month + (reproductionDuration % 12)
+
+    while expectedMonth > 12 do
+        expectedMonth = expectedMonth - 12
+        expectedYear = expectedYear + 1
+    end
+
+    local expectedDay = math.random(1, RealisticLivestock.DAYS_PER_MONTH[expectedMonth])
+
+
+    self.pregnancy = {
+        ["duration"] = reproductionDuration,
+        ["expected"] = {
+            ["day"] = expectedDay,
+            ["month"] = expectedMonth,
+            ["year"] = expectedYear
+        },
+        ["pregnancies"] = children
+    }
 
 end
 
@@ -2042,7 +2090,7 @@ function Animal:reproduce(spec, day, month, year, isSaleAnimal)
     local sellPrices = {}
     local childrenToRemove = {}
     local birthday = self.pregnancy.expected
-    birthday.country = isSaleAnimal and self.birthday.country or RealisticLivestock.getMapCountryIndex()
+    local country = isSaleAnimal and self.birthday.country or RealisticLivestock.getMapCountryIndex()
 
 
     for i, child in pairs(pregnancies) do
@@ -2076,8 +2124,7 @@ function Animal:reproduce(spec, day, month, year, isSaleAnimal)
         child.weight = weight
         child.age = 0
 
-        child:setBirthday(birthday)
-        child.birthday.lastAgeMonth = month
+        child:setBirthday({["day"] = day, ["month"] = month, ["year"] = year, ["country"] = country, ["lastAgeMonth"] = month})
 
         if not isSaleAnimal then
             child:setClusterSystem(self.clusterSystem)
@@ -2460,5 +2507,139 @@ end
 function Animal.onSettingChanged(name, state)
 
     Animal[name] = state
+
+end
+
+
+function Animal:updateInput()
+
+    local subType = self:getSubType()
+
+    local food, water = subType.input.food, subType.input.water
+
+    self.input.food, self.input.water = 0, 0
+
+
+    if food ~= nil then
+
+        local litersPerDay = food:get(self.age)
+
+        if self.isLactating then litersPerDay = litersPerDay * 1.25 end
+
+        if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
+            litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
+        end
+
+        if self.genetics.metabolism ~= nil then litersPerDay = litersPerDay * self.genetics.metabolism end
+
+        litersPerDay = litersPerDay * (RealisticLivestock_PlaceableHusbandryFood.foodScale or 1)
+
+        self.input.food = litersPerDay / 24
+
+    end
+
+
+    if water ~= nil then
+
+        local litersPerDay = water:get(self.age)
+
+        if self.isLactating then litersPerDay = litersPerDay * 1.5 end
+
+        if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
+            litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
+        end
+
+        self.input.water = litersPerDay / 24
+
+    end
+
+end
+
+
+function Animal:updateOutput(temp)
+
+    local subType = self:getSubType()
+
+    for fillType, output in pairs(subType.output) do
+
+        local litersPerDay = 0
+        
+        if output.curve ~= nil then
+            litersPerDay = output.curve:get(self.age)
+        else
+            litersPerDay = output:get(self.age)
+        end
+
+
+
+        if fillType == "pallets" then
+
+            local fillTypeIndex = output.fillType
+            local productivity = self.genetics.productivity or 1
+
+            if fillTypeIndex == FillType.WOOL then
+
+                if temp < 12 then litersPerDay = 0 end
+
+            elseif fillTypeIndex == FillType.GOATMILK then
+
+                local monthsSinceLastBirth = self.monthsSinceLastBirth or 12
+                local factor = 0.8
+
+                if monthsSinceLastBirth >= 10 or not self.isLactating or not self.isParent then
+                    self.isLactating = false
+                    factor = 0
+                elseif monthsSinceLastBirth <= 3 then
+                    factor = factor + (monthsSinceLastBirth / 6)
+                else
+                    factor = factor + ((11 - monthsSinceLastBirth) / 15)
+                end
+
+                litersPerDay = litersPerDay * factor
+
+            end
+
+            litersPerDay = litersPerDay * productivity
+
+        end
+
+
+        if fillType == "milk" then
+
+            local monthsSinceLastBirth = self.monthsSinceLastBirth or 12
+            local factor = 0.8
+            local productivity = self.genetics.productivity or 1
+
+            if monthsSinceLastBirth >= 10 or not self.isLactating or not self.isParent then
+                self.isLactating = false
+                factor = 0
+            elseif monthsSinceLastBirth <= 3 then
+                factor = factor + (monthsSinceLastBirth / 6)
+            else
+                factor = factor + ((11 - monthsSinceLastBirth) / 15)
+            end
+
+            litersPerDay = litersPerDay * factor * productivity
+
+        end
+
+
+        self.output[fillType] = litersPerDay / 24
+
+    end
+
+end
+
+
+function Animal:getInput(inputType)
+
+    return self.input[inputType] or 0
+
+end
+
+
+function Animal:getOutput(outputType)
+
+    return self.output[outputType] or 0
 
 end

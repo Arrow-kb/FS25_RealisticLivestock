@@ -82,6 +82,41 @@ end
 AnimalScreenDealerFarm.applySource = Utils.overwrittenFunction(AnimalScreenDealerFarm.applySource, RL_AnimalScreenDealerFarm.applySource)
 
 
+function RL_AnimalScreenDealerFarm:applyTarget(_, animalTypeIndex, animalIndex)
+
+    local item = self.targetItems[animalIndex]
+    local husbandry = self.husbandry
+    local ownerFarmId = husbandry:getOwnerFarmId()
+
+    local price = item:getPrice()
+	local transportationFee = -item:getTranportationFee(1)
+
+    local errorCode = AnimalSellEvent.validate(husbandry, item:getClusterId(), 1, price, transportationFee)
+
+    if errorCode ~= nil then
+		local error = AnimalScreenDealerFarm.SELL_ERROR_CODE_MAPPING[errorCode]
+		self.errorCallback(g_i18n:getText(error.text))
+		return false
+	end
+    
+	--self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenDealerFarm.L10N_SYMBOL.BUYING))
+
+    local animal = item.animal or item.cluster
+    husbandry:getClusterSystem():removeCluster(animal.farmId .. " " .. animal.uniqueId)
+    g_currentMission:addMoney(price + transportationFee, ownerFarmId, MoneyType.NEW_ANIMALS_COST, true, true)
+    
+    g_currentMission.animalSystem:removeSaleAnimal(animalTypeIndex, animal.birthday.country, animal.farmId, animal.uniqueId)
+    table.remove(self.targetItems, animalIndex)
+
+    self.targetActionFinished(nil, "Animal sold successfully")
+
+    return true
+
+end
+
+AnimalScreenDealerFarm.applyTarget = Utils.overwrittenFunction(AnimalScreenDealerFarm.applyTarget, RL_AnimalScreenDealerFarm.applyTarget)
+
+
 function RL_AnimalScreenDealerFarm:getSourcePrice(_, animalTypeIndex, animalIndex, _)
 
     if self.sourceItems[animalTypeIndex] ~= nil then

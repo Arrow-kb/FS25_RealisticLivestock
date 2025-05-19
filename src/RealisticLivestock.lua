@@ -70,7 +70,7 @@ RealisticLivestock.AREA_CODES = {
     },
     [10] = {
         ["code"] = "CZ",
-        ["country"] = "Czechoslovakia"
+        ["country"] = "Czech Republic"
     },
     [11] = {
         ["code"] = "RU",

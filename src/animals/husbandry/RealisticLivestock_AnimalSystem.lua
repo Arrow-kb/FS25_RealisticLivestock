@@ -261,9 +261,9 @@ function AnimalSystem:validateFarms(hasData)
     
         for animalTypeIndex, animals in pairs(self.animals) do
 
-            if #animals < 25 then
+            if #animals < self.maxDealerAnimals then
 
-                for i = #animals + 1, 25 do
+                for i = #animals + 1, self.maxDealerAnimals do
 
                     local animal = self:createNewSaleAnimal(animalTypeIndex)
 
@@ -803,7 +803,7 @@ function AnimalSystem:onHourChanged()
             table.remove(animals, indexesToRemove[i])
         end
 
-        local threshold = math.random(5, 45)
+        local threshold = math.random(5, self.maxDealerAnimals)
 
         if #animals < threshold then
 
@@ -869,5 +869,12 @@ function AnimalSystem:addExistingSaleAnimal(animal)
     local animalTypeIndex = animal.animalTypeIndex or 0
 
     if self.animals[animalTypeIndex] ~= nil then table.insert(self.animals[animalTypeIndex], animal) end
+
+end
+
+
+function AnimalSystem.onSettingChanged(name, state)
+
+    AnimalSystem[name] = state
 
 end

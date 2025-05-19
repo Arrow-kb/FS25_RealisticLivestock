@@ -27,6 +27,15 @@ end
 AnimalScreen.show = RealisticLivestock_AnimalScreen.show
 
 
+function RealisticLivestock_AnimalScreen:setController(husbandry, vehicle, isDealer)
+
+    self.isTrailer = husbandry == nil and vehicle ~= nil and not isDealer
+
+end
+
+AnimalScreen.setController = Utils.prependedFunction(AnimalScreen.setController, RealisticLivestock_AnimalScreen.setController)
+
+
 function RealisticLivestock_AnimalScreen:onClickBuyMode(a, b)
     self.isInfoMode = false
     self.selectedItems = {}
@@ -500,6 +509,8 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, keepSelection)
     self.tabSell:setSelected(not self.isBuyMode and not self.isInfoMode)
     self.tabInfo:setSelected(not self.isBuyMode and self.isInfoMode)
 
+    self.buttonBuySelected:setVisible(not self.isTrailer)
+
     self.buttonsPanel:invalidateLayout()
 
 end
@@ -583,7 +594,7 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
 
         local checkbox = cell:getAttribute("checkbox")
 
-        if self.isInfoMode and not self.isBuyMode then
+        if (self.isInfoMode and not self.isBuyMode) or self.isTrailer then
             checkbox:setVisible(false)
         else
 

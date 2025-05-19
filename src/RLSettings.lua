@@ -35,6 +35,15 @@ RLSettings.SETTINGS = {
 		["valueType"] = "float",
 		["values"] = { 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5 },
 		["callback"] = RealisticLivestock_PlaceableHusbandryFood.onSettingChanged
+	},
+
+	["maxDealerAnimals"] = {
+		["index"] = 4,
+		["type"] = "MultiTextOption",
+		["default"] = 4,
+		["valueType"] = "int",
+		["values"] = { 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200 },
+		["callback"] = AnimalSystem.onSettingChanged
 	}
 
 }
