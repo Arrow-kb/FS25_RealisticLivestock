@@ -4,7 +4,7 @@ local modName = g_currentModName
 local modDirectory = g_currentModDirectory
 
 
-function RealisticLivestock_AnimalSystem:loadAnimals(superFunc, _, _)
+function RealisticLivestock_AnimalSystem:loadAnimals1(superFunc, baseXmlFile, baseDirectory)
 
     local path = modDirectory .. "xml/animals.xml"
     local xmlFile = XMLFile.load("animals", path)
@@ -31,6 +31,29 @@ function RealisticLivestock_AnimalSystem:loadAnimals(superFunc, _, _)
     xmlFile:delete()
 
 
+    if baseXmlFile ~= nil then
+
+        superFunc(self, baseXmlFile, baseDirectory)
+
+        for _, key in baseXmlFile:iterator("animals.animal") do
+
+            local name = baseXmlFile:getString(key .. "#type"):upper()
+
+            if nameToBuyAges[name] ~= nil then continue end
+
+            local averageBuyAge = baseXmlFile:getInt(key .. "#averageBuyAge", 12)
+            local maxBuyAge = baseXmlFile:getInt(key .. "#maxBuyAge", 60)
+
+            nameToBuyAges[name] = {
+                ["averageBuyAge"] = averageBuyAge,
+                ["maxBuyAge"] = maxBuyAge
+            }
+
+        end
+
+    end
+
+
     for animalTypeIndex, animalType in pairs(self.types) do
         
         if nameToBuyAges[animalType.name] ~= nil then
@@ -44,42 +67,285 @@ function RealisticLivestock_AnimalSystem:loadAnimals(superFunc, _, _)
 
 end
 
+
+function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDirectory)
+
+    self.customEnvironment = modName
+
+    local path = modDirectory .. "xml/animals.xml"
+    local xmlFile = XMLFile.load("animals", path)
+
+    if xmlFile ~= nil then
+
+        self:loadAnimals(xmlFile, modDirectory)
+        xmlFile:delete()
+
+    end
+
+    self.customEnvironment = mission.customEnvironment
+
+    local baseFilename = getXMLString(mapXml, "map.animals#filename")
+
+	if baseFilename == nil or baseFilename == "" then
+
+		Logging.xmlInfo(mapXml, "No animals xml given at \'map.animals#filename\'")
+
+    else
+
+	    local baseXmlFile = XMLFile.load("animals", Utils.getFilename(baseFilename, baseDirectory))
+
+	    if baseXmlFile ~= nil then
+		
+            self:loadAnimals(baseXmlFile, baseDirectory)
+            baseXmlFile:delete()
+
+	    end
+
+    end
+
+    self.customEnvironment = modName
+
+    print("--------", string.format("RealisticLivestock - loaded %s animals:", #self.types))
+
+    for _, type in pairs(self.types) do
+        
+        print("", string.format("- Animal Type: %s (%s subTypes)", type.name, #type.subTypes))
+
+        for i, subTypeIndex in pairs(type.subTypes) do
+
+            print(string.format("|--- SubType (%s): %s (%s)", i, self.subTypes[subTypeIndex].name, self.subTypes[subTypeIndex].gender))
+
+        end
+
+    end
+
+    print("", "--------")
+
+	return #self.types > 0
+
+end
+
+AnimalSystem.loadMapData = Utils.overwrittenFunction(AnimalSystem.loadMapData, RealisticLivestock_AnimalSystem.loadMapData)
+
+
+function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
+
+	for _, key in xmlFile:iterator("animals.animal") do
+
+		if #self.types >= 2 ^ AnimalSystem.SEND_NUM_BITS - 1 then
+			Logging.xmlWarning(xmlFile, "Maximum number of supported animal types reached. Ignoring remaining types")
+			return
+		end
+
+		local rawName = xmlFile:getString(key .. "#type")
+
+		if rawName == nil then
+			Logging.xmlError(xmlFile, "Missing animal type. \'%s\'", key)
+			return
+		end
+
+		local name = rawName:upper()
+        local rawConfigFilename = xmlFile:getString(key .. ".configFilename")
+
+		if rawConfigFilename == nil then
+			Logging.xmlError(xmlFile, "Missing config file for animal type \'%s\'. \'%s\'", name, key)
+			return
+		end
+
+        local configFilename = Utils.getFilename(rawConfigFilename, directory)
+        local animalType
+
+		if self.nameToTypeIndex[name] ~= nil then
+
+			animalType = self.nameToType[name]
+
+        else
+
+            local clusterClass = xmlFile:getString(key .. "#clusterClass")
+
+		    if clusterClass == nil then
+			    Logging.xmlError(xmlFile, "Missing animal clusterClass for \'%s\'!", key)
+			    return
+		    end
+
+		    local statsBreedingName = xmlFile:getString(key .. "#statsBreeding")
+		    local title = g_i18n:convertText(xmlFile:getString(key .. "#groupTitle"), self.customEnvironment)
+		    local height = xmlFile:getFloat(key .. ".navMeshAgent#height")
+		    local radius = xmlFile:getFloat(key .. ".navMeshAgent#radius")
+		    local maxClimbMeters = xmlFile:getFloat(key .. ".navMeshAgent#maxClimbMeters")
+		    local maxSlope = math.rad(xmlFile:getFloat(key .. ".navMeshAgent#maxSlope") or 15)
+            local averageBuyAge = xmlFile:getInt(key .. "#averageBuyAge", 12)
+            local maxBuyAge = xmlFile:getInt(key .. "#maxBuyAge", 60)
+
+		    animalType = {
+			    ["name"] = name,
+			    ["groupTitle"] = title,
+			    ["typeIndex"] = #self.types + 1,
+			    ["configFilename"] = configFilename,
+			    ["clusterClass"] = clusterClass == "AnimalCluster" and AnimalCluster or AnimalClusterHorse,
+			    ["statsBreedingName"] = statsBreedingName,
+			    ["navMeshAgentAttributes"] = {
+				    ["height"] = height,
+				    ["radius"] = radius,
+				    ["maxClimbMeters"] = maxClimbMeters,
+				    ["maxSlope"] = maxSlope
+			    },
+			    ["subTypes"] = {},
+                ["animals"] = {},
+                ["averageBuyAge"] = averageBuyAge,
+                ["maxBuyAge"] = maxBuyAge
+		    }
+            
+		end
+
+		if self:loadAnimalConfig(animalType, directory, configFilename) then
+
+		    if self:loadSubTypes(animalType, xmlFile, key, directory) then
+
+			    if self.nameToType[name] == nil then
+
+                    table.insert(self.types, animalType)
+			        self.nameToType[name] = animalType
+			        self.nameToTypeIndex[name] = animalType.typeIndex
+			        self.typeIndexToName[animalType.typeIndex] = name
+
+                end
+
+		    end
+
+        end
+
+	end
+
+end
+
 AnimalSystem.loadAnimals = Utils.overwrittenFunction(AnimalSystem.loadAnimals, RealisticLivestock_AnimalSystem.loadAnimals)
 
 
-function RealisticLivestock_AnimalSystem:loadSubType(superFunc, animalType, subType, xmlFile, subTypeKey, baseDirectory)
+function RealisticLivestock_AnimalSystem:loadAnimalConfig(_, animalType, directory, configFilename)
 
-    local returnValue = superFunc(self, animalType, subType, xmlFile, subTypeKey, baseDirectory)
+    local xmlFile = XMLFile.load("animalsConfig", configFilename)
 
-    local gender = xmlFile:getString(subTypeKey .. "#gender")
-    local maxWeight = xmlFile:getFloat(subTypeKey .. "#maxWeight")
-    local targetWeight = xmlFile:getFloat(subTypeKey .. "#targetWeight")
-    local minWeight = xmlFile:getFloat(subTypeKey .. "#minWeight")
+	if xmlFile == nil then return false end
 
-    if gender == nil then
-        subType.gender = "female"
-    else
-        subType.gender = gender
-    end
+	for _, key in xmlFile:iterator("animalHusbandry.animals.animal") do
 
-    if maxWeight == nil then
-        subType.maxWeight = 1000
-    else
-        subType.maxWeight = maxWeight
-    end
+        local filename = xmlFile:getString(key .. ".assets#filename")
 
-    if targetWeight == nil then
-        subType.targetWeight = 500
-    else
-        subType.targetWeight = targetWeight
-    end
+		local animal = {
+			["filename"] = Utils.getFilename(filename, directory),
+			["filenamePosed"] = Utils.getFilename(xmlFile:getString(key .. ".assets#filenamePosed"), directory)
+		}
 
-    if minWeight == nil then
-        subType.minWeight = 0
-    else
-        subType.minWeight = minWeight
-    end
+        if directory ~= modDirectory and string.contains(filename, "$dataS") then continue end
 
+		if animal.filenamePosed == nil then
+			Logging.xmlError(xmlFile, "Missing \'filenamePosed\' for animal \'%s\'", key)
+			animal.filenamePosed = animal.filename
+		end
+
+		animal.variations = {}
+
+		for _, variationKey in xmlFile:iterator(key .. ".assets.texture") do
+
+			local variation = {}
+
+			local numTilesU = xmlFile:getInt(variationKey .. "#numTilesU", 1)
+			variation.numTilesU = math.max(numTilesU, 1)
+
+			local tileUIndex = xmlFile:getInt(variationKey .. "#tileUIndex", 0)
+			variation.tileUIndex = math.clamp(tileUIndex, 0, variation.numTilesU - 1)
+
+			local numTilesV = xmlFile:getInt(variationKey .. "#numTilesV", 1)
+			variation.numTilesV = math.max(numTilesV, 1)
+
+			local tileVIndex = xmlFile:getInt(variationKey .. "#tileVIndex", 0)
+			variation.tileVIndex = math.clamp(tileVIndex, 0, variation.numTilesV - 1)
+
+			variation.mirrorV = xmlFile:getBool(variationKey .. "#mirrorV", false)
+			variation.multi = xmlFile:getBool(variationKey .. "#multi", true)
+
+			table.insert(animal.variations, variation)
+
+		end
+
+		table.insert(animalType.animals, animal)
+
+	end
+
+	xmlFile:delete()
+
+	return true
+
+end
+
+AnimalSystem.loadAnimalConfig = Utils.overwrittenFunction(AnimalSystem.loadAnimalConfig, RealisticLivestock_AnimalSystem.loadAnimalConfig)
+
+
+function RealisticLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, key, directory)
+
+    for _, subTypeKey in xmlFile:iterator(key .. ".subType") do
+
+		local rawName = xmlFile:getString(subTypeKey .. "#subType")
+
+		if rawName == nil then
+			Logging.xmlError(xmlFile, "Missing animal subtype. \'%s\'", subTypeKey)
+			break
+		end
+
+		local name = rawName:upper()
+
+		if self.nameToSubTypeIndex[name] ~= nil then continue end
+
+		local fillTypeName = xmlFile:getString(subTypeKey .. "#fillTypeName")
+		local fillTypeIndex = g_fillTypeManager:getFillTypeIndexByName(fillTypeName)
+
+		if fillTypeIndex == nil then
+			Logging.xmlError(xmlFile, "FillType \'%s\' for animal subtype \'%s\' not defined!", fillTypeName, subTypeKey)
+			break
+		end
+
+		local subType = {
+			["name"] = name,
+			["subTypeIndex"] = #self.subTypes + 1,
+			["fillTypeIndex"] = fillTypeIndex,
+			["typeIndex"] = animalType.typeIndex,
+			["statsBreedingName"] = xmlFile:getString(subTypeKey .. "#statsBreeding") or animalType.statsBreedingName
+		}
+
+		table.insert(animalType.subTypes, subType.subTypeIndex)
+
+		if self:loadSubType(animalType, subType, xmlFile, subTypeKey, directory) then
+
+			table.insert(self.subTypes, subType)
+			self.nameToSubType[name] = subType
+			self.nameToSubTypeIndex[name] = subType.subTypeIndex
+			self.fillTypeIndexToSubType[fillTypeIndex] = subType
+
+		end
+
+	end
+
+	return true
+
+end
+
+AnimalSystem.loadSubTypes = Utils.overwrittenFunction(AnimalSystem.loadSubTypes, RealisticLivestock_AnimalSystem.loadSubTypes)
+
+
+function RealisticLivestock_AnimalSystem:loadSubType(superFunc, animalType, subType, xmlFile, key, directory)
+
+    local returnValue = superFunc(self, animalType, subType, xmlFile, key, directory)
+
+    local height, radius = animalType.navMeshAgentAttributes.height, animalType.navMeshAgentAttributes.radius
+
+    subType.gender = xmlFile:getString(key .. "#gender", "female")
+
+    if directory ~= modDirectory and subType.gender == "female" then subType.gender = string.contains(subType.name, "_MALE") and "male" or "female" end
+
+    subType.maxWeight = xmlFile:getFloat(key .. "#maxWeight", height * radius * 750)
+    subType.targetWeight = xmlFile:getFloat(key .. "#targetWeight", height * radius * 300)
+    subType.minWeight = xmlFile:getFloat(key .. "#minWeight", height * radius * 50)
 
     return returnValue
 
@@ -113,6 +379,7 @@ AnimalSystem.loadVisualData = Utils.overwrittenFunction(AnimalSystem.loadVisualD
 
 function AnimalSystem:initialiseCountries()
 
+    self.maxDealerAnimals = self.maxDealerAnimals or 40
     self.countries = {}
     self.animals = {}
 
@@ -138,6 +405,10 @@ end
 function AnimalSystem:validateFarms(hasData)
 
     if self.countries == nil then self.countries = {} end
+
+    local animalTypeIndexes = {}
+
+    for _, animalType in pairs(self.types) do table.insert(animalTypeIndexes, animalType.typeIndex) end
 
     
     -- validate every country exists
@@ -185,24 +456,38 @@ function AnimalSystem:validateFarms(hasData)
 
             for i = #country.farms + 1, 20 do
 
-                local farm = { ["quality"] = math.random(250, 1750) / 1000 }
+                local farm = { ["quality"] = math.random(250, 1750) / 1000, ["ids"] = {} }
 
-                for i = 0, math.random(0, 2) do
+                for i = 0, math.random(0, math.min(2, #animalTypeIndexes)) do
 
-                    local randomProduce = math.random()
-                    local baseChance = 1 / (5 - i)
+                    --local randomProduce = math.random()
+                    --local baseChance = 1 / (5 - i)
 
-                    if farm.cowId == nil and randomProduce <= baseChance then
-                        farm.cowId = 0
-                    elseif farm.pigId == nil and randomProduce <= baseChance * (farm.cowId == nil and 2 or 1) then
-                        farm.pigId = 0
-                    elseif farm.sheepId == nil and randomProduce <= baseChance * ((farm.cowId == nil and farm.pigId == nil and 3) or ((farm.cowId == nil or farm.pigId == nil) and 2) or 1) then
-                        farm.sheepId = 0
-                    elseif farm.chickenId == nil and randomProduce <= baseChance * ((farm.cowId == nil and farm.pigId == nil and farm.sheepId == nil and 4) or (i == 1 and farm.horseId == nil and 3) or 2) then
-                        farm.chickenId = 0
-                    else
-                        farm.horseId = 0
+                    --if farm.cowId == nil and randomProduce <= baseChance then
+                    --    farm.cowId = 0
+                    --elseif farm.pigId == nil and randomProduce <= baseChance * (farm.cowId == nil and 2 or 1) then
+                    --    farm.pigId = 0
+                    --elseif farm.sheepId == nil and randomProduce <= baseChance * ((farm.cowId == nil and farm.pigId == nil and 3) or ((farm.cowId == nil or farm.pigId == nil) and 2) or 1) then
+                    --    farm.sheepId = 0
+                    --elseif farm.chickenId == nil and randomProduce <= baseChance * ((farm.cowId == nil and farm.pigId == nil and farm.sheepId == nil and 4) or (i == 1 and farm.horseId == nil and 3) or 2) then
+                    --    farm.chickenId = 0
+                    --else
+                    --    farm.horseId = 0
+                    --end
+
+                    local randomAnimalTypeIndex = animalTypeIndexes[math.random(1, #animalTypeIndexes)]
+                    local attempts = 0
+
+                    while farm.ids[randomAnimalTypeIndex] ~= nil do
+
+                        randomAnimalTypeIndex = animalTypeIndexes[math.random(1, #animalTypeIndexes)]
+                        attempts = attempts + 1
+
+                        if attempts > 20 then break end
+
                     end
+
+                    farm.ids[randomAnimalTypeIndex] = 0
 
                 end
 
@@ -214,15 +499,16 @@ function AnimalSystem:validateFarms(hasData)
                 
                 -- validate there is at least 1 farm that produces each animal type
 
-                for i = 1, 5 do
+                for i = 1, #animalTypeIndexes do
 
                     local randomFarmIndex = math.random(1, #country.farms)
+                    country.farms[randomFarmIndex].ids[i] = country.farms[randomFarmIndex].ids[i] or 0
         
-                    if i == 1 then country.farms[randomFarmIndex].cowId = country.farms[randomFarmIndex].cowId or 0 end
-                    if i == 2 then country.farms[randomFarmIndex].pigId = country.farms[randomFarmIndex].pigId or 0 end
-                    if i == 3 then country.farms[randomFarmIndex].sheepId = country.farms[randomFarmIndex].sheepId or 0 end
-                    if i == 4 then country.farms[randomFarmIndex].chickenId = country.farms[randomFarmIndex].chickenId or 0 end
-                    if i == 5 then country.farms[randomFarmIndex].horseId = country.farms[randomFarmIndex].horseId or 0 end
+                    --if i == 1 then country.farms[randomFarmIndex].cowId = country.farms[randomFarmIndex].cowId or 0 end
+                    --if i == 2 then country.farms[randomFarmIndex].pigId = country.farms[randomFarmIndex].pigId or 0 end
+                    --if i == 3 then country.farms[randomFarmIndex].sheepId = country.farms[randomFarmIndex].sheepId or 0 end
+                    --if i == 4 then country.farms[randomFarmIndex].chickenId = country.farms[randomFarmIndex].chickenId or 0 end
+                    --if i == 5 then country.farms[randomFarmIndex].horseId = country.farms[randomFarmIndex].horseId or 0 end
 
                 end
 
@@ -315,7 +601,27 @@ function AnimalSystem:loadFromXMLFile()
             local chickenId = xmlFile:getInt(farmKey .. "#chickenId", nil)
             local quality = xmlFile:getFloat(farmKey .. "#quality", math.random(250, 1750) / 1000)
             
-            table.insert(farms, { ["id"] = farmId, ["quality"] = quality, ["cowId"] = cowId, ["pigId"] = pigId, ["sheepId"] = sheepId, ["horseId"] = horseId, ["chickenId"] = chickenId })
+            local ids = {}
+
+            -- compatibility with previous builds
+
+            if cowId ~= nil then ids[1] = cowId end
+            if pigId ~= nil then ids[2] = pigId end
+            if sheepId ~= nil then ids[3] = sheepId end
+            if horseId ~= nil then ids[4] = horseId end
+            if chickenId ~= nil then ids[5] = chickenId end
+
+            xmlFile:iterate(farmKey .. ".id", function(_, idKey)
+            
+                local animalTypeIndex = xmlFile:getInt(idKey .. "#type", 1)
+                local lastId = xmlFile:getInt(idKey .. "#id", 0)
+
+                ids[animalTypeIndex] = lastId
+            
+            end)
+            
+            --table.insert(farms, { ["id"] = farmId, ["quality"] = quality, ["cowId"] = cowId, ["pigId"] = pigId, ["sheepId"] = sheepId, ["horseId"] = horseId, ["chickenId"] = chickenId })
+            table.insert(farms, { ["id"] = farmId, ["quality"] = quality, ["ids"] = ids })
 
         end)
 
@@ -370,11 +676,18 @@ function AnimalSystem:saveToXMLFile(path)
             xmlFile:setInt(farmKey .. "#id", farm.id)
             xmlFile:setFloat(farmKey .. "#quality", farm.quality)
             
-            if farm.cowId ~= nil then xmlFile:setInt(farmKey .. "#cowId", farm.cowId) end
-            if farm.pigId ~= nil then xmlFile:setInt(farmKey .. "#pigId", farm.pigId) end
-            if farm.sheepId ~= nil then xmlFile:setInt(farmKey .. "#sheepId", farm.sheepId) end
-            if farm.horseId ~= nil then xmlFile:setInt(farmKey .. "#horseId", farm.horseId) end
-            if farm.chickenId ~= nil then xmlFile:setInt(farmKey .. "#chickenId", farm.chickenId) end
+            --if farm.cowId ~= nil then xmlFile:setInt(farmKey .. "#cowId", farm.cowId) end
+            --if farm.pigId ~= nil then xmlFile:setInt(farmKey .. "#pigId", farm.pigId) end
+            --if farm.sheepId ~= nil then xmlFile:setInt(farmKey .. "#sheepId", farm.sheepId) end
+            --if farm.horseId ~= nil then xmlFile:setInt(farmKey .. "#horseId", farm.horseId) end
+            --if farm.chickenId ~= nil then xmlFile:setInt(farmKey .. "#chickenId", farm.chickenId) end
+
+            for animalTypeIndex, id in pairs(farm.ids) do
+
+                xmlFile:setInt(farmKey .. ".id#type", animalTypeIndex)
+                xmlFile:setInt(farmKey .. ".id#id", id)
+
+            end
 
         end
 
@@ -442,29 +755,31 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
         
             local farm = country.farms[i]
 
-            if animalTypeIndex == AnimalType.COW and farm.cowId ~= nil then
-                table.insert(validFarms, i)
-                continue
-            end
+            --if animalTypeIndex == AnimalType.COW and farm.cowId ~= nil then
+            --    table.insert(validFarms, i)
+            --    continue
+            --end
 
-            if animalTypeIndex == AnimalType.PIG and farm.pigId ~= nil then
-                table.insert(validFarms, i)
-                continue
-            end
+            --if animalTypeIndex == AnimalType.PIG and farm.pigId ~= nil then
+            --    table.insert(validFarms, i)
+            --    continue
+            --end
 
-            if animalTypeIndex == AnimalType.SHEEP and farm.sheepId ~= nil then
-                table.insert(validFarms, i)
-                continue
-            end
+            --if animalTypeIndex == AnimalType.SHEEP and farm.sheepId ~= nil then
+            --    table.insert(validFarms, i)
+            --    continue
+            --end
 
-            if animalTypeIndex == AnimalType.CHICKEN and farm.chickenId ~= nil then
-                table.insert(validFarms, i)
-                continue
-            end
+            --if animalTypeIndex == AnimalType.CHICKEN and farm.chickenId ~= nil then
+            --    table.insert(validFarms, i)
+            --    continue
+            --end
 
-            if animalTypeIndex == AnimalType.HORSE and farm.horseId ~= nil then
-                table.insert(validFarms, i)
-            end
+            --if animalTypeIndex == AnimalType.HORSE and farm.horseId ~= nil then
+            --    table.insert(validFarms, i)
+            --end
+
+            if farm.ids[animalTypeIndex] ~= nil then table.insert(validFarms, i) end
 
         end
 
@@ -477,22 +792,25 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
         farmQuality = farm.quality
         farmCountryIndex = countryIndex
         
-        if animalTypeIndex == AnimalType.COW then
-            country.farms[farmIndex].cowId = farm.cowId + 1
-            lastAnimalId = country.farms[farmIndex].cowId
-        elseif animalTypeIndex == AnimalType.PIG then
-            country.farms[farmIndex].pigId = farm.pigId + 1
-            lastAnimalId = country.farms[farmIndex].pigId
-        elseif animalTypeIndex == AnimalType.SHEEP then
-            country.farms[farmIndex].sheepId = farm.sheepId + 1
-            lastAnimalId = country.farms[farmIndex].sheepId
-        elseif animalTypeIndex == AnimalType.CHICKEN then
-            country.farms[farmIndex].chickenId = farm.chickenId + 1
-            lastAnimalId = country.farms[farmIndex].chickenId
-        elseif animalTypeIndex == AnimalType.HORSE then
-            country.farms[farmIndex].horseId = farm.horseId + 1
-            lastAnimalId = country.farms[farmIndex].horseId
-        end
+        --if animalTypeIndex == AnimalType.COW then
+        --    country.farms[farmIndex].cowId = farm.cowId + 1
+        --    lastAnimalId = country.farms[farmIndex].cowId
+        --elseif animalTypeIndex == AnimalType.PIG then
+        --    country.farms[farmIndex].pigId = farm.pigId + 1
+        --    lastAnimalId = country.farms[farmIndex].pigId
+        --elseif animalTypeIndex == AnimalType.SHEEP then
+        --    country.farms[farmIndex].sheepId = farm.sheepId + 1
+        --    lastAnimalId = country.farms[farmIndex].sheepId
+        --elseif animalTypeIndex == AnimalType.CHICKEN then
+        --    country.farms[farmIndex].chickenId = farm.chickenId + 1
+        --    lastAnimalId = country.farms[farmIndex].chickenId
+        --elseif animalTypeIndex == AnimalType.HORSE then
+        --    country.farms[farmIndex].horseId = farm.horseId + 1
+        --    lastAnimalId = country.farms[farmIndex].horseId
+        --end
+
+        farm.ids[animalTypeIndex] = (farm.ids[animalTypeIndex] or 0) + 1
+        lastAnimalId = farm.ids[animalTypeIndex]
 
     end
 
@@ -723,21 +1041,28 @@ function AnimalSystem:getNextAnimalIdForFarm(countryIndex, animalTypeIndex, farm
 
         if farm.id == farmId then
 
-            local index = "cowId"
+            --local index = "cowId"
 
-            if animalTypeIndex == AnimalType.PIG then
-                index = "pigId"
-            elseif animalTypeIndex == AnimalType.SHEEP then
-                index = "sheepId"
-            elseif animalTypeIndex == AnimalType.CHICKEN then
-                index = "chickenId"
-            elseif animalTypeIndex == AnimalType.HORSE then
-                index = "horseId"
-            end
+            --if animalTypeIndex == AnimalType.PIG then
+            --    index = "pigId"
+            --elseif animalTypeIndex == AnimalType.SHEEP then
+            --    index = "sheepId"
+            --elseif animalTypeIndex == AnimalType.CHICKEN then
+            --    index = "chickenId"
+            --elseif animalTypeIndex == AnimalType.HORSE then
+            --    index = "horseId"
+            --end
 
-            if farm[index] ~= nil then
-                farm[index] = farm[index] + 1
-                return farm[index]
+            --if farm[index] ~= nil then
+            --    farm[index] = farm[index] + 1
+            --    return farm[index]
+            --end
+
+            if farm.ids[animalTypeIndex] ~= nil then
+
+                farm.ids[animalTypeIndex] = farm.ids[animalTypeIndex] + 1
+                return farm.ids[animalTypeIndex]
+
             end
 
             return 1

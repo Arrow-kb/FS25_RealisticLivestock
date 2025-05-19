@@ -1,6 +1,6 @@
 <modDesc descVersion="98">
     <author>Arrow</author>
-    <version>1.0.0.7</version>
+    <version>1.0.0.8</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -48,6 +48,12 @@ Features:
 - Statistics - almost every aspect of the base statistics of different breeds has been changed for more variation between breeds. This includes sell price, food and water amounts, production outputs, and more
 
 Changelog:
+
+1.0.0.8
+- Added limited compatibility for custom map animals
+- Fixed some input and output issues from 1.0.0.7
+- Fixed error on first load due to a setting
+- Fixed animal types not appearing due to too many filltypes
 
 1.0.0.7
 - Reworked production (backend for future feature)

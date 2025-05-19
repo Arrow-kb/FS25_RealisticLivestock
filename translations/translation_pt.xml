@@ -207,6 +207,29 @@
 		<text name="rl_ui_buyBulkResult" text="%s animais comprados por %s" tag="format"/>
 		<text name="rl_ui_sellBulkResult" text="%s animais vendidos por %s" tag="format"/>
 		<text name="rl_ui_moveBulkResult" text="%s animais movidos" tag="format"/>
+
+
+
+		<!--  SETTINGS  -->
+
+
+		<text name="rl_settings" text="Realistic Livestock"/>
+
+		<text name="rl_settings_off" text="Off"/>
+		<text name="rl_settings_on" text="On"/>
+
+		<text name="rl_settings_deathEnabled_label" text="Animal Removal"/>
+		<text name="rl_settings_deathEnabled_tooltip_1" text="Animals will not be removed due to pregnancy, health, age or accidents"/>
+		<text name="rl_settings_deathEnabled_tooltip_2" text="Animals will be removed due to pregnancy, health, age or accidents"/>
+
+		<text name="rl_settings_accidentsChance_label" text="Accident Chance"/>
+		<text name="rl_settings_accidentsChance_tooltip" text="Change the likelihood of animals being removed due to random accidents"/>
+
+		<text name="rl_settings_foodScale_label" text="Food Scale"/>
+		<text name="rl_settings_foodScale_tooltip" text="Change the amount of food eaten by animals"/>
+
+		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
+		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
 		
 	</texts>
 </l10n>

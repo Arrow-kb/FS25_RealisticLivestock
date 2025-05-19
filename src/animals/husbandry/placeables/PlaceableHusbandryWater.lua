@@ -18,6 +18,7 @@ function PlaceableHusbandryWater:updateInputAndOutput(superFunc, animals)
 	superFunc(self, animals)
 
     local spec = self.spec_husbandryWater
+    spec.litersPerHour = 0
 
     for _, animal in pairs(animals) do
 

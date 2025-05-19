@@ -39,7 +39,7 @@ function PlaceableHusbandryStraw:updateInputAndOutput(superFunc, animals)
 
             if manure ~= nil then
 
-                spec.outputLitersPerHour = spec.outputLitersPerHour + animal:getInput("manure")
+                spec.outputLitersPerHour = spec.outputLitersPerHour + animal:getOutput("manure")
 
             end
 

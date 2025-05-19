@@ -19,6 +19,8 @@ function PlaceableHusbandryLiquidManure:updateInputAndOutput(superFunc, animals)
 
     local spec = self.spec_husbandryLiquidManure
 
+    spec.litersPerHour = 0
+
     for _, animal in pairs(animals) do
 
         local subType = animal:getSubType()
@@ -29,7 +31,7 @@ function PlaceableHusbandryLiquidManure:updateInputAndOutput(superFunc, animals)
 
             if liquidManure ~= nil then
 
-                spec.litersPerHour = spec.litersPerHour + animal:getInput("liquidManure")
+                spec.litersPerHour = spec.litersPerHour + animal:getOutput("liquidManure")
 
             end
 
