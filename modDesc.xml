@@ -1,6 +1,6 @@
 <modDesc descVersion="98">
     <author>Arrow</author>
-    <version>1.0.0.6</version>
+    <version>1.0.0.7</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -48,6 +48,20 @@ Features:
 - Statistics - almost every aspect of the base statistics of different breeds has been changed for more variation between breeds. This includes sell price, food and water amounts, production outputs, and more
 
 Changelog:
+
+1.0.0.7
+- Reworked production (backend for future feature)
+- Liberated the Czech Republic from the USSR
+- Added the following settings options:
+--- Change animal dealer max animals
+- Animals with reproduction > 0 are now correctly given offspring when loading the mod for the first time and wont be stuck at x reproduction
+- Further fixes to prevent irregular aging of newborns
+- Fixed baby goats producing goat milk
+- Fixed baby roosters showing as adults
+- Fixed animals still showing on dealer list after being sold
+- Fixed brush cant be used on horses
+- Fixed horse info box not showing after dismounting
+- Fixed error when attempting to unload multiple horses into non-husbandry
 
 1.0.0.6
 - Fixed animal pens becoming overcrowded after pregnancies
@@ -177,6 +191,10 @@ Caractéristiques :
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalCluster.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalClusterHusbandry.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalClusterSystem.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/PlaceableHusbandry.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/PlaceableHusbandryLiquidManure.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/PlaceableHusbandryStraw.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/PlaceableHusbandryWater.lua"/>
         <sourceFile filename="src/animals/husbandry/placeables/RealisticLivestock_PlaceableHusbandryAnimals.lua"/>
         <sourceFile filename="src/animals/husbandry/placeables/RealisticLivestock_PlaceableHusbandryMilk.lua"/>
         <sourceFile filename="src/animals/husbandry/placeables/RealisticLivestock_PlaceableHusbandryFood.lua"/>
@@ -203,6 +221,7 @@ Caractéristiques :
         <sourceFile filename="src/gui/InGameMenuSettingsFrame.lua"/>
         <sourceFile filename="src/gui/RL_InfoDisplayKeyValueBox.lua"/>
         <sourceFile filename="src/gui/RealisticLivestock_InGameMenuAnimalsFrame.lua"/>
+        <sourceFile filename="src/handTools/specializations/HandToolHorseBrush.lua"/>
         <sourceFile filename="src/placeables/RealisticLivestock_PlaceableSystem.lua"/>
         <sourceFile filename="src/player/RealisticLivestock_PlayerHUDUpdater.lua"/>
         <sourceFile filename="src/player/RealisticLivestock_PlayerInputComponent.lua"/>
