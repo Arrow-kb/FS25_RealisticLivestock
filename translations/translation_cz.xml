@@ -225,8 +225,8 @@
 		<text name="rl_settings_accidentsChance_label" text="Pravděpodobnost nehody"/>
 		<text name="rl_settings_accidentsChance_tooltip" text="Změnit pravděpodobnost uhynutí zvířat kvůli náhodným nehodám"/>
 
-		<text name="rl_settings_foodScale_label" text="Food Scale"/>
-		<text name="rl_settings_foodScale_tooltip" text="Change the amount of food eaten by animals"/>
+		<text name="rl_settings_foodScale_label" text="Množství potravy"/>
+		<text name="rl_settings_foodScale_tooltip" text="Změna množství potravy, kterou zvířata konzumují"/>
 
 	</texts>
 </l10n>
