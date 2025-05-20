@@ -1,6 +1,6 @@
 <modDesc descVersion="98">
     <author>Arrow</author>
-    <version>1.0.0.8</version>
+    <version>1.0.0.9</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -48,6 +48,13 @@ Features:
 - Statistics - almost every aspect of the base statistics of different breeds has been changed for more variation between breeds. This includes sell price, food and water amounts, production outputs, and more
 
 Changelog:
+
+1.0.0.9
+- Added visual monitor tags which allow seeing certain stats in exchange for a small monthly payment
+- Began adding help menu
+- Fixed cockerels not being found as a suitable male animal
+- Fixed straw not being used
+- Fixed animal limit set to 0
 
 1.0.0.8
 - Added limited compatibility for custom map animals
@@ -234,6 +241,7 @@ Caractéristiques :
         <sourceFile filename="src/vehicles/specializations/RealisticLivestock_LivestockTrailer.lua"/>
         <sourceFile filename="src/vehicles/RealisticLivestock_VehicleSystem.lua"/>
         <sourceFile filename="src/FSCareerMissionInfo.lua"/>
+        <sourceFile filename="src/I18N.lua"/>
         <sourceFile filename="src/RealisticLivestock.lua"/>
         <sourceFile filename="src/RealisticLivestock_Animal.lua"/>
         <sourceFile filename="src/RealisticLivestock_FSBaseMission.lua"/>
@@ -248,4 +256,58 @@ Caractéristiques :
     <actions>
         <action name="VisualAnimalsDialog"/>
     </actions>
+	<helpLines>
+
+		<category title="$l10n_rl_settings">
+
+			<page title="$l10n_rl_help_main_title" iconSliceId="gui.icon_options_help">
+
+				<paragraph>
+					<text text="$l10n_rl_help_main_1"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_main_2"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_main_3"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_main_4"/>
+				</paragraph>
+				
+			</page>
+
+			<page title="$l10n_rl_help_cows_title" iconSliceId="gui.multiplayer_bull">
+				
+				
+				
+			</page>
+
+			<page title="$l10n_rl_help_pigs_title" iconSliceId="gui.multiplayer_pig">
+				
+				
+				
+			</page>
+
+			<page title="$l10n_rl_help_sheep_title" iconSliceId="gui.multiplayer_goat">
+				
+				
+				
+			</page>
+
+			<page title="$l10n_rl_help_horses_title" iconSliceId="gui.multiplayer_horse">
+				
+				
+				
+			</page>
+
+			<page title="$l10n_rl_help_chickens_title" iconSliceId="gui.multiplayer_chicken">
+				
+				
+				
+			</page>
+			
+		</category>
+		
+	</helpLines>
 </modDesc>

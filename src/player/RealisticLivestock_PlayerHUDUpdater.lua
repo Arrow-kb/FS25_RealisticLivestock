@@ -37,6 +37,18 @@ PlayerHUDUpdater.updateRaycastObject = Utils.appendedFunction(PlayerHUDUpdater.u
 
 function RealisticLivestock_PlayerHUDUpdater:showAnimalInfo(animal)
 
+    if self.monitorBox == nil then self.monitorBox = g_currentMission.hud.infoDisplay:createBox(InfoDisplayKeyValueBox) end
+
+    if animal.monitor.active or animal.monitor.removed then
+
+        local box = self.monitorBox
+        box:clear()
+        box:setTitle(g_i18n:getText("rl_ui_monitor"))
+        animal:showMonitorInfo(box)
+        box:showNextFrame()
+
+    end
+
     if self.geneticsBox == nil then self.geneticsBox = g_currentMission.hud.infoDisplay:createBox(RL_InfoDisplayKeyValueBox) end
 
     local box = self.geneticsBox

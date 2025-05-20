@@ -2,7 +2,7 @@ Animal = {}
 local Animal_mt = Class(Animal)
 
 
-function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children)
+function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor)
 
     local self = setmetatable({}, Animal_mt)
 
@@ -260,6 +260,14 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
 
     end
 
+    self:updateInput()
+    self:updateOutput(g_currentMission.environment.weather.temperatureUpdater.currentMin or 20)
+
+    self.monitor = monitor or { ["active"] = false, ["removed"] = false }
+
+    local animalType = g_currentMission.animalSystem.types[self.animalTypeIndex]
+
+    self.monitor.fee = math.max(animalType.navMeshAgentAttributes.height * animalType.navMeshAgentAttributes.radius * 15, 0.25)
 
     return self
 
@@ -444,8 +452,11 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
     end
 
 
+    local monitor = { ["active"] = xmlFile:getBool(key .. ".monitor#active", false), ["removed"] = xmlFile:getBool(key .. ".monitor#removed", false) }
 
-    local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children)
+
+
+    local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor)
     --local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, impregnatedById, pos, name, dirt, fitness, riding, farmId, weight, metabolism, impregnatedByMetabolism, impregnatedByProductivity, productivity, quality, impregnatedByMeatQuality, impregnatedByHealth, impregnatedByFertility, healthGenetics, fertility, variation, children)
 
     animal:setBirthday(birthday)
@@ -583,6 +594,9 @@ function Animal:saveToXMLFile(xmlFile, key)
 
     end
 
+    xmlFile:setBool(key .. ".monitor#active", self.monitor.active)
+    xmlFile:setBool(key .. ".monitor#removed", self.monitor.removed)
+
 end
 
 
@@ -591,7 +605,7 @@ function Animal:clone()
     local impregnatedBy = self.impregnatedBy or nil
     
     --local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, impregnatedBy ~= nil and impregnatedBy.uniqueId or nil, self.pos or nil, self.name or nil, self.dirt or nil, self.fitness or nil, self.riding or nil, self.farmId, self.weight, self.metabolism, impregnatedBy ~= nil and impregnatedBy.metabolism or nil, impregnatedBy ~= nil and impregnatedBy.productivity or nil, self.genetics.productivity or nil, self.genetics.quality, impregnatedBy ~= nil and impregnatedBy.quality or nil, impregnatedBy ~= nil and impregnatedBy.health or nil, impregnatedBy ~= nil and impregnatedBy.fertility or nil, self.genetics.health, self.genetics.fertility, self.variation, self.children)
-    local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, self.pos, self.name, self.dirt, self.fitness, self.riding, self.farmId, self.weight, self.genetics, self.impregnatedBy, self.variation, self.children)
+    local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, self.pos, self.name, self.dirt, self.fitness, self.riding, self.farmId, self.weight, self.genetics, self.impregnatedBy, self.variation, self.children, self.monitor)
 
     --if self.impregnatedBy ~= nil then
         --newAnimal.impregnatedBy = {
@@ -793,12 +807,18 @@ function Animal:addInfos(infos)
 
     local subType = self:getSubType()
 
-    local healthFactor = self:getHealthFactor()
-    self.infoHealth.value = healthFactor
-    self.infoHealth.ratio = healthFactor
-    self.infoHealth.valueText = string.format("%d %%", g_i18n:formatNumber(healthFactor * 100, 0))
+    local hasMonitor = self.monitor.active or self.monitor.removed
 
-    table.insert(infos, self.infoHealth)
+    if hasMonitor then
+
+        local healthFactor = self:getHealthFactor()
+        self.infoHealth.value = healthFactor
+        self.infoHealth.ratio = healthFactor
+        self.infoHealth.valueText = string.format("%d %%", g_i18n:formatNumber(healthFactor * 100, 0))
+
+        table.insert(infos, self.infoHealth)
+
+    end
 
     if self:getSupportsReproduction() then
         local reproductionFactor = self:getReproductionFactor()
@@ -831,20 +851,23 @@ function Animal:addInfos(infos)
         table.insert(infos, self.infoReproduction)
     end
 
+    if hasMonitor then
 
-    if self.infoWeight == nil then
-        self.infoWeight = {
-            text = g_i18n:getText("rl_ui_weight"),
-            title = g_i18n:getText("rl_ui_weight")
-        }
+        if self.infoWeight == nil then
+            self.infoWeight = {
+                text = g_i18n:getText("rl_ui_weight"),
+                title = g_i18n:getText("rl_ui_weight")
+            }
+        end
+
+
+        self.infoWeight.value = 1
+        self.infoWeight.ratio = self.weight / self.targetWeight
+        self.infoWeight.valueText = string.format("%.2f", self.weight) .. "kg / " .. string.format("%.2f", self.targetWeight) .. "kg"
+
+        table.insert(infos, self.infoWeight)
+
     end
-
-
-    self.infoWeight.value = 1
-    self.infoWeight.ratio = self.weight / self.targetWeight
-    self.infoWeight.valueText = string.format("%.2f", self.weight) .. "kg / " .. string.format("%.2f", self.targetWeight) .. "kg"
-
-    table.insert(infos, self.infoWeight)
 
 
     if self.gender ~= nil and self.gender == "female" then
@@ -893,7 +916,7 @@ function Animal:addInfos(infos)
 
         end
 
-        if self.isLactating ~= nil and self.age > 12 and self.clusterSystem.owner.spec_husbandryMilk ~= nil then
+        if self.isLactating ~= nil and hasMonitor and self.age > 12 and self.clusterSystem.owner.spec_husbandryMilk ~= nil then
 
             if self.infoLactation == nil then
                 self.infoLactation = {
@@ -995,22 +1018,13 @@ function Animal:showInfo(box)
 
     end
 
-    box:addLine(g_i18n:getText("infohud_health"), string.format("%d%%", self.health))
     box:addLine(g_i18n:getText("rl_ui_gender"), self.gender == "male" and g_i18n:getText("rl_ui_male") or g_i18n:getText("rl_ui_female"))
-
-    box:addLine(g_i18n:getText("rl_ui_weight"), string.format("%.2f", self.weight) .. "kg")
-    box:addLine(g_i18n:getText("rl_ui_targetWeight"), string.format("%.2f", self.targetWeight) .. "kg")
 
 
     if string.contains(self.subType, "HORSE", true) or string.contains(self.subType, "STALLION", true) then
         box:addLine(g_i18n:getText("infohud_riding"), string.format("%d%%", self.riding))
         box:addLine(g_i18n:getText("infohud_fitness"), string.format("%d%%", self.fitness))
         if Platform.gameplay.needHorseCleaning then box:addLine(g_i18n:getText("statistic_cleanliness"), string.format("%d%%", 100 - self.dirt)) end
-    end
-
-
-    if self.clusterSystem ~= nil and self.clusterSystem.owner.spec_husbandryMilk ~= nil and self.gender ~= nil and self.gender == "female" and self.age >= 12 then
-        if self.isLactating ~= nil then box:addLine(g_i18n:getText("rl_ui_lactating"), self.isLactating and yesText or noText) end
     end
 
     if self.gender ~= nil and self.gender == "female" and subType.supportsReproduction then
@@ -1057,7 +1071,6 @@ function Animal:showInfo(box)
     end
 
     box:addLine(g_i18n:getText("rl_ui_value"), g_i18n:formatMoney(self:getSellPrice(), 2, true, true))
-    box:addLine(g_i18n:getText("rl_ui_valuePerKilo"), g_i18n:formatMoney(self:getSellPrice() / self.weight, 2, true, true))
 
 end
 
@@ -1366,6 +1379,48 @@ function Animal:addGeneticsInfo()
     end
 
     return texts
+
+end
+
+
+function Animal:showMonitorInfo(box)
+
+    if not self.monitor.active and not self.monitor.removed then return end
+
+    box:addLine(g_i18n:getText("rl_ui_monitorFee"), string.format(g_i18n:getText("rl_ui_feePerMonth"), g_i18n:formatMoney(self.monitor.fee, 2, true, true)))
+    box:addLine(g_i18n:getText("infohud_health"), string.format("%d%%", self.health))
+
+    if self.clusterSystem ~= nil and self.clusterSystem.owner.spec_husbandryMilk ~= nil and self.gender ~= nil and self.gender == "female" and self.age >= 12 then
+        if self.isLactating ~= nil then box:addLine(g_i18n:getText("rl_ui_lactating"), self.isLactating and g_i18n:getText("rl_ui_yes") or g_i18n:getText("rl_ui_no")) end
+    end
+
+    box:addLine(g_i18n:getText("rl_ui_weight"), string.format("%.2f", self.weight) .. "kg")
+    box:addLine(g_i18n:getText("rl_ui_targetWeight"), string.format("%.2f", self.targetWeight) .. "kg")
+    box:addLine(g_i18n:getText("rl_ui_valuePerKilo"), g_i18n:formatMoney(self:getSellPrice() / self.weight, 2, true, true))
+
+    for fillType, amount in pairs(self.input) do
+
+        box:addLine(g_i18n:getText("rl_ui_input_" .. fillType), string.format(g_i18n:getText("rl_ui_amountPerDay"), amount))
+
+    end
+
+    for fillType, amount in pairs(self.output) do
+
+        local outputText = fillType
+
+        if fillType == "pallets" then
+
+            if self.animalTypeIndex == AnimalType.COW then outputText = "pallets_milk" end
+
+            if self.animalTypeIndex == AnimalType.SHEEP then outputText = self.subType == "GOAT" and "pallets_goatMilk" or "pallets_wool" end
+
+            if self.animalTypeIndex == AnimalType.CHICKEN then outputText = "pallets_eggs" end
+
+        end
+
+        box:addLine(g_i18n:getText("rl_ui_output_" .. outputText), string.format(g_i18n:getText("rl_ui_amountPerDay"), amount))
+
+    end
 
 end
 
@@ -2515,26 +2570,38 @@ function Animal:updateInput()
 
     local subType = self:getSubType()
 
-    local food, water = subType.input.food, subType.input.water
 
-    self.input.food, self.input.water = 0, 0
+    for fillType, input in pairs(subType.input) do
 
+        local litersPerDay = input:get(self.age)
 
-    if food ~= nil then
+        if fillType == "food" then
 
-        local litersPerDay = food:get(self.age)
+            if self.isLactating then litersPerDay = litersPerDay * 1.25 end
 
-        if self.isLactating then litersPerDay = litersPerDay * 1.25 end
+            if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
+                litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
+            end
 
-        if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
-            litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
+            if self.genetics.metabolism ~= nil then litersPerDay = litersPerDay * self.genetics.metabolism end
+
+            litersPerDay = litersPerDay * (RealisticLivestock_PlaceableHusbandryFood.foodScale or 1)
+
         end
 
-        if self.genetics.metabolism ~= nil then litersPerDay = litersPerDay * self.genetics.metabolism end
+        if fillType == "water" then
 
-        litersPerDay = litersPerDay * (RealisticLivestock_PlaceableHusbandryFood.foodScale or 1)
+            local litersPerDay = input:get(self.age)
 
-        self.input.food = litersPerDay / 24
+            if self.isLactating then litersPerDay = litersPerDay * 1.5 end
+
+            if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
+                litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
+            end
+
+        end
+
+        self.input[fillType] = litersPerDay / 24
 
     end
 

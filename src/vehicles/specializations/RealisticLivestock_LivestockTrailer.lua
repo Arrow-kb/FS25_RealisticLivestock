@@ -85,7 +85,7 @@ AnimalMoveEvent.run = Utils.overwrittenFunction(AnimalMoveEvent.run, RealisticLi
 
 
 
-function RealisticLivestock_PlaceableHusbandryAnimals:dayChanged(superFunc)
+function RealisticLivestock_LivestockTrailer:dayChanged(superFunc)
 
     superFunc(self)
 

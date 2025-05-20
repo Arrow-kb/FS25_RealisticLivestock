@@ -1113,7 +1113,7 @@ function RealisticLivestock.addAnimals(self, superFunc, subTypeIndex, numAnimals
     end
 end
 
-PlaceableHusbandryAnimals.addAnimals = Utils.overwrittenFunction(PlaceableHusbandryAnimals.addAnimals, RealisticLivestock.addAnimals)
+--PlaceableHusbandryAnimals.addAnimals = Utils.overwrittenFunction(PlaceableHusbandryAnimals.addAnimals, RealisticLivestock.addAnimals)
 
 
 -- Saving and Loading

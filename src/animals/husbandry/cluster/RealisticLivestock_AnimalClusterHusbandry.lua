@@ -272,6 +272,14 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
 
             if animalRootNode ~= 0 then
 
+                if visualData.monitor ~= nil and not animal.monitor.active and not animal.monitor.removed then
+
+                    local monitorNode = I3DUtil.indexToObject(animalRootNode, visualData.monitor)
+                    setVisibility(monitorNode, false)
+
+                end
+
+
                 local numCharacters = RealisticLivestock.NUM_CHARACTERS
 
 

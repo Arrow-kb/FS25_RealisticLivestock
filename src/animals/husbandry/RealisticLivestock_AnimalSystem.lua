@@ -4,68 +4,8 @@ local modName = g_currentModName
 local modDirectory = g_currentModDirectory
 
 
-function RealisticLivestock_AnimalSystem:loadAnimals1(superFunc, baseXmlFile, baseDirectory)
-
-    local path = modDirectory .. "xml/animals.xml"
-    local xmlFile = XMLFile.load("animals", path)
-
-    self.customEnvironment = modName
-
-    superFunc(self, xmlFile, modDirectory)
-
-    local nameToBuyAges = {}
-
-    for _, key in xmlFile:iterator("animals.animal") do
-
-        local name = xmlFile:getString(key .. "#type"):upper()
-        local averageBuyAge = xmlFile:getInt(key .. "#averageBuyAge", 12)
-        local maxBuyAge = xmlFile:getInt(key .. "#maxBuyAge", 60)
-
-        nameToBuyAges[name] = {
-            ["averageBuyAge"] = averageBuyAge,
-            ["maxBuyAge"] = maxBuyAge
-        }
-
-    end
-
-    xmlFile:delete()
-
-
-    if baseXmlFile ~= nil then
-
-        superFunc(self, baseXmlFile, baseDirectory)
-
-        for _, key in baseXmlFile:iterator("animals.animal") do
-
-            local name = baseXmlFile:getString(key .. "#type"):upper()
-
-            if nameToBuyAges[name] ~= nil then continue end
-
-            local averageBuyAge = baseXmlFile:getInt(key .. "#averageBuyAge", 12)
-            local maxBuyAge = baseXmlFile:getInt(key .. "#maxBuyAge", 60)
-
-            nameToBuyAges[name] = {
-                ["averageBuyAge"] = averageBuyAge,
-                ["maxBuyAge"] = maxBuyAge
-            }
-
-        end
-
-    end
-
-
-    for animalTypeIndex, animalType in pairs(self.types) do
-        
-        if nameToBuyAges[animalType.name] ~= nil then
-
-            self.types[animalTypeIndex].averageBuyAge = nameToBuyAges[animalType.name].averageBuyAge
-            self.types[animalTypeIndex].maxBuyAge = nameToBuyAges[animalType.name].maxBuyAge
-
-        end
-
-    end
-
-end
+table.insert(FinanceStats.statNames, "monitorSubscriptions")
+FinanceStats.statNameToIndex["monitorSubscriptions"] = #FinanceStats.statNames
 
 
 function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDirectory)
@@ -174,6 +114,7 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 		    local radius = xmlFile:getFloat(key .. ".navMeshAgent#radius")
 		    local maxClimbMeters = xmlFile:getFloat(key .. ".navMeshAgent#maxClimbMeters")
 		    local maxSlope = math.rad(xmlFile:getFloat(key .. ".navMeshAgent#maxSlope") or 15)
+		    local sqmPerAnimal = xmlFile:getFloat(key .. ".pasture#sqmPerAnimal", 100)
             local averageBuyAge = xmlFile:getInt(key .. "#averageBuyAge", 12)
             local maxBuyAge = xmlFile:getInt(key .. "#maxBuyAge", 60)
 
@@ -190,6 +131,7 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 				    ["maxClimbMeters"] = maxClimbMeters,
 				    ["maxSlope"] = maxSlope
 			    },
+                ["sqmPerAnimal"] = sqmPerAnimal,
 			    ["subTypes"] = {},
                 ["animals"] = {},
                 ["averageBuyAge"] = averageBuyAge,
@@ -364,11 +306,13 @@ function RealisticLivestock_AnimalSystem:loadVisualData(superFunc, animalType, x
     local earTagRight = xmlFile:getString(key .. "#earTagRight", nil)
     local noseRing = xmlFile:getString(key .. "#noseRing", nil)
     local bumId = xmlFile:getString(key .. "#bumId", nil)
+    local monitor = xmlFile:getString(key .. "#monitor", nil)
 
     if earTagLeft ~= nil then visualData.earTagLeft = earTagLeft end
     if earTagRight ~= nil then visualData.earTagRight = earTagRight end
     if noseRing ~= nil then visualData.noseRing = noseRing end
     if bumId ~= nil then visualData.bumId = bumId end
+    if monitor ~= nil then visualData.monitor = monitor end
 
     return visualData
 
@@ -394,6 +338,9 @@ function AnimalSystem:initialiseCountries()
         }
 
     end
+
+    MoneyType.MONITOR_SUBSCRIPTIONS = MoneyType.register("monitorSubscriptions", "rl_ui_monitorSubscriptions")
+    MoneyType.LAST_ID = MoneyType.LAST_ID + 1
 
     g_messageCenter:subscribe(MessageType.HOUR_CHANGED, self.onHourChanged, self)
     g_messageCenter:subscribe(MessageType.DAY_CHANGED, self.onDayChanged, self)
@@ -1181,6 +1128,70 @@ function AnimalSystem:onPeriodChanged()
         for _, animal in pairs(animals) do
 
             animal:onPeriodChanged()
+
+        end
+
+    end
+
+    if self.isServer then
+
+        local monitorCosts = {}
+
+        for _, placeable in pairs(g_currentMission.husbandrySystem.placeables) do
+
+            local animals = placeable:getClusters()
+            local ownerFarmId = placeable:getOwnerFarmId()
+
+            for _, animal in pairs(animals) do
+
+                if not animal.monitor.active and not animal.monitor.removed then continue end
+
+                print(animal.uniqueId)
+
+                if animal.monitor.removed and not animal.monitor.active then
+
+                    local visualData = self:getVisualByAge(animal.subTypeIndex, animal.age)
+
+                    if visualData.monitor ~= nil and animal.idFull ~= nil and animal.idFull ~= "1-1" then
+
+                        local sep = string.find(animal.idFull, "-")
+                        local husbandry = tonumber(string.sub(animal.idFull, 1, sep - 1))
+                        local animalId = tonumber(string.sub(animal.idFull, sep + 1))
+
+                        if husbandry ~= 0 and animalId ~= 0 then
+
+                            local rootNode = getAnimalRootNode(husbandry, animalId)
+
+                            if rootNode ~= 0 then
+
+                                local monitorNode = I3DUtil.indexToObject(rootNode, visualData.monitor)
+
+                                if monitorNode ~= nil and monitorNode ~= 0 then setVisibility(monitorNode, false) end
+
+                            end
+
+                        end
+
+                    end
+                    
+                    animal.monitor.removed = false
+
+                end
+
+                if monitorCosts[ownerFarmId] == nil then monitorCosts[ownerFarmId] = 0 end
+
+                monitorCosts[ownerFarmId] = monitorCosts[ownerFarmId] + animal.monitor.fee
+
+            end
+
+        end
+
+        for ownerFarmId, cost in pairs(monitorCosts) do
+
+            local ownerFarm = g_farmManager:getFarmById(ownerFarmId)
+
+            g_currentMission:addMoneyChange(0 - cost, ownerFarmId, MoneyType.MONITOR_SUBSCRIPTIONS, true)
+            ownerFarm:changeBalance(0 - cost, MoneyType.MONITOR_SUBSCRIPTIONS)
 
         end
 

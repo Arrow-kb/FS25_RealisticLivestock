@@ -13,16 +13,6 @@ function RealisticLivestock_PlaceableHusbandryFood:onHusbandryAnimalsUpdate(supe
 PlaceableHusbandryFood.onHusbandryAnimalsUpdate = Utils.overwrittenFunction(PlaceableHusbandryFood.onHusbandryAnimalsUpdate, RealisticLivestock_PlaceableHusbandryFood.onHusbandryAnimalsUpdate)
 
 
-function RealisticLivestock_PlaceableHusbandryFood:loadFromXMLFile(xmlFile, key)
-    local spec = self.spec_husbandryFood
-
-    if spec.animalTypeIndex == 1 then spec.capacity = spec.capacity * 1.5 end
-
-end
-
-PlaceableHusbandryFood.loadFromXMLFile = Utils.appendedFunction(PlaceableHusbandryFood.loadFromXMLFile, RealisticLivestock_PlaceableHusbandryFood.loadFromXMLFile)
-
-
 function RealisticLivestock_PlaceableHusbandryFood.onSettingChanged(name, state)
 
     RealisticLivestock_PlaceableHusbandryFood[name] = state

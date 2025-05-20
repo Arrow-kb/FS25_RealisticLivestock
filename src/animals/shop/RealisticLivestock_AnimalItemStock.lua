@@ -16,17 +16,24 @@ function RealisticLivestock_AnimalItemStock.new(animal)
 	self.visual = g_currentMission.animalSystem:getVisualByAge(animal.subTypeIndex, animal:getAge())
 	local subType = g_currentMission.animalSystem:getSubTypeByIndex(animal.subTypeIndex)
 	self.title = g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex)
+
+	local hasMonitor = animal.monitor.active or animal.monitor.removed
 	
 	self.infos = {
 		{
 			title = g_i18n:getText("ui_age"),
 			value = g_i18n:formatNumMonth(animal:getAge())
-		},
-		{
-			title = g_i18n:getText("ui_horseHealth"),
-			value = string.format("%.f%%", animal:getHealthFactor() * 100)
 		}
 	}
+
+	if hasMonitor then
+
+		table.insert(self.infos, {
+			title = g_i18n:getText("ui_horseHealth"),
+			value = string.format("%.f%%", animal:getHealthFactor() * 100)
+		})
+
+	end
 	
 	if subType.supportsReproduction and animal.reproduction > 0 and animal:getAge() >= subType.reproductionMinAgeMonth then
 		local newInfo = {
@@ -75,23 +82,26 @@ function RealisticLivestock_AnimalItemStock.new(animal)
 
 		end
 
+		if hasMonitor then
 
-		table.insert(self.infos, {
-			title = g_i18n:getText("rl_ui_weight"),
-			value = string.format("%.2f", animal.weight or 50) .. "kg"
-		})
-		
-		table.insert(self.infos, {
-			title = g_i18n:getText("rl_ui_targetWeight"),
-			value = string.format("%.2f", animal.targetWeight or 50) .. "kg"
-		})
-		
-		if animal.animalTypeIndex == AnimalType.COW and animal.gender == "female" and animal:getAge() >= subType.reproductionMinAgeMonth then
+			table.insert(self.infos, {
+				title = g_i18n:getText("rl_ui_weight"),
+				value = string.format("%.2f", animal.weight or 50) .. "kg"
+			})
 		
 			table.insert(self.infos, {
-				title = g_i18n:getText("rl_ui_lactating"),
-				value = animal.isLactating and yes or no
+				title = g_i18n:getText("rl_ui_targetWeight"),
+				value = string.format("%.2f", animal.targetWeight or 50) .. "kg"
 			})
+		
+			if animal.animalTypeIndex == AnimalType.COW and animal.gender == "female" and animal:getAge() >= subType.reproductionMinAgeMonth then
+		
+				table.insert(self.infos, {
+					title = g_i18n:getText("rl_ui_lactating"),
+					value = animal.isLactating and yes or no
+				})
+
+			end
 
 		end
 

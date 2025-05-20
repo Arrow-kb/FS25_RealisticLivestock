@@ -318,6 +318,45 @@ end
 AnimalScreen.onClickInfoMode = RealisticLivestock_AnimalScreen.onClickInfoMode
 
 
+function AnimalScreen:onClickMonitor()
+
+    local item = self.controller:getTargetItems()[self.sourceList.selectedIndex]
+    local animal = item.animal or item.cluster
+    local monitor = animal.monitor
+
+    monitor.active = not monitor.active
+    monitor.removed = not monitor.active
+
+    self.buttonMonitor:setText(g_i18n:getText("rl_ui_" .. (monitor.active and "remove" or "apply") .. "Monitor"))
+    self.buttonMonitor:setDisabled(monitor.removed)
+
+    local visualData = g_currentMission.animalSystem:getVisualByAge(animal.subTypeIndex, animal.age)
+
+    if not monitor.removed and visualData.monitor ~= nil and animal.idFull ~= nil and animal.idFull ~= "1-1" then
+
+        local sep = string.find(animal.idFull, "-")
+        local husbandry = tonumber(string.sub(animal.idFull, 1, sep - 1))
+        local animalId = tonumber(string.sub(animal.idFull, sep + 1))
+
+        if husbandry ~= 0 and animalId ~= 0 then
+
+            local rootNode = getAnimalRootNode(husbandry, animalId)
+
+            if rootNode ~= 0 then
+
+                local monitorNode = I3DUtil.indexToObject(rootNode, visualData.monitor)
+
+                if monitorNode ~= nil and monitorNode ~= 0 then setVisibility(monitorNode, monitor.active) end
+
+            end
+
+        end
+
+    end
+
+end
+
+
 function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelected)
 
     if not g_gui.currentlyReloading then
@@ -367,15 +406,20 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
 
             if self.isInfoMode then
 
-                self.motherInfoButton:setDisabled(item.cluster.motherId == nil or item.cluster.motherId == "-1")
-                self.motherInfoButton:setText(g_i18n:getText("rl_ui_mother") .. " (" .. ((item.cluster.motherId == nil or item.cluster.motherId == "-1") and g_i18n:getText("rl_ui_unknown") or item.cluster.motherId) .. ")")
+                local animal = item.animal or item.cluster
 
-                self.fatherInfoButton:setDisabled(item.cluster.fatherId == nil or item.cluster.fatherId == "-1")
-                self.fatherInfoButton:setText(g_i18n:getText("rl_ui_father") .. " (" .. ((item.cluster.fatherId == nil or item.cluster.fatherId == "-1") and g_i18n:getText("rl_ui_unknown") or item.cluster.fatherId) .. ")")
+                self.buttonMonitor:setText(g_i18n:getText("rl_ui_" .. (animal.monitor.active and "remove" or "apply") .. "Monitor"))
+                self.buttonMonitor:setDisabled(animal.monitor.removed)
 
-                self.childInfoButton:setDisabled(not item.cluster.isParent)
+                self.motherInfoButton:setDisabled(animal.motherId == nil or animal.motherId == "-1")
+                self.motherInfoButton:setText(g_i18n:getText("rl_ui_mother") .. " (" .. ((animal.motherId == nil or animal.motherId == "-1") and g_i18n:getText("rl_ui_unknown") or animal.motherId) .. ")")
 
-                local genetics = item.cluster:addGeneticsInfo()
+                self.fatherInfoButton:setDisabled(animal.fatherId == nil or animal.fatherId == "-1")
+                self.fatherInfoButton:setText(g_i18n:getText("rl_ui_father") .. " (" .. ((animal.fatherId == nil or animal.fatherId == "-1") and g_i18n:getText("rl_ui_unknown") or animal.fatherId) .. ")")
+
+                self.childInfoButton:setDisabled(not animal.isParent)
+
+                local genetics = animal:addGeneticsInfo()
 
                 for i, title in ipairs(self.geneticsTitle) do
                     local value = self.geneticsValue[i]
@@ -499,6 +543,7 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, keepSelection)
     self.buttonSell:setDisabled(self.isInfoMode or self.isBuyMode)
     self.buttonSell:setVisible(not self.isInfoMode and not self.isBuyMode)
     self.buttonRename:setVisible(self.isInfoMode)
+    self.buttonMonitor:setVisible(self.isInfoMode)
 
     if hasAnimals then
         self:updatePrice()
@@ -509,7 +554,7 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, keepSelection)
     self.tabSell:setSelected(not self.isBuyMode and not self.isInfoMode)
     self.tabInfo:setSelected(not self.isBuyMode and self.isInfoMode)
 
-    self.buttonBuySelected:setVisible(not self.isTrailer)
+    self.buttonBuySelected:setVisible(not self.isTrailer and not self.isInfoMode)
 
     self.buttonsPanel:invalidateLayout()
 
