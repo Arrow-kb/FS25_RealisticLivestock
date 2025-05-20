@@ -6,37 +6,38 @@
   </Asset>
 
   <Files>
-    <File fileId="6" filename="$data/shaders/tileAndMirrorShader.xml"/>
-    <File fileId="3" filename="$dataS/character/animals/domesticated/goat/goat/goat_diffuse.png"/>
-    <File fileId="8" filename="$dataS/character/animals/domesticated/goat/goat/goat_horns_diffuse.png"/>
-    <File fileId="9" filename="$dataS/character/animals/domesticated/goat/goat/goat_horns_normal.png"/>
-    <File fileId="10" filename="$dataS/character/animals/domesticated/goat/goat/goat_horns_specular.png"/>
-    <File fileId="4" filename="$dataS/character/animals/domesticated/goat/goat/goat_normal.png"/>
-    <File fileId="5" filename="$dataS/character/animals/domesticated/goat/goat/goat_specular.png"/>
-    <File fileId="11" filename="$dataS/character/animals/domesticated/goat/goatHairs_diffuse.png"/>
+    <File fileId="7" filename="$data/shaders/tileAndMirrorShader.xml"/>
+    <File fileId="4" filename="$dataS/character/animals/domesticated/goat/goat/goat_diffuse.png"/>
+    <File fileId="9" filename="$dataS/character/animals/domesticated/goat/goat/goat_horns_diffuse.png"/>
+    <File fileId="10" filename="$dataS/character/animals/domesticated/goat/goat/goat_horns_normal.png"/>
+    <File fileId="11" filename="$dataS/character/animals/domesticated/goat/goat/goat_horns_specular.png"/>
+    <File fileId="5" filename="$dataS/character/animals/domesticated/goat/goat/goat_normal.png"/>
+    <File fileId="6" filename="$dataS/character/animals/domesticated/goat/goat/goat_specular.png"/>
+    <File fileId="12" filename="$dataS/character/animals/domesticated/goat/goatHairs_diffuse.png"/>
     <File fileId="1" filename="../earTags.i3d"/>
-    <File fileId="2" filename="../earTagsRight.i3d"/>
+    <File fileId="3" filename="../earTagsRight.i3d"/>
+    <File fileId="2" filename="../monitor.i3d"/>
   </Files>
 
 
   <Materials>
-    <Material name="goat_01_mat" materialId="5" customShaderId="6" customShaderVariation="sssSpecularDirt">
-      <Texture fileId="3"/>
-      <Normalmap fileId="4"/>
-      <Glossmap fileId="5"/>
+    <Material name="goat_01_mat" materialId="5" customShaderId="7" customShaderVariation="sssSpecularDirt">
+      <Texture fileId="4"/>
+      <Normalmap fileId="5"/>
+      <Glossmap fileId="6"/>
       <CustomParameter name="sssColor" value="0.8 0.8 0.8 1"/>
     </Material>
-    <Material name="goat_02_mat" materialId="6" customShaderId="6" customShaderVariation="sssSpecularDirt_alphaMapSecondUV">
-      <Texture fileId="3"/>
-      <Normalmap fileId="4"/>
-      <Glossmap fileId="5"/>
-      <Custommap name="alphaMap" fileId="11"/>
+    <Material name="goat_02_mat" materialId="6" customShaderId="7" customShaderVariation="sssSpecularDirt_alphaMapSecondUV">
+      <Texture fileId="4"/>
+      <Normalmap fileId="5"/>
+      <Glossmap fileId="6"/>
+      <Custommap name="alphaMap" fileId="12"/>
       <CustomParameter name="sssColor" value="0.8 0.8 0.8 1"/>
     </Material>
-    <Material name="goat_03_mat" materialId="7" customShaderId="6">
-      <Texture fileId="8"/>
-      <Normalmap fileId="9"/>
-      <Glossmap fileId="10"/>
+    <Material name="goat_03_mat" materialId="7" customShaderId="7">
+      <Texture fileId="9"/>
+      <Normalmap fileId="10"/>
+      <Glossmap fileId="11"/>
       <CustomParameter name="mirrorScaleAndOffsetUV" value="1 1 0 0"/>
       <CustomParameter name="atlasInvSizeAndOffsetUV" value="0.5 0.5 0 0.5"/>
     </Material>
@@ -67,96 +68,97 @@
                       <TransformGroup name="goat_ear_L_skin_jnt_01" translation="0.089456 0.031371 -0.019579" rotation="58.3908 -26.1704 5.45477" nodeId="38">
                         <TransformGroup name="goat_ear_L_skin_jnt_02" translation="0.050699 0 0" nodeId="39">
                           <ReferenceNode name="earTag" translation="0.0483064 -0.0295654 0.0324455" rotation="-61.4443 -30.4539 74.5789" scale="1 0.65 0.65" referenceId="1" nodeId="72"/>
+                          <ReferenceNode name="monitor" translation="0.00298455 0.0108883 0.0109211" rotation="-33.0674 -78.7193 34.3665" scale="1 0.4 0.4" referenceId="2" nodeId="104"/>
                         </TransformGroup>
                       </TransformGroup>
-                      <TransformGroup name="goat_ear_R_skin_jnt_01" translation="-0.089456 0.031371 -0.019579" rotation="-121.609 26.1704 -5.45477" nodeId="101">
-                        <TransformGroup name="goat_ear_R_skin_jnt_02" translation="-0.050699 0 0" nodeId="102">
-                          <ReferenceNode name="earTagRight" translation="-0.013465 0.0307352 -0.0460135" rotation="88.348 -30.6117 77.8857" scale="1 0.65 0.65" referenceId="2" nodeId="124"/>
+                      <TransformGroup name="goat_ear_R_skin_jnt_01" translation="-0.089456 0.031371 -0.019579" rotation="-121.609 26.1704 -5.45477" nodeId="105">
+                        <TransformGroup name="goat_ear_R_skin_jnt_02" translation="-0.050699 0 0" nodeId="106">
+                          <ReferenceNode name="earTagRight" translation="-0.013465 0.0307352 -0.0460135" rotation="88.348 -30.6117 77.8857" scale="1 0.65 0.65" referenceId="3" nodeId="128"/>
                         </TransformGroup>
                       </TransformGroup>
-                      <TransformGroup name="goat_eyeball_L_skin_jnt" translation="0.06954 -0.000126 0.079823" rotation="26.5912 -29.6438 -28.8681" nodeId="143"/>
-                      <TransformGroup name="goat_eyeball_R_skin_jnt" translation="-0.06954 -0.000126 0.079823" rotation="-153.409 29.6438 28.8681" nodeId="144"/>
-                      <TransformGroup name="goat_eyelid_up_L_skin_jnt" translation="0.087724 0.000127 0.093999" rotation="26.5912 -29.6438 -28.8681" nodeId="145"/>
-                      <TransformGroup name="goat_eyelid_up_R_skin_jnt" translation="-0.087724 0.000127 0.093999" rotation="-26.5912 -29.6438 -151.132" nodeId="146"/>
+                      <TransformGroup name="goat_eyeball_L_skin_jnt" translation="0.06954 -0.000126 0.079823" rotation="26.5912 -29.6438 -28.8681" nodeId="147"/>
+                      <TransformGroup name="goat_eyeball_R_skin_jnt" translation="-0.06954 -0.000126 0.079823" rotation="-153.409 29.6438 28.8681" nodeId="148"/>
+                      <TransformGroup name="goat_eyelid_up_L_skin_jnt" translation="0.087724 0.000127 0.093999" rotation="26.5912 -29.6438 -28.8681" nodeId="149"/>
+                      <TransformGroup name="goat_eyelid_up_R_skin_jnt" translation="-0.087724 0.000127 0.093999" rotation="-26.5912 -29.6438 -151.132" nodeId="150"/>
                     </TransformGroup>
                   </TransformGroup>
                 </TransformGroup>
               </TransformGroup>
-              <TransformGroup name="goat_scapula_L_skin_jnt" translation="-0.080749 0.12662 -0.04019" rotation="0 90 0" nodeId="147">
-                <TransformGroup name="goat_shoulder_L_skin_jnt" translation="0.037144 -0.144808 0.084533" rotation="0 36.1408 -90" nodeId="148">
-                  <TransformGroup name="goat_elbow_L_skin_jnt" translation="0.191633 0 0" rotation="0 -43.739 0" nodeId="149">
-                    <TransformGroup name="goat_wrist_L_skin_jnt" translation="0.236785 0 0" rotation="0 7.81611 0" nodeId="150">
-                      <TransformGroup name="goat_front_foot_L_skin_jnt" translation="0.156508 0 0" rotation="-4.99145 -37.7062 3.04263" nodeId="151">
-                        <TransformGroup name="goat_front_ball_L_skin_jnt" translation="0.057999 0 0" rotation="0 -22.2081 0" nodeId="152"/>
+              <TransformGroup name="goat_scapula_L_skin_jnt" translation="-0.080749 0.12662 -0.04019" rotation="0 90 0" nodeId="151">
+                <TransformGroup name="goat_shoulder_L_skin_jnt" translation="0.037144 -0.144808 0.084533" rotation="0 36.1408 -90" nodeId="152">
+                  <TransformGroup name="goat_elbow_L_skin_jnt" translation="0.191633 0 0" rotation="0 -43.739 0" nodeId="153">
+                    <TransformGroup name="goat_wrist_L_skin_jnt" translation="0.236785 0 0" rotation="0 7.81611 0" nodeId="154">
+                      <TransformGroup name="goat_front_foot_L_skin_jnt" translation="0.156508 0 0" rotation="-4.99145 -37.7062 3.04263" nodeId="155">
+                        <TransformGroup name="goat_front_ball_L_skin_jnt" translation="0.057999 0 0" rotation="0 -22.2081 0" nodeId="156"/>
                       </TransformGroup>
                     </TransformGroup>
                   </TransformGroup>
                 </TransformGroup>
               </TransformGroup>
-              <TransformGroup name="goat_scapula_R_skin_jnt" translation="-0.080749 0.12662 0.04019" rotation="180 90 0" nodeId="153">
-                <TransformGroup name="goat_shoulder_R_skin_jnt" translation="-0.037144 0.144808 -0.084533" rotation="0 36.1408 -90" nodeId="154">
-                  <TransformGroup name="goat_elbow_R_skin_jnt" translation="-0.191633 0 0" rotation="0 -43.739 0" nodeId="155">
-                    <TransformGroup name="goat_wrist_R_skin_jnt" translation="-0.236785 0 0" rotation="0 7.81611 0" nodeId="156">
-                      <TransformGroup name="goat_front_foot_R_skin_jnt" translation="-0.156508 0 0" rotation="-4.99145 -37.7062 3.04263" nodeId="157">
-                        <TransformGroup name="goat_front_ball_R_skin_jnt" translation="-0.057999 0 0" rotation="0 -22.2081 0" nodeId="158"/>
+              <TransformGroup name="goat_scapula_R_skin_jnt" translation="-0.080749 0.12662 0.04019" rotation="180 90 0" nodeId="157">
+                <TransformGroup name="goat_shoulder_R_skin_jnt" translation="-0.037144 0.144808 -0.084533" rotation="0 36.1408 -90" nodeId="158">
+                  <TransformGroup name="goat_elbow_R_skin_jnt" translation="-0.191633 0 0" rotation="0 -43.739 0" nodeId="159">
+                    <TransformGroup name="goat_wrist_R_skin_jnt" translation="-0.236785 0 0" rotation="0 7.81611 0" nodeId="160">
+                      <TransformGroup name="goat_front_foot_R_skin_jnt" translation="-0.156508 0 0" rotation="-4.99145 -37.7062 3.04263" nodeId="161">
+                        <TransformGroup name="goat_front_ball_R_skin_jnt" translation="-0.057999 0 0" rotation="0 -22.2081 0" nodeId="162"/>
                       </TransformGroup>
                     </TransformGroup>
                   </TransformGroup>
                 </TransformGroup>
               </TransformGroup>
-              <TransformGroup name="goat_breast_skin_jnt" translation="0.139562 -0.103022 0" rotation="22.7939 90 0" nodeId="159"/>
+              <TransformGroup name="goat_breast_skin_jnt" translation="0.139562 -0.103022 0" rotation="22.7939 90 0" nodeId="163"/>
             </TransformGroup>
-            <TransformGroup name="goat_belly_skin_jnt" translation="0 -0.304226 0" rotation="0 90 0" nodeId="160"/>
+            <TransformGroup name="goat_belly_skin_jnt" translation="0 -0.304226 0" rotation="0 90 0" nodeId="164"/>
           </TransformGroup>
-          <TransformGroup name="goat_tail_skin_jnt_01" translation="-0.078399 0.097421 0" rotation="0 180 15.8785" nodeId="161">
-            <TransformGroup name="goat_tail_skin_jnt_02" translation="0.09634 0 0" rotation="0 0 68.5097" nodeId="162">
-              <TransformGroup name="goat_tail_skin_jnt_03" translation="0.08419 0 0" rotation="0 0 26.7935" nodeId="163"/>
+          <TransformGroup name="goat_tail_skin_jnt_01" translation="-0.078399 0.097421 0" rotation="0 180 15.8785" nodeId="165">
+            <TransformGroup name="goat_tail_skin_jnt_02" translation="0.09634 0 0" rotation="0 0 68.5097" nodeId="166">
+              <TransformGroup name="goat_tail_skin_jnt_03" translation="0.08419 0 0" rotation="0 0 26.7935" nodeId="167"/>
             </TransformGroup>
           </TransformGroup>
-          <TransformGroup name="goat_hip_L_skin_jnt" translation="-0.029662 0.072579 -0.10286" rotation="-102.671 4.9923 -76.1184" nodeId="164">
-            <TransformGroup name="goat_knee_L_skin_jnt" translation="0.232383 0 0" rotation="0 49.0586 0" nodeId="165">
-              <TransformGroup name="goat_ankle_L_skin_jnt" translation="0.263265 0 0" rotation="0 -36.0574 0" nodeId="166">
-                <TransformGroup name="goat_hind_foot_L_skin_jnt" translation="0.195088 0 0" rotation="1.86859 -32.8225 -2.76617" nodeId="167">
-                  <TransformGroup name="goat_hind_ball_L_skin_jnt" translation="0.047636 0 0" rotation="0 -21.8275 0" nodeId="168"/>
+          <TransformGroup name="goat_hip_L_skin_jnt" translation="-0.029662 0.072579 -0.10286" rotation="-102.671 4.9923 -76.1184" nodeId="168">
+            <TransformGroup name="goat_knee_L_skin_jnt" translation="0.232383 0 0" rotation="0 49.0586 0" nodeId="169">
+              <TransformGroup name="goat_ankle_L_skin_jnt" translation="0.263265 0 0" rotation="0 -36.0574 0" nodeId="170">
+                <TransformGroup name="goat_hind_foot_L_skin_jnt" translation="0.195088 0 0" rotation="1.86859 -32.8225 -2.76617" nodeId="171">
+                  <TransformGroup name="goat_hind_ball_L_skin_jnt" translation="0.047636 0 0" rotation="0 -21.8275 0" nodeId="172"/>
                 </TransformGroup>
               </TransformGroup>
             </TransformGroup>
           </TransformGroup>
-          <TransformGroup name="goat_hip_R_skin_jnt" translation="-0.029662 0.072579 0.10286" rotation="-102.671 4.9923 103.882" nodeId="169">
-            <TransformGroup name="goat_knee_R_skin_jnt" translation="-0.232383 0 0" rotation="0 49.0586 0" nodeId="170">
-              <TransformGroup name="goat_ankle_R_skin_jnt" translation="-0.263265 0 0" rotation="0 -36.0574 0" nodeId="171">
-                <TransformGroup name="goat_hind_foot_R_skin_jnt" translation="-0.195088 0 0" rotation="1.8686 -32.8225 -2.76618" nodeId="172">
-                  <TransformGroup name="goat_hind_ball_R_skin_jnt" translation="-0.047636 0 0" rotation="0 -21.8275 0" nodeId="173"/>
+          <TransformGroup name="goat_hip_R_skin_jnt" translation="-0.029662 0.072579 0.10286" rotation="-102.671 4.9923 103.882" nodeId="173">
+            <TransformGroup name="goat_knee_R_skin_jnt" translation="-0.232383 0 0" rotation="0 49.0586 0" nodeId="174">
+              <TransformGroup name="goat_ankle_R_skin_jnt" translation="-0.263265 0 0" rotation="0 -36.0574 0" nodeId="175">
+                <TransformGroup name="goat_hind_foot_R_skin_jnt" translation="-0.195088 0 0" rotation="1.8686 -32.8225 -2.76618" nodeId="176">
+                  <TransformGroup name="goat_hind_ball_R_skin_jnt" translation="-0.047636 0 0" rotation="0 -21.8275 0" nodeId="177"/>
                 </TransformGroup>
               </TransformGroup>
             </TransformGroup>
           </TransformGroup>
-          <TransformGroup name="goat_udder_L_skin_jnt" translation="0.04371 -0.323452 -0.039471" rotation="0 90 0" nodeId="174"/>
-          <TransformGroup name="goat_udder_R_skin_jnt" translation="0.04371 -0.323452 0.039471" rotation="-180 90 0" nodeId="175"/>
+          <TransformGroup name="goat_udder_L_skin_jnt" translation="0.04371 -0.323452 -0.039471" rotation="0 90 0" nodeId="178"/>
+          <TransformGroup name="goat_udder_R_skin_jnt" translation="0.04371 -0.323452 0.039471" rotation="-180 90 0" nodeId="179"/>
         </TransformGroup>
       </TransformGroup>
     </TransformGroup>
-    <TransformGroup name="goat" nodeId="176">
-      <Shape name="goat_body" shapeId="1" clipDistance="300" nodeId="177" castsShadows="true" receiveShadows="true" skinBindNodeIds="27 28 29 30 31 33 34 38 101 147 148 149 150 151 153 154 155 156 157 161 162 164 165 166 167 169 170 171 172 174 175 163 168 173 152 158 39 102 32 145 146 160 159" materialIds="5"/>
-      <Shape name="goat_horns" shapeId="2" clipDistance="300" nodeId="178" castsShadows="true" receiveShadows="true" skinBindNodeIds="33" materialIds="7"/>
-      <TransformGroup name="internals" nodeId="179">
-        <Shape name="tongue" shapeId="3" clipDistance="300" nodeId="180" castsShadows="true" receiveShadows="true" skinBindNodeIds="34 35" materialIds="5"/>
-        <Shape name="teeth_bottom" shapeId="4" clipDistance="300" nodeId="181" castsShadows="true" receiveShadows="true" skinBindNodeIds="34" materialIds="5"/>
-        <Shape name="lashes_l" shapeId="5" clipDistance="300" nodeId="182" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 145" materialIds="6"/>
-        <Shape name="lashes_r" shapeId="6" clipDistance="300" nodeId="183" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 146" materialIds="6"/>
-        <Shape name="eye_r" shapeId="7" clipDistance="300" nodeId="184" castsShadows="true" receiveShadows="true" skinBindNodeIds="144" materialIds="5"/>
-        <Shape name="eye_l" shapeId="8" clipDistance="300" nodeId="185" castsShadows="true" receiveShadows="true" skinBindNodeIds="143" materialIds="5"/>
+    <TransformGroup name="goat" nodeId="180">
+      <Shape name="goat_body" shapeId="1" clipDistance="300" nodeId="181" castsShadows="true" receiveShadows="true" skinBindNodeIds="27 28 29 30 31 33 34 38 105 151 152 153 154 155 157 158 159 160 161 165 166 168 169 170 171 173 174 175 176 178 179 167 172 177 156 162 39 106 32 149 150 164 163" materialIds="5"/>
+      <Shape name="goat_horns" shapeId="2" clipDistance="300" nodeId="182" castsShadows="true" receiveShadows="true" skinBindNodeIds="33" materialIds="7"/>
+      <TransformGroup name="internals" nodeId="183">
+        <Shape name="tongue" shapeId="3" clipDistance="300" nodeId="184" castsShadows="true" receiveShadows="true" skinBindNodeIds="34 35" materialIds="5"/>
+        <Shape name="teeth_bottom" shapeId="4" clipDistance="300" nodeId="185" castsShadows="true" receiveShadows="true" skinBindNodeIds="34" materialIds="5"/>
+        <Shape name="lashes_l" shapeId="5" clipDistance="300" nodeId="186" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 149" materialIds="6"/>
+        <Shape name="lashes_r" shapeId="6" clipDistance="300" nodeId="187" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 150" materialIds="6"/>
+        <Shape name="eye_r" shapeId="7" clipDistance="300" nodeId="188" castsShadows="true" receiveShadows="true" skinBindNodeIds="148" materialIds="5"/>
+        <Shape name="eye_l" shapeId="8" clipDistance="300" nodeId="189" castsShadows="true" receiveShadows="true" skinBindNodeIds="147" materialIds="5"/>
       </TransformGroup>
-      <TransformGroup name="fur" nodeId="186">
-        <Shape name="tail" shapeId="9" clipDistance="300" nodeId="187" castsShadows="true" receiveShadows="true" skinBindNodeIds="26 27 161 162 163" materialIds="6"/>
-        <Shape name="whiskers" shapeId="10" clipDistance="300" nodeId="188" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 34 35 36 37" materialIds="6"/>
-        <Shape name="beard" shapeId="11" clipDistance="300" nodeId="189" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 34 35 36 37" materialIds="6"/>
-        <Shape name="ear_l" shapeId="12" clipDistance="300" nodeId="190" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 38 39 143 145" materialIds="6"/>
-        <Shape name="ear_r" shapeId="13" clipDistance="300" nodeId="191" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 101 102 144 146" materialIds="6"/>
-        <Shape name="back_fur" shapeId="14" clipDistance="300" nodeId="192" castsShadows="true" receiveShadows="true" skinBindNodeIds="26 27 28 29 30 31 32 33 34 38 101 147 153 161 162 163 164 169" materialIds="6"/>
+      <TransformGroup name="fur" nodeId="190">
+        <Shape name="tail" shapeId="9" clipDistance="300" nodeId="191" castsShadows="true" receiveShadows="true" skinBindNodeIds="26 27 165 166 167" materialIds="6"/>
+        <Shape name="whiskers" shapeId="10" clipDistance="300" nodeId="192" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 34 35 36 37" materialIds="6"/>
+        <Shape name="beard" shapeId="11" clipDistance="300" nodeId="193" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 34 35 36 37" materialIds="6"/>
+        <Shape name="ear_l" shapeId="12" clipDistance="300" nodeId="194" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 38 39 147 149" materialIds="6"/>
+        <Shape name="ear_r" shapeId="13" clipDistance="300" nodeId="195" castsShadows="true" receiveShadows="true" skinBindNodeIds="33 105 106 148 150" materialIds="6"/>
+        <Shape name="back_fur" shapeId="14" clipDistance="300" nodeId="196" castsShadows="true" receiveShadows="true" skinBindNodeIds="26 27 28 29 30 31 32 33 34 38 105 151 157 165 166 167 168 173" materialIds="6"/>
       </TransformGroup>
     </TransformGroup>
-    <Shape name="proxy" shapeId="15" visibility="false" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="193" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="8"/>
+    <Shape name="proxy" shapeId="15" visibility="false" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="197" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="8"/>
   </Scene>
 
 </i3D>

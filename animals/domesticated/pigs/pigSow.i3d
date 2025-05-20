@@ -6,22 +6,23 @@
   </Asset>
 
   <Files>
-    <File fileId="6" filename="$data/shaders/tileAndMirrorShader.xml"/>
-    <File fileId="3" filename="$dataS/character/animals/domesticated/pig/sow/pigSow_diffuse.png"/>
-    <File fileId="4" filename="$dataS/character/animals/domesticated/pig/sow/pigSow_normal.png"/>
-    <File fileId="5" filename="$dataS/character/animals/domesticated/pig/sow/pigSow_specular.png"/>
+    <File fileId="7" filename="$data/shaders/tileAndMirrorShader.xml"/>
+    <File fileId="4" filename="$dataS/character/animals/domesticated/pig/sow/pigSow_diffuse.png"/>
+    <File fileId="5" filename="$dataS/character/animals/domesticated/pig/sow/pigSow_normal.png"/>
+    <File fileId="6" filename="$dataS/character/animals/domesticated/pig/sow/pigSow_specular.png"/>
     <File fileId="1" filename="../earTags.i3d"/>
-    <File fileId="2" filename="../earTagsRight.i3d"/>
+    <File fileId="3" filename="../earTagsRight.i3d"/>
+    <File fileId="2" filename="../monitor.i3d"/>
   </Files>
 
 
   <Materials>
     <Material name="lambert1" materialId="5" diffuseColor="0.501961 0.501961 0.501961 1">
     </Material>
-    <Material name="pigSow_mat" materialId="6" customShaderId="6" customShaderVariation="sssSpecularDirt">
-      <Texture fileId="3"/>
-      <Normalmap fileId="4"/>
-      <Glossmap fileId="5"/>
+    <Material name="pigSow_mat" materialId="6" customShaderId="7" customShaderVariation="sssSpecularDirt">
+      <Texture fileId="4"/>
+      <Normalmap fileId="5"/>
+      <Glossmap fileId="6"/>
       <CustomParameter name="sssColor" value="0.55 0.4 0.4 1"/>
     </Material>
   </Materials>
@@ -52,72 +53,73 @@
                           <TransformGroup name="pig_ear_L_skin_jnt_02" translation="0.091114 0 -1e-06" rotation="-0.000119 0.000423 -27.6724" nodeId="27">
                             <TransformGroup name="pig_ear_L_skin_jnt_03" translation="0.070103 0 0" rotation="-2.06748 -0.570859 -15.4286" nodeId="28">
                               <ReferenceNode name="earTag" translation="-0.0469022 -0.0711228 -0.0647297" rotation="59.65 -33.6953 -31.6557" scale="1 0.5 0.5" referenceId="1" nodeId="61"/>
+                              <ReferenceNode name="monitor" translation="-0.0945402 -0.0421008 -0.0132114" rotation="55.2433 -23.2632 -47.8382" scale="1 0.3 0.3" referenceId="2" nodeId="93"/>
                             </TransformGroup>
                           </TransformGroup>
                         </TransformGroup>
-                        <TransformGroup name="pig_ear_R_skin_jnt_01" translation="-0.100775 0.013165 0.068889" rotation="139.827 15.411 -40.849" nodeId="90">
-                          <TransformGroup name="pig_ear_R_skin_jnt_02" translation="-0.091114 0 -1e-06" rotation="0.000508 -0.000348 -27.6724" nodeId="91">
-                            <TransformGroup name="pig_ear_R_skin_jnt_03" translation="-0.070447 0 0" rotation="15.3103 4.17078 -14.8781" nodeId="92">
-                              <ReferenceNode name="earTagRight" translation="0.0183127 0.0707443 0.0466362" rotation="-90.6952 -61.014 -54.7543" scale="1 0.5 0.5" referenceId="2" nodeId="114"/>
+                        <TransformGroup name="pig_ear_R_skin_jnt_01" translation="-0.100775 0.013165 0.068889" rotation="139.827 15.411 -40.849" nodeId="94">
+                          <TransformGroup name="pig_ear_R_skin_jnt_02" translation="-0.091114 0 -1e-06" rotation="0.000508 -0.000348 -27.6724" nodeId="95">
+                            <TransformGroup name="pig_ear_R_skin_jnt_03" translation="-0.070447 0 0" rotation="15.3103 4.17078 -14.8781" nodeId="96">
+                              <ReferenceNode name="earTagRight" translation="0.0183127 0.0707443 0.0466362" rotation="-90.6952 -61.014 -54.7543" scale="1 0.5 0.5" referenceId="3" nodeId="118"/>
                             </TransformGroup>
                           </TransformGroup>
                         </TransformGroup>
-                        <TransformGroup name="pig_eyeball_L_skin_jnt" translation="0.074176 -0.06789 0.135144" rotation="12.542 -49.5599 -4.12846" nodeId="133"/>
-                        <TransformGroup name="pig_eyelid_up_L_skin_jnt" translation="0.086799 -0.062486 0.15162" rotation="-8.5022 -50.1926 23.1772" nodeId="134"/>
-                        <TransformGroup name="pig_eyeball_R_skin_jnt" translation="-0.074176 -0.06789 0.135144" rotation="167.458 -49.5599 -175.872" nodeId="135"/>
-                        <TransformGroup name="pig_eyelid_up_R_skin_jnt" translation="-0.086799 -0.062486 0.15162" rotation="-171.498 -50.1926 156.823" nodeId="136"/>
-                        <TransformGroup name="pig_nose_skin_jnt" translation="0 -0.204027 0.299977" rotation="90 -67.1445 -90" nodeId="137">
-                          <TransformGroup name="pig_nostril_L_skin_jnt" translation="-0.000748 0.003251 -0.03594" rotation="0 0 -3.61639" nodeId="138"/>
-                          <TransformGroup name="pig_nostril_R_skin_jnt" translation="-0.000748 0.003251 0.03572" rotation="0 0 -3.61639" nodeId="139"/>
-                          <TransformGroup name="pig_nose_tip_skin_jnt" translation="0.004665 0.010213 0" rotation="0 0 6.36464" nodeId="140"/>
+                        <TransformGroup name="pig_eyeball_L_skin_jnt" translation="0.074176 -0.06789 0.135144" rotation="12.542 -49.5599 -4.12846" nodeId="137"/>
+                        <TransformGroup name="pig_eyelid_up_L_skin_jnt" translation="0.086799 -0.062486 0.15162" rotation="-8.5022 -50.1926 23.1772" nodeId="138"/>
+                        <TransformGroup name="pig_eyeball_R_skin_jnt" translation="-0.074176 -0.06789 0.135144" rotation="167.458 -49.5599 -175.872" nodeId="139"/>
+                        <TransformGroup name="pig_eyelid_up_R_skin_jnt" translation="-0.086799 -0.062486 0.15162" rotation="-171.498 -50.1926 156.823" nodeId="140"/>
+                        <TransformGroup name="pig_nose_skin_jnt" translation="0 -0.204027 0.299977" rotation="90 -67.1445 -90" nodeId="141">
+                          <TransformGroup name="pig_nostril_L_skin_jnt" translation="-0.000748 0.003251 -0.03594" rotation="0 0 -3.61639" nodeId="142"/>
+                          <TransformGroup name="pig_nostril_R_skin_jnt" translation="-0.000748 0.003251 0.03572" rotation="0 0 -3.61639" nodeId="143"/>
+                          <TransformGroup name="pig_nose_tip_skin_jnt" translation="0.004665 0.010213 0" rotation="0 0 6.36464" nodeId="144"/>
                         </TransformGroup>
                       </TransformGroup>
-                      <TransformGroup name="pig_throat_skin_jnt" translation="0.103308 -0.283154 0" rotation="3e-06 2e-06 20.0444" nodeId="141"/>
+                      <TransformGroup name="pig_throat_skin_jnt" translation="0.103308 -0.283154 0" rotation="3e-06 2e-06 20.0444" nodeId="145"/>
                     </TransformGroup>
                   </TransformGroup>
-                  <TransformGroup name="pig_shoulder_L_skin_jnt" translation="0.047788 -0.107574 -0.127218" rotation="180 0 -91.2138" nodeId="142">
-                    <TransformGroup name="pig_elbow_L_skin_jnt" translation="0.179269 0 0" rotation="180 0 -20.5641" nodeId="143">
-                      <TransformGroup name="pig_wrist_L_skin_jnt" translation="0.210438 0 0" rotation="180 0 -15.845" nodeId="144">
-                        <TransformGroup name="pig_front_foot_L_skin_jnt" translation="0.095658 0 0" rotation="176.582 -1.5223 -32.6408" nodeId="145">
-                          <TransformGroup name="pig_front_ball_L_skin_jnt" translation="0.062471 0 0" nodeId="146"/>
+                  <TransformGroup name="pig_shoulder_L_skin_jnt" translation="0.047788 -0.107574 -0.127218" rotation="180 0 -91.2138" nodeId="146">
+                    <TransformGroup name="pig_elbow_L_skin_jnt" translation="0.179269 0 0" rotation="180 0 -20.5641" nodeId="147">
+                      <TransformGroup name="pig_wrist_L_skin_jnt" translation="0.210438 0 0" rotation="180 0 -15.845" nodeId="148">
+                        <TransformGroup name="pig_front_foot_L_skin_jnt" translation="0.095658 0 0" rotation="176.582 -1.5223 -32.6408" nodeId="149">
+                          <TransformGroup name="pig_front_ball_L_skin_jnt" translation="0.062471 0 0" nodeId="150"/>
                         </TransformGroup>
                       </TransformGroup>
                     </TransformGroup>
                   </TransformGroup>
-                  <TransformGroup name="pig_shoulder_R_skin_jnt" translation="0.047788 -0.107574 0.127218" rotation="180 0 88.7862" nodeId="147">
-                    <TransformGroup name="pig_elbow_R_skin_jnt" translation="-0.179269 0 0" rotation="180 0 -20.5641" nodeId="148">
-                      <TransformGroup name="pig_wrist_R_skin_jnt" translation="-0.210438 0 0" rotation="180 0 -15.845" nodeId="149">
-                        <TransformGroup name="pig_front_foot_R_skin_jnt" translation="-0.095658 0 0" rotation="176.582 -1.5223 -32.6408" nodeId="150">
-                          <TransformGroup name="pig_front_ball_R_skin_jnt" translation="-0.062471 0 0" rotation="0 0 180" nodeId="151"/>
+                  <TransformGroup name="pig_shoulder_R_skin_jnt" translation="0.047788 -0.107574 0.127218" rotation="180 0 88.7862" nodeId="151">
+                    <TransformGroup name="pig_elbow_R_skin_jnt" translation="-0.179269 0 0" rotation="180 0 -20.5641" nodeId="152">
+                      <TransformGroup name="pig_wrist_R_skin_jnt" translation="-0.210438 0 0" rotation="180 0 -15.845" nodeId="153">
+                        <TransformGroup name="pig_front_foot_R_skin_jnt" translation="-0.095658 0 0" rotation="176.582 -1.5223 -32.6408" nodeId="154">
+                          <TransformGroup name="pig_front_ball_R_skin_jnt" translation="-0.062471 0 0" rotation="0 0 180" nodeId="155"/>
                         </TransformGroup>
                       </TransformGroup>
                     </TransformGroup>
                   </TransformGroup>
                 </TransformGroup>
               </TransformGroup>
-              <TransformGroup name="pig_belly_2_skin_jnt" translation="0.065432 -0.483763 0" rotation="-90 0 -82.2972" nodeId="152"/>
+              <TransformGroup name="pig_belly_2_skin_jnt" translation="0.065432 -0.483763 0" rotation="-90 0 -82.2972" nodeId="156"/>
             </TransformGroup>
-            <TransformGroup name="pig_belly_1_skin_jnt" translation="0.02537 -0.465289 0" rotation="-3.12097 90 0" nodeId="153"/>
+            <TransformGroup name="pig_belly_1_skin_jnt" translation="0.02537 -0.465289 0" rotation="-3.12097 90 0" nodeId="157"/>
           </TransformGroup>
-          <TransformGroup name="pig_tail_skin_jnt_01" translation="-0.143859 0.020349 0" rotation="180 0 178.504" nodeId="154">
-            <TransformGroup name="pig_tail_skin_jnt_02" translation="0.00489 0.019106 0.060485" rotation="107.898 -22.2699 -65.0265" nodeId="155">
-              <TransformGroup name="pig_tail_skin_jnt_03" translation="0.081969 -0.086223 -0.001941" rotation="-8.69044 -0.196842 -55.8398" nodeId="156"/>
+          <TransformGroup name="pig_tail_skin_jnt_01" translation="-0.143859 0.020349 0" rotation="180 0 178.504" nodeId="158">
+            <TransformGroup name="pig_tail_skin_jnt_02" translation="0.00489 0.019106 0.060485" rotation="107.898 -22.2699 -65.0265" nodeId="159">
+              <TransformGroup name="pig_tail_skin_jnt_03" translation="0.081969 -0.086223 -0.001941" rotation="-8.69044 -0.196842 -55.8398" nodeId="160"/>
             </TransformGroup>
           </TransformGroup>
-          <TransformGroup name="pig_hip_L_skin_jnt" translation="-0.029361 -0.116278 -0.121535" rotation="0 0 -80.4421" nodeId="157">
-            <TransformGroup name="pig_knee_L_skin_jnt" translation="0.203461 0 0" rotation="180 0 -31.8321" nodeId="158">
-              <TransformGroup name="pig_hind_foot_L_skin_jnt" translation="0.215476 0 0" rotation="180 0 -33.5752" nodeId="159">
-                <TransformGroup name="pig_hind_ball_L_skin_jnt" translation="0.163475 0 0" rotation="0 0 12.7887" nodeId="160">
-                  <TransformGroup name="pig_hind_toe_tip_L_skin_jnt" translation="0.060548 0 0" nodeId="161"/>
+          <TransformGroup name="pig_hip_L_skin_jnt" translation="-0.029361 -0.116278 -0.121535" rotation="0 0 -80.4421" nodeId="161">
+            <TransformGroup name="pig_knee_L_skin_jnt" translation="0.203461 0 0" rotation="180 0 -31.8321" nodeId="162">
+              <TransformGroup name="pig_hind_foot_L_skin_jnt" translation="0.215476 0 0" rotation="180 0 -33.5752" nodeId="163">
+                <TransformGroup name="pig_hind_ball_L_skin_jnt" translation="0.163475 0 0" rotation="0 0 12.7887" nodeId="164">
+                  <TransformGroup name="pig_hind_toe_tip_L_skin_jnt" translation="0.060548 0 0" nodeId="165"/>
                 </TransformGroup>
               </TransformGroup>
             </TransformGroup>
           </TransformGroup>
-          <TransformGroup name="pig_hip_R_skin_jnt" translation="-0.029361 -0.116278 0.121535" rotation="0 0 99.5579" nodeId="162">
-            <TransformGroup name="pig_knee_R_skin_jnt" translation="-0.203461 0 0" rotation="-180 0 -31.8321" nodeId="163">
-              <TransformGroup name="pig_hind_foot_R_skin_jnt" translation="-0.215476 0 0" rotation="-180 0 -33.5752" nodeId="164">
-                <TransformGroup name="pig_hind_ball_R_skin_jnt" translation="-0.163475 0 0" rotation="0 0 12.7887" nodeId="165">
-                  <TransformGroup name="pig_hind_toe_tip_R_skin_jnt" translation="-0.060548 0 0" rotation="0 0 180" nodeId="166"/>
+          <TransformGroup name="pig_hip_R_skin_jnt" translation="-0.029361 -0.116278 0.121535" rotation="0 0 99.5579" nodeId="166">
+            <TransformGroup name="pig_knee_R_skin_jnt" translation="-0.203461 0 0" rotation="-180 0 -31.8321" nodeId="167">
+              <TransformGroup name="pig_hind_foot_R_skin_jnt" translation="-0.215476 0 0" rotation="-180 0 -33.5752" nodeId="168">
+                <TransformGroup name="pig_hind_ball_R_skin_jnt" translation="-0.163475 0 0" rotation="0 0 12.7887" nodeId="169">
+                  <TransformGroup name="pig_hind_toe_tip_R_skin_jnt" translation="-0.060548 0 0" rotation="0 0 180" nodeId="170"/>
                 </TransformGroup>
               </TransformGroup>
             </TransformGroup>
@@ -125,12 +127,12 @@
         </TransformGroup>
       </TransformGroup>
     </TransformGroup>
-    <TransformGroup name="pig" lodDistance="0 10 30" clipDistance="130" nodeId="167">
-      <Shape name="pigSow_LOD0" translation="0 0.453874 -0.085152" shapeId="1" clipDistance="300" nodeId="168" castsShadows="true" receiveShadows="true" skinBindNodeIds="14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 90 91 92 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166" materialIds="6"/>
-      <Shape name="pigSow_LOD1" translation="0 0.453874 -0.085152" shapeId="2" clipDistance="300" nodeId="169" castsShadows="true" receiveShadows="true" skinBindNodeIds="14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 90 91 92 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166" materialIds="6"/>
-      <Shape name="pigSow_LOD2" translation="0 0.453874 -0.085152" shapeId="3" clipDistance="300" nodeId="170" castsShadows="true" receiveShadows="true" skinBindNodeIds="14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 90 91 92 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166" materialIds="6"/>
+    <TransformGroup name="pig" lodDistance="0 10 30" clipDistance="130" nodeId="171">
+      <Shape name="pigSow_LOD0" translation="0 0.453874 -0.085152" shapeId="1" clipDistance="300" nodeId="172" castsShadows="true" receiveShadows="true" skinBindNodeIds="14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 94 95 96 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170" materialIds="6"/>
+      <Shape name="pigSow_LOD1" translation="0 0.453874 -0.085152" shapeId="2" clipDistance="300" nodeId="173" castsShadows="true" receiveShadows="true" skinBindNodeIds="14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 94 95 96 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170" materialIds="6"/>
+      <Shape name="pigSow_LOD2" translation="0 0.453874 -0.085152" shapeId="3" clipDistance="300" nodeId="174" castsShadows="true" receiveShadows="true" skinBindNodeIds="14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 94 95 96 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170" materialIds="6"/>
     </TransformGroup>
-    <Shape name="pigProxy" shapeId="4" visibility="false" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="171" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
+    <Shape name="pigProxy" shapeId="4" visibility="false" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="175" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
   </Scene>
 
 </i3D>

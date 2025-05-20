@@ -6,34 +6,35 @@
   </Asset>
 
   <Files>
-    <File fileId="6" filename="$data/shaders/tileAndMirrorShader.xml"/>
-    <File fileId="8" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_diffuse.png"/>
-    <File fileId="9" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_normal.png"/>
-    <File fileId="10" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_specular.png"/>
-    <File fileId="3" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_diffuse.png"/>
-    <File fileId="4" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_normal.png"/>
-    <File fileId="5" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_specular.png"/>
+    <File fileId="7" filename="$data/shaders/tileAndMirrorShader.xml"/>
+    <File fileId="9" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_diffuse.png"/>
+    <File fileId="10" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_normal.png"/>
+    <File fileId="11" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_specular.png"/>
+    <File fileId="4" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_diffuse.png"/>
+    <File fileId="5" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_normal.png"/>
+    <File fileId="6" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_specular.png"/>
     <File fileId="1" filename="../../earTags.i3d"/>
-    <File fileId="2" filename="../../earTagsRight.i3d"/>
+    <File fileId="3" filename="../../earTagsRight.i3d"/>
+    <File fileId="2" filename="../../monitor.i3d"/>
   </Files>
 
 
   <Materials>
     <Material name="standardSurface1" materialId="5" diffuseColor="0.4 0.4 0.4 1">
     </Material>
-    <Material name="WaterBuffaloCalf_hair_alpha_mat" materialId="6" alphaBlending="true" customShaderId="6" customShaderVariation="sssSpecularDirt">
-      <Texture fileId="8"/>
-      <Normalmap fileId="9"/>
-      <Glossmap fileId="10"/>
+    <Material name="WaterBuffaloCalf_hair_alpha_mat" materialId="6" alphaBlending="true" customShaderId="7" customShaderVariation="sssSpecularDirt">
+      <Texture fileId="9"/>
+      <Normalmap fileId="10"/>
+      <Glossmap fileId="11"/>
       <CustomParameter name="mirrorScaleAndOffsetUV" value="1 1 0 0"/>
       <CustomParameter name="atlasInvSizeAndOffsetUV" value="0.5 0.5 0 0.5"/>
       <CustomParameter name="dirt" value="0 20 20"/>
       <CustomParameter name="sssColor" value="0.8 0.8 0.8 1"/>
     </Material>
-    <Material name="WaterBuffaloCalf_mat" materialId="7" customShaderId="6" customShaderVariation="sssSpecularDirt">
-      <Texture fileId="3"/>
-      <Normalmap fileId="4"/>
-      <Glossmap fileId="5"/>
+    <Material name="WaterBuffaloCalf_mat" materialId="7" customShaderId="7" customShaderVariation="sssSpecularDirt">
+      <Texture fileId="4"/>
+      <Normalmap fileId="5"/>
+      <Glossmap fileId="6"/>
       <CustomParameter name="mirrorScaleAndOffsetUV" value="1 1 0 0"/>
       <CustomParameter name="atlasInvSizeAndOffsetUV" value="0.5 0.5 0 0.5"/>
       <CustomParameter name="dirt" value="0 20 20"/>
@@ -63,65 +64,66 @@
                       <TransformGroup name="calf_ear_L_skin_jnt_01" translation="0.089441 0.037497 -0.046663" rotation="6.44066 2.46226 -80.5955" nodeId="32">
                         <TransformGroup name="calf_ear_L_skin_jnt_02" translation="0 0.149554 0" rotation="0.036943 0 0" nodeId="33">
                           <ReferenceNode name="earTag" translation="0.0573109 -0.00108805 0.0256592" rotation="-116.579 67.8286 -22.6305" scale="1 0.9 0.9" referenceId="1" nodeId="66"/>
+                          <ReferenceNode name="monitor" translation="-0.0309831 -0.0385957 0.0185728" rotation="5.078 -73.6752 85.3126" scale="1 0.5 0.5" referenceId="2" nodeId="98"/>
                         </TransformGroup>
                       </TransformGroup>
-                      <TransformGroup name="calf_ear_R_skin_jnt_01" translation="-0.089441 0.037497 -0.046663" rotation="173.559 2.46226 -99.4045" nodeId="95">
-                        <TransformGroup name="calf_ear_R_skin_jnt_02" translation="0 0.149554 0" rotation="-0.036943 0 0" nodeId="96">
-                          <ReferenceNode name="earTagRight" translation="0.0542544 0.0147208 -0.0217774" rotation="109.188 -74.8847 -10.718" scale="1 0.9 0.9" referenceId="2" nodeId="118"/>
+                      <TransformGroup name="calf_ear_R_skin_jnt_01" translation="-0.089441 0.037497 -0.046663" rotation="173.559 2.46226 -99.4045" nodeId="99">
+                        <TransformGroup name="calf_ear_R_skin_jnt_02" translation="0 0.149554 0" rotation="-0.036943 0 0" nodeId="100">
+                          <ReferenceNode name="earTagRight" translation="0.0542544 0.0147208 -0.0217774" rotation="109.188 -74.8847 -10.718" scale="1 0.9 0.9" referenceId="3" nodeId="122"/>
                         </TransformGroup>
                       </TransformGroup>
-                      <TransformGroup name="calf_eyeball_L_skin_jnt" translation="0.060543 0.053735 0.087076" rotation="8.29812 -38.7035 -12.6129" nodeId="137"/>
-                      <TransformGroup name="calf_eyeball_R_skin_jnt" translation="-0.060543 0.053735 0.087076" rotation="171.702 -38.7035 -167.387" nodeId="138"/>
-                      <TransformGroup name="calf_eyelid_up_L_skin_jnt" translation="0.077971 0.060963 0.101468" rotation="-14.0213 -37.3361 22.5273" nodeId="139"/>
-                      <TransformGroup name="calf_eyelid_up_R_skin_jnt" translation="-0.077971 0.060963 0.101468" rotation="-166.471 -37.3361 157.473" nodeId="140"/>
+                      <TransformGroup name="calf_eyeball_L_skin_jnt" translation="0.060543 0.053735 0.087076" rotation="8.29812 -38.7035 -12.6129" nodeId="141"/>
+                      <TransformGroup name="calf_eyeball_R_skin_jnt" translation="-0.060543 0.053735 0.087076" rotation="171.702 -38.7035 -167.387" nodeId="142"/>
+                      <TransformGroup name="calf_eyelid_up_L_skin_jnt" translation="0.077971 0.060963 0.101468" rotation="-14.0213 -37.3361 22.5273" nodeId="143"/>
+                      <TransformGroup name="calf_eyelid_up_R_skin_jnt" translation="-0.077971 0.060963 0.101468" rotation="-166.471 -37.3361 157.473" nodeId="144"/>
                     </TransformGroup>
                   </TransformGroup>
                 </TransformGroup>
               </TransformGroup>
-              <TransformGroup name="calf_shoulder_L_skin_jnt" translation="0.042433 -0.019034 -0.108618" rotation="0 0 -117.485" nodeId="141">
-                <TransformGroup name="calf_elbow_L_skin_jnt" translation="0.258394 0 0" rotation="0 0 36.8626" nodeId="142">
-                  <TransformGroup name="calf_wrist_L_skin_jnt" translation="0.277234 0 0" rotation="0 0 -14.1802" nodeId="143">
-                    <TransformGroup name="calf_front_foot_L_skin_jnt" translation="0.188997 0 0" rotation="0 0 13.1416" nodeId="144">
-                      <TransformGroup name="calf_front_ball_L_skin_jnt" translation="0.046149 0 0" nodeId="145"/>
+              <TransformGroup name="calf_shoulder_L_skin_jnt" translation="0.042433 -0.019034 -0.108618" rotation="0 0 -117.485" nodeId="145">
+                <TransformGroup name="calf_elbow_L_skin_jnt" translation="0.258394 0 0" rotation="0 0 36.8626" nodeId="146">
+                  <TransformGroup name="calf_wrist_L_skin_jnt" translation="0.277234 0 0" rotation="0 0 -14.1802" nodeId="147">
+                    <TransformGroup name="calf_front_foot_L_skin_jnt" translation="0.188997 0 0" rotation="0 0 13.1416" nodeId="148">
+                      <TransformGroup name="calf_front_ball_L_skin_jnt" translation="0.046149 0 0" nodeId="149"/>
                     </TransformGroup>
                   </TransformGroup>
                 </TransformGroup>
               </TransformGroup>
-              <TransformGroup name="calf_shoulder_R_skin_jnt" translation="0.042433 -0.019034 0.108618" rotation="0 0 62.5155" nodeId="146">
-                <TransformGroup name="calf_elbow_R_skin_jnt" translation="-0.258394 0 0" rotation="0 0 36.8626" nodeId="147">
-                  <TransformGroup name="calf_wrist_R_skin_jnt" translation="-0.277234 0 0" rotation="0 0 -14.1802" nodeId="148">
-                    <TransformGroup name="calf_front_foot_R_skin_jnt" translation="-0.188997 0 0" rotation="0 0 -166.858" nodeId="149">
-                      <TransformGroup name="calf_front_ball_R_skin_jnt" translation="0.046149 0 0" nodeId="150"/>
+              <TransformGroup name="calf_shoulder_R_skin_jnt" translation="0.042433 -0.019034 0.108618" rotation="0 0 62.5155" nodeId="150">
+                <TransformGroup name="calf_elbow_R_skin_jnt" translation="-0.258394 0 0" rotation="0 0 36.8626" nodeId="151">
+                  <TransformGroup name="calf_wrist_R_skin_jnt" translation="-0.277234 0 0" rotation="0 0 -14.1802" nodeId="152">
+                    <TransformGroup name="calf_front_foot_R_skin_jnt" translation="-0.188997 0 0" rotation="0 0 -166.858" nodeId="153">
+                      <TransformGroup name="calf_front_ball_R_skin_jnt" translation="0.046149 0 0" nodeId="154"/>
                     </TransformGroup>
                   </TransformGroup>
                 </TransformGroup>
               </TransformGroup>
             </TransformGroup>
-            <TransformGroup name="calf_belly_skin_jnt" translation="0 -0.30702 0" rotation="0 90 0" nodeId="151"/>
+            <TransformGroup name="calf_belly_skin_jnt" translation="0 -0.30702 0" rotation="0 90 0" nodeId="155"/>
           </TransformGroup>
-          <TransformGroup name="calf_tail_skin_jnt_01" translation="-0.013093 0.203392 0" rotation="-180 0 176.891" nodeId="152">
-            <TransformGroup name="calf_tail_skin_jnt_02" translation="0.170868 0 0" rotation="0 0 -38.5557" nodeId="153">
-              <TransformGroup name="calf_tail_skin_jnt_03" translation="0.190862 0 0" rotation="0 0 -9.0121" nodeId="154">
-                <TransformGroup name="calf_tail_skin_jnt_04" translation="0.207204 0 0" rotation="0 0 -0.954205" nodeId="155">
-                  <TransformGroup name="calf_tail_skin_jnt_05" translation="0.181002 0 0" nodeId="156"/>
+          <TransformGroup name="calf_tail_skin_jnt_01" translation="-0.013093 0.203392 0" rotation="-180 0 176.891" nodeId="156">
+            <TransformGroup name="calf_tail_skin_jnt_02" translation="0.170868 0 0" rotation="0 0 -38.5557" nodeId="157">
+              <TransformGroup name="calf_tail_skin_jnt_03" translation="0.190862 0 0" rotation="0 0 -9.0121" nodeId="158">
+                <TransformGroup name="calf_tail_skin_jnt_04" translation="0.207204 0 0" rotation="0 0 -0.954205" nodeId="159">
+                  <TransformGroup name="calf_tail_skin_jnt_05" translation="0.181002 0 0" nodeId="160"/>
                 </TransformGroup>
               </TransformGroup>
             </TransformGroup>
           </TransformGroup>
-          <TransformGroup name="calf_hip_L_skin_jnt" translation="-0.062567 0.07868 -0.115513" rotation="0 0 -60.4957" nodeId="157">
-            <TransformGroup name="calf_knee_L_skin_jnt" translation="0.252317 0 0" rotation="0 0 -55.6434" nodeId="158">
-              <TransformGroup name="calf_ankle_L_skin_jnt" translation="0.334579 0 0" rotation="0 0 31.5306" nodeId="159">
-                <TransformGroup name="calf_hind_foot_L_skin_jnt" translation="0.271793 0 0" rotation="0 0 1.16099" nodeId="160">
-                  <TransformGroup name="calf_hind_ball_L_skin_jnt" translation="0.044208 0 0" nodeId="161"/>
+          <TransformGroup name="calf_hip_L_skin_jnt" translation="-0.062567 0.07868 -0.115513" rotation="0 0 -60.4957" nodeId="161">
+            <TransformGroup name="calf_knee_L_skin_jnt" translation="0.252317 0 0" rotation="0 0 -55.6434" nodeId="162">
+              <TransformGroup name="calf_ankle_L_skin_jnt" translation="0.334579 0 0" rotation="0 0 31.5306" nodeId="163">
+                <TransformGroup name="calf_hind_foot_L_skin_jnt" translation="0.271793 0 0" rotation="0 0 1.16099" nodeId="164">
+                  <TransformGroup name="calf_hind_ball_L_skin_jnt" translation="0.044208 0 0" nodeId="165"/>
                 </TransformGroup>
               </TransformGroup>
             </TransformGroup>
           </TransformGroup>
-          <TransformGroup name="calf_hip_R_skin_jnt" translation="-0.062567 0.07868 0.115513" rotation="0 0 119.504" nodeId="162">
-            <TransformGroup name="calf_knee_R_skin_jnt" translation="-0.252317 0 0" rotation="0 0 -55.6434" nodeId="163">
-              <TransformGroup name="calf_ankle_R_skin_jnt" translation="-0.334579 0 0" rotation="0 0 31.5306" nodeId="164">
-                <TransformGroup name="calf_hind_foot_R_skin_jnt" translation="-0.271793 0 0" rotation="0 0 -178.839" nodeId="165">
-                  <TransformGroup name="calf_hind_ball_R_skin_jnt" translation="0.044208 0 0" nodeId="166"/>
+          <TransformGroup name="calf_hip_R_skin_jnt" translation="-0.062567 0.07868 0.115513" rotation="0 0 119.504" nodeId="166">
+            <TransformGroup name="calf_knee_R_skin_jnt" translation="-0.252317 0 0" rotation="0 0 -55.6434" nodeId="167">
+              <TransformGroup name="calf_ankle_R_skin_jnt" translation="-0.334579 0 0" rotation="0 0 31.5306" nodeId="168">
+                <TransformGroup name="calf_hind_foot_R_skin_jnt" translation="-0.271793 0 0" rotation="0 0 -178.839" nodeId="169">
+                  <TransformGroup name="calf_hind_ball_R_skin_jnt" translation="0.044208 0 0" nodeId="170"/>
                 </TransformGroup>
               </TransformGroup>
             </TransformGroup>
@@ -129,21 +131,21 @@
         </TransformGroup>
       </TransformGroup>
     </TransformGroup>
-    <TransformGroup name="geo" nodeId="167">
-      <Shape name="Tongue" shapeId="1" clipDistance="300" nodeId="168" castsShadows="true" receiveShadows="true" skinBindNodeIds="30 31 28 29" materialIds="7"/>
-      <Shape name="Teeth" shapeId="2" clipDistance="300" nodeId="169" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29" materialIds="7"/>
-      <Shape name="WaterBuffaloCalf" shapeId="3" clipDistance="300" nodeId="170" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 29 32 33 95 96 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 157 158 159 160 161 162 163 164 165 166" materialIds="7"/>
-      <Shape name="Eye" shapeId="4" clipDistance="300" nodeId="171" castsShadows="true" receiveShadows="true" skinBindNodeIds="137 138" materialIds="7"/>
-      <Shape name="Horn" shapeId="5" clipDistance="300" nodeId="172" castsShadows="true" receiveShadows="true" skinBindNodeIds="28" materialIds="7"/>
-      <TransformGroup name="Hair" nodeId="173">
-        <Shape name="Whiskers" shapeId="6" clipDistance="300" nodeId="174" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 95 96 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 157 158 159 160 161 162 163 164 165 166 29" materialIds="6"/>
-        <Shape name="Lash" shapeId="7" clipDistance="300" nodeId="175" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 95 96 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 157 158 159 160 161 162 163 164 165 166 29" materialIds="6"/>
-        <Shape name="Tail" shapeId="8" clipDistance="300" nodeId="176" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 95 96 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 157 158 159 160 161 162 163 164 165 166 29 156" materialIds="6"/>
-        <Shape name="Fur" shapeId="9" clipDistance="300" nodeId="177" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 95 96 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 157 158 159 160 161 162 163 164 165 166 29" materialIds="6"/>
-        <Shape name="Lash_reverse" shapeId="10" clipDistance="300" nodeId="178" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 95 96 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 157 158 159 160 161 162 163 164 165 166 29" materialIds="6"/>
+    <TransformGroup name="geo" nodeId="171">
+      <Shape name="Tongue" shapeId="1" clipDistance="300" nodeId="172" castsShadows="true" receiveShadows="true" skinBindNodeIds="30 31 28 29" materialIds="7"/>
+      <Shape name="Teeth" shapeId="2" clipDistance="300" nodeId="173" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29" materialIds="7"/>
+      <Shape name="WaterBuffaloCalf" shapeId="3" clipDistance="300" nodeId="174" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 29 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170" materialIds="7"/>
+      <Shape name="Eye" shapeId="4" clipDistance="300" nodeId="175" castsShadows="true" receiveShadows="true" skinBindNodeIds="141 142" materialIds="7"/>
+      <Shape name="Horn" shapeId="5" clipDistance="300" nodeId="176" castsShadows="true" receiveShadows="true" skinBindNodeIds="28" materialIds="7"/>
+      <TransformGroup name="Hair" nodeId="177">
+        <Shape name="Whiskers" shapeId="6" clipDistance="300" nodeId="178" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29" materialIds="6"/>
+        <Shape name="Lash" shapeId="7" clipDistance="300" nodeId="179" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29" materialIds="6"/>
+        <Shape name="Tail" shapeId="8" clipDistance="300" nodeId="180" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29 160" materialIds="6"/>
+        <Shape name="Fur" shapeId="9" clipDistance="300" nodeId="181" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29" materialIds="6"/>
+        <Shape name="Lash_reverse" shapeId="10" clipDistance="300" nodeId="182" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29" materialIds="6"/>
       </TransformGroup>
     </TransformGroup>
-    <Shape name="proxy" shapeId="11" visibility="false" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="179" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
+    <Shape name="proxy" shapeId="11" visibility="false" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="183" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
   </Scene>
 
 </i3D>

@@ -6,22 +6,23 @@
   </Asset>
 
   <Files>
-    <File fileId="6" filename="$data/shaders/tileAndMirrorShader.xml"/>
-    <File fileId="3" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_diffuse.png"/>
-    <File fileId="4" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_normal.png"/>
-    <File fileId="5" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_specular.png"/>
+    <File fileId="7" filename="$data/shaders/tileAndMirrorShader.xml"/>
+    <File fileId="4" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_diffuse.png"/>
+    <File fileId="5" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_normal.png"/>
+    <File fileId="6" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_specular.png"/>
     <File fileId="1" filename="../earTags.i3d"/>
-    <File fileId="2" filename="../earTagsRight.i3d"/>
+    <File fileId="3" filename="../earTagsRight.i3d"/>
+    <File fileId="2" filename="../monitor.i3d"/>
   </Files>
 
 
   <Materials>
     <Material name="lambert1" materialId="5" diffuseColor="0.501961 0.501961 0.501961 1">
     </Material>
-    <Material name="pigPiglet_mat" materialId="6" customShaderId="6" customShaderVariation="sssSpecularDirt">
-      <Texture fileId="3"/>
-      <Normalmap fileId="4"/>
-      <Glossmap fileId="5"/>
+    <Material name="pigPiglet_mat" materialId="6" customShaderId="7" customShaderVariation="sssSpecularDirt">
+      <Texture fileId="4"/>
+      <Normalmap fileId="5"/>
+      <Glossmap fileId="6"/>
     </Material>
   </Materials>
 
@@ -45,86 +46,87 @@
                   <TransformGroup name="piglet_ear_L_skin_jnt_01" translation="0.05742 0.059733 0.020137" rotation="-10.2738 38.3614 -55.539" nodeId="31">
                     <TransformGroup name="piglet_ear_L_skin_jnt_02" translation="0 0.070073 0" rotation="21.0066 0 0" nodeId="32">
                       <ReferenceNode name="earTag" translation="0.0574371 -0.0334055 0.0507411" rotation="-123.072 45.8221 -47.0356" scale="1 0.5 0.5" referenceId="1" nodeId="65"/>
+                      <ReferenceNode name="monitor" translation="-0.00246851 1.2601e-08 0.0122568" rotation="180 -78.613 180" scale="1 0.3 0.3" referenceId="2" nodeId="97"/>
                     </TransformGroup>
                   </TransformGroup>
-                  <TransformGroup name="piglet_ear_R_skin_jnt_01" translation="-0.05742 0.059733 0.020137" rotation="10.2738 141.639 55.539" nodeId="94">
-                    <TransformGroup name="piglet_ear_R_skin_jnt_02" translation="0 0.070073 0" rotation="-21.0066 0 0" nodeId="95">
-                      <ReferenceNode name="earTagRight" translation="0.0386035 -0.0167124 -0.0495225" rotation="107.681 -17.4548 -16.0647" scale="1 0.5 0.5" referenceId="2" nodeId="117"/>
+                  <TransformGroup name="piglet_ear_R_skin_jnt_01" translation="-0.05742 0.059733 0.020137" rotation="10.2738 141.639 55.539" nodeId="98">
+                    <TransformGroup name="piglet_ear_R_skin_jnt_02" translation="0 0.070073 0" rotation="-21.0066 0 0" nodeId="99">
+                      <ReferenceNode name="earTagRight" translation="0.0386035 -0.0167124 -0.0495225" rotation="107.681 -17.4548 -16.0647" scale="1 0.5 0.5" referenceId="3" nodeId="121"/>
                     </TransformGroup>
                   </TransformGroup>
-                  <TransformGroup name="piglet_eyeball_L_skin_jnt" translation="0.039231 0.020404 0.077157" rotation="13.5226 -32.1015 -5.41261" nodeId="136"/>
-                  <TransformGroup name="piglet_eyeball_R_skin_jnt" translation="-0.039231 0.020404 0.077157" rotation="166.477 -32.1015 -174.587" nodeId="137"/>
-                  <TransformGroup name="piglet_eyelid_up_L_skin_jnt" translation="0.050209 0.026648 0.085703" rotation="-6.04066 -34.0833 29.6301" nodeId="138"/>
-                  <TransformGroup name="piglet_eyelid_up_R_skin_jnt" translation="-0.050209 0.026648 0.085703" rotation="-173.959 -34.0833 150.37" nodeId="139"/>
-                  <TransformGroup name="piglet_snout_skin_jnt" translation="0 -0.037863 0.156199" rotation="28.9279 0 0" nodeId="140"/>
+                  <TransformGroup name="piglet_eyeball_L_skin_jnt" translation="0.039231 0.020404 0.077157" rotation="13.5226 -32.1015 -5.41261" nodeId="140"/>
+                  <TransformGroup name="piglet_eyeball_R_skin_jnt" translation="-0.039231 0.020404 0.077157" rotation="166.477 -32.1015 -174.587" nodeId="141"/>
+                  <TransformGroup name="piglet_eyelid_up_L_skin_jnt" translation="0.050209 0.026648 0.085703" rotation="-6.04066 -34.0833 29.6301" nodeId="142"/>
+                  <TransformGroup name="piglet_eyelid_up_R_skin_jnt" translation="-0.050209 0.026648 0.085703" rotation="-173.959 -34.0833 150.37" nodeId="143"/>
+                  <TransformGroup name="piglet_snout_skin_jnt" translation="0 -0.037863 0.156199" rotation="28.9279 0 0" nodeId="144"/>
                 </TransformGroup>
               </TransformGroup>
             </TransformGroup>
-            <TransformGroup name="piglet_shoulder_L_skin_jnt" translation="-0.020925 -0.03395 -0.053523" rotation="0 0 -112.228" nodeId="141">
-              <TransformGroup name="piglet_elbow_L_skin_jnt" translation="0.087608 0 0" rotation="0 0 39.3546" nodeId="142">
-                <TransformGroup name="piglet_wrist_L_skin_jnt" translation="0.091241 0 0" rotation="0 0 -18.9967" nodeId="143">
-                  <TransformGroup name="piglet_front_foot_L_skin_jnt" translation="0.046737 0 0" rotation="0 0 16.4427" nodeId="144">
-                    <TransformGroup name="piglet_front_ball_L_skin_jnt" translation="0.035834 0 0" nodeId="145"/>
+            <TransformGroup name="piglet_shoulder_L_skin_jnt" translation="-0.020925 -0.03395 -0.053523" rotation="0 0 -112.228" nodeId="145">
+              <TransformGroup name="piglet_elbow_L_skin_jnt" translation="0.087608 0 0" rotation="0 0 39.3546" nodeId="146">
+                <TransformGroup name="piglet_wrist_L_skin_jnt" translation="0.091241 0 0" rotation="0 0 -18.9967" nodeId="147">
+                  <TransformGroup name="piglet_front_foot_L_skin_jnt" translation="0.046737 0 0" rotation="0 0 16.4427" nodeId="148">
+                    <TransformGroup name="piglet_front_ball_L_skin_jnt" translation="0.035834 0 0" nodeId="149"/>
                   </TransformGroup>
                 </TransformGroup>
               </TransformGroup>
             </TransformGroup>
-            <TransformGroup name="piglet_shoulder_R_skin_jnt" translation="-0.020925 -0.03395 0.053523" rotation="0 0 67.772" nodeId="146">
-              <TransformGroup name="piglet_elbow_R_skin_jnt" translation="-0.087608 0 0" rotation="0 0 39.3546" nodeId="147">
-                <TransformGroup name="piglet_wrist_R_skin_jnt" translation="-0.091241 0 0" rotation="0 0 -18.9967" nodeId="148">
-                  <TransformGroup name="piglet_front_foot_R_skin_jnt" translation="-0.046737 0 0" rotation="0 0 -163.557" nodeId="149">
-                    <TransformGroup name="piglet_front_ball_R_skin_jnt" translation="0.035834 0 0" nodeId="150"/>
+            <TransformGroup name="piglet_shoulder_R_skin_jnt" translation="-0.020925 -0.03395 0.053523" rotation="0 0 67.772" nodeId="150">
+              <TransformGroup name="piglet_elbow_R_skin_jnt" translation="-0.087608 0 0" rotation="0 0 39.3546" nodeId="151">
+                <TransformGroup name="piglet_wrist_R_skin_jnt" translation="-0.091241 0 0" rotation="0 0 -18.9967" nodeId="152">
+                  <TransformGroup name="piglet_front_foot_R_skin_jnt" translation="-0.046737 0 0" rotation="0 0 -163.557" nodeId="153">
+                    <TransformGroup name="piglet_front_ball_R_skin_jnt" translation="0.035834 0 0" nodeId="154"/>
                   </TransformGroup>
                 </TransformGroup>
               </TransformGroup>
             </TransformGroup>
           </TransformGroup>
-          <TransformGroup name="piglet_belly_skin_jnt" translation="0 -0.133666 0" rotation="0 90 0" nodeId="151"/>
+          <TransformGroup name="piglet_belly_skin_jnt" translation="0 -0.133666 0" rotation="0 90 0" nodeId="155"/>
         </TransformGroup>
-        <TransformGroup name="piglet_tail_skin_jnt" translation="-0.032991 0.01344 0" rotation="0 180 0" nodeId="152"/>
-        <TransformGroup name="piglet_hip_L_skin_jnt" translation="0.037361 0.000178 -0.057074" rotation="0 0 -79.4829" nodeId="153">
-          <TransformGroup name="piglet_knee_L_skin_jnt" translation="0.130378 0 0" rotation="0 0 -47.7214" nodeId="154">
-            <TransformGroup name="piglet_ankle_L_skin_jnt" translation="0.081216 0 0" rotation="0 0 51.3609" nodeId="155">
-              <TransformGroup name="piglet_hind_foot_L_skin_jnt" translation="0.058011 0 0" rotation="0 0 0.26314" nodeId="156">
-                <TransformGroup name="piglet_hind_ball_L_skin_jnt" translation="0.03254 0 0" nodeId="157"/>
+        <TransformGroup name="piglet_tail_skin_jnt" translation="-0.032991 0.01344 0" rotation="0 180 0" nodeId="156"/>
+        <TransformGroup name="piglet_hip_L_skin_jnt" translation="0.037361 0.000178 -0.057074" rotation="0 0 -79.4829" nodeId="157">
+          <TransformGroup name="piglet_knee_L_skin_jnt" translation="0.130378 0 0" rotation="0 0 -47.7214" nodeId="158">
+            <TransformGroup name="piglet_ankle_L_skin_jnt" translation="0.081216 0 0" rotation="0 0 51.3609" nodeId="159">
+              <TransformGroup name="piglet_hind_foot_L_skin_jnt" translation="0.058011 0 0" rotation="0 0 0.26314" nodeId="160">
+                <TransformGroup name="piglet_hind_ball_L_skin_jnt" translation="0.03254 0 0" nodeId="161"/>
               </TransformGroup>
             </TransformGroup>
           </TransformGroup>
         </TransformGroup>
-        <TransformGroup name="piglet_hip_R_skin_jnt" translation="0.037361 0.000178 0.057074" rotation="0 0 100.517" nodeId="158">
-          <TransformGroup name="piglet_knee_R_skin_jnt" translation="-0.130378 0 0" rotation="0 0 -47.7214" nodeId="159">
-            <TransformGroup name="piglet_ankle_R_skin_jnt" translation="-0.081216 0 0" rotation="0 0 51.3609" nodeId="160">
-              <TransformGroup name="piglet_hind_foot_R_skin_jnt" translation="-0.058011 0 0" rotation="0 0 -179.737" nodeId="161">
-                <TransformGroup name="piglet_hind_ball_R_skin_jnt" translation="0.03254 0 0" nodeId="162"/>
+        <TransformGroup name="piglet_hip_R_skin_jnt" translation="0.037361 0.000178 0.057074" rotation="0 0 100.517" nodeId="162">
+          <TransformGroup name="piglet_knee_R_skin_jnt" translation="-0.130378 0 0" rotation="0 0 -47.7214" nodeId="163">
+            <TransformGroup name="piglet_ankle_R_skin_jnt" translation="-0.081216 0 0" rotation="0 0 51.3609" nodeId="164">
+              <TransformGroup name="piglet_hind_foot_R_skin_jnt" translation="-0.058011 0 0" rotation="0 0 -179.737" nodeId="165">
+                <TransformGroup name="piglet_hind_ball_R_skin_jnt" translation="0.03254 0 0" nodeId="166"/>
               </TransformGroup>
             </TransformGroup>
           </TransformGroup>
         </TransformGroup>
       </TransformGroup>
     </TransformGroup>
-    <TransformGroup name="pigPiglet" nodeId="163">
-      <TransformGroup name="LOD_0" nodeId="164">
-        <Shape name="body" shapeId="1" clipDistance="300" nodeId="165" castsShadows="true" receiveShadows="true" skinBindNodeIds="21 22 23 24 25 26 27 28 29 30 31 32 94 95 136 138 137 139 141 142 143 144 145 146 147 148 149 150 152 153 154 155 156 157 158 159 160 161 162 140 151" materialIds="6"/>
-        <Shape name="tongue" shapeId="2" clipDistance="300" nodeId="166" castsShadows="true" receiveShadows="true" skinBindNodeIds="30 29 28" materialIds="6"/>
-        <Shape name="eyes" shapeId="3" clipDistance="300" nodeId="167" castsShadows="true" receiveShadows="true" skinBindNodeIds="137 136" materialIds="6"/>
+    <TransformGroup name="pigPiglet" nodeId="167">
+      <TransformGroup name="LOD_0" nodeId="168">
+        <Shape name="body" shapeId="1" clipDistance="300" nodeId="169" castsShadows="true" receiveShadows="true" skinBindNodeIds="21 22 23 24 25 26 27 28 29 30 31 32 98 99 140 142 141 143 145 146 147 148 149 150 151 152 153 154 156 157 158 159 160 161 162 163 164 165 166 144 155" materialIds="6"/>
+        <Shape name="tongue" shapeId="2" clipDistance="300" nodeId="170" castsShadows="true" receiveShadows="true" skinBindNodeIds="30 29 28" materialIds="6"/>
+        <Shape name="eyes" shapeId="3" clipDistance="300" nodeId="171" castsShadows="true" receiveShadows="true" skinBindNodeIds="141 140" materialIds="6"/>
       </TransformGroup>
-      <TransformGroup name="LOD_1" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="168">
-        <Shape name="body" shapeId="4" clipDistance="350" nodeId="169" castsShadows="true" receiveShadows="true" skinBindNodeIds="155 160 151 31 32 94 95 142 147 136 137 138 139 145 150 144 149 27 157 162 156 161 153 158 28 154 159 25 26 21 141 146 140 22 23 24 152 29 30 143 148" materialIds="6"/>
-        <Shape name="tongue" shapeId="5" clipDistance="350" nodeId="170" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
-        <Shape name="eyes" shapeId="6" clipDistance="350" nodeId="171" castsShadows="true" receiveShadows="true" skinBindNodeIds="136 137" materialIds="6"/>
+      <TransformGroup name="LOD_1" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="172">
+        <Shape name="body" shapeId="4" clipDistance="350" nodeId="173" castsShadows="true" receiveShadows="true" skinBindNodeIds="159 164 155 31 32 98 99 146 151 140 141 142 143 149 154 148 153 27 161 166 160 165 157 162 28 158 163 25 26 21 145 150 144 22 23 24 156 29 30 147 152" materialIds="6"/>
+        <Shape name="tongue" shapeId="5" clipDistance="350" nodeId="174" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
+        <Shape name="eyes" shapeId="6" clipDistance="350" nodeId="175" castsShadows="true" receiveShadows="true" skinBindNodeIds="140 141" materialIds="6"/>
       </TransformGroup>
-      <TransformGroup name="LOD_2" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="172">
-        <Shape name="body" shapeId="7" clipDistance="350" nodeId="173" castsShadows="true" receiveShadows="true" skinBindNodeIds="155 160 151 31 32 94 95 142 147 136 137 138 139 145 150 144 149 27 157 162 156 161 153 158 28 154 159 25 26 21 141 146 140 22 23 24 152 29 30 143 148" materialIds="6"/>
-        <Shape name="tongue" shapeId="8" clipDistance="350" nodeId="174" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
-        <Shape name="eyes" shapeId="9" clipDistance="350" nodeId="175" castsShadows="true" receiveShadows="true" skinBindNodeIds="136 137" materialIds="6"/>
+      <TransformGroup name="LOD_2" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="176">
+        <Shape name="body" shapeId="7" clipDistance="350" nodeId="177" castsShadows="true" receiveShadows="true" skinBindNodeIds="159 164 155 31 32 98 99 146 151 140 141 142 143 149 154 148 153 27 161 166 160 165 157 162 28 158 163 25 26 21 145 150 144 22 23 24 156 29 30 147 152" materialIds="6"/>
+        <Shape name="tongue" shapeId="8" clipDistance="350" nodeId="178" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
+        <Shape name="eyes" shapeId="9" clipDistance="350" nodeId="179" castsShadows="true" receiveShadows="true" skinBindNodeIds="140 141" materialIds="6"/>
       </TransformGroup>
-      <TransformGroup name="LOD_3" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="176">
-        <Shape name="body" shapeId="10" clipDistance="350" nodeId="177" castsShadows="true" receiveShadows="true" skinBindNodeIds="155 160 151 31 32 94 95 142 147 136 137 138 139 145 150 144 149 27 157 162 156 161 153 158 28 154 159 25 26 21 141 146 140 22 23 24 152 29 30 143 148" materialIds="6"/>
-        <Shape name="tongue" shapeId="11" clipDistance="350" nodeId="178" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
-        <Shape name="eyes" shapeId="12" clipDistance="350" nodeId="179" castsShadows="true" receiveShadows="true" skinBindNodeIds="136 137" materialIds="6"/>
+      <TransformGroup name="LOD_3" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="180">
+        <Shape name="body" shapeId="10" clipDistance="350" nodeId="181" castsShadows="true" receiveShadows="true" skinBindNodeIds="159 164 155 31 32 98 99 146 151 140 141 142 143 149 154 148 153 27 161 166 160 165 157 162 28 158 163 25 26 21 145 150 144 22 23 24 156 29 30 147 152" materialIds="6"/>
+        <Shape name="tongue" shapeId="11" clipDistance="350" nodeId="182" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
+        <Shape name="eyes" shapeId="12" clipDistance="350" nodeId="183" castsShadows="true" receiveShadows="true" skinBindNodeIds="140 141" materialIds="6"/>
       </TransformGroup>
     </TransformGroup>
-    <Shape name="pigPigletProxy" shapeId="13" visibility="false" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="180" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
+    <Shape name="pigPigletProxy" shapeId="13" visibility="false" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="184" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
   </Scene>
 
   <UserAttributes>
@@ -164,22 +166,10 @@
     <UserAttribute nodeId="32">
       <Attribute name="liw" type="boolean" value="false"/>
     </UserAttribute>
-    <UserAttribute nodeId="94">
+    <UserAttribute nodeId="98">
       <Attribute name="liw" type="boolean" value="false"/>
     </UserAttribute>
-    <UserAttribute nodeId="95">
-      <Attribute name="liw" type="boolean" value="false"/>
-    </UserAttribute>
-    <UserAttribute nodeId="136">
-      <Attribute name="liw" type="boolean" value="false"/>
-    </UserAttribute>
-    <UserAttribute nodeId="137">
-      <Attribute name="liw" type="boolean" value="false"/>
-    </UserAttribute>
-    <UserAttribute nodeId="138">
-      <Attribute name="liw" type="boolean" value="false"/>
-    </UserAttribute>
-    <UserAttribute nodeId="139">
+    <UserAttribute nodeId="99">
       <Attribute name="liw" type="boolean" value="false"/>
     </UserAttribute>
     <UserAttribute nodeId="140">
@@ -249,6 +239,18 @@
       <Attribute name="liw" type="boolean" value="false"/>
     </UserAttribute>
     <UserAttribute nodeId="162">
+      <Attribute name="liw" type="boolean" value="false"/>
+    </UserAttribute>
+    <UserAttribute nodeId="163">
+      <Attribute name="liw" type="boolean" value="false"/>
+    </UserAttribute>
+    <UserAttribute nodeId="164">
+      <Attribute name="liw" type="boolean" value="false"/>
+    </UserAttribute>
+    <UserAttribute nodeId="165">
+      <Attribute name="liw" type="boolean" value="false"/>
+    </UserAttribute>
+    <UserAttribute nodeId="166">
       <Attribute name="liw" type="boolean" value="false"/>
     </UserAttribute>
   </UserAttributes>
