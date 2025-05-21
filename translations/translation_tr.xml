@@ -267,7 +267,7 @@
 
 		<text name="rl_help_monitors_title" text="İzleme"/>
 		<text name="rl_help_monitors_1" text="Bir hayvanın istatistiklerinin çoğunu görmek için, ona bir izleme etiketi uygulamanız gerekir; bunu hayvan menüsünden (hayvan alıp sattığınız yer) yapabilirsiniz. İzleme etiketleri ayrıca görsel olarak hayvanın üzerinde, sol kulağında kimlik etiketinin yanında gösterilir."/>
-		<text name="rl_help_monitors_2" text="Etiketlerin izlediğinizde, sağlık, ağırlık, emzirme, üretim ve saman, yiyecek ve su gereksinimleri dahil olmak üzere önemli bilgilerin size gösterilecektir."/>
+		<text name="rl_help_monitors_2" text="Etiketleri izlediğinizde, sağlık, ağırlık, emzirme, üretim ve saman, yiyecek ve su gereksinimleri dahil olmak üzere önemli bilgiler size gösterilecektir."/>
 		<text name="rl_help_monitors_3" text="Bir hayvana etiket uygulamak, hayvanın türüne bağlı olarak size küçük bir aylık aboneliğe mal olacaktır. Etiketi kaldırmayı seçerseniz, etiket bir sonraki ayın başında kaldırılacaktır."/>
 		
 		<text name="rl_help_pregnancy_title" text="Hamilelik"/>
