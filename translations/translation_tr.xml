@@ -1,0 +1,298 @@
+<l10n>
+	<texts>
+		<!-- COWS -->
+		
+		<text name="fillType_bull" text="Boğa"/>
+		<text name="fillType_bull_swiss_brown" text="Montofon Boğa"/>
+		<text name="fillType_bull_holstein" text="Holstein Boğa"/>
+		<text name="fillType_bull_angus" text="Angus Boğa"/>
+		<text name="fillType_bull_limousin" text="Limuzin Boğa"/>
+		<text name="animal_descriptionBullFeed" text="Boğalar çim, kuru ot ve TKT'yi sever."/>
+		<text name="animal_descriptionBullYoung" text="Bu bir erkek buzağı."/>
+		<text name="animal_descriptionBullReproduction" text="Sağlıklı ve 12 aydan büyük boğalar üreyebilir."/>
+
+		<!-- WATER BUFFALOS -->
+
+		<text name="fillType_bull_waterbuffalo" text="Manda Boğası"/>
+
+		<!-- PIGS -->
+		
+		<text name="fillType_boar" text="Erkek Domuz"/>
+		<text name="fillType_boar_landrace" text="Landrace Erkek Domuz"/>
+		<text name="fillType_boar_black_pied" text="Black-Pied Erkek Domuz"/>
+		<text name="fillType_boar_berkshire" text="Berkshire Erkek Domuz"/>
+		<text name="animal_descriptionBoarReproduction" text="Sağlıklı ve 8 aydan büyük olan domuzlar üreyebilir."/>
+		<text name="animal_descriptionBoarFeed" text="Domuzlar neredeyse her şeyi yerler. Onları mısır, buğday, arpa, kanola, ayçiçeği, soya fasulyesi, patates, sorgum ve şeker pancarı ile besleyebilirsiniz."/>
+		<text name="animal_descriptionBoarYoung" text="Bu bir erkek domuz yavrusu."/>
+
+		<!-- SHEEP -->
+		
+		<text name="fillType_ram" text="Koç"/>
+		<text name="fillType_ram_landrace" text="Yerli Bentheim Koç"/>
+		<text name="fillType_ram_steinschaf" text="Steinschaf Koç"/>
+		<text name="fillType_ram_black_welsh" text="Siyah Galli Koç"/>
+		<text name="fillType_ram_swiss_mountain" text="İsviçre Siyah-Kahverengi Dağ Koç"/>
+		<text name="animal_descriptionRamFeed" text="Koçlar çim ve kuru ot yer."/>
+		<text name="animal_descriptionRamYoung" text="Bu bir erkek kuzu."/>
+		<text name="animal_descriptionRamReproduction" text="Sağlıklı ve 5 aydan büyük koçlar üreyebilir."/>
+
+		<!-- GOATS -->
+
+		<text name="fillType_ram_goat" text="Erkek Keçi"/>
+		
+		<!-- HORSES -->
+		
+		<text name="fillType_stallion" text="Aygır"/>
+		<text name="fillType_stallion_gray" text="Gri Aygır"/>
+		<text name="fillType_stallion_pinto" text="Pinto Aygır"/>
+		<text name="fillType_stallion_palomino" text="Palomino Aygır"/>
+		<text name="fillType_stallion_chestnut" text="Chestnut Aygır"/>
+		<text name="fillType_stallion_bay" text="Bay Aygır"/>
+		<text name="fillType_stallion_black" text="Siyah Aygır"/>
+		<text name="fillType_stallion_seal_brown" text="Seal Brown Aygır"/>
+		<text name="fillType_stallion_dun" text="Dun Aygır"/>
+		<text name="animal_descriptionStallionFeed" text="Aygırlar kuru ot, yulaf ve sorgumu sever."/>
+		<text name="animal_descriptionStallionProfit" text="Aygırlar kâr amacıyla satılabilir."/>
+		<text name="animal_descriptionStallionReproduction" text="Sağlıklı ve 36 aydan büyük aygırlar üreyebilir."/>
+
+
+        <!-- UI -->
+
+		
+        <text name="input_VisualAnimalsDialog" text="Görüntülenen Hayvan Sayısını Değiştir"/>
+        <text name="rl_button_apply" text="Uygula"/>
+        <text name="rl_button_confirm" text="Onayla"/>
+        <text name="rl_button_recommended" text="Önerilen"/>
+        <text name="rl_button_cancel" text="İptal"/>
+        <text name="rl_button_random" text="Rastgele"/>
+        <text name="rl_dialog_title" text="Maksimum Görsel Hayvan Sayısını Ayarlayın"/>
+
+        <text name="rl_ui_unhealthy" text="Çok Sağlıksız"/>
+        <text name="rl_ui_unhealthyBracketed" text="Hayır (çok sağlıksız)"/>
+        <text name="rl_ui_noMaleAnimal" text="Uygun erkek hayvan yok"/>
+        <text name="rl_ui_noMaleAnimalBracketed" text="Hayır (uygun erkek hayvan yok)"/>
+        <text name="rl_ui_recoveringLastBirth" text="Son doğumdan sonra iyileşme"/>
+        <text name="rl_ui_recoveringLastBirthBracketed" text="Hayır (son doğumdan sonra iyileşme)"/>
+        <text name="rl_ui_tooYoung" text="Çok genç"/>
+        <text name="rl_ui_tooYoungBracketed" text="Hayır (çok genç)"/>
+        <text name="rl_ui_pregnant" text="Hamile"/>
+        <text name="rl_ui_lactating" text="Süt Salgılama"/>
+        <text name="rl_ui_canReproduce" text="Üreyebilir"/>
+        <text name="rl_ui_impregnatedBy" text="Tarafından Hamile"/>
+        <text name="rl_ui_unknown" text="Bilinmiyor"/>
+        <text name="rl_ui_yes" text="Evet"/>
+        <text name="rl_ui_no" text="Hayır"/>
+        <text name="rl_ui_mother" text="Anne"/>
+        <text name="rl_ui_father" text="Baba"/>
+        <text name="rl_ui_uniqueId" text="Benzersiz ID"/>
+        <text name="rl_ui_farmId" text="Çiftlik ID"/>
+        <text name="rl_ui_gender" text="Cinsiyet"/>
+        <text name="rl_ui_male" text="Erkek"/>
+        <text name="rl_ui_female" text="Dişi"/>
+        <text name="rl_ui_weight" text="Ağırlık"/>
+		<text name="rl_ui_targetWeight" text="Hedef Ağırlık"/>
+        <text name="rl_ui_value" text="Değer"/>
+        <text name="rl_ui_valuePerKilo" text="Kg. Başına Değer"/>
+		<text name="rl_ui_genetics" text="Genetik"/>
+		<text name="rl_ui_overall" text="Toplam"/>
+		<text name="rl_ui_rename" text="İsim Değiştir"/>
+		<text name="rl_ui_cantFindAnimal" text="Hayvan bulunamadı"/>
+		<text name="rl_ui_maleNumImpregnatable" text="Ağılda hamile olmayan hayvanlar"/>
+		
+		<text name="rl_ui_breederQuality" text="Damızlık Kalitesi"/>
+		<text name="rl_ui_birthday" text="Doğum Günü"/>
+		<text name="rl_ui_pregnancyExpected" text="Beklenen"/>
+		<text name="rl_ui_pregnancyExpecting" text="Beklenti"/>
+		<text name="rl_ui_pregnancyBaby" text="yavru"/>
+		<text name="rl_ui_pregnancyBabies" text="yavrular"/>
+		<text name="rl_ui_animalOrigin" text="Menşei"/>
+		<text name="rl_ui_months" text="aylık"/>
+		<text name="rl_ui_month" text="ay"/>
+		<text name="rl_ui_years" text="yaşında"/>
+		<text name="rl_ui_year" text="yıl"/>
+
+		<text name="rl_ui_milk" text="Süt üretimi"/>
+		<text name="rl_ui_wool" text="Yün üretimi"/>
+		<text name="rl_ui_eggs" text="Yumurta üretimi"/>
+		<text name="rl_ui_metabolism" text="Metabolizma"/>
+		<text name="rl_ui_meat" text="Kalite"/>
+		<text name="rl_ui_health" text="Sağlık"/>
+		<text name="rl_ui_fertility" text="Doğurganlık"/>
+		
+		<text name="rl_ui_genetics_extremelyLow" text="Aşırı düşük"/>
+		<text name="rl_ui_genetics_veryLow" text="Çok düşük"/>
+		<text name="rl_ui_genetics_low" text="Düşük"/>
+		<text name="rl_ui_genetics_average" text="Ortalama"/>
+		<text name="rl_ui_genetics_high" text="Yüksek"/>
+		<text name="rl_ui_genetics_veryHigh" text="Çok yüksek"/>
+		<text name="rl_ui_genetics_extremelyHigh" text="Aşırı yüksek"/>
+
+		<text name="rl_ui_genetics_extremelyBad" text="Aşırı kötü"/>
+		<text name="rl_ui_genetics_veryBad" text="Çok kötü"/>
+		<text name="rl_ui_genetics_bad" text="Kötü"/>
+		<text name="rl_ui_genetics_good" text="İyi"/>
+		<text name="rl_ui_genetics_veryGood" text="Çok iyi"/>
+		<text name="rl_ui_genetics_extremelyGood" text="Aşırı iyi"/>
+
+        <text name="rl_ui_cow_multipleBirths" text="%s buzağı doğdu" tag="format"/>
+        <text name="rl_ui_cow_singleBirth" text="1 buzağı doğdu"/>
+        <text name="rl_ui_pig_multipleBirths" text="%s domuz doğdu" tag="format"/>
+        <text name="rl_ui_pig_singleBirth" text="1 domuz doğdu"/>
+        <text name="rl_ui_sheep_multipleBirths" text="%s kuzu doğdu" tag="format"/>
+        <text name="rl_ui_sheep_singleBirth" text="1 kuzu doğdu"/>
+        <text name="rl_ui_chicken_multipleBirths" text="%s civciv doğdu" tag="format"/>
+        <text name="rl_ui_chicken_singleBirth" text="1 civciv doğdu"/>
+        <text name="rl_ui_horse_multipleBirths" text="%s tay doğdu" tag="format"/>
+        <text name="rl_ui_horse_singleBirth" text="1 tay doğdu"/>
+
+        <text name="rl_ui_cow_multipleDeaths_birth" text="%s inek hamilelikte yaşadığı sorunlar nedeniyle kaldırıldı" tag="format"/>
+        <text name="rl_ui_cow_singleDeath_birth" text="1 inek hamilelik sırasında yaşadığı sorunlar nedeniyle kaldırıldı"/>
+        <text name="rl_ui_pig_multipleDeaths_birth" text="%s domuz hamilelik sırasında yaşadığı sorunlar nedeniyle kaldırıldı" tag="format"/>
+        <text name="rl_ui_pig_singleDeath_birth" text="1 domuz hamilelik sırasında yaşadığı sorunlar nedeniyle kaldırıldı"/>
+        <text name="rl_ui_sheep_multipleDeaths_birth" text="%s koyun hamilelik sırasında yaşadığı sorunlar nedeniyle kaldırıldı" tag="format"/>
+        <text name="rl_ui_sheep_singleDeath_birth" text="1 koyun hamilelik sırasında yaşadığı sorunlar nedeniyle kaldırıldı"/>
+        <text name="rl_ui_horse_multipleDeaths_birth" text="%s at hamilelik sırasında yaşadığı sorunlar nedeniyle kaldırıldı" tag="format"/>
+        <text name="rl_ui_horse_singleDeath_birth" text="1 at hamilelik sırasında yaşadığı sorunlar nedeniyle kaldırıldı"/>
+
+        <text name="rl_ui_cow_multipleSold_birth" text="%s buzağı aşırı kalabalık nedeniyle doğumda satıldı" tag="format"/>
+        <text name="rl_ui_cow_singleSold_birth" text="1 buzağı aşırı kalabalık nedeniyle doğumda satıldı"/>
+        <text name="rl_ui_pig_multipleSold_birth" text="%s yavru domuz aşırı kalabalık nedeniyle doğumda satıldı" tag="format"/>
+        <text name="rl_ui_pig_singleSold_birth" text="1 yavru domuz aşırı kalabalık nedeniyle doğumda satıldı"/>
+        <text name="rl_ui_sheep_multipleSold_birth" text="%s kuzu aşırı kalabalık nedeniyle doğumda satıldı" tag="format"/>
+        <text name="rl_ui_sheep_singleSold_birth" text="1 kuzu aşırı kalabalık nedeniyle doğumda satıldı"/>
+        <text name="rl_ui_chicken_multipleSold_birth" text="%s civciv aşırı kalabalık nedeniyle doğumda satıldı" tag="format"/>
+        <text name="rl_ui_chicken_singleSold_birth" text="1 civciv aşırı kalabalık nedeniyle doğumda satıldı"/>
+        <text name="rl_ui_horse_multipleSold_birth" text="%s tay aşırı kalabalık nedeniyle doğumda satıldı" tag="format"/>
+        <text name="rl_ui_horse_singleSold_birth" text="1 tay aşırı kalabalık nedeniyle doğumda satıldı"/>
+
+		<text name="rl_ui_cow_multipleDeaths_health" text="%s inek düşük sağlık nedeniyle kaldırıldı" tag="format"/>
+		<text name="rl_ui_cow_singleDeath_health" text="1 inek düşük sağlık nedeniyle kaldırıldı"/>
+		<text name="rl_ui_pig_multipleDeaths_health" text="%s domuz düşük sağlık nedeniyle kaldırıldı" tag="format"/>
+		<text name="rl_ui_pig_singleDeath_health" text="1 domuz düşük sağlık nedeniyle kaldırıldı"/>
+		<text name="rl_ui_sheep_multipleDeaths_health" text="%s koyun düşük sağlık nedeniyle kaldırıldı" tag="format"/>
+		<text name="rl_ui_sheep_singleDeath_health" text="1 koyun düşük sağlık nedeniyle kaldırıldı"/>
+		<text name="rl_ui_chicken_multipleDeaths_health" text="%s tavuk düşük sağlık nedeniyle kaldırıldı" tag="format"/>
+		<text name="rl_ui_chicken_singleDeath_health" text="1 tavuk düşük sağlık nedeniyle kaldırıldı"/>
+		<text name="rl_ui_horse_multipleDeaths_health" text="%s at düşük sağlık nedeniyle kaldırıldı" tag="format"/>
+		<text name="rl_ui_horse_singleDeath_health" text="1 at düşük sağlık nedeniyle kaldırıldı"/>
+
+		<text name="rl_ui_cow_multipleDeaths_age" text="%s inek yaşlılık nedeniyle kaldırıldı" tag="format"/>
+		<text name="rl_ui_cow_singleDeath_age" text="1 inek yaşlılık nedeniyle kaldırıldı"/>
+		<text name="rl_ui_pig_multipleDeaths_age" text="%s domuz yaşlılık nedeniyle kaldırıldı" tag="format"/>
+		<text name="rl_ui_pig_singleDeath_age" text="1 domuz yaşlılık nedeniyle kaldırıldı"/>
+		<text name="rl_ui_sheep_multipleDeaths_age" text="%s koyun yaşlılık nedeniyle kaldırıldı" tag="format"/>
+		<text name="rl_ui_sheep_singleDeath_age" text="1 koyun yaşlılık nedeniyle kaldırıldı"/>
+		<text name="rl_ui_chicken_multipleDeaths_age" text="%s tavuk yaşlılık nedeniyle kaldırıldı" tag="format"/>
+		<text name="rl_ui_chicken_singleDeath_age" text="1 tavuk yaşlılık nedeniyle kaldırıldı"/>
+		<text name="rl_ui_horse_multipleDeaths_age" text="%s at yaşlılık nedeniyle kaldırıldı" tag="format"/>
+		<text name="rl_ui_horse_singleDeath_age" text="1 at yaşlılık nedeniyle kaldırıldı"/>
+
+		<text name="rl_ui_cow_multipleDeaths_random" text="%s inek rastgele kaza nedeniyle kaldırıldı ve şu fiyata satıldı %s" tag="format"/>
+		<text name="rl_ui_cow_singleDeath_random" text="1 inek rastgele kaza nedeniyle kaldırıldı ve şu fiyata satıldı %s" tag="format"/>
+		<text name="rl_ui_pig_multipleDeaths_random" text="%s domuz rastgele kaza nedeniyle kaldırıldı ve şu fiyata satıldı for %s" tag="format"/>
+		<text name="rl_ui_pig_singleDeath_random" text="1 domuz rastgele kaza nedeniyle kaldırıldı ve şu fiyata satıldı %s" tag="format"/>
+		<text name="rl_ui_sheep_multipleDeaths_random" text="%s koyun rastgele kaza nedeniyle kaldırıldı ve şu fiyata satıldı %s" tag="format"/>
+		<text name="rl_ui_sheep_singleDeath_random" text="1 koyun rastgele kaza nedeniyle kaldırıldı ve şu fiyata satıldı %s" tag="format"/>
+		<text name="rl_ui_chicken_multipleDeaths_random" text="%s tavuk rastgele kaza nedeniyle kaldırıldı" tag="format"/>
+		<text name="rl_ui_chicken_singleDeath_random" text="1 tavuk rastgele kaza nedeniyle kaldırıldı"/>
+		<text name="rl_ui_horse_multipleDeaths_random" text="%s at rastgele kaza nedeniyle kaldırıldı ve şu fiyata satıldı %s" tag="format"/>
+		<text name="rl_ui_horse_singleDeath_random" text="1 at rastgele kaza nedeniyle kaldırıldı ve şu fiyata satıldı %s" tag="format"/>
+		
+		<text name="rl_ui_buySelected" text="Seçilenleri satın al"/>
+		<text name="rl_ui_sellSelected" text="Seçilenleri sat"/>
+		<text name="rl_ui_moveSelected" text="Seçilenleri gönder"/>
+		<text name="rl_ui_buyConfirmation" text="Satın almak istediğine emin misin ? %s hayvan için %s?" tag="format"/>
+		<text name="rl_ui_sellConfirmation" text="Satmak istediğine emin misin ? %s hayvan için %s??" tag="format"/>
+		<text name="rl_ui_moveConfirmation" text="Emin misin %s hayvan gönderilecek?" tag="format"/>
+		<text name="rl_ui_buyBulkResult" text="%s hayvan için ödendi %s" tag="format"/>
+		<text name="rl_ui_sellBulkResult" text="%s hayvan %s için satıldı" tag="format"/>
+		<text name="rl_ui_moveBulkResult" text="%s hayvan gönderildi" tag="format"/>
+
+		<text name="rl_ui_monitor" text="İzleme"/>
+		<text name="rl_ui_monitorSubscriptions" text="İzleme Aboneliği"/>
+		<text name="finance_monitorSubscriptions" text="İzleme Aboneliği"/>
+		<text name="rl_ui_monitorFee" text="İzleme ücreti"/>
+		<text name="rl_ui_applyMonitor" text="İzle"/>
+		<text name="rl_ui_removeMonitor" text="İzlemeyi Kaldır"/>
+		<text name="rl_ui_input_food" text="Besin"/>
+		<text name="rl_ui_input_water" text="Su"/>
+		<text name="rl_ui_input_straw" text="Saman"/>
+		<text name="rl_ui_output_milk" text="Süt"/>
+		<text name="rl_ui_output_manure" text="Doğal Gübre"/>
+		<text name="rl_ui_output_liquidManure" text="Sıvı Gübre"/>
+		<text name="rl_ui_output_pallets_eggs" text="Yumurta"/>
+		<text name="rl_ui_output_pallets_wool" text="Yün"/>
+		<text name="rl_ui_output_pallets_goatMilk" text="Keçi Sütü"/>
+		<text name="rl_ui_amountPerDay" text="%.0fL / gün" tag="format"/>
+		<text name="rl_ui_feePerMonth" text="%s / ay" tag="format"/>
+		
+		<text name="rl_ui_animalType" text="Tür"/>
+		<text name="rl_ui_amountMonitored" text="İzlendi"/>
+		<text name="rl_ui_production" text="Ürünler"/>
+		<text name="rl_ui_applyAllMonitor" text="Tüm İzlenenlere Uygula"/>
+		<text name="rl_ui_removeAllMonitor" text="Tüm İzlenenleri Kaldır"/>
+		<text name="rl_ui_fee" text="Fee"/>
+
+
+
+		<!--  SETTINGS  -->
+		
+
+		<text name="rl_settings" text="Gerçekçi Hayvancılık"/>
+
+		<text name="rl_settings_off" text="Kapalı"/>
+		<text name="rl_settings_on" text="Açık"/>
+
+		<text name="rl_settings_deathEnabled_label" text="Hayvan Kaldırma"/>
+		<text name="rl_settings_deathEnabled_tooltip_1" text="Hayvanlar hamilelik, sağlık, yaş veya kaza nedeniyle kaldırılmayacak"/>
+		<text name="rl_settings_deathEnabled_tooltip_2" text="Hayvanlar hamilelik, sağlık, yaş veya kaza nedeniyle kaldırılacak"/>
+
+		<text name="rl_settings_accidentsChance_label" text="Kaza Olasılığı"/>
+		<text name="rl_settings_accidentsChance_tooltip" text="Hayvanların rastgele kazalar nedeniyle kaldırılma olasılığını değiştirin"/>
+
+		<text name="rl_settings_foodScale_label" text="Gıda Ölçeği"/>
+		<text name="rl_settings_foodScale_tooltip" text="Hayvanlar tarafından yenen yiyecek miktarını değiştir"/>
+
+		<text name="rl_settings_maxDealerAnimals_label" text="Maksimum Bayi Hayvanları"/>
+		<text name="rl_settings_maxDealerAnimals_tooltip" text="Hayvan satıcısının hayvan türü başına stokta bulunduracağı maksimum hayvan sayısını değiştirin"/>
+		
+		<text name="rl_settings_resetDealer_label" text="Hayvan bayisini sıfırla"/>
+		<text name="rl_settings_resetDealer_tooltip" text="Satıcının tüm hayvanlarını çıkarın ve stoğu yeni hayvanlarla doldurun"/>
+		<text name="rl_settings_resetDealer_text" text="Hayvan Bayisini Sıfırla"/>
+		
+		
+		
+		<!--  HELP  -->
+
+
+		<text name="rl_help_monitors_title" text="İzleme"/>
+		<text name="rl_help_monitors_1" text="Bir hayvanın istatistiklerinin çoğunu görmek için, ona bir izleme etiketi uygulamanız gerekir; bunu hayvan menüsünden (hayvan alıp sattığınız yer) yapabilirsiniz. İzleme etiketleri ayrıca görsel olarak hayvanın üzerinde, sol kulağında kimlik etiketinin yanında gösterilir."/>
+		<text name="rl_help_monitors_2" text="Etiketlerin izlediğinizde, sağlık, ağırlık, emzirme, üretim ve saman, yiyecek ve su gereksinimleri dahil olmak üzere önemli bilgilerin size gösterilecektir."/>
+		<text name="rl_help_monitors_3" text="Bir hayvana etiket uygulamak, hayvanın türüne bağlı olarak size küçük bir aylık aboneliğe mal olacaktır. Etiketi kaldırmayı seçerseniz, etiket bir sonraki ayın başında kaldırılacaktır."/>
+		
+		<text name="rl_help_pregnancy_title" text="Hamilelik"/>
+		<text name="rl_help_pregnancy_1" text="Dişi hayvanların hepsinin potansiyel olarak hamile kalabilmesi için en az 1 erkek hayvana ihtiyacı vardır. Her iki hayvan da doğru yaşta ve sağlıkta olmalı ve aynı türden olmalıdır. Farklı ırklar arasında üremeye izin verilir (örneğin: holstein ineği ve angus boğası)."/>
+		<text name="rl_help_pregnancy_2" text="Akraba evliliklerine izin verilmez. Eğer bir erkek ve bir dişi doğrudan akraba ise, birlikte üremeyeceklerdir."/>
+		<text name="rl_help_pregnancy_3" text="Bir dişinin hamile kalma şansı hem kendisinin hem de erkeğin doğurganlığına bağlıdır. Daha yüksek doğurganlığa sahip bir dişinin aynı anda daha fazla yavru üretme şansı da önemli ölçüde daha yüksektir."/>
+		<text name="rl_help_pregnancy_4" text="Bir dişi hamile kaldığında yavrularını taşımaya başlayacaktır. Beklenen gebelik tarihini ve yavru sayısını ağıldaki hayvana bakarak veya hayvan menüsünde üzerine tıklayarak görebilirsiniz."/>
+		<text name="rl_help_pregnancy_5" text="İnekler doğum tarihine ulaştığında yavrularını dünyaya getirecektir. Ancak, hamileliğin kötü gitmesi durumunda annenin olduğu gibi yeni doğanların da belirli bir kaldırılma şansı vardır. Aşırı kalabalık bir ağılda doğan yavrular otomatik olarak satılacaktır."/>
+
+		<text name="rl_help_production_title" text="Üretim"/>
+		<text name="rl_help_production_1" text="Her türden inek ancak doğum yaptıktan sonra süt üretmeye başlayacaktır. İnek doğum yaptıktan sonra 3 ay boyunca katlanarak süt üretecek, ardından sonraki 6 ay boyunca üretimi yavaşça düşecektir. Hamilelikten 10 ay sonra, inek bir sonraki hamileliğine kadar süt üretimini durduracaktır."/>
+		<text name="rl_help_production_2" text="Koyunlar sıcak aylarda yün üretecektir. Soğuk aylarda, 12C'nin altında, yün üretmeyecekler."/>
+		<text name="rl_help_production_3" text="Süt, yün ve yumurta üretimi hayvanın genetiğinden de etkilenir. İyi üretim genetiğine sahip bir hayvan daha fazla üretirken, kötü genetiğe sahip bir hayvan hiç üretmeyecektir."/>
+		
+		<text name="rl_help_weight_title" text="Ağırlık"/>
+		<text name="rl_help_weight_1" text="Hayvanların belirli bir ağırlığı vardır ve bu ağırlık ne kadar yiyip içtiklerinden etkilenir. Her türün ve ırkın kendi ortalama ağırlığı vardır ve bu da her hayvanın ağırlığını etkiler."/>
+		<text name="rl_help_weight_2" text="Ağırlık hayvanın değerini artırır ve düşük ağırlık her ay kaldırılma şansını etkiler."/>
+		
+		<text name="rl_help_genetics_title" text="Genetik"/>
+		<text name="rl_help_genetics_1" text="Her hayvanın 4 farklı genetik değeri vardır; metabolizma, doğurganlık, sağlık ve kalite. Genetik anne ve baba arasında karıştırılır ve daha sonra çocuklarına aktarılır."/>
+		<text name="rl_help_genetics_2" text="Metabolizma, hayvanın gıdayı ağırlığa dönüştürme kabiliyetini ve yediği miktarı etkiler."/>
+		<text name="rl_help_genetics_3" text="Doğurganlık, hayvanın hamile kalma veya bir dişiyi hamile bırakma şansını ve üreteceği yavru sayısını etkiler."/>
+		<text name="rl_help_genetics_3" text="Sağlık, hayvanın sağlığını ve her ay kaldırılma şansını etkiler. Daha sağlıklı genetiğe sahip bir hayvanın ömrü de daha uzun olacaktır."/>
+		<text name="rl_help_genetics_4" text="Kalite hayvanın kendi değerini etkiler, daha kaliteli bir hayvan çok daha fazla fiyata satılacaktır."/>
+		<text name="rl_help_genetics_5" text="Sığır, koyun ve tavuğun da üretim genetiği vardır ve bu da ne kadar süt/yumurta/yün ürettiklerini etkiler."/>
+		
+	</texts>
+</l10n>
