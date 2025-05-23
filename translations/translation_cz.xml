@@ -253,22 +253,34 @@
 
 		<!--  HELP  -->
 
+		<text name="rl_help_monitors_title" text="Monitory"/>
+		<text name="rl_help_monitors_1" text="Abyste viděli většinu statistik zvířete, musíte na něj použít monitorovací značku, což lze provést v nabídce zvířat (kde nakupujete a prodáváte zvířata). Monitorovací štítky se na zvířeti zobrazují také vizuálně, a to na jeho levém uchu vedle identifikačního štítku."/>
+		<text name="rl_help_monitors_2" text="Sledování značek vám poskytne důležité informace, včetně informací o zdravotním stavu, hmotnosti, laktaci, produkci a požadavcích na slámu, krmivo a vodu."/>
+		<text name="rl_help_monitors_3" text="Aplikace značky na zvíře vás bude stát malé měsíční předplatné podle druhu zvířete. Pokud se rozhodnete značku odstranit, bude odstraněna na začátku následujícího měsíce."/>
 
-		<text name="rl_help_main_title" text="General"/>
-		<text name="rl_help_main_1" text="This mod adds significant changes, mainly in the backend, to all animals."/>
-		<text name="rl_help_main_2" text="In order to see the majority of an animal's statistics, you need to apply a monitoring tag to it, which can be done through the animal menu (where you buy and sell animals). Monitoring tags are also visually shown on the animal, on their left ear next to their ID tag."/>
-		<text name="rl_help_main_3" text="Monitoring tags will result in important information being shown to you, including health, weight, lactation, production, and straw, food and water requirements."/>
-		<text name="rl_help_main_4" text="Applying a tag to an animal will cost you a small monthly subscription based on the animal's species. If you choose to remove the tag, the tag will be removed at the start of the next month."/>
+		<text name="rl_help_pregnancy_title" text="Těhotenství"/>
+		<text name="rl_help_pregnancy_1" text="Všechny samice potřebují alespoň jednoho samce, aby mohly zabřeznout. Obě zvířata musí být správného věku a zdravotního stavu a musí být stejného druhu. Chov mezi různými plemeny (např. holštýnská kráva a býk plemene angus) je povolen."/>
+		<text name="rl_help_pregnancy_2" text="Příbuzenská plemenitba není povolena. Pokud jsou samec a samice v přímém příbuzenském vztahu, nebudou se spolu pářit."/>
+		<text name="rl_help_pregnancy_3" text="Šance samice na otěhotnění závisí na její plodnosti i na plodnosti samce. Samice s vyšší plodností má také výrazně vyšší šanci, že se jí narodí více potomků najednou."/>
+		<text name="rl_help_pregnancy_4" text="Jakmile samice zabřezne, začne nosit potomky. Předpokládané datum březosti a počet potomků si můžete prohlédnout při pohledu na zvíře v ohradě nebo kliknutím na něj v nabídce zvířat."/>
+		<text name="rl_help_pregnancy_5" text="Až dosáhne termínu porodu, porodí své děti. Novorozenci však mají určitou šanci, že budou odebráni, stejně jako matka, pokud těhotenství probíhá špatně. Novorozenci, kteří se narodí v přeplněné ohradě, budou automaticky prodáni."/>
 
-		<text name="rl_help_cows_title" text="Cattle and Waterbuffalos"/>
+		<text name="rl_help_production_title" text="Produkce"/>
+		<text name="rl_help_production_1" text="Krávy jakéhokoli plemene začnou produkovat mléko až po porodu. Po porodu bude kráva produkovat mléko exponenciálně po dobu 3 měsíců, poté bude její produkce po dobu dalších 6 měsíců pomalu klesat. Po 10 měsících od zabřeznutí kráva přestane produkovat mléko až do dalšího zabřeznutí."/>
+		<text name="rl_help_production_2" text="Ovce produkují vlnu v teplých měsících. V chladných měsících, při teplotě pod 12 °C, vlnu neprodukují."/>
+		<text name="rl_help_production_3" text="Produkci mléka, vlny a vajec dále ovlivňuje genetika zvířat. Zvíře s dobrou genetikou bude produkovat více, zatímco zvíře se špatnou genetikou nebude produkovat vůbec nic."/>
 
-		<text name="rl_help_pigs_title" text="Pigs"/>
+		<text name="rl_help_weight_title" text="Hmotnost"/>
+		<text name="rl_help_weight_1" text="Zvířata mají určitou hmotnost, která je ovlivněna množstvím jejich potravy a pití. Každý druh a plemeno má svou vlastní průměrnou hmotnost, která ovlivňuje hmotnost každého zvířete."/>
+		<text name="rl_help_weight_2" text="Hmotnost zvyšuje hodnotu zvířete a nízká hmotnost ovlivňuje šanci, že bude každý měsíc odebráno."/>
 
-		<text name="rl_help_sheep_title" text="Sheep and Goats"/>
-
-		<text name="rl_help_horses_title" text="Horses"/>
-
-		<text name="rl_help_chickens_title" text="Chickens"/>
+		<text name="rl_help_genetics_title" text="Genetika"/>
+		<text name="rl_help_genetics_1" text="Každé zvíře má 4 různé genetické hodnoty: metabolismus, plodnost, zdraví a kvalitu. Genetika se mísí mezi matkou a otcem a poté se předává jejich dětem."/>
+		<text name="rl_help_genetics_2" text="Metabolismus ovlivňuje schopnost zvířete přeměnit potravu na hmotnost a ovlivňuje množství, které zvíře sní."/>
+		<text name="rl_help_genetics_3" text="Plodnost ovlivňuje šanci zvířete zabřeznout nebo zabřeznutí samice a počet potomků, které zplodí."/>
+		<text name="rl_help_genetics_3" text="Zdravotní stav ovlivňuje zdraví zvířete a jeho šanci na odstranění každý měsíc. Zvíře s vyšší zdravotní genetikou bude mít také delší životnost."/>
+		<text name="rl_help_genetics_4" text="Kvalita ovlivňuje hodnotu samotného zvířete, zvíře s vyšší kvalitou se prodává za mnohem vyšší cenu."/>
+		<text name="rl_help_genetics_5" text="Skot, ovce a kuřata mají také produkční genetiku, která ovlivňuje množství mléka/vajíček/vlny, které produkují."/>
 
 	</texts>
 </l10n>
