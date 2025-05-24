@@ -212,7 +212,7 @@
 		<!--  CONFIGURAÇÕES  -->
 		
 
-		<text name="rl_settings" text="Pecuária Realística"/>
+		<text name="rl_settings" text="Pecuária Realista"/>
 
 		<text name="rl_settings_off" text="Desligado"/>
 		<text name="rl_settings_on" text="Ligado"/>
