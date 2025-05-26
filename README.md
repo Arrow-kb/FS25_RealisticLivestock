@@ -71,3 +71,10 @@ Please note that due to the complexity of the mod (it is several tens of thousan
 # Planned Features
 - Illnesses
 - Genetic diseases
+
+# In Progress
+- Ear tag colour configuration menu
+- ![fsScreen_2025_05_27_00_26_49](https://github.com/user-attachments/assets/290e2063-035d-433e-9f28-2257799f95c4)
+
+- Animal dealer search filters
+- ![fsScreen_2025_05_27_00_26_31](https://github.com/user-attachments/assets/c949e0eb-2d4a-421d-975c-4272f058bb14)
