@@ -198,76 +198,122 @@
 		<text name="rl_ui_horse_multipleDeaths_random" text="%s chevaux retirées à la suite d'accidents aléatoires et ont été vendus pour %s" tag="format"/>
 		<text name="rl_ui_horse_singleDeath_random" text="1 cheval retirée à la suite d'un accident aléatoire et a été vendu pour %s" tag="format"/>
 
-		<text name="rl_ui_buySelected" text="Buy selected"/>
-		<text name="rl_ui_sellSelected" text="Sell selected"/>
-		<text name="rl_ui_moveSelected" text="Move selected"/>
-		<text name="rl_ui_buyConfirmation" text="Are you sure you want to buy %s animals for %s?" tag="format"/>
-		<text name="rl_ui_sellConfirmation" text="Are you sure you want to sell %s animals for %s?" tag="format"/>
-		<text name="rl_ui_moveConfirmation" text="Are you sure you want to move %s animals?" tag="format"/>
-		<text name="rl_ui_buyBulkResult" text="%s animals bought for %s" tag="format"/>
-		<text name="rl_ui_sellBulkResult" text="%s animals sold for %s" tag="format"/>
-		<text name="rl_ui_moveBulkResult" text="%s animals moved" tag="format"/>
+		<text name="rl_ui_buySelected" text="Achetez ce qui a été sélectionné"/>
+		<text name="rl_ui_sellSelected" text="Vendre sélectionné"/>
+		<text name="rl_ui_moveSelected" text="Déplacer la sélection"/>
+		<text name="rl_ui_buyConfirmation" text="Êtes-vous sûr de vouloir acheter %s animaux pour %s?" tag="format"/>
+		<text name="rl_ui_sellConfirmation" text="Êtes-vous sûr de vouloir vendre %s animaux pour %s?" tag="format"/>
+		<text name="rl_ui_moveConfirmation" text="Êtes-vous sûr de vouloir déplacer %s animaux?" tag="format"/>
+		<text name="rl_ui_buyBulkResult" text="%s animaux achetés pour %s" tag="format"/>
+		<text name="rl_ui_sellBulkResult" text="%s animaux vendus pour %s" tag="format"/>
+		<text name="rl_ui_moveBulkResult" text="%s animaux déplacés" tag="format"/>
 
-		<text name="rl_ui_monitor" text="Monitor"/>
-		<text name="rl_ui_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="finance_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="rl_ui_monitorFee" text="Monitor fee"/>
-		<text name="rl_ui_applyMonitor" text="Apply Monitor"/>
-		<text name="rl_ui_removeMonitor" text="Remove Monitor"/>
-		<text name="rl_ui_input_food" text="Food"/>
-		<text name="rl_ui_input_water" text="Water"/>
-		<text name="rl_ui_input_straw" text="Straw"/>
-		<text name="rl_ui_output_milk" text="Milk"/>
-		<text name="rl_ui_output_manure" text="Manure"/>
-		<text name="rl_ui_output_liquidManure" text="Liquid manure"/>
-		<text name="rl_ui_output_pallets_eggs" text="Eggs"/>
-		<text name="rl_ui_output_pallets_wool" text="Wool"/>
-		<text name="rl_ui_output_pallets_goatMilk" text="Goat milk"/>
-		<text name="rl_ui_amountPerDay" text="%.0fL / day" tag="format"/>
-		<text name="rl_ui_feePerMonth" text="%s / month" tag="format"/>
+		<text name="rl_ui_monitor" text="Moniteur"/>
+		<text name="rl_ui_monitorSubscriptions" text="Abonnements au moniteur"/>
+		<text name="finance_monitorSubscriptions" text="Abonnements au moniteur"/>
+		<text name="rl_ui_monitorFee" text="Taxe de surveillance"/>
+		<text name="rl_ui_applyMonitor" text="Appliquer le moniteur"/>
+		<text name="rl_ui_removeMonitor" text="Retirer le moniteur"/>
+		<text name="rl_ui_input_food" text="Alimentation"/>
+		<text name="rl_ui_input_water" text="L'eau"/>
+		<text name="rl_ui_input_straw" text="Paille"/>
+		<text name="rl_ui_output_milk" text="Lait"/>
+		<text name="rl_ui_output_manure" text="Fumier"/>
+		<text name="rl_ui_output_liquidManure" text="Lisier"/>
+		<text name="rl_ui_output_pallets_eggs" text="Œufs"/>
+		<text name="rl_ui_output_pallets_wool" text="Laine"/>
+		<text name="rl_ui_output_pallets_goatMilk" text="Lait de chèvre"/>
+		<text name="rl_ui_amountPerDay" text="%.0fL / jour" tag="format"/>
+		<text name="rl_ui_feePerMonth" text="%s / mois" tag="format"/>
+
+		<text name="rl_ui_animalType" text="Type"/>
+		<text name="rl_ui_amountMonitored" text="Contrôlé"/>
+		<text name="rl_ui_production" text="Produits"/>
+		<text name="rl_ui_applyAllMonitor" text="Appliquer tous les moniteurs"/>
+		<text name="rl_ui_removeAllMonitor" text="Supprimer tous les moniteurs"/>
+		<text name="rl_ui_fee" text="Frais"/>
+
+		<text name="rl_ui_leftEarTag" text="Left Ear Tag"/>
+		<text name="rl_ui_rightEarTag" text="Right Ear Tag"/>
+		<text name="rl_ui_backgroundColour" text="Background Colour"/>
+		<text name="rl_ui_backgroundHue" text="Background Hue"/>
+		<text name="rl_ui_backgroundRgb" text="Background RGB"/>
+		<text name="rl_ui_textColour" text="Text Colour"/>
+		<text name="rl_ui_textHue" text="Text Hue"/>
+		<text name="rl_ui_textRgb" text="Text RGB"/>
+
+		<text name="rl_ui_formatMonths" text="%s months"/>
+		<text name="rl_ui_formatMonth" text="%s month"/>
+		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
+		<text name="rl_ui_any" text="Any"/>
+		<text name="rl_ui_pregnancy" text="Pregnancy"/>
+		<text name="rl_ui_productivity" text="Pregnancy"/>
+		<text name="rl_ui_selectAll" text="Select All"/>
+		<text name="rl_ui_selectNone" text="Select None"/>
+		<text name="rl_ui_filters" text="Filters"/>
+		<text name="rl_ui_doesntHaveName" text="No Name"/>
+		<text name="rl_ui_doesHaveName" text="Has Name"/>
+
 
 
 
 		<!--  SETTINGS  -->
 
 
-		<text name="rl_settings" text="Realistic Livestock"/>
+		<text name="rl_settings" text="Bétail Réaliste"/>
 
-		<text name="rl_settings_off" text="Off"/>
-		<text name="rl_settings_on" text="On"/>
+		<text name="rl_settings_off" text="Arrêt"/>
+		<text name="rl_settings_on" text="Sur"/>
 
-		<text name="rl_settings_deathEnabled_label" text="Animal Removal"/>
-		<text name="rl_settings_deathEnabled_tooltip_1" text="Animals will not be removed due to pregnancy, health, age or accidents"/>
-		<text name="rl_settings_deathEnabled_tooltip_2" text="Animals will be removed due to pregnancy, health, age or accidents"/>
+		<text name="rl_settings_deathEnabled_label" text="Enlèvement d'animaux"/>
+		<text name="rl_settings_deathEnabled_tooltip_1" text="Les animaux ne seront pas retirés pour cause de grossesse, de santé, d'âge ou d'accident."/>
+		<text name="rl_settings_deathEnabled_tooltip_2" text="Les animaux seront retirés pour cause de grossesse, de santé, d'âge ou d'accident."/>
 
-		<text name="rl_settings_accidentsChance_label" text="Accident Chance"/>
-		<text name="rl_settings_accidentsChance_tooltip" text="Change the likelihood of animals being removed due to random accidents"/>
+		<text name="rl_settings_accidentsChance_label" text="Le hasard des accidents"/>
+		<text name="rl_settings_accidentsChance_tooltip" text="Modifier la probabilité que des animaux soient retirés à la suite d'accidents aléatoires"/>
 
-		<text name="rl_settings_foodScale_label" text="Food Scale"/>
-		<text name="rl_settings_foodScale_tooltip" text="Change the amount of food eaten by animals"/>
+		<text name="rl_settings_foodScale_label" text="Balance alimentaire"/>
+		<text name="rl_settings_foodScale_tooltip" text="Modifier la quantité de nourriture consommée par les animaux"/>
 
-		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
-		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
+		<text name="rl_settings_maxDealerAnimals_label" text="Animaux maximums du croupier"/>
+		<text name="rl_settings_maxDealerAnimals_tooltip" text="Modifier le nombre maximum d'animaux que le marchand d'animaux peut avoir en stock par type d'animal."/>
+
+		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
+		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
+		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
 
 
 
 		<!--  HELP  -->
 
 
-		<text name="rl_help_main_title" text="General"/>
-		<text name="rl_help_main_1" text="This mod adds significant changes, mainly in the backend, to all animals."/>
-		<text name="rl_help_main_2" text="In order to see the majority of an animal's statistics, you need to apply a monitoring tag to it, which can be done through the animal menu (where you buy and sell animals). Monitoring tags are also visually shown on the animal, on their left ear next to their ID tag."/>
-		<text name="rl_help_main_3" text="Monitoring tags will result in important information being shown to you, including health, weight, lactation, production, and straw, food and water requirements."/>
-		<text name="rl_help_main_4" text="Applying a tag to an animal will cost you a small monthly subscription based on the animal's species. If you choose to remove the tag, the tag will be removed at the start of the next month."/>
+		<text name="rl_help_monitors_title" text="Moniteurs"/>
+		<text name="rl_help_monitors_1" text="Pour voir la majorité des statistiques d'un animal, vous devez lui apposer une étiquette de surveillance, ce qui peut être fait dans le menu des animaux (où vous achetez et vendez des animaux). Les étiquettes de surveillance sont également visibles sur l'animal, sur son oreille gauche, à côté de son étiquette d'identification."/>
+		<text name="rl_help_monitors_2" text="La surveillance des étiquettes vous permettra d'obtenir des informations importantes, notamment sur la santé, le poids, la lactation, la production et les besoins en paille, en nourriture et en eau."/>
+		<text name="rl_help_monitors_3" text="L'apposition d'une balise sur un animal vous coûtera un petit abonnement mensuel basé sur l'espèce de l'animal. Si vous décidez de retirer la balise, elle sera retirée au début du mois suivant."/>
 
-		<text name="rl_help_cows_title" text="Cattle and Waterbuffalos"/>
+		<text name="rl_help_pregnancy_title" text="Grossesse"/>
+		<text name="rl_help_pregnancy_1" text="Les femelles ont toutes besoin d'au moins un mâle pour pouvoir tomber enceintes. Les deux animaux doivent avoir l'âge et la santé requis et doivent appartenir à la même espèce. La reproduction entre races différentes (par exemple : vache holstein et taureau angus) est autorisée."/>
+		<text name="rl_help_pregnancy_2" text="La consanguinité n'est pas autorisée. Si un mâle et une femelle sont directement apparentés, ils ne se reproduiront pas ensemble."/>
+		<text name="rl_help_pregnancy_3" text="Les chances de grossesse d'une femme dépendent de sa fertilité et de celle de l'homme. Une femelle plus fertile a également beaucoup plus de chances de produire plus de descendants à la fois."/>
+		<text name="rl_help_pregnancy_4" text="Une fois qu'une femelle est enceinte, elle commence à porter sa progéniture. Vous pouvez voir la date prévue de la gestation et le nombre de petits en regardant l'animal dans l'enclos ou en cliquant sur lui dans le menu des animaux."/>
+		<text name="rl_help_pregnancy_5" text="À la date prévue, elle donnera naissance à ses bébés. Cependant, les nouveau-nés ont une certaine chance d'être retirés, tout comme la mère si la grossesse se déroule mal. Les nouveau-nés qui naissent dans un enclos surpeuplé sont automatiquement vendus."/>
 
-		<text name="rl_help_pigs_title" text="Pigs"/>
+		<text name="rl_help_production_title" text="Production"/>
+		<text name="rl_help_production_1" text="Les vaches, quelle que soit leur race, ne commencent à produire du lait qu'après avoir mis bas. Une fois qu'elle a mis bas, la vache produit du lait de manière exponentielle pendant 3 mois, puis sa production diminue lentement pendant les 6 mois suivants. 10 mois après la grossesse, la vache cesse de produire du lait jusqu'à sa prochaine grossesse."/>
+		<text name="rl_help_production_2" text="Les moutons produisent de la laine pendant les mois chauds. Pendant les mois froids, en dessous de 12°C, ils ne produiront pas de laine."/>
+		<text name="rl_help_production_3" text="La production de lait, de laine et d'œufs est également influencée par la génétique de l'animal. Un animal ayant une bonne génétique de production produira plus, alors qu'un animal ayant une mauvaise génétique ne produira pas beaucoup."/>
 
-		<text name="rl_help_sheep_title" text="Sheep and Goats"/>
+		<text name="rl_help_weight_title" text="Poids"/>
+		<text name="rl_help_weight_1" text="Les animaux ont un certain poids qui dépend de la quantité de nourriture et de boisson qu'ils consomment. Chaque espèce et chaque race a son propre poids moyen, ce qui influe sur le poids de chaque animal."/>
+		<text name="rl_help_weight_2" text="Le poids augmente la valeur de l'animal, et un poids faible réduit ses chances d'être enlevé chaque mois."/>
 
-		<text name="rl_help_horses_title" text="Horses"/>
-
-		<text name="rl_help_chickens_title" text="Chickens"/>
+		<text name="rl_help_genetics_title" text="Génétique"/>
+		<text name="rl_help_genetics_1" text="Chaque animal possède quatre valeurs génétiques différentes : le métabolisme, la fertilité, la santé et la qualité. Les gènes sont mélangés entre la mère et le père, puis transmis à leurs enfants."/>
+		<text name="rl_help_genetics_2" text="Le métabolisme affecte la capacité de l'animal à convertir la nourriture en poids, et affecte la quantité qu'il mange."/>
+		<text name="rl_help_genetics_3" text="La fertilité affecte les chances de l'animal de tomber enceinte ou de mettre une femelle enceinte, ainsi que le nombre de descendants qu'il produira."/>
+		<text name="rl_help_genetics_3" text="La santé a une incidence sur la santé de l'animal et sur ses chances d'être retiré chaque mois. Un animal en meilleure santé génétique aura également une durée de vie plus longue."/>
+		<text name="rl_help_genetics_4" text="La qualité influe sur la valeur de l'animal lui-même. Un animal de qualité supérieure se vendra beaucoup plus cher."/>
+		<text name="rl_help_genetics_5" text="Les bovins, les ovins et les poulets ont également une génétique de production, qui influe sur la quantité de lait, d'œufs ou de laine qu'ils produisent."/>
 	</texts>
 </l10n>

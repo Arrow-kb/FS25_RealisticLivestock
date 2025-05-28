@@ -151,6 +151,15 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
     local profile = Utils.getPerformanceClassId()
     local maxAnimalsPerHusbandry = (profile == GS_PROFILE_VERY_LOW and 8) or (profile == GS_PROFILE_LOW and 10) or (profile == GS_PROFILE_MEDIUM and 16) or (profile == GS_PROFILE_HIGH and 20) or (profile == GS_PROFILE_VERY_HIGH and 25) or (profile == GS_PROFILE_ULTRA and 25) or 8
  
+    
+    local colours = g_currentMission.animalSystem.types[self.placeable:getAnimalTypeIndex()].colours
+    
+    local earTagLeftR, earTagLeftG, earTagLeftB = colours.earTagLeft[1], colours.earTagLeft[2], colours.earTagLeft[3]
+    local earTagLeftTextR, earTagLeftTextG, earTagLeftTextB = colours.earTagLeft_text[1], colours.earTagLeft_text[2], colours.earTagLeft_text[3]
+    local earTagRightR, earTagRightG, earTagRightB = colours.earTagRight[1], colours.earTagRight[2], colours.earTagRight[3]
+    local earTagRightTextR, earTagRightTextG, earTagRightTextB = colours.earTagRight_text[1], colours.earTagRight_text[2], colours.earTagRight_text[3]
+    
+    
     for _, animal in pairs(animals) do
 
         if self.visualAnimalCount >= RealisticLivestock_AnimalClusterHusbandry.MAX_HUSBANDRIES or i > #self.husbandryIds or animal.isDead or animal.numAnimals <= 0 or animal.uniqueId == "1-1" or animal.uniqueId == "0-0" or (animal.id ~= nil and animal.idFull ~= nil and animal.id ~= "0-0" and animal.visualAnimalIndex == nil) then continue end
@@ -321,6 +330,15 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
 
                     if earTagNode ~= 0 then
 
+                        setShaderParameter(earTagNode, "colorScale", earTagLeftR, earTagLeftG, earTagLeftB, nil, false)
+
+                        for colourI = 0, getNumOfChildren(earTagNode) - 1 do
+
+                            local colourChild = getChildAt(earTagNode, colourI)
+                            setShaderParameter(colourChild, "colorScale", earTagLeftTextR, earTagLeftTextG, earTagLeftTextB, nil, false)
+
+                        end
+
                         local animalUniqueId = animal.uniqueId
                         local farmUniqueId = animal.farmId
                         local animalBirthday = animal:getBirthday()
@@ -388,6 +406,15 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
                     local earTagNode = I3DUtil.indexToObject(animalRootNode, visualData.earTagRight)
 
                     if earTagNode ~= 0 then
+
+                        setShaderParameter(earTagNode, "colorScale", earTagRightR, earTagRightG, earTagRightB, nil, false)
+
+                        for colourI = 0, getNumOfChildren(earTagNode) - 1 do
+
+                            local colourChild = getChildAt(earTagNode, colourI)
+                            setShaderParameter(colourChild, "colorScale", earTagRightTextR, earTagRightTextG, earTagRightTextB, nil, false)
+
+                        end
 
                         local animalName = animal:getName()
                         local animalBirthday = animal:getBirthday()

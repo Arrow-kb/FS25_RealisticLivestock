@@ -3,6 +3,14 @@ local modDirectory = g_currentModDirectory
 
 g_gui:loadProfiles(modDirectory .. "gui/guiProfiles.xml")
 
+
+function RLSettings.onClickTagColour()
+
+	EarTagColourPickerDialog.show()
+
+end
+
+
 RLSettings.SETTINGS = {
 
 	["deathEnabled"] = {
@@ -44,6 +52,20 @@ RLSettings.SETTINGS = {
 		["valueType"] = "int",
 		["values"] = { 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200 },
 		["callback"] = AnimalSystem.onSettingChanged
+	},
+
+	["resetDealer"] = {
+		["index"] = 5,
+		["type"] = "Button",
+		["ignore"] = true,
+		["callback"] = AnimalSystem.onClickResetDealer
+	},
+
+	["tagColour"] = {
+		["index"] = 6,
+		["type"] = "Button",
+		["ignore"] = true,
+		["callback"] = RLSettings.onClickTagColour
 	}
 
 }

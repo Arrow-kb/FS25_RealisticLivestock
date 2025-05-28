@@ -226,6 +226,35 @@
 		<text name="rl_ui_amountPerDay" text="%.0fL / day" tag="format"/>
 		<text name="rl_ui_feePerMonth" text="%s / month" tag="format"/>
 
+		<text name="rl_ui_animalType" text="Type"/>
+		<text name="rl_ui_amountMonitored" text="Monitored"/>
+		<text name="rl_ui_production" text="Products"/>
+		<text name="rl_ui_applyAllMonitor" text="Apply All Monitors"/>
+		<text name="rl_ui_removeAllMonitor" text="Remove All Monitors"/>
+		<text name="rl_ui_fee" text="Fee"/>
+
+		<text name="rl_ui_leftEarTag" text="Left Ear Tag"/>
+		<text name="rl_ui_rightEarTag" text="Right Ear Tag"/>
+		<text name="rl_ui_backgroundColour" text="Background Colour"/>
+		<text name="rl_ui_backgroundHue" text="Background Hue"/>
+		<text name="rl_ui_backgroundRgb" text="Background RGB"/>
+		<text name="rl_ui_textColour" text="Text Colour"/>
+		<text name="rl_ui_textHue" text="Text Hue"/>
+		<text name="rl_ui_textRgb" text="Text RGB"/>
+
+		<text name="rl_ui_formatMonths" text="%s months"/>
+		<text name="rl_ui_formatMonth" text="%s month"/>
+		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
+		<text name="rl_ui_any" text="Any"/>
+		<text name="rl_ui_pregnancy" text="Pregnancy"/>
+		<text name="rl_ui_productivity" text="Pregnancy"/>
+		<text name="rl_ui_selectAll" text="Select All"/>
+		<text name="rl_ui_selectNone" text="Select None"/>
+		<text name="rl_ui_filters" text="Filters"/>
+		<text name="rl_ui_doesntHaveName" text="No Name"/>
+		<text name="rl_ui_doesHaveName" text="Has Name"/>
+
+
 
 
 		<!--  SETTINGS  -->
@@ -249,9 +278,14 @@
 		<text name="rl_settings_maxDealerAnimals_label" text="Maximum zvířat u obchodníka"/>
 		<text name="rl_settings_maxDealerAnimals_tooltip" text="Změna maximálního počtu zvířat, která bude mít prodejce zvířat na skladě pro každý typ zvířete."/>
 
+		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
+		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
+		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
+
 
 
 		<!--  HELP  -->
+
 
 		<text name="rl_help_monitors_title" text="Monitory"/>
 		<text name="rl_help_monitors_1" text="Abyste viděli většinu statistik zvířete, musíte na něj použít monitorovací značku, což lze provést v nabídce zvířat (kde nakupujete a prodáváte zvířata). Monitorovací štítky se na zvířeti zobrazují také vizuálně, a to na jeho levém uchu vedle identifikačního štítku."/>

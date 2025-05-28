@@ -3,6 +3,66 @@ local modDirectory = g_currentModDirectory
 local modSettingsDirectory = g_currentModSettingsDirectory
 
 
+local function fixInGameMenu(frame, pageName, uvs, position, predicateFunc)
+
+	local inGameMenu = g_gui.screenControllers[InGameMenu]
+	position = position or #inGameMenu.pagingElement.pages + 1
+
+	for k, v in pairs({pageName}) do
+		inGameMenu.controlIDs[v] = nil
+	end
+
+	for i = 1, #inGameMenu.pagingElement.elements do
+		local child = inGameMenu.pagingElement.elements[i]
+		if child == inGameMenu.pageAnimals then
+			position = i
+            break
+		end
+	end
+	
+	inGameMenu[pageName] = frame
+	inGameMenu.pagingElement:addElement(inGameMenu[pageName])
+
+	inGameMenu:exposeControlsAsFields(pageName)
+
+	for i = 1, #inGameMenu.pagingElement.elements do
+		local child = inGameMenu.pagingElement.elements[i]
+		if child == inGameMenu[pageName] then
+			table.remove(inGameMenu.pagingElement.elements, i)
+			table.insert(inGameMenu.pagingElement.elements, position, child)
+			break
+		end
+	end
+
+	for i = 1, #inGameMenu.pagingElement.pages do
+		local child = inGameMenu.pagingElement.pages[i]
+		if child.element == inGameMenu[pageName] then
+			table.remove(inGameMenu.pagingElement.pages, i)
+			table.insert(inGameMenu.pagingElement.pages, position, child)
+			break
+		end
+	end
+
+	inGameMenu.pagingElement:updateAbsolutePosition()
+	inGameMenu.pagingElement:updatePageMapping()
+	
+	inGameMenu:registerPage(inGameMenu[pageName], position, predicateFunc)
+	inGameMenu:addPageTab(inGameMenu[pageName], modDirectory .. "gui/icons.dds", GuiUtils.getUVs(uvs))
+
+	for i = 1, #inGameMenu.pageFrames do
+		local child = inGameMenu.pageFrames[i]
+		if child == inGameMenu[pageName] then
+			table.remove(inGameMenu.pageFrames, i)
+			table.insert(inGameMenu.pageFrames, position, child)
+			break
+		end
+	end
+
+	inGameMenu:rebuildTabList()
+
+end
+
+
 function RealisticLivestock_FSBaseMission:onStartMission()
 
     g_gui.guis.AnimalScreen:delete()
@@ -17,6 +77,8 @@ function RealisticLivestock_FSBaseMission:onStartMission()
 
     AnimalInfoDialog.register()
     NameInputDialog.register()
+    EarTagColourPickerDialog.register()
+    AnimalFilterDialog.register()
 
 	RLSettings.applyDefaultSettings()
 
@@ -34,6 +96,15 @@ function RealisticLivestock_FSBaseMission:onStartMission()
         if self.isServer then placeable:updateInputAndOutput(animals) end
 
     end
+
+    g_overlayManager:addTextureConfigFile(modDirectory .. "gui/icons.xml", "realistic_livestock")
+
+    local realisticLivestockFrame = RealisticLivestockFrame.new() 
+	g_gui:loadGui(modDirectory .. "gui/RealisticLivestockFrame.xml", "RealisticLivestockFrame", realisticLivestockFrame, true)
+
+    fixInGameMenu(realisticLivestockFrame, "realisticLivestockFrame", {260,0,256,256}, 4, function() return true end)
+
+    realisticLivestockFrame:initialize()
 
 end
 

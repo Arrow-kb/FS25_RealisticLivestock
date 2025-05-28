@@ -808,10 +808,10 @@ function Animal:addInfos(infos)
     local subType = self:getSubType()
 
     local hasMonitor = self.monitor.active or self.monitor.removed
+    local healthFactor = self:getHealthFactor()
 
     if hasMonitor then
 
-        local healthFactor = self:getHealthFactor()
         self.infoHealth.value = healthFactor
         self.infoHealth.ratio = healthFactor
         self.infoHealth.valueText = string.format("%d %%", g_i18n:formatNumber(healthFactor * 100, 0))
@@ -1387,6 +1387,8 @@ function Animal:showMonitorInfo(box)
 
     if not self.monitor.active and not self.monitor.removed then return end
 
+    local daysPerMonth = g_currentMission.environment.daysPerPeriod
+
     box:addLine(g_i18n:getText("rl_ui_monitorFee"), string.format(g_i18n:getText("rl_ui_feePerMonth"), g_i18n:formatMoney(self.monitor.fee, 2, true, true)))
     box:addLine(g_i18n:getText("infohud_health"), string.format("%d%%", self.health))
 
@@ -1400,7 +1402,7 @@ function Animal:showMonitorInfo(box)
 
     for fillType, amount in pairs(self.input) do
 
-        box:addLine(g_i18n:getText("rl_ui_input_" .. fillType), string.format(g_i18n:getText("rl_ui_amountPerDay"), amount))
+        box:addLine(g_i18n:getText("rl_ui_input_" .. fillType), string.format(g_i18n:getText("rl_ui_amountPerDay"), (amount * 24) / daysPerMonth))
 
     end
 
@@ -1418,7 +1420,7 @@ function Animal:showMonitorInfo(box)
 
         end
 
-        box:addLine(g_i18n:getText("rl_ui_output_" .. outputText), string.format(g_i18n:getText("rl_ui_amountPerDay"), amount))
+        box:addLine(g_i18n:getText("rl_ui_output_" .. outputText), string.format(g_i18n:getText("rl_ui_amountPerDay"), (amount * 24) / daysPerMonth))
 
     end
 
@@ -2708,5 +2710,12 @@ end
 function Animal:getOutput(outputType)
 
     return self.output[outputType] or 0
+
+end
+
+
+function Animal:getHasName()
+
+    return self.name ~= nil and self.name ~= ""
 
 end

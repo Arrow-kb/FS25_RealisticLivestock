@@ -233,6 +233,27 @@
 		<text name="rl_ui_removeAllMonitor" text="Tüm İzlenenleri Kaldır"/>
 		<text name="rl_ui_fee" text="Fee"/>
 
+		<text name="rl_ui_leftEarTag" text="Left Ear Tag"/>
+		<text name="rl_ui_rightEarTag" text="Right Ear Tag"/>
+		<text name="rl_ui_backgroundColour" text="Background Colour"/>
+		<text name="rl_ui_backgroundHue" text="Background Hue"/>
+		<text name="rl_ui_backgroundRgb" text="Background RGB"/>
+		<text name="rl_ui_textColour" text="Text Colour"/>
+		<text name="rl_ui_textHue" text="Text Hue"/>
+		<text name="rl_ui_textRgb" text="Text RGB"/>
+
+		<text name="rl_ui_formatMonths" text="%s months"/>
+		<text name="rl_ui_formatMonth" text="%s month"/>
+		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
+		<text name="rl_ui_any" text="Any"/>
+		<text name="rl_ui_pregnancy" text="Pregnancy"/>
+		<text name="rl_ui_productivity" text="Pregnancy"/>
+		<text name="rl_ui_selectAll" text="Select All"/>
+		<text name="rl_ui_selectNone" text="Select None"/>
+		<text name="rl_ui_filters" text="Filters"/>
+		<text name="rl_ui_doesntHaveName" text="No Name"/>
+		<text name="rl_ui_doesHaveName" text="Has Name"/>
+
 
 
 		<!--  SETTINGS  -->
@@ -259,6 +280,10 @@
 		<text name="rl_settings_resetDealer_label" text="Hayvan bayisini sıfırla"/>
 		<text name="rl_settings_resetDealer_tooltip" text="Satıcının tüm hayvanlarını çıkarın ve stoğu yeni hayvanlarla doldurun"/>
 		<text name="rl_settings_resetDealer_text" text="Hayvan Bayisini Sıfırla"/>
+
+		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
+		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
+		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
 		
 		
 		

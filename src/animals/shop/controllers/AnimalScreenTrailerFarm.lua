@@ -58,6 +58,7 @@ function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
 
     local sourceItems = self.sourceItems[animalTypeIndex]
     local indexesToRemove = {}
+    local indexesToReturn = {}
     local totalMovedAnimals = 0
 
     for _, item in pairs(items) do
@@ -72,10 +73,11 @@ function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
             if errorCode ~= nil then continue end
     
             totalMovedAnimals = totalMovedAnimals + 1
-            clusterSystemTrailer:removeCluster(animal.farmId .. " " .. animal.uniqueId)
+            clusterSystemTrailer:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
             animal.id, animal.idFull = nil, nil
             clusterSystemHusbandry:addCluster(animal)
             table.insert(indexesToRemove, item)
+            table.insert(indexesToReturn, item)
 
         end
 
@@ -85,7 +87,9 @@ function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
 
     for i = #indexesToRemove, 1, -1 do table.remove(sourceItems, indexesToRemove[i]) end
 
-    self.sourceActionFinished(nil, string.format(g_i18n:getText("rl_ui_moveBulkResult"), totalMovedAnimals))
+    self.sourceItems[animalTypeIndex] = sourceItems
+
+    self.sourceBulkActionFinished(nil, string.format(g_i18n:getText("rl_ui_moveBulkResult"), totalMovedAnimals), indexesToReturn)
 
 end
 
@@ -100,6 +104,7 @@ function AnimalScreenTrailerFarm:applyTargetBulk(animalTypeIndex, items)
 
     local targetItems = self.targetItems
     local indexesToRemove = {}
+    local indexesToReturn = {}
     local totalMovedAnimals = 0
 
     for _, item in pairs(items) do
@@ -114,10 +119,11 @@ function AnimalScreenTrailerFarm:applyTargetBulk(animalTypeIndex, items)
             if errorCode ~= nil then continue end
     
             totalMovedAnimals = totalMovedAnimals + 1
-            clusterSystemHusbandry:removeCluster(animal.farmId .. " " .. animal.uniqueId)
+            clusterSystemHusbandry:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
             animal.id, animal.idFull = nil, nil
             clusterSystemTrailer:addCluster(animal)
             table.insert(indexesToRemove, item)
+            table.insert(indexesToReturn, item)
 
         end
 
@@ -127,7 +133,9 @@ function AnimalScreenTrailerFarm:applyTargetBulk(animalTypeIndex, items)
 
     for i = #indexesToRemove, 1, -1 do table.remove(targetItems, indexesToRemove[i]) end
 
-    self.targetActionFinished(nil, string.format(g_i18n:getText("rl_ui_moveBulkResult"), totalMovedAnimals))
+    self.targetItems = targetItems
+
+    self.targetBulkActionFinished(nil, string.format(g_i18n:getText("rl_ui_moveBulkResult"), totalMovedAnimals), indexesToReturn)
 
 end
 
@@ -151,7 +159,7 @@ function RL_AnimalScreenTrailerFarm:applyTarget(_, _, animalIndex)
 
     local animal = item.animal or item.cluster
 
-    clusterSystemHusbandry:removeCluster(animal.farmId .. " " .. animal.uniqueId)
+    clusterSystemHusbandry:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
     animal.id, animal.idFull = nil, nil
     clusterSystemTrailer:addCluster(animal)
 
@@ -187,7 +195,7 @@ function RL_AnimalScreenTrailerFarm:applySource(_, animalTypeIndex, animalIndex)
 
     local animal = item.animal or item.cluster
 
-    clusterSystemTrailer:removeCluster(animal.farmId .. " " .. animal.uniqueId)
+    clusterSystemTrailer:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
     animal.id, animal.idFull = nil, nil
     clusterSystemHusbandry:addCluster(animal)
 

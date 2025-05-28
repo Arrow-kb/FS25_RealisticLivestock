@@ -170,6 +170,8 @@ RealisticLivestock.START_YEAR = {
 function RealisticLivestock.loadMap()
     
     RealisticLivestock.mapAreaCode = RealisticLivestock.MAP_TO_AREA_CODE[g_currentMission.missionInfo.mapTitle] or 1
+	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/helpicons.xml", "rlHelpIcons")
+    g_rlConsoleCommandManager = RLConsoleCommandManager.new()
 
 end
 
@@ -1077,7 +1079,7 @@ function RealisticLivestock:updateInfo(superFunc, infoTable)
     end
 end
 
-PlaceableHusbandryAnimals.updateInfo = Utils.appendedFunction(PlaceableHusbandryAnimals.updateInfo, RealisticLivestock.updateInfo)
+--PlaceableHusbandryAnimals.updateInfo = Utils.appendedFunction(PlaceableHusbandryAnimals.updateInfo, RealisticLivestock.updateInfo)
 
 
 function RealisticLivestock.addAnimals(self, superFunc, subTypeIndex, numAnimals, age)

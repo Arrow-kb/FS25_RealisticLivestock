@@ -1,6 +1,6 @@
-<modDesc descVersion="98">
+<modDesc descVersion="99">
     <author>Arrow</author>
-    <version>1.0.0.9</version>
+    <version>1.0.1.1</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -15,39 +15,89 @@ https://github.com/Arrow-kb/FS25_RealisticLivestock
 
 Features:
 
-- Individuality - the old cluster system has been scrapped, and every animal is now completely unique and individual
+Male Animals
 
-- Genetics system - all animals have their own unique genetics that are passed down to their children, affecting their value, output, fertility, weight and more
+- Higher value
+- Required for reproduction
+- No male models (im not a 3d artist)
 
-- Weight system - animals will be born at a weight based mainly on their genetics, and will gradually gain weight until adulthood, at which point they will most likely gravitate around a certain weight. As they get older, they may start to lose weight. Weight affects how much they eat, and their sell value
+Visual Animals
 
-- Male animals - new male animals that are crucial for any livestock farm. Females will require a fertile male in order to get pregnant. Males are worth more than females. Currently, male animals are visually the same as female animals
+- The limit of visual animals per husbandry has been increased from 25 in the vanilla game, up to 200 at maximum which can be changed with a slider
 
-- "Removal" - animals can now be "removed" due to various factors, including old age, bad health, accidents, bad pregnancies and more. "Removed" animals will not be sold, unless they were "removed" due to an accident
+Individual Animals
 
-- Aging - animals will now age as they would in real life; their age is no longer capped at 5 years old. An animal's age affects its probability of being "removed", both young and old, and they have life expectancies, which they may rarely surpass
+- All animals are now 100% individual and the archaic cluster system has been scrapped, allowing for more variety in gameplay and animals
+- Every animal has its own unique identifier based on the UK's cattle identification system
+- Every animal has a birthday and a country of origin
+- Every animal can be named
+- Supported animals have ear tags on their left and right ears, detailing their country of origin, farm ID, animal ID, name and birthday, as well as a partial identifier on their behind
+- Supported animals have nose rings
 
-- Pregnancy - pregnant animals have the possibility of giving birth to multiple animals; however they also have the possiblity to be "removed" during pregnancy, including their offspring. Animals also need a couple of months to rest after giving birth before they can get pregnant again. Pregnant animals will also eat much more
+Enhanced Pregnancy System
 
-- Temperature - animals are more likely to be "removed" when the temperature is too low and sheep will not produce any wool
+- Animals of different species have varying amounts of potential offspring per each pregnancy (example: cows can have 0-3 calves)
+- Offspring is created inside the mother when she is impregnated instead of at birth
+- Ability to view the number of expected offspring and their due date
+- The reproduction duration is now unique for every animal, not every animal of the same species will take the same length of time to deliver their offspring
 
-- Milking - cattle will now only produce milk if they have calved in the past 10 months. Cows have a much more realistic milking curve and they will eat much more when they are being milked
+Genetics System
 
-- Visual animals - the limit in the vanilla game for the amount of visual animals (animals that are graphically shown inside a barn/field) is 25. This has now been increased to a maximum of 200 per husbandry (depending on your system's capabilities), with an easy-to-use settings menu to choose how many will be shown
+- New genetics system
+- Every animal has several genetic modifiers completely unique to them
+- Current genetics are health, fertility, metabolism, productivity and quality
+- Genetics impact several different areas of the animal, such as pregnancy and sale value
 
-- Family tree - every animal has a family tree, listing their living parents and children. This can be viewed by opening the animal menu trigger next to any husbandry, where you would normally buy and sell animals
+Weight System
 
-- New UI - the UI for animals has been expanded; hovering over an animal in the world will show its vanilla information, as well as advanced statistics. A unique genetics box has also been added beneath the normal animal info box
+- New weight system
+- Every animal has a weight unique to them, and each day they will gravitate to/from their ideal weight (based on their metabolism) due to how much they eat and drink
+- Weight affects sale value and health, and can unhealthy weight can result in death especially for young animals
 
-- Transportation - the transportation price for every animal has been increased greatly. This is done to incentivise you to buy your own transport, as farmers do in real life
+Enhanced UI
 
-- Identification - a new unique identification system, based on the identification technique used for cattle in the UK by real farmers. Every animal has their own unique ID and your farm also has its own unique ID which is used to help generate the animal's ID
+- New family tree visible in the animal screen
+- Lots of additional information is shown in the animal screen and the info box about each animal
 
-- Naming - any animal can now be named in the animal menu, not just horses. You can name them whatever you want, or generate a random name from a completely new list of names
+Enhanced Production
 
-- Statistics - almost every aspect of the base statistics of different breeds has been changed for more variation between breeds. This includes sell price, food and water amounts, production outputs, and more
+- Supported animals will have their production based on various factors
+- Cows will only produce milk when lactating, and their yield will rise and fall based on their previous pregnancy
+- Sheep will only produce wool in warm months
+
+Removal and Aging
+
+- Animal aging is no longer limited to 5 years
+- Every animal type has an expected lifespan, and every animal has a chance to be removed due to old age the older they get, but can stay past their expected lifespan
+- Animals can be removed from health, random accidents and bad pregnancies
+
+Enhanced Animal Dealer
+
+- The animal dealer has been completely overhauled
+- Every supported country in the world now has several unique farms, which each produce up to 3 types of animals
+- Each farm will send some of their animals to the animal dealer every day
+- Every animal is unique and is no longer a template, and are generated based on the quality of the farm they come from
+- Every animal sent to the dealer will eventually disappear and will no longer be able to be bought, but will be replaced with new ones
+- Most animals are local to your country, but some will be imported from abroad
+- Animals at the dealer have a chance to be pregnant and will all have unique genetic qualities which will impact their price and usefulness
 
 Changelog:
+
+1.0.1.1
+- Added ear tag colour configuration menu
+- Added filter window to the animal menu with a large range of filters
+- Added select all/none button to the animal menu
+- Fixed animals not being sold/bought correctly
+- Fixed checkboxes visually setting to unchecked after scrolling down the animal menu
+- Fixed error: RealisticLivestock_Animal.lua:843: attempt to compare nil < number
+
+1.0.1.0
+- Further additions to the help menu
+- Added monitor information to the animal screen
+- Added monitor tab
+- Fixed monitor information showing per hour
+- Fixed monitor information not showing relative to the days per month
+- Fixed animals not being removed from the list when buying/selling in bulk
 
 1.0.0.9
 - Added visual monitor tags which allow seeing certain stats in exchange for a small monthly payment
@@ -125,37 +175,71 @@ https://github.com/Arrow-kb/FS25_RealisticLivestock
 
 Merkmale:
 
-- Individualität - das alte Clustersystem wurde abgeschafft, und jedes Tier ist nun völlig einzigartig und individuell
+Männliche Tiere
 
-- Genetiksystem - alle Tiere haben ihre eigene, einzigartige Genetik, die an ihre Kinder weitergegeben wird und sich auf ihren Wert, ihre Leistung, ihre Fruchtbarkeit, ihr Gewicht und mehr auswirkt
+- Höherer Wert
+- Für die Reproduktion erforderlich
+- Keine männlichen Modelle (ich bin kein 3d-Künstler)
 
-- Gewichtssystem - Tiere werden mit einem Gewicht geboren, das hauptsächlich auf ihren Genen beruht, und nehmen bis zum Erwachsenenalter allmählich an Gewicht zu, wobei sie sich höchstwahrscheinlich um ein bestimmtes Gewicht herum bewegen werden. Wenn sie älter werden, verlieren sie möglicherweise an Gewicht. Das Gewicht wirkt sich darauf aus, wie viel sie essen und wie hoch ihr Verkaufswert ist.
+Visuelle Tiere
 
-- Männliche Tiere - neue männliche Tiere, die für jeden Viehzuchtbetrieb unerlässlich sind. Weibliche Tiere benötigen ein fruchtbares Männchen, um schwanger zu werden. Männliche Tiere sind mehr wert als weibliche. Derzeit sind männliche Tiere optisch gleichwertig mit weiblichen Tieren.
+- Die Anzahl der visuellen Tiere pro Tierhaltung wurde von 25 im Vanilla-Spiel auf maximal 200 erhöht, was mit einem Schieberegler geändert werden kann
 
-- „Entfernung„ - Tiere können jetzt aufgrund verschiedener Faktoren entfernt“ werden, z. B. aufgrund von Alter, schlechtem Gesundheitszustand, Unfällen, schlechten Schwangerschaften und mehr. „Entfernte“ Tiere werden nicht verkauft, es sei denn, sie wurden aufgrund eines Unfalls ‚entfernt‘.
+Individuelle Tiere
 
-- Alterung - Tiere altern nun wie im richtigen Leben; ihr Alter ist nicht mehr auf 5 Jahre begrenzt. Das Alter eines Tieres wirkt sich auf die Wahrscheinlichkeit aus, dass es „entfernt“ wird, sowohl jung als auch alt, und sie haben eine Lebenserwartung, die sie nur selten überschreiten können
+- Alle Tiere sind nun zu 100% individuell und das archaische Clustersystem wurde abgeschafft, was zu mehr Abwechslung im Gameplay und bei den Tieren führt.
+- Jedes Tier hat seine eigene eindeutige Kennung, die auf dem britischen Rinderkennzeichnungssystem basiert.
+- Jedes Tier hat einen Geburtstag und ein Herkunftsland
+- Jedes Tier kann benannt werden
+- Unterstützte Tiere haben Ohrmarken an ihrem linken und rechten Ohr, auf denen ihr Herkunftsland, ihre Farm-ID, ihre Tier-ID, ihr Name und ihr Geburtstag angegeben sind, sowie eine teilweise Kennzeichnung auf ihrem Rücken
+- Geförderte Tiere haben Nasenringe
 
-- Trächtigkeit - Trächtige Tiere haben die Möglichkeit, mehrere Tiere zur Welt zu bringen; sie können jedoch auch während der Trächtigkeit „entnommen“ werden, einschließlich ihrer Nachkommen. Außerdem brauchen die Tiere nach der Geburt ein paar Monate Ruhe, bevor sie wieder trächtig werden können. Trächtige Tiere fressen auch viel mehr
+Verbessertes Trächtigkeitssystem
 
-- Temperatur - bei zu niedrigen Temperaturen werden die Tiere eher „abtransportiert“, und die Schafe produzieren keine Wolle
+- Tiere verschiedener Arten haben eine unterschiedliche Anzahl potenzieller Nachkommen pro Trächtigkeit (Beispiel: Kühe können 0-3 Kälber haben)
+- Die Nachkommen werden im Muttertier erzeugt, wenn es geschwängert wird, und nicht bei der Geburt
+- Möglichkeit, die Anzahl der erwarteten Nachkommen und deren Fälligkeitsdatum anzuzeigen
+- Die Reproduktionsdauer ist jetzt für jedes Tier einzigartig, nicht jedes Tier der gleichen Art braucht gleich lange, um seine Nachkommen zur Welt zu bringen.
 
-- Melken - Rinder produzieren nur noch Milch, wenn sie in den letzten 10 Monaten gekalbt haben. Kühe haben eine viel realistischere Melkkurve und fressen viel mehr, wenn sie gemolken werden.
+Genetisches System
 
-- Visuelle Tiere - die Anzahl der visuellen Tiere (Tiere, die grafisch in einem Stall/Feld dargestellt werden) ist im Vanilla-Spiel auf 25 begrenzt. Dies wurde nun auf ein Maximum von 200 Tieren pro Stall erhöht (abhängig von den Fähigkeiten Ihres Systems), mit einem einfach zu bedienenden Einstellungsmenü, um zu wählen, wie viele angezeigt werden sollen.
+- Neues Genetiksystem
+- Jedes Tier verfügt über mehrere genetische Modifikatoren, die für jedes Tier einzigartig sind
+- Die derzeitigen genetischen Faktoren sind Gesundheit, Fruchtbarkeit, Stoffwechsel, Produktivität und Qualität.
+- Die Genetik wirkt sich auf verschiedene Bereiche des Tieres aus, z. B. auf die Trächtigkeit und den Verkaufswert
 
-- Stammbaum - jedes Tier hat einen Stammbaum, in dem seine lebenden Eltern und Kinder aufgeführt sind. Dieser kann eingesehen werden, indem man den Menüpunkt „Tiere“ neben der Tierhaltung öffnet, wo man normalerweise Tiere kaufen und verkaufen würde.
+Gewichtssystem
 
-- Neue Benutzeroberfläche - die Benutzeroberfläche für Tiere wurde erweitert; wenn man mit dem Mauszeiger über ein Tier in der Welt fährt, werden seine Vanille-Informationen sowie erweiterte Statistiken angezeigt. Außerdem wurde eine einzigartige Genetik-Box unterhalb der normalen Tier-Infobox hinzugefügt.
+- Neues Gewichtssystem
+- Jedes Tier hat ein individuelles Gewicht, und jeden Tag bewegt es sich auf sein Idealgewicht zu oder davon weg (basierend auf seinem Stoffwechsel), je nachdem, wie viel es isst und trinkt
+- Das Gewicht wirkt sich auf den Verkaufswert und die Gesundheit aus, und ungesundes Gewicht kann insbesondere bei Jungtieren zum Tod führen.
 
-- Transport - der Transportpreis für jedes Tier wurde stark erhöht. Damit soll ein Anreiz geschaffen werden, eigene Transporte zu kaufen, so wie es Bauern im echten Leben tun.
+Verbessertes UI
 
-- Identifikation - ein neues, einzigartiges Identifikationssystem, das auf der Identifikationstechnik basiert, die in Großbritannien von echten Landwirten für Rinder verwendet wird. Jedes Tier hat seine eigene eindeutige ID, und auch Ihr Betrieb hat seine eigene eindeutige ID, die dazu dient, die ID des Tieres zu generieren.
+- Neuer Stammbaum im Tierbildschirm sichtbar
+- Viele zusätzliche Informationen werden auf dem Tierbildschirm und in der Infobox zu jedem Tier angezeigt
 
-- Benennung - jedes Tier kann jetzt im Tiermenü benannt werden, nicht nur Pferde. Du kannst sie benennen, wie du willst, oder einen zufälligen Namen aus einer völlig neuen Liste von Namen generieren.
+Verbesserte Produktion
 
-- Statistiken - fast jeder Aspekt der Basisstatistiken der verschiedenen Rassen wurde geändert, um mehr Variation zwischen den Rassen zu ermöglichen. Dazu gehören Verkaufspreise, Futter- und Wassermengen, Produktionsleistungen und vieles mehr.]]>
+- Bei unterstützten Tieren wird die Produktion von verschiedenen Faktoren abhängig gemacht
+- Kühe produzieren nur noch Milch, wenn sie laktieren, und ihr Ertrag steigt und fällt je nach vorheriger Trächtigkeit
+- Schafe produzieren nur in warmen Monaten Wolle
+
+Beseitigung und Alterung
+
+- Die Alterung von Tieren ist nicht mehr auf 5 Jahre begrenzt.
+- Jede Tierart hat eine erwartete Lebensspanne, und jedes Tier hat eine Chance, aufgrund von Alter entfernt zu werden, je älter es wird, kann aber auch über seine erwartete Lebensspanne hinaus bleiben
+- Tiere können aufgrund von Gesundheit, zufälligen Unfällen und schlechten Schwangerschaften entfernt werden
+
+Verbesserter Tierhändler
+
+- Der Tierhändler wurde komplett überarbeitet
+- Jedes unterstützte Land in der Welt hat nun mehrere einzigartige Farmen, die jeweils bis zu 3 Tierarten produzieren
+- Jede Farm schickt jeden Tag einige ihrer Tiere zum Tierhändler
+- Jedes Tier ist einzigartig und keine Vorlage mehr, sondern wird auf der Grundlage der Qualität der Farm, von der es stammt, erzeugt.
+- Jedes Tier, das zum Händler geschickt wird, verschwindet irgendwann und kann nicht mehr gekauft werden, sondern wird durch neue Tiere ersetzt.
+- Die meisten Tiere stammen aus deinem Land, aber einige werden aus dem Ausland importiert.
+- Die Tiere beim Händler haben die Chance, trächtig zu werden, und weisen alle einzigartige genetische Eigenschaften auf, die sich auf ihren Preis und ihren Nutzen auswirken werden.]]>
 </de>
 <fr>
     <![CDATA[ Il s'agit d'une révision complète du système animalier.
@@ -165,37 +249,71 @@ https://github.com/Arrow-kb/FS25_RealisticLivestock
 
 Caractéristiques :
 
-- Individualité - l'ancien système de grappes a été supprimé, et chaque animal est désormais complètement unique et individuel.
+Animaux mâles
 
-- Système génétique : tous les animaux ont un patrimoine génétique unique qui est transmis à leurs enfants et qui affecte leur valeur, leur rendement, leur fertilité, leur poids et bien plus encore.
+- Valeur supérieure
+- Nécessaire à la reproduction
+- Pas de modèles masculins (je ne suis pas un artiste 3D)
 
-- Système de poids : les animaux naîtront à un poids basé principalement sur leur génétique et prendront progressivement du poids jusqu'à l'âge adulte, où ils graviteront probablement autour d'un certain poids. En vieillissant, ils peuvent commencer à perdre du poids. Le poids influe sur la quantité de nourriture qu'ils consomment et sur leur valeur de vente.
+Animaux visuels
 
-- Animaux mâles - les nouveaux animaux mâles sont essentiels pour toute ferme d'élevage. Les femelles ont besoin d'un mâle fertile pour tomber enceintes. Les mâles valent plus que les femelles. Actuellement, les animaux mâles ont la même valeur visuelle que les animaux femelles.
+- La limite d'animaux visuels par élevage a été augmentée de 25 dans le jeu vanille, jusqu'à 200 au maximum, ce qui peut être modifié avec un curseur.
 
-- « Retrait » - les animaux peuvent désormais être “retirés” pour diverses raisons, notamment la vieillesse, la mauvaise santé, les accidents, les mauvaises grossesses, etc. Les animaux « retirés » ne seront pas vendus, sauf s'ils ont été « retirés » à la suite d'un accident.
+Animaux individuels
 
-- Vieillissement : les animaux vieillissent désormais comme dans la vie réelle ; leur âge n'est plus limité à 5 ans. L'âge d'un animal influe sur sa probabilité d'être « retiré », qu'il soit jeune ou vieux, et il a une espérance de vie qu'il peut rarement dépasser
+- Tous les animaux sont désormais 100% individuels et le système archaïque de grappes a été abandonné, ce qui permet une plus grande variété dans le gameplay et les animaux.
+- Chaque animal possède son propre identifiant, basé sur le système d'identification du bétail britannique.
+- Chaque animal a une date de naissance et un pays d'origine.
+- Chaque animal peut être nommé.
+- Les animaux pris en charge ont des étiquettes à l'oreille gauche et à l'oreille droite, qui indiquent leur pays d'origine, l'identifiant de la ferme, l'identifiant de l'animal, leur nom et leur date d'anniversaire, ainsi qu'un identifiant partiel sur leur derrière.
+- Les animaux pris en charge ont des anneaux de nez.
 
-- Grossesse - Les animaux en gestation ont la possibilité de donner naissance à plusieurs animaux ; cependant, ils ont également la possibilité d'être « enlevés » pendant la grossesse, y compris leur progéniture. Les animaux ont également besoin de quelques mois de repos après la mise bas avant de pouvoir tomber à nouveau enceintes. Les animaux en gestation mangent également beaucoup plus
+Système de gestation amélioré
 
-- Température - les animaux sont plus susceptibles d'être « enlevés » lorsque la température est trop basse et que les moutons ne produisent pas de laine
+- Les animaux de différentes espèces ont des quantités variables de descendants potentiels pour chaque grossesse (exemple : les vaches peuvent avoir de 0 à 3 veaux).
+- La progéniture est créée à l'intérieur de la mère lorsqu'elle est fécondée et non à la naissance.
+- Possibilité d'afficher le nombre de descendants attendus et leur date d'échéance
+- La durée de la reproduction est désormais unique pour chaque animal, tous les animaux de la même espèce ne prendront pas le même temps pour mettre au monde leur progéniture.
 
-- Traite : les bovins ne produiront plus de lait que s'ils ont vêlé au cours des dix derniers mois. La courbe de traite des vaches est beaucoup plus réaliste et elles mangent beaucoup plus lorsqu'elles sont traites.
+Système génétique
 
-- Animaux visuels - dans le jeu vanille, la limite du nombre d'animaux visuels (animaux représentés graphiquement à l'intérieur d'une étable ou d'un champ) est fixée à 25. Cette limite a été portée à un maximum de 200 par élevage (en fonction des capacités de votre système), avec un menu de paramétrage facile à utiliser pour choisir le nombre d'animaux affichés.
+- Nouveau système génétique
+- Chaque animal possède plusieurs modificateurs génétiques qui lui sont propres.
+- La génétique actuelle concerne la santé, la fertilité, le métabolisme, la productivité et la qualité.
+- La génétique a un impact sur différents aspects de l'animal, tels que la gestation et la valeur de vente.
 
-- Arbre généalogique - chaque animal possède un arbre généalogique, qui répertorie ses parents et ses enfants vivants. Vous pouvez le consulter en ouvrant la gâchette du menu des animaux à côté de n'importe quel élevage, où vous achèteriez et vendriez normalement des animaux.
+Système de poids
 
-- Nouvelle interface utilisateur - L'interface utilisateur pour les animaux a été élargie ; en survolant un animal dans le monde, vous verrez ses informations sur la vanille, ainsi que des statistiques avancées. Une boîte génétique unique a également été ajoutée sous la boîte d'information normale de l'animal.
+- Nouveau système de poids
+- Chaque animal a un poids qui lui est propre et, chaque jour, il se rapproche ou s'éloigne de son poids idéal (en fonction de son métabolisme) en raison de la quantité de nourriture et de boisson qu'il consomme.
+- Le poids affecte la valeur de vente et la santé, et un poids insuffisant peut entraîner la mort, en particulier pour les jeunes animaux.
 
-- Transport - le prix du transport pour chaque animal a été considérablement augmenté. Ceci a pour but de vous inciter à acheter vos propres moyens de transport, comme le font les fermiers dans la vie réelle.
+Amélioration de l'interface utilisateur
 
-- Identification - un nouveau système d'identification unique, basé sur la technique d'identification utilisée pour le bétail au Royaume-Uni par les vrais agriculteurs. Chaque animal a son propre identifiant et votre ferme a également son propre identifiant qui est utilisé pour générer l'identifiant de l'animal.
+- Nouvel arbre généalogique visible sur l'écran de l'animal
+- De nombreuses informations supplémentaires sont affichées sur l'écran des animaux et dans la boîte d'information sur chaque animal.
 
-- Noms - tous les animaux peuvent désormais être nommés dans le menu des animaux, et pas seulement les chevaux. Vous pouvez leur donner le nom que vous voulez ou générer un nom aléatoire à partir d'une toute nouvelle liste de noms.
+Production améliorée
 
-- Statistiques - Presque tous les aspects des statistiques de base des différentes races ont été modifiés afin d'accroître les variations entre les races. Cela inclut le prix de vente, les quantités de nourriture et d'eau, les rendements de production, et bien plus encore.]]>
+- La production des animaux pris en charge est basée sur différents facteurs
+- Les vaches ne produiront du lait que lorsqu'elles sont en lactation, et leur production augmentera et diminuera en fonction de leur grossesse précédente.
+- Les moutons ne produiront de la laine que pendant les mois chauds.
+
+Retrait et vieillissement
+
+- Le vieillissement des animaux n'est plus limité à 5 ans
+- Chaque type d'animal a une durée de vie prévue, et chaque animal a une chance d'être retiré pour cause de vieillesse au fur et à mesure qu'il vieillit, mais il peut rester au-delà de sa durée de vie prévue.
+- Les animaux peuvent être retirés pour des raisons de santé, d'accidents aléatoires et de mauvaises grossesses.
+
+Marchand d'animaux amélioré
+
+- Le marchand d'animaux a été entièrement revu.
+- Chaque pays soutenu dans le monde a maintenant plusieurs fermes uniques, qui produisent chacune jusqu'à 3 types d'animaux.
+- Chaque ferme enverra chaque jour certains de ses animaux au marchand d'animaux.
+- Chaque animal est unique et n'est plus un modèle. Ils sont générés en fonction de la qualité de la ferme d'où ils proviennent.
+- Chaque animal envoyé au marchand d'animaux finira par disparaître et ne pourra plus être acheté, mais sera remplacé par de nouveaux animaux.
+- La plupart des animaux sont originaires de votre pays, mais certains sont importés de l'étranger.
+- Les animaux qui se trouvent chez le négociant ont une chance d'être gestants et ont tous des qualités génétiques uniques qui ont une incidence sur leur prix et leur utilité.]]>
 </fr>
     </description>
     <iconFilename>icon_RealisticLivestock.dds</iconFilename>
@@ -227,10 +345,16 @@ Caractéristiques :
         <sourceFile filename="src/farms/FarmManager.lua"/>
         <sourceFile filename="src/farms/RealisticLivestock_FarmStats.lua"/>
         <sourceFile filename="src/fillTypes/RealisticLivestock_FillTypeManager.lua"/>
+		<sourceFile filename="src/gui/elements/DoubleOptionSliderElement.lua"/>
+        <sourceFile filename="src/gui/elements/RenderElement.lua"/>
+        <sourceFile filename="src/gui/elements/TripleOptionElement.lua"/>
         <sourceFile filename="src/gui/RealisticLivestock_AnimalScreen.lua"/>
         <sourceFile filename="src/gui/VisualAnimalsDialog.lua"/>
         <sourceFile filename="src/gui/NameInputDialog.lua"/>
+        <sourceFile filename="src/gui/RealisticLivestockFrame.lua"/>
+        <sourceFile filename="src/gui/AnimalFilterDialog.lua"/>
         <sourceFile filename="src/gui/AnimalInfoDialog.lua"/>
+        <sourceFile filename="src/gui/EarTagColourPickerDialog.lua"/>
         <sourceFile filename="src/gui/InGameMenuSettingsFrame.lua"/>
         <sourceFile filename="src/gui/RL_InfoDisplayKeyValueBox.lua"/>
         <sourceFile filename="src/gui/RealisticLivestock_InGameMenuAnimalsFrame.lua"/>
@@ -244,7 +368,8 @@ Caractéristiques :
         <sourceFile filename="src/I18N.lua"/>
         <sourceFile filename="src/RealisticLivestock.lua"/>
         <sourceFile filename="src/RealisticLivestock_Animal.lua"/>
-        <sourceFile filename="src/RealisticLivestock_FSBaseMission.lua"/>
+		<sourceFile filename="src/RealisticLivestock_FSBaseMission.lua"/>
+		<sourceFile filename="src/RLConsoleCommandManager.lua"/>
         <sourceFile filename="src/RLSettings.lua"/>
     </extraSourceFiles>
     <l10n filenamePrefix="translations/translation"/>
@@ -260,50 +385,82 @@ Caractéristiques :
 
 		<category title="$l10n_rl_settings">
 
-			<page title="$l10n_rl_help_main_title" iconSliceId="gui.icon_options_help">
+			<page title="$l10n_rl_help_monitors_title" iconSliceId="rlHelpIcons.monitor">
 
 				<paragraph>
-					<text text="$l10n_rl_help_main_1"/>
+					<text text="$l10n_rl_help_monitors_1"/>
 				</paragraph>
 				<paragraph>
-					<text text="$l10n_rl_help_main_2"/>
+					<text text="$l10n_rl_help_monitors_2"/>
 				</paragraph>
 				<paragraph>
-					<text text="$l10n_rl_help_main_3"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_rl_help_main_4"/>
+					<text text="$l10n_rl_help_monitors_3"/>
 				</paragraph>
 				
 			</page>
 
-			<page title="$l10n_rl_help_cows_title" iconSliceId="gui.multiplayer_bull">
-				
-				
+			<page title="$l10n_rl_help_pregnancy_title" iconSliceId="rlHelpIcons.pregnancy">
+
+				<paragraph>
+					<text text="$l10n_rl_help_pregnancy_1"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_pregnancy_2"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_pregnancy_3"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_pregnancy_4"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_pregnancy_5"/>
+				</paragraph>
 				
 			</page>
 
-			<page title="$l10n_rl_help_pigs_title" iconSliceId="gui.multiplayer_pig">
-				
-				
+			<page title="$l10n_rl_help_production_title" iconSliceId="rlHelpIcons.production">
+
+				<paragraph>
+					<text text="$l10n_rl_help_production_1"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_production_2"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_production_3"/>
+				</paragraph>
 				
 			</page>
 
-			<page title="$l10n_rl_help_sheep_title" iconSliceId="gui.multiplayer_goat">
-				
-				
-				
+			<page title="$l10n_rl_help_weight_title" iconSliceId="gui.storeAttribute_maxLoadCapacity">
+
+				<paragraph>
+					<text text="$l10n_rl_help_weight_1"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_weight_2"/>
+				</paragraph>
+
 			</page>
 
-			<page title="$l10n_rl_help_horses_title" iconSliceId="gui.multiplayer_horse">
-				
-				
-				
-			</page>
+			<page title="$l10n_rl_help_genetics_title" iconSliceId="rlHelpIcons.genetics">
 
-			<page title="$l10n_rl_help_chickens_title" iconSliceId="gui.multiplayer_chicken">
-				
-				
+				<paragraph>
+					<text text="$l10n_rl_help_genetics_1"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_genetics_2"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_genetics_3"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_genetics_4"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_genetics_5"/>
+				</paragraph>
 				
 			</page>
 			

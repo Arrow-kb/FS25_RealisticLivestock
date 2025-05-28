@@ -61,6 +61,8 @@ function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDir
 
     print("", "--------")
 
+    self:loadColourConfigurations()
+
 	return #self.types > 0
 
 end
@@ -135,7 +137,13 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 			    ["subTypes"] = {},
                 ["animals"] = {},
                 ["averageBuyAge"] = averageBuyAge,
-                ["maxBuyAge"] = maxBuyAge
+                ["maxBuyAge"] = maxBuyAge,
+                ["colours"] = {
+                    ["earTagLeft"] = { 0.8, 0.7, 0 },
+                    ["earTagRight"] = { 0.8, 0.7, 0 },
+                    ["earTagLeft_text"] = { 0, 0, 0 },
+                    ["earTagRight_text"] = { 0, 0, 0 }
+                }
 		    }
             
 		end
@@ -515,6 +523,39 @@ function AnimalSystem:validateFarms(hasData)
 end
 
 
+function AnimalSystem:loadColourConfigurations()
+
+    local savegameIndex = g_careerScreen.savegameList.selectedIndex
+    local savegame = g_savegameController:getSavegame(savegameIndex)
+
+    if savegame == nil or savegame.savegameDirectory == nil then return false end
+
+    local xmlFile = XMLFile.loadIfExists("animalSystem", savegame.savegameDirectory .. "/animalSystem.xml")
+
+    if xmlFile == nil then return false end
+
+    xmlFile:iterate("animalSystem.animalTypes.type", function(_, key)
+
+        local name = xmlFile:getString(key .. "#name")
+        local earTagLeft = xmlFile:getVector(key .. "#earTagLeft", { 0.8, 0.7, 0 })
+        local earTagRight = xmlFile:getVector(key .. "#earTagRight", { 0.8, 0.7, 0 })
+        local earTagLeftText = xmlFile:getVector(key .. "#earTagLeftText", { 0, 0, 0 })
+        local earTagRightText = xmlFile:getVector(key .. "#earTagRightText", { 0, 0, 0 })
+
+        if self.nameToType[name] ~= nil then
+            self.nameToType[name].colours.earTagLeft = earTagLeft
+            self.nameToType[name].colours.earTagRight = earTagRight
+            self.nameToType[name].colours.earTagLeft_text = earTagLeftText
+            self.nameToType[name].colours.earTagRight_text = earTagRightText
+        end
+
+    end)
+
+    xmlFile:delete()
+
+end
+
+
 function AnimalSystem:loadFromXMLFile()
 
     local savegameIndex = g_careerScreen.savegameList.selectedIndex
@@ -609,6 +650,17 @@ function AnimalSystem:saveToXMLFile(path)
 
     local xmlFile = XMLFile.create("animalSystem", path, "animalSystem")
     if xmlFile == nil then return end
+
+
+    xmlFile:setSortedTable("animalSystem.animalTypes.type", self.types, function (key, type)
+
+        xmlFile:setString(key .. "#name", type.name)
+        xmlFile:setVector(key .. "#earTagLeft", type.colours.earTagLeft)
+        xmlFile:setVector(key .. "#earTagLeftText", type.colours.earTagLeft_text)
+        xmlFile:setVector(key .. "#earTagRight", type.colours.earTagRight)
+        xmlFile:setVector(key .. "#earTagRightText", type.colours.earTagRight_text)
+
+    end)
 
     
     xmlFile:setSortedTable("animalSystem.countries.country", self.countries, function (key, country)
@@ -1146,8 +1198,6 @@ function AnimalSystem:onPeriodChanged()
 
                 if not animal.monitor.active and not animal.monitor.removed then continue end
 
-                print(animal.uniqueId)
-
                 if animal.monitor.removed and not animal.monitor.active then
 
                     local visualData = self:getVisualByAge(animal.subTypeIndex, animal.age)
@@ -1209,8 +1259,46 @@ function AnimalSystem:addExistingSaleAnimal(animal)
 end
 
 
+function AnimalSystem:removeAllSaleAnimals(animalTypeIndex)
+
+    if animalTypeIndex == nil then
+
+        for index, animals in pairs(self.animals) do self.animals[index] = {} end
+
+    elseif self.animals[animalTypeIndex] ~= nil then
+
+        self.animals[animalTypeIndex] = {}
+
+    end
+
+end
+
+
 function AnimalSystem.onSettingChanged(name, state)
 
     AnimalSystem[name] = state
+
+end
+
+
+function AnimalSystem.onClickResetDealer()
+
+    local animalSystem = g_currentMission.animalSystem
+
+    animalSystem:removeAllSaleAnimals()
+
+    for animalTypeIndex, animals in pairs(animalSystem.animals) do
+
+        for i = 1, animalSystem.maxDealerAnimals do
+
+            local animal = animalSystem:createNewSaleAnimal(animalTypeIndex)
+
+            if animal ~= nil then table.insert(animals, animal) end
+
+        end
+
+        animalSystem.animals[animalTypeIndex] = animals
+
+    end
 
 end

@@ -18,6 +18,8 @@ function RealisticLivestock_AnimalScreen.show(husbandry, vehicle, isDealer)
     if husbandry == nil and vehicle == nil then return end
 
     g_animalScreen.isTrailerFarm = husbandry ~= nil and vehicle ~= nil
+    g_animalScreen.filters = nil
+    g_animalScreen.filteredItems = nil
 
 	g_animalScreen:setController(husbandry, vehicle, isDealer)
 	g_gui:showGui("AnimalScreen")
@@ -27,20 +29,54 @@ end
 AnimalScreen.show = RealisticLivestock_AnimalScreen.show
 
 
-function RealisticLivestock_AnimalScreen:setController(husbandry, vehicle, isDealer)
+function RealisticLivestock_AnimalScreen:setController(_, husbandry, vehicle, isDealer)
 
     self.isTrailer = husbandry == nil and vehicle ~= nil and not isDealer
+    self.isDealer = isDealer
+
+    local controller
+
+	if husbandry == nil then
+		if vehicle == nil then
+			controller = AnimalScreenDealer.new()
+		elseif isDealer then
+			controller = AnimalScreenDealerTrailer.new(vehicle)
+		else
+			controller = AnimalScreenTrailer.new(vehicle)
+		end
+	elseif vehicle == nil then
+		controller = AnimalScreenDealerFarm.new(husbandry)
+	else
+		controller = AnimalScreenTrailerFarm.new(husbandry, vehicle)
+	end
+
+	controller:init()
+
+	self.controller = controller
+	self.controller:setAnimalsChangedCallback(self.onAnimalsChanged, self)
+	self.controller:setActionTypeCallback(self.onActionTypeChanged, self)
+	self.controller:setSourceActionFinishedCallback(self.onSourceActionFinished, self)
+	self.controller:setTargetActionFinishedCallback(self.onTargetActionFinished, self)
+	self.controller:setSourceBulkActionFinishedCallback(self.onSourceBulkActionFinished, self)
+	self.controller:setTargetBulkActionFinishedCallback(self.onTargetBulkActionFinished, self)
+	self.controller:setErrorCallback(self.onError, self)
+
+	self.sourceList:reloadData(true)
 
 end
 
-AnimalScreen.setController = Utils.prependedFunction(AnimalScreen.setController, RealisticLivestock_AnimalScreen.setController)
+AnimalScreen.setController = Utils.overwrittenFunction(AnimalScreen.setController, RealisticLivestock_AnimalScreen.setController)
 
 
 function RealisticLivestock_AnimalScreen:onClickBuyMode(a, b)
     self.isInfoMode = false
     self.selectedItems = {}
     self.pendingBulkTransaction = nil
+    self.filters = nil
+    self.filteredItems = nil
 
+    self.buttonToggleSelectAll:setVisible(true)
+    self.buttonToggleSelectAll:setText(g_i18n:getText("rl_ui_selectAll"))
     self.buttonBuySelected:setText(self.isTrailerFarm and g_i18n:getText("rl_ui_moveSelected") or g_i18n:getText("rl_ui_buySelected"))
 end
 
@@ -51,7 +87,11 @@ function RealisticLivestock_AnimalScreen:onClickSellMode(a, b)
     self.isInfoMode = false
     self.selectedItems = {}
     self.pendingBulkTransaction = nil
-
+    self.filters = nil
+    self.filteredItems = nil
+    
+    self.buttonToggleSelectAll:setVisible(true)
+    self.buttonToggleSelectAll:setText(g_i18n:getText("rl_ui_selectAll"))
     self.buttonBuySelected:setText(self.isTrailerFarm and g_i18n:getText("rl_ui_moveSelected") or g_i18n:getText("rl_ui_sellSelected"))
 end
 
@@ -87,12 +127,15 @@ AnimalScreen.onPagePrevious = Utils.overwrittenFunction(AnimalScreen.onPagePrevi
 
 function RealisticLivestock_AnimalScreen:onClickRename()
 
-    local item = self.controller:getTargetItems()[self.sourceList.selectedIndex]
-    if item == nil or item.cluster == nil then return end
+    local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
+
+    if item == nil or (item.cluster == nil and item.animal == nil) then return end
+
+    local animal = item.animal or item.cluster
 
     local dialog = NameInputDialog.INSTANCE
-    local name = item.cluster.name or g_currentMission.animalNameSystem:getRandomName(item.cluster.gender)
-    dialog:setCallback(self.changeName, self, name, nil, 30, nil, item.cluster.gender)
+    local name = animal.name or g_currentMission.animalNameSystem:getRandomName(animal.gender)
+    dialog:setCallback(self.changeName, self, name, nil, 30, nil, animal.gender)
     g_gui:showDialog("NameInputDialog")
 
 end
@@ -103,7 +146,9 @@ AnimalScreen.onClickRename = RealisticLivestock_AnimalScreen.onClickRename
 function RealisticLivestock_AnimalScreen:changeName(text, clickOk)
 
     if clickOk then
-        local animal = g_animalScreen.controller:getTargetItems()[g_animalScreen.sourceList.selectedIndex].cluster
+
+        local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
+        local animal = item.animal or item.cluster
         
         if animal ~= nil then
 
@@ -262,12 +307,18 @@ AnimalScreen.changeName = RealisticLivestock_AnimalScreen.changeName
 
 function RealisticLivestock_AnimalScreen:onClickAnimalInfo(button)
 
-    local item = self.controller:getTargetItems()[self.sourceList.selectedIndex]
-    local animalType = item.cluster.animalTypeIndex
+    local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
+
+    if item == nil then return end
+
+    local animal = item.animal or item.cluster
+
+    if animal == nil then return end
+
+    local animalType = animal.animalTypeIndex
 
     if button.id == "childInfoButton" then
-        if item == nil or item.cluster == nil then return end
-        local children = item.cluster.children
+        local children = animal.children
         if children == nil or #children == 0 then return end
 
         AnimalInfoDialog.show(children[1].farmId, children[1].uniqueId, children, animalType)
@@ -277,9 +328,9 @@ function RealisticLivestock_AnimalScreen:onClickAnimalInfo(button)
 
     local target = button.id == "motherInfoButton" and "mother" or "father"
 
-    if item == nil or target == nil then return end
+    if target == nil then return end
 
-    local uniqueId = item.cluster[target .. "Id"]
+    local uniqueId = animal[target .. "Id"]
 
     if uniqueId == "-1" then return end
 
@@ -300,8 +351,12 @@ AnimalScreen.onClickAnimalInfo = RealisticLivestock_AnimalScreen.onClickAnimalIn
 
 function RealisticLivestock_AnimalScreen:onClickInfoMode(a, b)
 
+    self.filters = nil
+    self.filteredItems = nil
     self.isInfoMode = true
     self.isBuyMode = false
+
+    self.buttonToggleSelectAll:setVisible(false)
     self.targetSelector.leftButtonElement:setVisible(false)
     self.targetSelector.rightButtonElement:setVisible(false)
     self:initSubcategories()
@@ -320,7 +375,7 @@ AnimalScreen.onClickInfoMode = RealisticLivestock_AnimalScreen.onClickInfoMode
 
 function AnimalScreen:onClickMonitor()
 
-    local item = self.controller:getTargetItems()[self.sourceList.selectedIndex]
+    local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
     local animal = item.animal or item.cluster
     local monitor = animal.monitor
 
@@ -354,6 +409,8 @@ function AnimalScreen:onClickMonitor()
 
     end
 
+    self:updateInfoBox()
+
 end
 
 
@@ -368,15 +425,31 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
         local animalType = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
         local item
 
-        if self.isBuyMode then
-            item = self.controller:getSourceItems(animalType, self.isBuyMode)[self.sourceList.selectedIndex]
+        if self.filteredItems == nil then
+
+            if self.isBuyMode then
+                item = self.controller:getSourceItems(animalType, self.isBuyMode)[self.sourceList.selectedIndex]
+            else
+                item = self.controller:getTargetItems()[self.sourceList.selectedIndex]
+            end
+
         else
-            item = self.controller:getTargetItems()[self.sourceList.selectedIndex]
+
+            item = self.filteredItems[self.sourceList.selectedIndex]
+
         end
 
         self.infoIcon:setVisible(item ~= nil)
         self.infoName:setVisible(item ~= nil)
+
         if item ~= nil then
+
+            self.detailsContainer:setVisible(true)
+
+            local animal = item.animal or item.cluster
+        
+            self.inputBox:setVisible(self.isInfoMode and (animal.monitor.active or animal.monitor.removed))
+            self.outputBox:setVisible(self.isInfoMode and (animal.monitor.active or animal.monitor.removed))
 
             self.infoIcon:setImageFilename(item:getFilename())
             self.infoDescription:setText(item:getDescription())
@@ -405,8 +478,6 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
             end
 
             if self.isInfoMode then
-
-                local animal = item.animal or item.cluster
 
                 self.buttonMonitor:setText(g_i18n:getText("rl_ui_" .. (animal.monitor.active and "remove" or "apply") .. "Monitor"))
                 self.buttonMonitor:setDisabled(animal.monitor.removed)
@@ -460,7 +531,55 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
 
                 end
 
+
+                local infoIndex = 1
+                local daysPerMonth = g_currentMission.environment.daysPerPeriod
+
+
+                for fillType, amount in pairs(animal.input) do
+
+                    if infoIndex > #self.inputTitle then break end
+
+                    local title, value = self.inputTitle[infoIndex], self.inputValue[infoIndex]
+
+                    title:setText(g_i18n:getText("rl_ui_input_" .. fillType))
+                    value:setText(string.format(g_i18n:getText("rl_ui_amountPerDay"), (amount * 24) / daysPerMonth))
+
+                    infoIndex = infoIndex + 1
+
+                end
+
+
+                infoIndex = 1
+
+
+                for fillType, amount in pairs(animal.output) do
+
+                    if infoIndex > #self.outputTitle then break end
+
+                    local title, value = self.outputTitle[infoIndex], self.outputValue[infoIndex]
+
+                    local outputText = fillType
+
+                    if fillType == "pallets" then
+
+                        if animal.animalTypeIndex == AnimalType.COW then outputText = "pallets_milk" end
+
+                        if animal.animalTypeIndex == AnimalType.SHEEP then outputText = animal.subType == "GOAT" and "pallets_goatMilk" or "pallets_wool" end
+
+                        if animal.animalTypeIndex == AnimalType.CHICKEN then outputText = "pallets_eggs" end
+
+                    end
+
+                    title:setText(g_i18n:getText("rl_ui_output_" .. outputText))
+                    value:setText(string.format(g_i18n:getText("rl_ui_amountPerDay"), (amount * 24) / daysPerMonth))
+
+                    infoIndex = infoIndex + 1
+
+                end
+
             end
+
 
             if not Platform.isMobile then self:updatePrice() end
 
@@ -470,6 +589,11 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
             self.parentBox:setVisible(self.isInfoMode and not self.isBuyMode)
             self.geneticsBox:setVisible(self.isInfoMode)
             self.buttonRename:setVisible(self.isInfoMode)
+
+        else
+
+            self.detailsContainer:setVisible(false)
+            self.buttonRename:setVisible(false)
 
         end
 
@@ -513,7 +637,8 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, keepSelection)
         self.targetSelector:setState(1)
         self:setSelectionState(AnimalScreen.SELECTION_SOURCE)
     end
-        self:onTargetSelectionChanged(true)
+    
+    self:onTargetSelectionChanged(true)
 
     local hasAnimals = self.sourceList:getItemCount() > 0
 
@@ -582,11 +707,19 @@ function RealisticLivestock_AnimalScreen:getCellTypeForItemInSection(_, list, _,
     local animalTypeIndex = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
 	local items
 
-	if self.isInfoMode or not self.isBuyMode then
-        items = self.controller:getTargetItems()
-	else
-		items = self.controller:getSourceItems(animalTypeIndex, self.isBuyMode)
-	end
+    if self.filteredItems == nil then
+
+	    if self.isInfoMode or not self.isBuyMode then
+            items = self.controller:getTargetItems()
+	    else
+		    items = self.controller:getSourceItems(animalTypeIndex, self.isBuyMode)
+	    end
+
+    else
+
+        items = self.filteredItems
+
+    end
 
 	local a = items[index]
 	local b = items[index - 1]
@@ -598,19 +731,38 @@ end
 AnimalScreen.getCellTypeForItemInSection = Utils.overwrittenFunction(AnimalScreen.getCellTypeForItemInSection, RealisticLivestock_AnimalScreen.getCellTypeForItemInSection)
 
 
+function RealisticLivestock_AnimalScreen:getNumberOfItemsInSection(superFunc, list)
+
+    if self.filteredItems == nil or not self.isOpen then return superFunc(self, list) end
+
+    return #self.filteredItems
+
+end
+
+AnimalScreen.getNumberOfItemsInSection = Utils.overwrittenFunction(AnimalScreen.getNumberOfItemsInSection, RealisticLivestock_AnimalScreen.getNumberOfItemsInSection)
+
+
 function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _, index, cell)
 
     local animalType = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
+    local filteredItems = self.filteredItems
 
     if list == self.sourceList then
 
         local item
 
+        if filteredItems == nil then
 
-        if self.isBuyMode then
-            item = self.controller:getSourceItems(animalType, self.isBuyMode)[index]
+            if self.isBuyMode then
+                item = self.controller:getSourceItems(animalType, self.isBuyMode)[index]
+            else
+                item = self.controller:getTargetItems()[index]
+            end
+
         else
-            item = self.controller:getTargetItems()[index]
+
+            item = filteredItems[index]
+
         end
 
         if item == nil then return end
@@ -648,16 +800,34 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
 
             if check ~= nil then
 
-                check:setVisible(false)
+                local originalIndex = self.filteredItems == nil and index or item.originalIndex
+
+                check:setVisible(self.selectedItems[originalIndex] ~= nil and self.selectedItems[originalIndex])
+
+                local selectAllText = g_i18n:getText("rl_ui_selectAll")
+                local selectNoneText = g_i18n:getText("rl_ui_selectNone")
         
                 checkbox.onClickCallback = function(animalScreen, button)
-
-                    if self.selectedItems[index] then
-                        self.selectedItems[index] = false
+                
+                    if self.selectedItems[originalIndex] then
+                        self.selectedItems[originalIndex] = false
                         check:setVisible(false)
+
+                        local hasSelection = false
+
+                        for _, selected in pairs(self.selectedItems) do
+                            if selected then
+                                hasSelection = true
+                                break
+                            end
+                        end
+
+                        self.buttonToggleSelectAll:setText(hasSelection and selectNoneText or selectAllText)
+
                     else
-                        self.selectedItems[index] = true
+                        self.selectedItems[originalIndex] = true
                         check:setVisible(true)
+                        self.buttonToggleSelectAll:setText(selectNoneText)
                     end
 
                 end
@@ -672,10 +842,18 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
 
             local item
 
-            if self.isBuyMode then
-                item = self.controller:getTargetItems()[index]
+            if filteredItems == nil then
+
+                if self.isBuyMode then
+                    item = self.controller:getTargetItems()[index]
+                else
+                    item = self.controller:getSourceItems(animalType, self.isBuyMode)[index]
+                end
+
             else
-                item = self.controller:getSourceItems(animalType, self.isBuyMode)[index]
+
+                item = filteredItems[index]
+
             end
 
             if item == nil then return end
@@ -781,5 +959,270 @@ function AnimalScreen:sellSelected(clickYes)
     self.controller:applyTargetBulk(self.pendingBulkTransaction.animalTypeIndex, self.pendingBulkTransaction.items)
 
     self.selectedItems = {}
+
+end
+
+
+function AnimalScreen:onClickFilter()
+
+    local animalTypeIndex = self.sourceSelector:getState()
+
+    AnimalFilterDialog.show(self.isBuyMode and self.controller:getSourceItems(self.sourceSelectorStateToAnimalType[animalTypeIndex], self.isBuyMode) or self.controller:getTargetItems(), animalTypeIndex, self.onApplyFilters, self, self.isBuyMode)
+
+end
+
+
+function AnimalScreen:onApplyFilters(filters, filteredItems)
+
+    self.filters = filters
+    self.filteredItems = filteredItems
+    self.selectedItems = {}
+    self.buttonToggleSelectAll:setText(g_i18n:getText("rl_ui_selectAll"))
+    self.sourceList:reloadData(true)
+
+end
+
+
+function RealisticLivestock_AnimalScreen:getPrice()
+
+    local animalIndex
+    local animalTypeIndex = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
+
+    if self.filteredItems == nil then
+        animalIndex = self.sourceList.selectedIndex
+    elseif #self.filteredItems > 0 then
+        animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
+    else
+        return false, 0, 0, 0
+    end
+
+    local isFound, price, transportationFee, totalPrice = false, 0, 0, 0
+
+	if self.isBuyMode then
+		isFound, price, transportationFee, totalPrice = self.controller:getSourcePrice(animalTypeIndex, animalIndex, 1)
+	else
+	    isFound, price, transportationFee, totalPrice = self.controller:getTargetPrice(animalTypeIndex, animalIndex, 1)
+	end
+
+    return isFound, price, transportationFee, totalPrice
+
+end
+
+AnimalScreen.getPrice = Utils.overwrittenFunction(AnimalScreen.getPrice, RealisticLivestock_AnimalScreen.getPrice)
+
+
+function RealisticLivestock_AnimalScreen:onClickBuy()
+
+	self.numAnimals = 1
+
+	local animalIndex
+
+    if self.filteredItems == nil then
+        animalIndex = self.sourceList.selectedIndex
+    else
+        animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
+    end
+
+	local confirmationText = self.controller:getApplySourceConfirmationText(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
+	local actionText = self.controller:getSourceActionText()
+
+	YesNoDialog.show(self.onYesNoSource, self, confirmationText, g_i18n:getText("ui_attention"), actionText, g_i18n:getText("button_back"))
+
+	return true
+
+end
+
+AnimalScreen.onClickBuy = Utils.overwrittenFunction(AnimalScreen.onClickBuy, RealisticLivestock_AnimalScreen.onClickBuy)
+
+
+function RealisticLivestock_AnimalScreen:onClickSell()
+
+	self.numAnimals = 1
+
+	local animalIndex
+
+    if self.filteredItems == nil then
+        animalIndex = self.sourceList.selectedIndex
+    else
+        animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
+    end
+
+	local confirmationText = self.controller:getApplyTargetConfirmationText(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
+	local actionText = self.controller:getTargetActionText()
+
+	YesNoDialog.show(self.onYesNoTarget, self, confirmationText, g_i18n:getText("ui_attention"), actionText, g_i18n:getText("button_back"))
+
+	return true
+
+end
+
+AnimalScreen.onClickSell = Utils.overwrittenFunction(AnimalScreen.onClickSell, RealisticLivestock_AnimalScreen.onClickSell)
+
+
+function RealisticLivestock_AnimalScreen:onYesNoSource(_, clickYes)
+
+	if clickYes then
+		local animalIndex
+
+        if self.filteredItems == nil then
+            animalIndex = self.sourceList.selectedIndex
+        else
+            animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
+        end
+            
+		self.controller:applySource(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
+	end
+
+end
+
+AnimalScreen.onYesNoSource = Utils.overwrittenFunction(AnimalScreen.onYesNoSource, RealisticLivestock_AnimalScreen.onYesNoSource)
+
+
+function RealisticLivestock_AnimalScreen:onYesNoTarget(_, clickYes)
+
+	if clickYes then
+		local animalIndex
+
+        if self.filteredItems == nil then
+            animalIndex = self.sourceList.selectedIndex
+        else
+            animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
+        end
+
+		self.controller:applyTarget(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
+	end
+
+end
+
+AnimalScreen.onYesNoTarget = Utils.overwrittenFunction(AnimalScreen.onYesNoTarget, RealisticLivestock_AnimalScreen.onYesNoTarget)
+
+
+function RealisticLivestock_AnimalScreen:onSourceActionFinished(_, error, text)
+
+	local dialogType = error and DialogElement.TYPE_WARNING or DialogElement.TYPE_INFO
+
+    if self.filteredItems ~= nil then
+
+        local item = self.filteredItems[self.sourceList.selectedIndex]
+
+        if item ~= nil then table.remove(self.filteredItems, self.sourceList.selectedIndex) end
+
+    end
+
+	InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
+
+end
+
+AnimalScreen.onSourceActionFinished = Utils.overwrittenFunction(AnimalScreen.onSourceActionFinished, RealisticLivestock_AnimalScreen.onSourceActionFinished)
+
+
+function RealisticLivestock_AnimalScreen:onTargetActionFinished(_, error, text)
+
+	local dialogType = error and DialogElement.TYPE_WARNING or DialogElement.TYPE_INFO
+
+    if self.filteredItems ~= nil then
+
+        local item = self.filteredItems[self.sourceList.selectedIndex]
+
+        if item ~= nil then table.remove(self.filteredItems, self.sourceList.selectedIndex) end
+
+    end
+
+	InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
+
+end
+
+AnimalScreen.onTargetActionFinished = Utils.overwrittenFunction(AnimalScreen.onTargetActionFinished, RealisticLivestock_AnimalScreen.onTargetActionFinished)
+
+
+function AnimalScreen:onSourceBulkActionFinished(error, text, indexes)
+
+    local dialogType = error and DialogElement.TYPE_WARNING or DialogElement.TYPE_INFO
+
+    if self.filteredItems ~= nil then
+
+        for _, index in pairs(indexes) do
+
+            for i, item in pairs(self.filteredItems) do
+
+                if item.originalIndex == index then
+                    table.remove(self.filteredItems, i)
+                    break
+                end
+
+            end
+
+        end
+
+    end
+
+	InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
+
+end
+
+
+function AnimalScreen:onTargetBulkActionFinished(error, text, indexes)
+
+    local dialogType = error and DialogElement.TYPE_WARNING or DialogElement.TYPE_INFO
+
+    if self.filteredItems ~= nil then
+
+        for _, index in pairs(indexes) do
+
+            for i, item in pairs(self.filteredItems) do
+
+                if item.originalIndex == index then
+                    table.remove(self.filteredItems, i)
+                    break
+                end
+
+            end
+
+        end
+
+    end
+
+	InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
+
+end
+
+
+function AnimalScreen:onClickToggleSelectAll()
+
+    local selectAll = true
+
+    for _, selected in pairs(self.selectedItems) do
+        if selected then
+            selectAll = false
+            break
+        end
+    end
+
+
+    local animalType = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
+    local items
+
+    if self.filteredItems == nil then
+
+        if self.isBuyMode then
+            items = self.controller:getSourceItems(animalType, self.isBuyMode)
+        else
+            items = self.controller:getTargetItems()
+        end
+
+    else
+        items = self.filteredItems
+    end
+
+
+    for i, item in pairs(items) do
+
+        self.selectedItems[self.filteredItems == nil and i or item.originalIndex] = selectAll
+
+    end
+
+
+    self.buttonToggleSelectAll:setText(selectAll and g_i18n:getText("rl_ui_selectNone") or g_i18n:getText("rl_ui_selectAll"))
+    self.sourceList:reloadData()
 
 end

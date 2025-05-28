@@ -22,7 +22,7 @@ function RL_PlaceableHusbandry:onHourChanged()
 
 end
 
-PlaceableHusbandry.onHourChanged = Utils.prependedFunction(PlaceableHusbandry.onHourChanged, RL_PlaceableHusbandry.onHourChanged)
+PlaceableHusbandry.onHourChanged = Utils.appendedFunction(PlaceableHusbandry.onHourChanged, RL_PlaceableHusbandry.onHourChanged)
 
 
 function PlaceableHusbandry:updateInputAndOutput(animals) end

@@ -53,3 +53,25 @@ AnimalScreenDealerTrailer.onAnimalSold = Utils.appendedFunction(AnimalScreenDeal
 AnimalScreenDealerTrailer.onAnimalsChanged = Utils.appendedFunction(AnimalScreenDealerTrailer.onAnimalsChanged, RL_AnimalScreenBase.onAnimalsChanged)
 AnimalScreenTrailer.onAnimalLoadedToTrailer = Utils.appendedFunction(AnimalScreenTrailer.onAnimalLoadedToTrailer, RL_AnimalScreenBase.onAnimalsChanged)
 AnimalScreenTrailer.onAnimalsChanged = Utils.appendedFunction(AnimalScreenTrailer.onAnimalsChanged, RL_AnimalScreenBase.onAnimalsChanged)
+
+
+function AnimalScreenBase:setSourceBulkActionFinishedCallback(callback, target)
+
+    function self.sourceBulkActionFinished(error, text, indexes)
+
+        callback(target, error, text, indexes)
+
+    end
+
+end
+
+
+function AnimalScreenBase:setTargetBulkActionFinishedCallback(callback, target)
+
+    function self.targetBulkActionFinished(error, text, indexes)
+
+        callback(target, error, text, indexes)
+
+    end
+
+end

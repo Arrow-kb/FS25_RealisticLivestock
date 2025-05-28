@@ -143,7 +143,7 @@ function RealisticLivestock_AnimalClusterSystem:getClusterById(superFunc, id)
 
 
     for _, animal in pairs(self.animals) do
-        if animal.farmId .. " " .. animal.uniqueId == id then return animal end
+        if animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country == id then return animal end
     end
 
     if index == nil or self.animals == nil or self.animals[index] == nil then return nil end
@@ -181,20 +181,22 @@ function RealisticLivestock_AnimalClusterSystem:removeCluster(_, animalIndex)
             local husbandry = tonumber(string.sub(animal.idFull, 1, sep - 1))
             local animalId = tonumber(string.sub(animal.idFull, sep + 1))
 
-            if husbandry == 0 or animalId == 0 then return end
+            if husbandry ~= 0 and animalId ~= 0 then
 
-            removeHusbandryAnimal(husbandry, animalId)
+                removeHusbandryAnimal(husbandry, animalId)
 
-            local clusterHusbandry = spec.clusterHusbandry
-            clusterHusbandry.husbandryIdsToVisualAnimalCount[husbandry] = math.max(clusterHusbandry.husbandryIdsToVisualAnimalCount[husbandry] - 1, 0)
-            clusterHusbandry.visualAnimalCount = math.max(clusterHusbandry.visualAnimalCount - 1, 0)
+                local clusterHusbandry = spec.clusterHusbandry
+                clusterHusbandry.husbandryIdsToVisualAnimalCount[husbandry] = math.max(clusterHusbandry.husbandryIdsToVisualAnimalCount[husbandry] - 1, 0)
+                clusterHusbandry.visualAnimalCount = math.max(clusterHusbandry.visualAnimalCount - 1, 0)
 
-            for husbandryIndex, animalIds in pairs(clusterHusbandry.animalIdToCluster) do
+                for husbandryIndex, animalIds in pairs(clusterHusbandry.animalIdToCluster) do
 
-                if clusterHusbandry.husbandryIds[husbandryIndex] == husbandry then
+                    if clusterHusbandry.husbandryIds[husbandryIndex] == husbandry then
 
-                    table.remove(animalIds, animalId)
-                    break
+                        table.remove(animalIds, animalId)
+                        break
+
+                    end
 
                 end
 
@@ -206,7 +208,7 @@ function RealisticLivestock_AnimalClusterSystem:removeCluster(_, animalIndex)
         animal:setClusterSystem(nil)
     else
         for i, animal in pairs(self.animals) do
-            if animal.farmId .. " " .. animal.uniqueId == animalIndex then
+            if animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country == animalIndex then
 
                 local spec = self.owner.spec_husbandryAnimals
 
@@ -216,13 +218,15 @@ function RealisticLivestock_AnimalClusterSystem:removeCluster(_, animalIndex)
                     local husbandry = tonumber(string.sub(animal.idFull, 1, sep - 1))
                     local animalId = tonumber(string.sub(animal.idFull, sep + 1))
 
-                    if husbandry == 0 or animalId == 0 then return end
+                    if husbandry ~= 0 and animalId ~= 0 then
 
-                    removeHusbandryAnimal(husbandry, animalId)
+                        removeHusbandryAnimal(husbandry, animalId)
 
-                    local clusterHusbandry = spec.clusterHusbandry
-                    clusterHusbandry.husbandryIdsToVisualAnimalCount[husbandry] = math.max(clusterHusbandry.husbandryIdsToVisualAnimalCount[husbandry] - 1, 0)
-                    clusterHusbandry.visualAnimalCount = math.max(clusterHusbandry.visualAnimalCount - 1, 0)
+                        local clusterHusbandry = spec.clusterHusbandry
+                        clusterHusbandry.husbandryIdsToVisualAnimalCount[husbandry] = math.max(clusterHusbandry.husbandryIdsToVisualAnimalCount[husbandry] - 1, 0)
+                        clusterHusbandry.visualAnimalCount = math.max(clusterHusbandry.visualAnimalCount - 1, 0)
+
+                    end
 
                 end
 

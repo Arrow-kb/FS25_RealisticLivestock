@@ -209,29 +209,58 @@
 		<text name="rl_ui_moveBulkResult" text="%s Tiere verschoben" tag="format"/>
 
 		<text name="rl_ui_monitor" text="Monitor"/>
-		<text name="rl_ui_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="finance_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="rl_ui_monitorFee" text="Monitor fee"/>
-		<text name="rl_ui_applyMonitor" text="Apply Monitor"/>
-		<text name="rl_ui_removeMonitor" text="Remove Monitor"/>
-		<text name="rl_ui_input_food" text="Food"/>
-		<text name="rl_ui_input_water" text="Water"/>
-		<text name="rl_ui_input_straw" text="Straw"/>
-		<text name="rl_ui_output_milk" text="Milk"/>
-		<text name="rl_ui_output_manure" text="Manure"/>
-		<text name="rl_ui_output_liquidManure" text="Liquid manure"/>
-		<text name="rl_ui_output_pallets_eggs" text="Eggs"/>
-		<text name="rl_ui_output_pallets_wool" text="Wool"/>
-		<text name="rl_ui_output_pallets_goatMilk" text="Goat milk"/>
-		<text name="rl_ui_amountPerDay" text="%.0fL / day" tag="format"/>
-		<text name="rl_ui_feePerMonth" text="%s / month" tag="format"/>
+		<text name="rl_ui_monitorSubscriptions" text="Monitor-Abonnements"/>
+		<text name="finance_monitorSubscriptions" text="Monitor-Abonnements"/>
+		<text name="rl_ui_monitorFee" text="Monitor-Gebühr"/>
+		<text name="rl_ui_applyMonitor" text="Monitor anwenden"/>
+		<text name="rl_ui_removeMonitor" text="Monitor entfernen"/>
+		<text name="rl_ui_input_food" text="Lebensmittel"/>
+		<text name="rl_ui_input_water" text="Wasser"/>
+		<text name="rl_ui_input_straw" text="Stroh"/>
+		<text name="rl_ui_output_milk" text="Milch"/>
+		<text name="rl_ui_output_manure" text="Gülle"/>
+		<text name="rl_ui_output_liquidManure" text="Flüssigmist"/>
+		<text name="rl_ui_output_pallets_eggs" text="Eier"/>
+		<text name="rl_ui_output_pallets_wool" text="Wolle"/>
+		<text name="rl_ui_output_pallets_goatMilk" text="Ziegenmilch"/>
+		<text name="rl_ui_amountPerDay" text="%.0fL / Tag" tag="format"/>
+		<text name="rl_ui_feePerMonth" text="%s / Monat" tag="format"/>
+
+		<text name="rl_ui_animalType" text="Typ"/>
+		<text name="rl_ui_amountMonitored" text="Überwacht"/>
+		<text name="rl_ui_production" text="Produkte"/>
+		<text name="rl_ui_applyAllMonitor" text="Alle Monitore anwenden"/>
+		<text name="rl_ui_removeAllMonitor" text="Alle Monitore entfernen"/>
+		<text name="rl_ui_fee" text="Gebühr"/>
+
+		<text name="rl_ui_leftEarTag" text="Left Ear Tag"/>
+		<text name="rl_ui_rightEarTag" text="Right Ear Tag"/>
+		<text name="rl_ui_backgroundColour" text="Background Colour"/>
+		<text name="rl_ui_backgroundHue" text="Background Hue"/>
+		<text name="rl_ui_backgroundRgb" text="Background RGB"/>
+		<text name="rl_ui_textColour" text="Text Colour"/>
+		<text name="rl_ui_textHue" text="Text Hue"/>
+		<text name="rl_ui_textRgb" text="Text RGB"/>
+
+		<text name="rl_ui_formatMonths" text="%s months"/>
+		<text name="rl_ui_formatMonth" text="%s month"/>
+		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
+		<text name="rl_ui_any" text="Any"/>
+		<text name="rl_ui_pregnancy" text="Pregnancy"/>
+		<text name="rl_ui_productivity" text="Pregnancy"/>
+		<text name="rl_ui_selectAll" text="Select All"/>
+		<text name="rl_ui_selectNone" text="Select None"/>
+		<text name="rl_ui_filters" text="Filters"/>
+		<text name="rl_ui_doesntHaveName" text="No Name"/>
+		<text name="rl_ui_doesHaveName" text="Has Name"/>
+
 
 
 
 		<!--  SETTINGS  -->
 
 
-		<text name="rl_settings" text="Realistic Livestock"/>
+		<text name="rl_settings" text="Realistische Viehbestände"/>
 
 		<text name="rl_settings_off" text="Aus"/>
 		<text name="rl_settings_on" text="AN"/>
@@ -243,32 +272,49 @@
 		<text name="rl_settings_accidentsChance_label" text="Unfallwahrscheinlichkeit"/>
 		<text name="rl_settings_accidentsChance_tooltip" text="Änderung der Wahrscheinlichkeit, dass Tiere aufgrund von Zufallsunfällen entfernt werden"/>
 
-		<text name="rl_settings_foodScale_label" text="Food Scale"/>
+		<text name="rl_settings_foodScale_label" text="Lebensmittelwaage"/>
 		<text name="rl_settings_foodScale_tooltip" text="Die Menge der von Tieren gefressenen Nahrung verändern"/>
 
-		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
-		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
+		<text name="rl_settings_maxDealerAnimals_label" text="Maximale Händler-Tiere"/>
+		<text name="rl_settings_maxDealerAnimals_tooltip" text="Ändern Sie die maximale Anzahl der Tiere, die der Tierhändler pro Tierart auf Lager hat"/>
+
+		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
+		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
+		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
 
 
 
 		<!--  HELP  -->
 
 
-		<text name="rl_help_main_title" text="General"/>
-		<text name="rl_help_main_1" text="This mod adds significant changes, mainly in the backend, to all animals."/>
-		<text name="rl_help_main_2" text="In order to see the majority of an animal's statistics, you need to apply a monitoring tag to it, which can be done through the animal menu (where you buy and sell animals). Monitoring tags are also visually shown on the animal, on their left ear next to their ID tag."/>
-		<text name="rl_help_main_3" text="Monitoring tags will result in important information being shown to you, including health, weight, lactation, production, and straw, food and water requirements."/>
-		<text name="rl_help_main_4" text="Applying a tag to an animal will cost you a small monthly subscription based on the animal's species. If you choose to remove the tag, the tag will be removed at the start of the next month."/>
+		<text name="rl_help_monitors_title" text="Monitore"/>
+		<text name="rl_help_monitors_1" text="Um die meisten Statistiken eines Tieres zu sehen, müssen Sie ihm ein Überwachungsetikett zuweisen, was Sie über das Tiermenü (wo Sie Tiere kaufen und verkaufen) tun können. Überwachungsmarken werden auch visuell am Tier angezeigt, und zwar am linken Ohr neben der ID-Marke."/>
+		<text name="rl_help_monitors_2" text="Durch die Überwachung der Etiketten erhalten Sie wichtige Informationen über Gesundheit, Gewicht, Laktation, Produktion, Stroh-, Futter- und Wasserbedarf."/>
+		<text name="rl_help_monitors_3" text="Das Anbringen einer Markierung an einem Tier kostet Sie einen kleinen Monatsbeitrag, der sich nach der Tierart richtet. Wenn Sie sich entscheiden, die Markierung zu entfernen, wird sie zu Beginn des nächsten Monats wieder entfernt."/>
 
-		<text name="rl_help_cows_title" text="Cattle and Waterbuffalos"/>
+		<text name="rl_help_pregnancy_title" text="Schwangerschaft"/>
+		<text name="rl_help_pregnancy_1" text="Weibliche Tiere benötigen alle mindestens ein männliches Tier, um trächtig werden zu können. Beide Tiere müssen das richtige Alter und die richtige Gesundheit haben und von der gleichen Art sein. Die Zucht zwischen verschiedenen Rassen (z. B. Holsteinkuh und Angusbulle) ist erlaubt."/>
+		<text name="rl_help_pregnancy_2" text="Inzucht ist nicht erlaubt. Wenn ein Männchen und ein Weibchen direkt miteinander verwandt sind, werden sie sich nicht gemeinsam fortpflanzen."/>
+		<text name="rl_help_pregnancy_3" text="Die Wahrscheinlichkeit, dass ein Weibchen schwanger wird, hängt sowohl von ihrer als auch von der Fruchtbarkeit des Männchens ab. Ein Weibchen mit höherer Fruchtbarkeit hat auch eine deutlich höhere Chance, mehr Nachkommen auf einmal zu produzieren."/>
+		<text name="rl_help_pregnancy_4" text="Sobald ein Weibchen trächtig wird, beginnt es, seine Nachkommen auszutragen. Sie können das voraussichtliche Datum der Trächtigkeit und die Anzahl der Nachkommen sehen, indem Sie das Tier im Gehege betrachten oder es im Tiermenü anklicken."/>
+		<text name="rl_help_pregnancy_5" text="Wenn sie ihren Geburtstermin erreicht, wird sie ihre Babys zur Welt bringen. Die Neugeborenen haben jedoch eine gewisse Chance, entfernt zu werden, ebenso wie die Mutter, wenn die Schwangerschaft schlecht verläuft. Neugeborene, die in einem überfüllten Stall geboren werden, werden automatisch verkauft."/>
 
-		<text name="rl_help_pigs_title" text="Pigs"/>
+		<text name="rl_help_production_title" text="Produktion"/>
+		<text name="rl_help_production_1" text="Kühe jeder Rasse fangen erst nach der Geburt an, Milch zu produzieren. Nach der Geburt produziert die Kuh 3 Monate lang exponentiell Milch, dann nimmt die Produktion in den nächsten 6 Monaten langsam ab. 10 Monate nach der Trächtigkeit stellt die Kuh die Milchproduktion bis zu ihrer nächsten Trächtigkeit ein."/>
+		<text name="rl_help_production_2" text="Schafe produzieren in warmen Monaten Wolle. In kalten Monaten, unter 12 °C, produzieren sie keine Wolle."/>
+		<text name="rl_help_production_3" text="Die Milch-, Woll- und Eierproduktion wird auch durch die Genetik des Tieres beeinflusst. Ein Tier mit einer guten Genetik wird mehr produzieren, während ein Tier mit einer schlechten Genetik nicht viel produzieren wird."/>
 
-		<text name="rl_help_sheep_title" text="Sheep and Goats"/>
+		<text name="rl_help_weight_title" text="Gewicht"/>
+		<text name="rl_help_weight_1" text="Tiere haben ein bestimmtes Gewicht, das davon abhängt, wie viel sie essen und trinken. Jede Art und Rasse hat ihr eigenes Durchschnittsgewicht, das sich auf das Gewicht eines jeden Tieres auswirkt."/>
+		<text name="rl_help_weight_2" text="Das Gewicht erhöht den Wert des Tieres, und ein niedriges Gewicht verringert die Wahrscheinlichkeit, dass es jeden Monat abgeholt wird."/>
 
-		<text name="rl_help_horses_title" text="Horses"/>
-
-		<text name="rl_help_chickens_title" text="Chickens"/>
+		<text name="rl_help_genetics_title" text="Genetik"/>
+		<text name="rl_help_genetics_1" text="Jedes Tier hat 4 verschiedene genetische Werte: Stoffwechsel, Fruchtbarkeit, Gesundheit und Qualität. Die Genetik wird zwischen Mutter und Vater gemischt und dann an die Kinder weitergegeben."/>
+		<text name="rl_help_genetics_2" text="Der Stoffwechsel wirkt sich auf die Fähigkeit des Tieres aus, Nahrung in Gewicht umzuwandeln, und beeinflusst die Menge, die es frisst."/>
+		<text name="rl_help_genetics_3" text="Die Fruchtbarkeit wirkt sich auf die Wahrscheinlichkeit aus, dass ein Tier trächtig wird oder ein Weibchen trächtig wird, und auf die Anzahl der Nachkommen, die es produzieren wird."/>
+		<text name="rl_help_genetics_3" text="Der Gesundheitszustand wirkt sich auf die Gesundheit des Tieres und die Wahrscheinlichkeit aus, dass es jeden Monat entnommen wird. Ein Tier mit einer besseren Gesundheitsgenetik hat auch eine längere Lebensdauer."/>
+		<text name="rl_help_genetics_4" text="Die Qualität wirkt sich auf den Wert des Tieres selbst aus, ein Tier mit höherer Qualität wird zu einem viel höheren Preis verkauft."/>
+		<text name="rl_help_genetics_5" text="Rinder, Schafe und Hühner haben auch eine genetische Veranlagung, die sich darauf auswirkt, wie viel Milch, Eier oder Wolle sie produzieren."/>
 
 	</texts>
 </l10n>
