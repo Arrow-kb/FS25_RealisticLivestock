@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+	<GuiElement profile="newLayer"/>
+	<Bitmap profile="dialogFullscreenBg"/>
+	<GuiElement profile="rl_colorDialogContainer" id="dialogElement">
+		<ThreePartBitmap profile="fs25_dialogBgMiddle"/>
+		<ThreePartBitmap profile="fs25_dialogBgTop"/>
+		<ThreePartBitmap profile="fs25_dialogBgBottom"/>
+		<GuiElement profile="fs25_dialogContentContainer" id="contentContainer">
+			<Bitmap profile="fs25_dialogLine" id="topLineLeft" position="0px 45px"/>
+			<Bitmap profile="fs25_dialogLineRight" id="topLineRight" position="0px 45px"/>
+			<Text profile="fs25_dialogTitle" id="headerText" text="$l10n_ui_chooseColor" position="0px 60px"/>
+			<ColorPickButton profile="fs25_colorDialogColorButton" id="buttonTemplate" onClick="onClickColorButton" onFocus="onFocusColorButton" onLeave="onLeaveColorButton" onHighlight="onHighlightColorButton" onHighlightRemove="onLeaveColorButton"/>
+			<BoxLayout profile="fs25_subCategorySelectorTabbedBox" id="subCategoryBox" absoluteSizeOffset="60px 0px" position="0px -20px" elementSpacing="50px">
+				<Button profile="fs25_subCategorySelectorTabbedTab" id="subCategoryTabs[1]" text="$l10n_rl_ui_leftEarTag" onClick="onClickEarTagLeft">
+					<ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+				</Button>
+				<Button profile="fs25_subCategorySelectorTabbedTab" id="subCategoryTabs[2]" text="$l10n_rl_ui_rightEarTag" onClick="onClickEarTagRight">
+					<ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+				</Button>
+			</BoxLayout>
+			
+			<GuiElement profile="rl_colorDialogBoxContainer" id="pageColorPicker">
+				
+				<BoxLayout profile="fs25_colorDialogBoxCustomPickerLayout" id="customPickerLayout" position="0px -60px">
+					
+					<Text profile="fs25_colorDialogCustomPickerTitle" text="$l10n_rl_ui_backgroundHue:"/>
+					<OptionSlider profile="fs25_colorDialogOptionSlider" id="hueSliderBase" onClick="onBaseHueChanged" focusInit="onOpen"/>
+					
+					<Text profile="fs25_colorDialogCustomPickerTitle" text="$l10n_rl_ui_backgroundColour:"/>
+					<Bitmap profile="fs25_colorDialogCustomPicker" id="customPickerBase">
+						<Bitmap profile="fs25_colorDialogCustomPickerGradientWhite"/>
+						<Bitmap profile="fs25_colorDialogCustomPickerGradientBlack"/>
+						<Bitmap profile="fs25_colorDialogCustomPickerFrame"/>
+					</Bitmap>
+					
+					<BoxLayout profile="fs25_colorDialogLayoutContainer" id="cursorGlyphBox" margin="0 -15px 0 20px">
+						<InputGlyph profile="fs25_inputGlyph" id="cursorGlyph" margin="0 0 10px 0"/>
+						<Text profile="fs25_textDefault" text="$l10n_ui_ingameMenuMapMoveCursor"/>
+					</BoxLayout>
+					
+					<Text profile="fs25_colorDialogCustomPickerTitle" text="$l10n_rl_ui_backgroundRgb:"/>
+					<BoxLayout profile="fs25_colorDialogLayoutContainer">
+						<MultiTextOption profile="fs25_colorDialogRGBOption" id="baseRgbRed" onClick="onRGBChanged"/>
+						<MultiTextOption profile="fs25_colorDialogRGBOption" id="baseRgbGreen" onClick="onRGBChanged"/>
+						<MultiTextOption profile="fs25_colorDialogRGBOption" id="baseRgbBlue" onClick="onRGBChanged"/>
+					</BoxLayout>
+					
+					<Text profile="fs25_colorDialogCustomPickerTitle" id="animalTypeTitle" text="$l10n_rl_ui_animalType:"/>
+					<MultiTextOption profile="fs25_colorDialogMaterialOption" id="animalTypePicker" onClick="onAnimalTypeChanged"/>
+					
+				</BoxLayout>
+
+				<BoxLayout profile="fs25_colorDialogBoxCustomPickerLayout" id="customPickerLayoutText" position="400px -60px">
+
+					<Text profile="fs25_colorDialogCustomPickerTitle" text="$l10n_rl_ui_textHue:"/>
+					<OptionSlider profile="fs25_colorDialogOptionSlider" id="hueSliderText" onClick="onTextHueChanged"/>
+
+					<Text profile="fs25_colorDialogCustomPickerTitle" text="$l10n_rl_ui_textColour:"/>
+					<Bitmap profile="fs25_colorDialogCustomPicker" id="customPickerText" position="330px -120px">
+						<Bitmap profile="fs25_colorDialogCustomPickerGradientWhite"/>
+						<Bitmap profile="fs25_colorDialogCustomPickerGradientBlack"/>
+						<Bitmap profile="fs25_colorDialogCustomPickerFrame"/>
+					</Bitmap>
+
+					<BoxLayout profile="fs25_colorDialogLayoutContainer" id="cursorGlyphBoxText" margin="0 -15px 0 20px">
+						<InputGlyph profile="fs25_inputGlyph" id="cursorGlyphText" margin="0 0 10px 0"/>
+						<Text profile="fs25_textDefault" text="$l10n_ui_ingameMenuMapMoveCursor"/>
+					</BoxLayout>
+
+					<Text profile="fs25_colorDialogCustomPickerTitle" text="$l10n_rl_ui_textRgb:"/>
+					<BoxLayout profile="fs25_colorDialogLayoutContainer">
+						<MultiTextOption profile="fs25_colorDialogRGBOption" id="textRgbRed" onClick="onRGBChanged"/>
+						<MultiTextOption profile="fs25_colorDialogRGBOption" id="textRgbGreen" onClick="onRGBChanged"/>
+						<MultiTextOption profile="fs25_colorDialogRGBOption" id="textRgbBlue" onClick="onRGBChanged"/>
+					</BoxLayout>
+					
+				</BoxLayout>
+				
+				<Bitmap profile="fs25_colorDialogCustomPickerCursor" id="baseCursor"/>
+				<Bitmap profile="fs25_colorDialogCustomPickerCursor" id="textCursor"/>
+				<Bitmap profile="fs25_colorDialogCustomColorBg" id="colorBg" position="0px -60px">
+					<Render profile="rl_colorDialogCustomColor" id="colorRender"/>
+				</Bitmap>
+				
+			</GuiElement>
+		</GuiElement>
+		<BoxLayout profile="fs25_dialogButtonBox" id="buttonsBox">
+			<Button profile="buttonBack" text="$l10n_button_back" onClick="onClickBack" id="backButton">
+				<Bitmap profile="fs25_dialogButtonBoxSeparator"/>
+			</Button>
+			<Button profile="buttonOK" text="$l10n_rl_button_apply" onClick="onClickOk" id="okButton"/>
+		</BoxLayout>
+	</GuiElement>
+	<GUIProfiles>
+		<Profile name="rl_colorDialogContainer" extends="emptyPanel" with="anchorMiddleCenter">
+			<size value="1300px 740px"/>
+		</Profile>
+		<Profile name="fs25_colorDialogColorButton" extends="fs25_wideButton" with="anchorTopLeft">
+			<size value="64px 64px"/>
+			<handleFocus value="true"/>
+			<margin value="3px 3px 3px 3px"/>
+			<visible value="false"/>
+			<fitToContent value="false"/>
+			<textAutoWidth value="false"/>
+			<selectionFrameThickness value="3px 3px"/>
+			<selectionFrameColor value="$preset_colorWhite"/>
+			<imageSliceId value="gui.matte"/>
+		</Profile>
+		<Profile name="fs25_colorDialogColorButtonBg" extends="baseReference" with="anchorStretchingYStretchingX">
+			<imageSliceId value="gui.matte"/>
+		</Profile>
+		<Profile name="fs25_colorDialogMaterialIconBox" extends="emptyPanel" with="anchorBottomStretchingX">
+			<height value="30px"/>
+			<absoluteSizeOffset value="30px 0px"/>
+			<position value="0 -30px"/>
+			<alignmentX value="right"/>
+			<alignmentY value="middle"/>
+			<elementSpacing value="5px"/>
+			<autoValidateLayout value="true"/>
+		</Profile>
+		<Profile name="fs25_colorDialogMaterialIcon" extends="baseReference">
+			<size value="25px 25px"/>
+		</Profile>
+		<Profile name="fs25_colorDialogMaterialName" extends="fs25_textDefault">
+			<margin value="0px 0px 5px 0px"/>
+			<textAutoWidth value="true"/>
+			<textUpperCase vaöue="true"/>
+		</Profile>
+		<Profile name="fs25_colorDialogColorNameBox" extends="emptyPanel" with="anchorBottomStretchingX">
+			<height value="30px"/>
+			<absoluteSizeOffset value="30px 0px"/>
+			<position value="0 -30px"/>
+			<alignmentY value="middle"/>
+			<elementSpacing value="5px"/>
+			<autoValidateLayout value="true"/>
+		</Profile>
+		<Profile name="fs25_colorDialogColorName" extends="fs25_textDefault" with="anchorBottomLeft">
+			<height value="20px"/>
+			<textAutoWidth value="true"/>
+		</Profile>
+		<Profile name="fs25_colorDialogInputGlyphPrev" extends="emptyPanel" with="anchorTopLeft">
+			<size value="30px 30px"/>
+			<position value="-30px 25px"/>
+			<handleFocus value="false"/>
+			<inputAction value="MENU_PAGE_PREV"/>
+			<iconSize value="25px 25px"/>
+			<iconTextOffset value="0px 0px"/>
+			<iconColor value="$preset_fs25_colorMainHighlight"/>
+			<iconFocusedColor value="$preset_fs25_colorMainHighlight"/>
+			<iconHighlightedColor value="$preset_fs25_colorMainHighlight"/>
+			<iconSelectedColor value="$preset_fs25_colorMainHighlight"/>
+			<iconDisabledColor value="$preset_fs25_colorMainHighlight"/>
+			<iconBgColor value="$preset_fs25_colorGreenDark"/>
+			<iconBgFocusedColor value="$preset_fs25_colorGreenDark"/>
+			<iconBgHighlightedColor value="$preset_fs25_colorGreenDark"/>
+			<iconBgSelectedColor value="$preset_fs25_colorGreenDark"/>
+			<iconBgDisabledColor value="$preset_fs25_colorGreenDark"/>
+		</Profile>
+		<Profile name="fs25_colorDialogInputGlyphNext" extends="fs25_colorDialogInputGlyphPrev" with="anchorTopRight">
+			<position value="30px 25px"/>
+			<inputAction value="MENU_PAGE_NEXT"/>
+		</Profile>
+		<Profile name="rl_colorDialogBoxContainer" extends="emptyPanel" with="anchorMiddleCenter">
+			<size value="1100px 510px"/>
+			<position value="0 40px"/>
+		</Profile>
+		<Profile name="fs25_colorDialogBoxLayout" extends="emptyPanel" with="anchorStretchingYStretchingX">
+			<numFlows value="0"/>
+			<fitFlowToElements value="true"/>
+		</Profile>
+		<Profile name="fs25_colorDialogBoxCustomPickerLayout" extends="emptyPanel" with="anchorStretchingYStretchingX">
+			<flowDirection value="vertical"/>
+		</Profile>
+		<Profile name="fs25_colorDialogCustomPickerTitle" extends="fs25_textDefault" with="anchorTopLeft">
+			<width value="360px"/>
+			<margin value="0 0 0 10px"/>
+			<textSize value="18px"/>
+			<textBold value="true"/>
+			<textUpperCase value="true"/>
+		</Profile>
+		<Profile name="fs25_colorDialogCustomPicker" extends="baseReference" with="anchorTopLeft">
+			<size value="360px 200px"/>
+			<position value="30px -120px"/>
+			<handleFocus value="true"/>
+			<margin value="0 0 0 20px"/>
+		</Profile>
+		<Profile name="fs25_colorDialogCustomPickerFrame" extends="emptyPanel" with="anchorStretchingYStretchingX">
+			<absoluteSizeOffset value="-2dp -2dp"/>
+			<hasFrame value="true"/>
+			<frameThickness value="2dp 2dp 2dp 2dp"/>
+			<frameLeftColor value="0.01521 0.01521 0.01521 1"/>
+			<frameTopColor value="0.01521 0.01521 0.01521 1"/>
+			<frameRightColor value="0.01521 0.01521 0.01521 1"/>
+			<frameBottomColor value="0.01521 0.01521 0.01521 1"/>
+		</Profile>
+		<Profile name="fs25_colorDialogCustomPickerGradientWhite" extends="baseReference" with="anchorStretchingYStretchingX">
+			<imageSliceId value="gui.colorPicker_white"/>
+		</Profile>
+		<Profile name="fs25_colorDialogCustomPickerGradientBlack" extends="baseReference" with="anchorStretchingYStretchingX">
+			<imageSliceId value="gui.colorPicker_black"/>
+		</Profile>
+		<Profile name="fs25_colorDialogCustomPickerCursor" extends="baseReference">
+			<size value="20px 20px"/>
+			<imageSliceId value="gui.colorPickerRing"/>
+		</Profile>
+		<Profile name="fs25_colorDialogOptionSlider" extends="fs25_multiTextOption" with="anchorTopLeft">
+			<size value="360px 46px"/>
+			<margin value="0 0 0 20px"/>
+			<sliderOffset value="3px"/>
+			<continuousInputStep value="9"/>
+			<updateTextPosition value="false"/>
+			<hideLeftRightButtons value="true"/>
+			<defaultProfileButtonLeft value="fs25_optionSliderNoButton"/>
+			<defaultProfileButtonRight value="fs25_optionSliderNoButton"/>
+			<defaultProfileBgThreePart value=""/>
+			<defaultProfileBg value="fs25_colorDialogOptionSliderBg"/>
+			<defaultProfileText value="fs25_colorDialogOptionSliderText"/>
+			<defaultProfileSlider value="fs25_colorDialogOptionSliderIcon"/>
+			<defaultProfileFillingBarThreePart value=""/>
+			<defaultProfileFillingBar value="fs25_colorDialogOptionSliderFillingBar"/>
+		</Profile>
+		<Profile name="fs25_colorDialogOptionSliderBg" extends="baseReference" with="anchorMiddleStretchingX">
+			<imageSliceId value="gui.colorPicker_gradientOutline"/>
+			<imageColor value="$preset_colorTransparent"/>
+			<imageFocusedColor value="$preset_colorWhite"/>
+		</Profile>
+		<Profile name="fs25_colorDialogOptionSliderFillingBar" extends="baseReference" with="anchorStretchingYStretchingX">
+			<absoluteSizeOffset value="6px 6px"/>
+			<imageSliceId value="gui.colorPicker_gradient"/>
+		</Profile>
+		<Profile name="fs25_colorDialogOptionSliderIcon" extends="baseReference" with="anchorStretchingYLeft">
+			<width value="4px"/>
+			<absoluteSizeOffset value="0px -4px"/>
+		</Profile>
+		<Profile name="fs25_colorDialogOptionSliderText" extends="fs25_multiTextOptionText">
+			<visible value="false"/>
+		</Profile>
+		<Profile name="fs25_colorDialogLayoutContainer" extends="emptyPanel" with="anchorTopStretchingX">
+			<height value="36px"/>
+			<margin value="0 0 0 15px"/>
+			<alignmentY value="middle"/>
+		</Profile>
+		<Profile name="fs25_colorDialogRGBOption" extends="fs25_multiTextOption" with="anchorTopLeft">
+			<width value="120px"/>
+			<wrap value="false"/>
+			<continuousInputStep value="10"/>
+			<hideButtonOnLimitReached value="true"/>
+		</Profile>
+		<Profile name="fs25_colorDialogMaterialOption" extends="fs25_multiTextOption" with="anchorTopLeft">
+			<width value="360px"/>
+		</Profile>
+		<Profile name="rl_colorDialogCustomColor" extends="baseReference" with="anchorMiddleCenter">
+			<size value="300px 300px"/>
+			<filename value="animals/domesticated/earTagScene.i3d"/>
+			<cameraNode value="0|1"/>
+			<superSamplingFactor value="2"/>
+		</Profile>
+		<Profile name="fs25_colorDialogCustomColorBg" extends="baseReference" with="anchorStretchingYRight pivotBottomRight">
+			<size value="340px 100%"/>
+			<absoluteSizeOffset value="0px 30px"/>
+			<imageColor value="$preset_fs25_colorGreyLight_20"/>
+		</Profile>
+	</GUIProfiles>
+</GUI>

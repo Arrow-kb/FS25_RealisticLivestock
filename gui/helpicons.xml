@@ -1,0 +1,12 @@
+<texture>
+	<meta>
+		<filename>helpicons.png</filename>
+		<size width="1024" height="1024"/>
+	</meta>
+	<slices>
+		<slice id="monitor" uvs="0px 0px 256px 256px"/>
+		<slice id="pregnancy" uvs="256px 0px 256px 256px"/>
+		<slice id="production" uvs="512px 0px 256px 256px"/>
+		<slice id="genetics" uvs="768px 0px 256px 256px"/>
+	</slices>
+</texture>

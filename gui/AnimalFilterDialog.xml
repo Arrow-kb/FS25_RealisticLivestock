@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+	<GuiElement profile="newLayer"/>
+	<Bitmap profile="dialogFullscreenBg" id="dialogBg"/>
+	<GuiElement profile="rl_animalFilterDialog" id="dialogElement">
+		<ThreePartBitmap profile="fs25_dialogBgMiddleSmall"/>
+		<ThreePartBitmap profile="fs25_dialogBgTopSmall"/>
+		<ThreePartBitmap profile="fs25_dialogBgBottom"/>
+		
+		<GuiElement profile="rl_animalFilterDialogContainer">
+
+			<SmoothList profile="fs25_animalTargetList" id="filterList" startClipperElementName="startClipperTarget" endClipperElementName="endClipperTarget">
+				<ListItem profile="rl_animalFilterListItem">
+					<Text profile="rl_animalFilterListItemName" name="name"/>
+					<ThreePartBitmap profile="fs25_animalInfoSeparator" name="separator"/>
+				</ListItem>
+			</SmoothList>
+			<DoubleOptionSlider profile="rl_animalFilterListItemSlider" id="sliderTemplate" visible="false" name="sliderTemplate"/>
+			<TripleOption profile="rl_animalFilterListItemBinaryOption" id="binaryOptionTemplate" visible="false" name="binaryOptionTemplate"/>
+			<Bitmap profile="fs25_secondaryMenuStartClipper" name="startClipperTarget"/>
+			<Bitmap profile="fs25_secondaryMenuStopClipper" name="endClipperTarget"/>
+			<ThreePartBitmap profile="fs25_subCategoryListSliderBox" position="20px 0px">
+				<Slider profile="fs25_animalTargetListSlider" id="filterSlider" dataElementId="filterList"/>
+			</ThreePartBitmap>
+			
+		</GuiElement>
+		
+		<BoxLayout profile="fs25_dialogButtonBox" id="buttonsPC">
+			<Button profile="buttonOK" text="$l10n_rl_button_confirm" onClick="onClickOk" id="yesButton"/>
+			<Bitmap profile="fs25_dialogButtonBoxSeparator"/>
+			<Button profile="buttonBack" text="$l10n_rl_button_cancel" onClick="onClickBack" id="noButton"/>
+		</BoxLayout>
+	</GuiElement>
+	
+	<GUIProfiles>
+		<Profile name="rl_animalFilterDialog" extends="fs25_dialogBg">
+			<size value="740px 740px"/>
+		</Profile>
+		<Profile name="rl_animalFilterDialogContainer" extends="emptyPanel" with="anchorStretchingYStretchingX pivotTopLeft">
+			<absoluteSizeOffset value="100px 100px"/>
+			<position value="4px -4px"/>
+		</Profile>
+		<Profile name="rl_animalFilterListItem" extends="emptyPanel" with="anchorTopStretchingX pivotTopLeft">
+			<height value="140px"/>
+		</Profile>
+		<Profile name="rl_animalFilterListItemName" extends="fs25_textDefault" with="anchorTopCenter">
+			<textAutoWidth value="true"/>
+			<textLayoutMode value="scrolling"/>
+			<position value="0px -10px"/>
+		</Profile>
+		<Profile name="rl_animalFilterListItemSliderFillingBar" extends="fs25_optionSliderFillingBar">
+			<imageColor value="$preset_fs25_colorMainHighlight"/>
+			<imageFocusedColor value="$preset_fs25_colorMainHighlight"/>
+			<startImageColor value="$preset_fs25_colorMainHighlight"/>
+			<startImageFocusedColor value="$preset_fs25_colorMainHighlight"/>
+			<endImageColor value="$preset_fs25_colorMainHighlight"/>
+			<endImageFocusedColor value="$preset_fs25_colorMainHighlight"/>
+		</Profile>
+		<Profile name="rl_animalFilterListItemSlider" extends="fs25_optionSlider">
+			<width value="400px"/>
+			<defaultProfileFillingBarThreePart value="rl_animalFilterListItemSliderFillingBar"/>
+		</Profile>
+		<Profile name="rl_animalFilterListItemBinaryOption" extends="rl_tripleOption">
+			<position value="-12px 0px"/>
+			<focusOnHighlight value="true"/>
+		</Profile>
+	</GUIProfiles>
+</GUI>

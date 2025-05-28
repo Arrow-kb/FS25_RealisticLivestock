@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="earTagScene.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.4"/>
+  </Asset>
+
+  <Files>
+    <File fileId="1" filename="earTags.i3d"/>
+  </Files>
+
+
+  <Materials>
+  </Materials>
+
+
+  <Shapes>
+  </Shapes>
+
+  <Scene>
+    <TransformGroup name="colorPickerSceneRoot" nodeId="6">
+      <ReferenceNode name="earTag" rotation="0 90 0" scale="1 6 6" referenceId="1" nodeId="39"/>
+      <Camera name="colorPickerOverlayCamera" translation="0 0 7" nodeId="68" fov="20" nearClip="0.1" farClip="5000" orthographic="true" orthographicHeight="2.5"/>
+      <Light name="colorPickerOverlayDirectionalLight" rotation="-40 -0 -30" objectMask="0x4000000" nodeId="69" type="directional" color="1 1 1" emitDiffuse="true" emitSpecular="true" castShadowMap="true" depthMapBias="0.0012" depthMapSlopeScaleBias="2" depthMapSlopeClamp="0.0005" depthMapResolution="1024" shadowFarDistance="1000" shadowExtrusionDistance="200" softShadowsLightSize="0.5" softShadowsLightDistance="15" softShadowsDepthBiasFactor="1" softShadowsMaxPenumbraSize="0.5" numShadowMapSplits="5" shadowMapSplitDistancesParameter="0.9" range="5"/>
+    </TransformGroup>
+  </Scene>
+
+</i3D>

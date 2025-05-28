@@ -17,5 +17,31 @@
 		<textFocusedColor value="$preset_fs25_colorMainDark"/>
 		<textDisabledColor value="$preset_colorDisabled"/>
 	</Profile>
+
+	<Profile name="rl_tripleOption" extends="baseReference" with="anchorBottomCenter">
+		<size value="414px 32px"/>
+		<autoAddDefaultElements value="true"/>
+		<defaultProfileBgThreePart value="fs25_binaryOptionBg"/>
+		<defaultProfileButtonLeft value="rl_tripleOptionLeft"/>
+		<defaultProfileButtonMiddle value="rl_tripleOptionMiddle"/>
+		<defaultProfileButtonRight value="rl_tripleOptionRight"/>
+		<defaultProfileSliderThreePart value="rl_tripleOptionSlider"/>
+	</Profile>
+
+	<Profile name="rl_tripleOptionLeft" extends="fs25_binaryOptionLeft">
+		<size value="33% 100%"/>
+	</Profile>
+	
+	<Profile name="rl_tripleOptionMiddle" extends="rl_tripleOptionLeft" with="anchorStretchingYCenter">
+		<position value="0px 0px"/>
+	</Profile>
+	
+	<Profile name="rl_tripleOptionRight" extends="rl_tripleOptionLeft" with="anchorStretchingYRight">
+		<position value="-10px 0px"/>
+	</Profile>
+
+	<Profile name="rl_tripleOptionSlider" extends="fs25_binaryOptionSlider">
+		<size value="33% 100%"/>
+	</Profile>
 	
 </GUIProfiles>

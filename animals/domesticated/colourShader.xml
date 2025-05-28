@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomShader version="5">
+    <Parameters>
+	    <Parameter name="colorScale"                  target="colorScale"                  type="float3" group="base"                 defaultValue="1.0 1.0 1.0"          minValue="0.0 0.0 0.0"              maxValue="10.0 10.0 10.0" template="brandColor" description="multiplied with baseMap"/> 
+    </Parameters>
+	<UvUsages/>
+	<Textures/>
+	<VertexAttributes/>
+	<Variations/>
+    <LodLevel startDistance = "0">
+        <CodeInjections>
+            <CodeInjection position="OBJECT_PARAMETERS">
+<![CDATA[
+    float3 colorScale;
+]]>
+            </CodeInjection>
+            <CodeInjection position="LIB_FUNCTION_FS">
+<![CDATA[
+// Custom pixel functions
+#include "$data/shaders/sharedFunctions_fs.gsl"
+// Extra functions related to the vehicleShader only
+]]>
+            </CodeInjection>
+            <CodeInjection position="POST_DIFFUSE_COLOR_FS">
+<![CDATA[
+	float3 mDiffuseColor   = float3(1.0,1.0,1.0);
+    #if defined( ALBEDO_MAP )
+        mDiffuseColor = tex2DSample( baseMap, ALBEDO_MAP_SAMPLER, ALBEDO_MAP_TEXCOORDS).rgb;
+    #endif
+    diffuseColor = mDiffuseColor * object.colorScale.rgb;
+]]>
+            </CodeInjection>
+        </CodeInjections>
+    </LodLevel>
+</CustomShader>

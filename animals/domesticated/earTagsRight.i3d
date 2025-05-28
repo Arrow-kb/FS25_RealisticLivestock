@@ -6,23 +6,27 @@
   </Asset>
 
   <Files>
+    <File fileId="3" filename="colourShader.xml"/>
     <File fileId="1" filename="earTags_diffuse.dds"/>
-    <File fileId="3" filename="font_normal.dds"/>
-    <File fileId="4" filename="offsetUV.xml"/>
+    <File fileId="4" filename="font_normal_white.dds"/>
+    <File fileId="5" filename="offsetUV.xml"/>
   </Files>
 
 
   <Materials>
-    <Material name="Material.001" materialId="5" specularColor="1 1 0">
+    <Material name="Material.001" materialId="58" specularColor="1 1 0" customShaderId="3">
       <Texture fileId="1"/>
+      <CustomParameter name="colorScale" value="0.8 0.7 0"/>
     </Material>
-    <Material name="Material.002" materialId="6" specularColor="1 1 0" customShaderId="4">
-      <Texture fileId="3"/>
+    <Material name="Material.002" materialId="6" specularColor="1 1 0" customShaderId="5">
+      <Texture fileId="4"/>
       <CustomParameter name="playScale" value="0 0 38 1"/>
+      <CustomParameter name="colorScale" value="0 0 0"/>
     </Material>
-    <Material name="Material.002" materialId="7" specularColor="1 1 0" customShaderId="4">
-      <Texture fileId="3"/>
+    <Material name="Material.002" materialId="7" specularColor="1 1 0" customShaderId="5">
+      <Texture fileId="4"/>
       <CustomParameter name="playScale" value="36 0 38 1"/>
+      <CustomParameter name="colorScale" value="0 0 0"/>
     </Material>
   </Materials>
 
@@ -31,7 +35,7 @@
   </Shapes>
 
   <Scene>
-    <Shape name="earTagRight" scale="1 0.9 0.9" shapeId="1" clipDistance="300" nodeId="28" castsShadows="true" receiveShadows="true" materialIds="5">
+    <Shape name="earTagRight" scale="1 0.9 0.9" shapeId="1" clipDistance="300" nodeId="28" castsShadows="true" receiveShadows="true" materialIds="58">
       <Shape name="animalNameBack" translation="0 0.028 0" shapeId="2" clipDistance="300" nodeId="29" castsShadows="true" receiveShadows="true" materialIds="6"/>
       <Shape name="animalNameFront" translation="0 0.028 0" shapeId="3" clipDistance="300" nodeId="30" castsShadows="true" receiveShadows="true" materialIds="6"/>
       <Shape name="birthYearBack1" shapeId="4" clipDistance="300" nodeId="31" castsShadows="true" receiveShadows="true" materialIds="6"/>

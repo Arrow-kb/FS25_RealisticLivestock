@@ -1,0 +1,119 @@
+<GUI name="RealisticLivestockFrame">
+	
+	<GuiElement profile="fs25_menuContainer">
+		<GuiElement profile="fs25_menuHeaderPanel">
+			<Bitmap profile="fs25_menuHeaderIconBg">
+				<Bitmap profile="rl_headerIcon"/>
+			</Bitmap>
+			<Text profile="fs25_menuHeaderTitle" id="categoryHeaderText" text="$l10n_rl_ui_monitor"/>
+			<RoundCorner profile="fs25_shopMoneyBoxBg" id="shopMoneyBoxBg"/>
+			<BoxLayout profile="fs25_shopMoneyBox" id="shopMoneyBox">
+				<Text profile="fs25_shopBalance" text="$l10n_ui_balance:"/>
+				<Text profile="fs25_shopMoney" id="currentBalanceText"/>
+			</BoxLayout>
+		</GuiElement>
+
+		<GuiElement profile="rl_headerContainer">
+			
+			<Button profile="rl_headerButtonLeft" position="5px 0px" width="120px" text="$l10n_infohud_name" onClick="onClickSortButton" id="nameButton"/>
+			<Button profile="rl_headerButton" position="125px 0px" width="120px" text="$l10n_contract_details_farmland" onClick="onClickSortButton" id="farmlandButton"/>
+			<Button profile="rl_headerButton" position="180px 0px" width="120px" text="$l10n_rl_ui_animalType" onClick="onClickSortButton" id="animalTypeButton"/>
+			<Button profile="rl_headerButtonLeft" position="300px 0px" width="160px" text="$l10n_rl_ui_amountMonitored" onClick="onClickSortButton" id="percentMonitoredButton"/>
+			<Button profile="rl_headerButton" position="420px 0px" width="120px" text="$l10n_rl_ui_fee" onClick="onClickSortButton" id="feeButton"/>
+			<Button profile="rl_headerButton" position="540px 0px" width="120px" text="$l10n_rl_ui_input_food" onClick="onClickSortButton" id="foodButton"/>
+			<Button profile="rl_headerButton" position="660px 0px" width="120px" text="$l10n_rl_ui_input_water" onClick="onClickSortButton" id="waterButton"/>
+			<Button profile="rl_headerButton" position="780px 0px" width="120px" text="$l10n_rl_ui_input_water" onClick="onClickSortButton" id="strawButton"/>
+			<Button profile="rl_headerButton" position="900px 0px" width="120px" text="$l10n_rl_ui_production" onClick="onClickSortButton" id="productionButton"/>
+			<Button profile="rl_headerButton" position="1020px 0px" width="120px" text="$l10n_rl_ui_output_manure" onClick="onClickSortButton" id="manureButton"/>
+			<Button profile="rl_headerButton" position="1140px 0px" width="160px" text="$l10n_rl_ui_output_liquidManure" onClick="onClickSortButton" id="liquidManureButton"/>
+			<Bitmap profile="fs25_vehiclesHeaderIconSortAscending" position="10px 0px" id="sortingIcon_false"/>
+			<Bitmap profile="fs25_vehiclesHeaderIconSortDescending" position="10px 0px" id="sortingIcon_true"/>
+			<ThreePartBitmap profile="fs25_lineSeparatorBottom" position="0px -2dp"/>
+			
+		</GuiElement>
+		
+		<SmoothList profile="rl_husbandryList" id="husbandryList">
+			<ListItem profile="rl_husbandryListItem">
+				<Text profile="rl_husbandryListTextRight" position="5px 0px" name="name"/>
+				<Text profile="rl_husbandryListText" position="125px 0px" name="farmland"/>
+				<Text profile="rl_husbandryListText" position="180px 0px" name="animalType"/>
+				<Text profile="rl_husbandryListText" position="300px 0px" name="percentMonitored"/>
+				<Text profile="rl_husbandryListText" position="420px 0px" name="fee"/>
+				<Text profile="rl_husbandryListText" position="540px 0px" name="food"/>
+				<Text profile="rl_husbandryListText" position="660px 0px" name="water"/>
+				<Text profile="rl_husbandryListText" position="780px 0px" name="straw"/>
+				<Text profile="rl_husbandryListText" position="900px 0px" name="product"/>
+				<Text profile="rl_husbandryListText" position="1020px 0px" name="manure"/>
+				<Text profile="rl_husbandryListText" position="1140px 0px" name="liquidManure"/>
+			</ListItem>
+		</SmoothList>
+		
+		<ThreePartBitmap profile="rl_sliderBox">
+			<Slider profile="fs25_listSlider" dataElementId="husbandryList"/>
+		</ThreePartBitmap>
+		
+	</GuiElement>
+
+	<GUIProfiles>
+
+		<Profile name="rl_headerIcon" extends="baseReference" with="anchorMiddleCenter">
+			<size value="50px 50px"/>
+			<imageSliceId value="realistic_livestock.main_icon"/>
+			<imageColor value="$preset_fs25_colorMainDark"/>
+		</Profile>
+
+		<Profile name="rl_headerContainer" extends="emptyPanel" with="anchorTopStretchingX">
+			<height value="32px"/>
+			<position value="0px -100px"/>
+		</Profile>
+		
+		<Profile name="rl_headerButton" extends="baseReference">
+			<height value="32px"/>
+			<imageColor value="0 0 0 0"/>
+			<textFocusedColor value="$preset_fs25_colorMainHighlight"/>
+			<textHighlightedColor value="$preset_fs25_colorMainHighlight"/>
+			<textSize value="18px"/>
+			<textBold value="true"/>
+			<textUpperCase value="true"/>
+			<textAlignment value="right"/>
+			<textColor value="$preset_colorWhite_50"/>
+			<textDisabledColor value="$preset_colorDisabled"/>
+		</Profile>
+
+		<Profile name="rl_headerButtonLeft" extends="rl_headerButton">
+			<textAlignment value="left"/>
+		</Profile>
+
+		<Profile name="rl_husbandryListText" extends="baseReference" with="anchorStretchingYLeft">
+			<size value="155px 32px"/>
+			<textBold value="false"/>
+			<textSize value="16px"/>
+			<textColor value="$preset_fs25_colorMainLight"/>
+			<textSelectedColor value="$preset_fs25_colorMainDark"/>
+			<textDisabledColor value="$preset_colorDisabled"/>
+		</Profile>
+
+		<Profile name="rl_husbandryListTextRight" extends="rl_husbandryListText">
+			<textAlignment value="left"/>
+		</Profile>
+
+		<Profile name="rl_husbandryList" extends="emptyPanel" with="anchorStretchingYLeft pivotTopLeft">
+			<position value="0px -140px"/>
+			<absoluteSizeOffset value="0px 160px"/>
+		</Profile>
+			
+		<Profile name="rl_husbandryListItem" extends="baseReference" with="anchorTopStretchingX alternating">
+			<height value="32px"/>
+			<imageColor value="$preset_fs25_colorGrey"/>
+			<imageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+			<alternateBackgroundColor value="$preset_fs25_colorGreyDark_50"/>
+		</Profile>
+
+		<Profile name="rl_sliderBox" extends="fs25_listSliderBox" with="anchorTopStretchingX pivotTopRight">
+			<position value="28px -40px"/>
+			<absoluteSizeOffset value="0px 80px"/>
+		</Profile>
+		
+	</GUIProfiles>
+	
+</GUI>

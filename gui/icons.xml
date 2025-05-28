@@ -1,0 +1,9 @@
+<texture>
+	<meta>
+		<filename>icons.png</filename>
+		<size width="1024" height="1024"/>
+	</meta>
+	<slices>
+		<slice id="main_icon" uvs="0px 0px 256px 256px"/>
+	</slices>
+</texture>
