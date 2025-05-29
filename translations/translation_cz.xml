@@ -208,52 +208,51 @@
 		<text name="rl_ui_sellBulkResult" text="%s zvířat prodáno za %s" tag="format"/>
 		<text name="rl_ui_moveBulkResult" text="%s zvířat přesunuto" tag="format"/>
 
-		<text name="rl_ui_monitor" text="Monitor"/>
-		<text name="rl_ui_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="finance_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="rl_ui_monitorFee" text="Monitor fee"/>
-		<text name="rl_ui_applyMonitor" text="Apply Monitor"/>
-		<text name="rl_ui_removeMonitor" text="Remove Monitor"/>
-		<text name="rl_ui_input_food" text="Food"/>
-		<text name="rl_ui_input_water" text="Water"/>
-		<text name="rl_ui_input_straw" text="Straw"/>
-		<text name="rl_ui_output_milk" text="Milk"/>
-		<text name="rl_ui_output_manure" text="Manure"/>
-		<text name="rl_ui_output_liquidManure" text="Liquid manure"/>
-		<text name="rl_ui_output_pallets_eggs" text="Eggs"/>
-		<text name="rl_ui_output_pallets_wool" text="Wool"/>
-		<text name="rl_ui_output_pallets_goatMilk" text="Goat milk"/>
-		<text name="rl_ui_amountPerDay" text="%.0fL / day" tag="format"/>
-		<text name="rl_ui_feePerMonth" text="%s / month" tag="format"/>
+        <text name="rl_ui_monitor" text="Monitor"/>
+		<text name="rl_ui_monitorSubscriptions" text="Monitorovaná předplatná"/>
+		<text name="finance_monitorSubscriptions" text="Monitorovaná předplatná"/>
+		<text name="rl_ui_monitorFee" text="Poplatek za monitorování"/>
+		<text name="rl_ui_applyMonitor" text="Použít monitor"/>
+		<text name="rl_ui_removeMonitor" text="Odebrat monitor"/>
+		<text name="rl_ui_input_food" text="Krmivo"/>
+		<text name="rl_ui_input_water" text="Voda"/>
+		<text name="rl_ui_input_straw" text="Sláma"/>
+		<text name="rl_ui_output_milk" text="Mléko"/>
+		<text name="rl_ui_output_manure" text="Hnůj"/>
+		<text name="rl_ui_output_liquidManure" text="Tekutý hnůj"/>
+		<text name="rl_ui_output_pallets_eggs" text="Vejce"/>
+		<text name="rl_ui_output_pallets_wool" text="Vlna"/>
+		<text name="rl_ui_output_pallets_goatMilk" text="Kozí mléko"/>
+		<text name="rl_ui_amountPerDay" text="%.0fL / den" tag="format"/>
+		<text name="rl_ui_feePerMonth" text="%s / měsíc" tag="format"/>
 
-		<text name="rl_ui_animalType" text="Type"/>
-		<text name="rl_ui_amountMonitored" text="Monitored"/>
-		<text name="rl_ui_production" text="Products"/>
-		<text name="rl_ui_applyAllMonitor" text="Apply All Monitors"/>
-		<text name="rl_ui_removeAllMonitor" text="Remove All Monitors"/>
-		<text name="rl_ui_fee" text="Fee"/>
+		<text name="rl_ui_animalType" text="Typ"/>
+		<text name="rl_ui_amountMonitored" text="Monitorováno"/>
+		<text name="rl_ui_production" text="Produkty"/>
+		<text name="rl_ui_applyAllMonitor" text="Použít všechny monitory"/>
+		<text name="rl_ui_removeAllMonitor" text="Odebrat všechny monitory"/>
+		<text name="rl_ui_fee" text="Poplatek"/>
 
-		<text name="rl_ui_leftEarTag" text="Left Ear Tag"/>
-		<text name="rl_ui_rightEarTag" text="Right Ear Tag"/>
-		<text name="rl_ui_backgroundColour" text="Background Colour"/>
-		<text name="rl_ui_backgroundHue" text="Background Hue"/>
-		<text name="rl_ui_backgroundRgb" text="Background RGB"/>
-		<text name="rl_ui_textColour" text="Text Colour"/>
-		<text name="rl_ui_textHue" text="Text Hue"/>
-		<text name="rl_ui_textRgb" text="Text RGB"/>
+		<text name="rl_ui_leftEarTag" text="Levá ušní značka"/>
+		<text name="rl_ui_rightEarTag" text="Pravá ušní značka"/>
+		<text name="rl_ui_backgroundColour" text="Barva pozadí"/>
+		<text name="rl_ui_backgroundHue" text="Odstín pozadí"/>
+		<text name="rl_ui_backgroundRgb" text="RGB pozadí"/>
+		<text name="rl_ui_textColour" text="Barva textu"/>
+		<text name="rl_ui_textHue" text="Odstín textu"/>
+		<text name="rl_ui_textRgb" text="RGB textu"/>
 
-		<text name="rl_ui_formatMonths" text="%s months"/>
-		<text name="rl_ui_formatMonth" text="%s month"/>
-		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
-		<text name="rl_ui_any" text="Any"/>
-		<text name="rl_ui_pregnancy" text="Pregnancy"/>
-		<text name="rl_ui_productivity" text="Pregnancy"/>
-		<text name="rl_ui_selectAll" text="Select All"/>
-		<text name="rl_ui_selectNone" text="Select None"/>
-		<text name="rl_ui_filters" text="Filters"/>
-		<text name="rl_ui_doesntHaveName" text="No Name"/>
-		<text name="rl_ui_doesHaveName" text="Has Name"/>
-
+		<text name="rl_ui_formatMonths" text="%s měsíců"/>
+		<text name="rl_ui_formatMonth" text="%s měsíc"/>
+		<text name="rl_ui_notPregnant" text="Není březí"/>
+		<text name="rl_ui_any" text="Jakýkoli"/>
+		<text name="rl_ui_pregnancy" text="Březost"/>
+		<text name="rl_ui_productivity" text="Březost"/>
+		<text name="rl_ui_selectAll" text="Vybrat vše"/>
+		<text name="rl_ui_selectNone" text="Zrušit výběr"/>
+		<text name="rl_ui_filters" text="Filtry"/>
+		<text name="rl_ui_doesntHaveName" text="Bez jména"/>
+		<text name="rl_ui_doesHaveName" text="Má jméno"/>
 
 
 
@@ -271,16 +270,20 @@
 
 		<text name="rl_settings_accidentsChance_label" text="Pravděpodobnost nehody"/>
 		<text name="rl_settings_accidentsChance_tooltip" text="Změnit pravděpodobnost uhynutí zvířat kvůli náhodným nehodám"/>
-		
+
 		<text name="rl_settings_foodScale_label" text="Množství potravy"/>
 		<text name="rl_settings_foodScale_tooltip" text="Změna množství potravy, kterou zvířata konzumují"/>
 
 		<text name="rl_settings_maxDealerAnimals_label" text="Maximum zvířat u obchodníka"/>
 		<text name="rl_settings_maxDealerAnimals_tooltip" text="Změna maximálního počtu zvířat, která bude mít prodejce zvířat na skladě pro každý typ zvířete."/>
-
-		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
-		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
-		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
+		
+		<text name="rl_settings_resetDealer_label" text="Resetovat obchodníka se zvířaty"/>
+		<text name="rl_settings_resetDealer_tooltip" text="Odstranit všechna zvířata u prodejce a doplnit zásoby o nová zvířata"/>
+		<text name="rl_settings_resetDealer_text" text="Resetovat obchodníka se zvířaty"/>
+		
+		<text name="rl_settings_tagColour_label" text="Změnit barvu značky"/>
+		<text name="rl_settings_tagColour_tooltip" text="Změnit barvu ušních značek"/>
+		<text name="rl_settings_tagColour_text" text="Změnit barvu značky"/>
 
 
 
