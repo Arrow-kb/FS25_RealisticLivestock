@@ -256,7 +256,6 @@
 
 
 
-
 		<!--  SETTINGS  -->
 
 
@@ -278,6 +277,10 @@
 		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
 		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
 
+		<text name="rl_settings_resetDealer_label" text="Reiniciar o Comerciante de Animais"/>
+		<text name="rl_settings_resetDealer_tooltip" text="Remove todos os animais do comerciante e reabastecem com novos animais"/>
+		<text name="rl_settings_resetDealer_text" text="Reiniciar o Comerciante de Animais"/>
+		
 		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
 		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
 		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
