@@ -15,7 +15,7 @@ RealisticLivestock_AnimalScreen = {}
 
 function RealisticLivestock_AnimalScreen.show(husbandry, vehicle, isDealer)
 
-    if husbandry == nil and vehicle == nil then return end
+    --if husbandry == nil and vehicle == nil then return end
 
     g_animalScreen.isTrailerFarm = husbandry ~= nil and vehicle ~= nil
     g_animalScreen.filters = nil
@@ -599,6 +599,8 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
 
     end
 
+    --self.numAnimalsBox:setVisible(false)
+
 end
 
 AnimalScreen.updateInfoBox = Utils.overwrittenFunction(AnimalScreen.updateInfoBox, RealisticLivestock_AnimalScreen.updateInfoBox)
@@ -646,6 +648,7 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, keepSelection)
     self.detailsContainer:setVisible(hasAnimals)
     self.infoBox:setVisible(not self.isInfoMode)
     self.numAnimalsBox:setVisible(not self.isInfoMode)
+    --self.numAnimalsBox:setVisible(false)
     self.parentBox:setVisible(self.isInfoMode)
     self.geneticsBox:setVisible(self.isInfoMode)
 
@@ -682,6 +685,8 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, keepSelection)
     self.buttonBuySelected:setVisible(not self.isTrailer and not self.isInfoMode)
 
     self.buttonsPanel:invalidateLayout()
+
+    --self:setSelectionState(1) -- ?
 
 end
 
@@ -1226,3 +1231,17 @@ function AnimalScreen:onClickToggleSelectAll()
     self.sourceList:reloadData()
 
 end
+
+
+function RealisticLivestock_AnimalScreen:setSelectionState(superFunc, state) -- ?
+
+    local returnValue = superFunc(self, state)
+
+    self.buttonBuy:setVisible(self.isBuyMode)
+    self.buttonSell:setVisible(not self.isBuyMode and not self.isInfoMode)
+
+    return returnValue
+
+end
+
+--AnimalScreen.setSelectionState = Utils.overwrittenFunction(AnimalScreen.setSelectionState, RealisticLivestock_AnimalScreen.setSelectionState)

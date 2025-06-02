@@ -119,6 +119,7 @@
 		<text name="rl_ui_health" text="Kondice"/>
 		<text name="rl_ui_fertility" text="Plodnost"/>
 
+		<text name="rl_ui_genetics_infertile" text="Infertile"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Extrémně nízká"/>
 		<text name="rl_ui_genetics_veryLow" text="Velmi nízká"/>
 		<text name="rl_ui_genetics_low" text="Nízká"/>
@@ -208,14 +209,14 @@
 		<text name="rl_ui_sellBulkResult" text="%s zvířat prodáno za %s" tag="format"/>
 		<text name="rl_ui_moveBulkResult" text="%s zvířat přesunuto" tag="format"/>
 
-        <text name="rl_ui_monitor" text="Monitor"/>
+		<text name="rl_ui_monitor" text="Monitor"/>
 		<text name="rl_ui_monitorSubscriptions" text="Monitorovaná předplatná"/>
 		<text name="finance_monitorSubscriptions" text="Monitorovaná předplatná"/>
 		<text name="rl_ui_monitorFee" text="Poplatek za monitorování"/>
 		<text name="rl_ui_applyMonitor" text="Použít monitor"/>
 		<text name="rl_ui_removeMonitor" text="Odebrat monitor"/>
 		<text name="rl_ui_input_food" text="Krmivo"/>
-		<text name="rl_ui_input_water" text="Voda"/>
+		<text name="rl_ui_input_water" text="Voda"/>Add commentMore actions
 		<text name="rl_ui_input_straw" text="Sláma"/>
 		<text name="rl_ui_output_milk" text="Mléko"/>
 		<text name="rl_ui_output_manure" text="Hnůj"/>
@@ -256,6 +257,7 @@
 
 
 
+
 		<!--  SETTINGS  -->
 
 
@@ -270,20 +272,24 @@
 
 		<text name="rl_settings_accidentsChance_label" text="Pravděpodobnost nehody"/>
 		<text name="rl_settings_accidentsChance_tooltip" text="Změnit pravděpodobnost uhynutí zvířat kvůli náhodným nehodám"/>
-
+		
 		<text name="rl_settings_foodScale_label" text="Množství potravy"/>
 		<text name="rl_settings_foodScale_tooltip" text="Změna množství potravy, kterou zvířata konzumují"/>
 
 		<text name="rl_settings_maxDealerAnimals_label" text="Maximum zvířat u obchodníka"/>
 		<text name="rl_settings_maxDealerAnimals_tooltip" text="Změna maximálního počtu zvířat, která bude mít prodejce zvířat na skladě pro každý typ zvířete."/>
-		
+
 		<text name="rl_settings_resetDealer_label" text="Resetovat obchodníka se zvířaty"/>
 		<text name="rl_settings_resetDealer_tooltip" text="Odstranit všechna zvířata u prodejce a doplnit zásoby o nová zvířata"/>
 		<text name="rl_settings_resetDealer_text" text="Resetovat obchodníka se zvířaty"/>
-		
+
 		<text name="rl_settings_tagColour_label" text="Změnit barvu značky"/>
 		<text name="rl_settings_tagColour_tooltip" text="Změnit barvu ušních značek"/>
 		<text name="rl_settings_tagColour_text" text="Změnit barvu značky"/>
+
+		<text name="rl_settings_exportCSV_label" text="Export To CSV"/>
+		<text name="rl_settings_exportCSV_tooltip" text="Export stats to CSV"/>
+		<text name="rl_settings_exportCSV_text" text="Export To CSV"/>
 
 
 
@@ -315,9 +321,9 @@
 		<text name="rl_help_genetics_1" text="Každé zvíře má 4 různé genetické hodnoty: metabolismus, plodnost, zdraví a kvalitu. Genetika se mísí mezi matkou a otcem a poté se předává jejich dětem."/>
 		<text name="rl_help_genetics_2" text="Metabolismus ovlivňuje schopnost zvířete přeměnit potravu na hmotnost a ovlivňuje množství, které zvíře sní."/>
 		<text name="rl_help_genetics_3" text="Plodnost ovlivňuje šanci zvířete zabřeznout nebo zabřeznutí samice a počet potomků, které zplodí."/>
-		<text name="rl_help_genetics_3" text="Zdravotní stav ovlivňuje zdraví zvířete a jeho šanci na odstranění každý měsíc. Zvíře s vyšší zdravotní genetikou bude mít také delší životnost."/>
-		<text name="rl_help_genetics_4" text="Kvalita ovlivňuje hodnotu samotného zvířete, zvíře s vyšší kvalitou se prodává za mnohem vyšší cenu."/>
-		<text name="rl_help_genetics_5" text="Skot, ovce a kuřata mají také produkční genetiku, která ovlivňuje množství mléka/vajíček/vlny, které produkují."/>
+		<text name="rl_help_genetics_4" text="Zdravotní stav ovlivňuje zdraví zvířete a jeho šanci na odstranění každý měsíc. Zvíře s vyšší zdravotní genetikou bude mít také delší životnost."/>
+		<text name="rl_help_genetics_5" text="Kvalita ovlivňuje hodnotu samotného zvířete, zvíře s vyšší kvalitou se prodává za mnohem vyšší cenu."/>
+		<text name="rl_help_genetics_6" text="Skot, ovce a kuřata mají také produkční genetiku, která ovlivňuje množství mléka/vajíček/vlny, které produkují."/>
 
 	</texts>
 </l10n>

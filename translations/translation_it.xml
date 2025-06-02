@@ -117,6 +117,7 @@
         <text name="rl_ui_health" text="Salute"/>
         <text name="rl_ui_fertility" text="Fertilità"/>
 
+		<text name="rl_ui_genetics_infertile" text="Infertile"/>
         <text name="rl_ui_genetics_extremelyLow" text="Estremamente bassa"/>
         <text name="rl_ui_genetics_veryLow" text="Molto basso"/>
         <text name="rl_ui_genetics_low" text="Basso"/>
@@ -279,6 +280,10 @@
 		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
 		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
 
+		<text name="rl_settings_exportCSV_label" text="Export To CSV"/>
+		<text name="rl_settings_exportCSV_tooltip" text="Export stats to CSV"/>
+		<text name="rl_settings_exportCSV_text" text="Export To CSV"/>
+
 
 
 		<!--  HELP  -->
@@ -309,9 +314,9 @@
 		<text name="rl_help_genetics_1" text="Each animal has 4 different genetic values; metabolism, fertility, health and quality. Genetics are mixed between the mother and father and then passed down to their children."/>
 		<text name="rl_help_genetics_2" text="Metabolism affects the animal's ability to convert food into weight, and affects the amount it eats."/>
 		<text name="rl_help_genetics_3" text="Fertility affects the animal's chance of getting pregnant, or getting a female pregnant, and the number of offspring it will produce."/>
-		<text name="rl_help_genetics_3" text="Health affects the animal's health and its chance of being removed each month. An animal with higher health genetics will also have a longer lifespan."/>
-		<text name="rl_help_genetics_4" text="Quality affects the value of the animal itself, an animal with higher quality will sell for much more."/>
-		<text name="rl_help_genetics_5" text="Cattle, sheep and chicken also have production genetics, which affects how much milk/eggs/wool they produce."/>
+		<text name="rl_help_genetics_4" text="Health affects the animal's health and its chance of being removed each month. An animal with higher health genetics will also have a longer lifespan."/>
+		<text name="rl_help_genetics_5" text="Quality affects the value of the animal itself, an animal with higher quality will sell for much more."/>
+		<text name="rl_help_genetics_6" text="Cattle, sheep and chicken also have production genetics, which affects how much milk/eggs/wool they produce."/>
 
     </texts>
 </l10n>

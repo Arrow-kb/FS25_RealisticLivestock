@@ -118,7 +118,8 @@
 		<text name="rl_ui_meat" text="Kalite"/>
 		<text name="rl_ui_health" text="Sağlık"/>
 		<text name="rl_ui_fertility" text="Doğurganlık"/>
-		
+
+		<text name="rl_ui_genetics_infertile" text="Infertile"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Aşırı düşük"/>
 		<text name="rl_ui_genetics_veryLow" text="Çok düşük"/>
 		<text name="rl_ui_genetics_low" text="Düşük"/>
@@ -284,6 +285,10 @@
 		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
 		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
 		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
+
+		<text name="rl_settings_exportCSV_label" text="Export To CSV"/>
+		<text name="rl_settings_exportCSV_tooltip" text="Export stats to CSV"/>
+		<text name="rl_settings_exportCSV_text" text="Export To CSV"/>
 		
 		
 		
@@ -315,9 +320,9 @@
 		<text name="rl_help_genetics_1" text="Her hayvanın 4 farklı genetik değeri vardır; metabolizma, doğurganlık, sağlık ve kalite. Genetik anne ve baba arasında karıştırılır ve daha sonra çocuklarına aktarılır."/>
 		<text name="rl_help_genetics_2" text="Metabolizma, hayvanın gıdayı ağırlığa dönüştürme kabiliyetini ve yediği miktarı etkiler."/>
 		<text name="rl_help_genetics_3" text="Doğurganlık, hayvanın hamile kalma veya bir dişiyi hamile bırakma şansını ve üreteceği yavru sayısını etkiler."/>
-		<text name="rl_help_genetics_3" text="Sağlık, hayvanın sağlığını ve her ay kaldırılma şansını etkiler. Daha sağlıklı genetiğe sahip bir hayvanın ömrü de daha uzun olacaktır."/>
-		<text name="rl_help_genetics_4" text="Kalite hayvanın kendi değerini etkiler, daha kaliteli bir hayvan çok daha fazla fiyata satılacaktır."/>
-		<text name="rl_help_genetics_5" text="Sığır, koyun ve tavuğun da üretim genetiği vardır ve bu da ne kadar süt/yumurta/yün ürettiklerini etkiler."/>
+		<text name="rl_help_genetics_4" text="Sağlık, hayvanın sağlığını ve her ay kaldırılma şansını etkiler. Daha sağlıklı genetiğe sahip bir hayvanın ömrü de daha uzun olacaktır."/>
+		<text name="rl_help_genetics_5" text="Kalite hayvanın kendi değerini etkiler, daha kaliteli bir hayvan çok daha fazla fiyata satılacaktır."/>
+		<text name="rl_help_genetics_6" text="Sığır, koyun ve tavuğun da üretim genetiği vardır ve bu da ne kadar süt/yumurta/yün ürettiklerini etkiler."/>
 		
 	</texts>
 </l10n>

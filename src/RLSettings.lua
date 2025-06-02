@@ -1,5 +1,6 @@
 RLSettings = {}
 local modDirectory = g_currentModDirectory
+local modSettingsDirectory = g_currentModSettingsDirectory
 
 g_gui:loadProfiles(modDirectory .. "gui/guiProfiles.xml")
 
@@ -7,6 +8,49 @@ g_gui:loadProfiles(modDirectory .. "gui/guiProfiles.xml")
 function RLSettings.onClickTagColour()
 
 	EarTagColourPickerDialog.show()
+
+end
+
+
+function RLSettings.onClickExportCSV()
+
+	local file = io.open(modSettingsDirectory .. "animals.csv", "w")
+
+	file:write("Type,Subtype,Country,Farm Id,Unique Id,Age,Health,Weight,Value,Value / kg,Pregnant,Expected Offspring,Lactating,Food,Water,Straw,Product,Manure,Liquid Manure")
+
+	local husbandrySystem = g_currentMission.husbandrySystem
+	local animalSystem = g_currentMission.animalSystem
+
+	for _, placeable in pairs(husbandrySystem.placeables) do
+
+		local animals = placeable:getClusters()
+
+		for _, animal in pairs(animals) do
+
+			local hasMonitor = animal.monitor.active or animal.monitor.removed
+
+			local foodInput = animal:getInput("food") * 24
+			local waterInput = animal:getInput("water") * 24
+			local strawInput = animal:getInput("straw") * 24
+			local manureOutput = animal:getOutput("manure") * 24
+			local liquidManureOutput = animal:getOutput("liquidManure") * 24
+			local milkOutput = animal:getOutput("milk") * 24
+			local palletsOutput = animal:getOutput("pallets") * 24
+
+			local productOutput = milkOutput > palletsOutput and milkOutput or palletsOutput
+
+			local value = animal:getSellPrice()
+			local valuePerKg = hasMonitor and (value / animal.weight) or "no monitor"
+			
+			local expectedOffspring = animal.pregnancy ~= nil and animal.pregnancy.pregnancies ~= nil and #animal.pregnancy.pregnancies or 0
+
+			file:write(string.format("\n%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", animalSystem.types[animal.animalTypeIndex].name, animal.subType, RealisticLivestock.AREA_CODES[animal.birthday.country].code, animal.farmId, animal.uniqueId, animal.age, hasMonitor and animal.health or "no monitor", hasMonitor and animal.weight or "no monitor", value, valuePerKg, animal.isPregnant and "yes" or "no", expectedOffspring, (hasMonitor and (animal.isLactating and "yes" or "no") or "no monitor"), hasMonitor and foodInput or "no monitor", hasMonitor and waterInput or "no monitor", hasMonitor and strawInput or "no monitor", hasMonitor and productOutput or "no monitor", hasMonitor and manureOutput or "no monitor", hasMonitor and liquidManureOutput or "no monitor"))
+
+		end
+
+	end
+
+	file:close()
 
 end
 
@@ -66,6 +110,13 @@ RLSettings.SETTINGS = {
 		["type"] = "Button",
 		["ignore"] = true,
 		["callback"] = RLSettings.onClickTagColour
+	},
+
+	["exportCSV"] = {
+		["index"] = 7,
+		["type"] = "Button",
+		["ignore"] = true,
+		["callback"] = RLSettings.onClickExportCSV
 	}
 
 }

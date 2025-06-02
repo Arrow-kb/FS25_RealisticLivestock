@@ -4,6 +4,18 @@
 		<configFilename>animals/domesticated/cow/animals.xml</configFilename>
 		<navMeshAgent height="1.6" radius="0.9" maxClimbMeters="1" maxSlope="20"/>
 		<pasture sqmPerAnimal="100"/>
+		<pregnancy average="1" max="3"/>
+		<fertility>
+			<key ageMonth="0" value="0"/>
+			<key ageMonth="12" value="0"/>
+			<key ageMonth="12" value="960"/>
+			<key ageMonth="24" value="965"/>
+			<key ageMonth="48" value="980"/>
+			<key ageMonth="60" value="985"/>
+			<key ageMonth="84" value="930"/>
+			<key ageMonth="132" value="540"/>
+			<key ageMonth="132" value="0"/>
+		</fertility>
         <subType subType="COW_SWISS_BROWN" fillTypeName="COW_SWISS_BROWN" gender="female" minWeight="40.0" targetWeight="650.0" maxWeight="1200.0">
 			<visuals>
 				<visual minAge="0" visualAnimalIndex="5" image="$dataS/character/animals/domesticated/cow/store_cowSwissBrownBaby.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0">
@@ -749,6 +761,18 @@
 		<configFilename>animals/domesticated/pigs/animals.xml</configFilename>
 		<navMeshAgent height="1" radius="0.6" maxClimbMeters="0.8" maxSlope="15"/>
 		<pasture sqmPerAnimal="9.4"/>
+		<pregnancy average="12" max="16"/>
+		<fertility>
+			<key ageMonth="0" value="0"/>
+			<key ageMonth="6" value="0"/>
+			<key ageMonth="6" value="920"/>
+			<key ageMonth="12" value="940"/>
+			<key ageMonth="36" value="960"/>
+			<key ageMonth="60" value="880"/>
+			<key ageMonth="80" value="780"/>
+			<key ageMonth="96" value="540"/>
+			<key ageMonth="96" value="0"/>
+		</fertility>
 		<subType subType="PIG_LANDRACE" fillTypeName="PIG_LANDRACE" gender="female" minWeight="1.36" targetWeight="165.0" maxWeight="1050.0">
 			<visuals>
 				<visual minAge="0" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/pig/store_pigLandraceBaby.png" canBeBought="true" monitor="0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|2|0|0">
@@ -1141,6 +1165,18 @@
 		<configFilename>animals/domesticated/sheep/animals.xml</configFilename>
 		<navMeshAgent height="1.4" radius="0.75" maxClimbMeters="1.3" maxSlope="25"/>
 		<pasture sqmPerAnimal="75"/>
+		<pregnancy average="2" max="3"/>
+		<fertility>
+			<key ageMonth="0" value="0"/>
+			<key ageMonth="8" value="0"/>
+			<key ageMonth="8" value="700"/>
+			<key ageMonth="18" value="750"/>
+			<key ageMonth="36" value="800"/>
+			<key ageMonth="72" value="920"/>
+			<key ageMonth="84" value="660"/>
+			<key ageMonth="120" value="130"/>
+			<key ageMonth="120" value="0"/>
+		</fertility>
 		<subType subType="SHEEP_LANDRACE" fillTypeName="SHEEP_LANDRACE" gender="female" minWeight="4.4" targetWeight="45.0" maxWeight="135.0">
 			<visuals>
 				<visual minAge="0" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/sheep/store_sheepLandraceBaby.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0">
@@ -1699,6 +1735,18 @@
 		<configFilename>$dataS/character/animals/domesticated/horse/animals.xml</configFilename>
 		<navMeshAgent height="2" radius="1" maxClimbMeters="1.5" maxSlope="20"/>
 		<pasture sqmPerAnimal="100"/>
+		<pregnancy average="1" max="3"/>
+		<fertility>
+			<key ageMonth="0" value="0"/>
+			<key ageMonth="22" value="0"/>
+			<key ageMonth="22" value="950"/>
+			<key ageMonth="84" value="920"/>
+			<key ageMonth="132" value="860"/>
+			<key ageMonth="160" value="760"/>
+			<key ageMonth="200" value="540"/>
+			<key ageMonth="264" value="150"/>
+			<key ageMonth="264" value="0"/>
+		</fertility>
 		<subType subType="HORSE_GRAY" fillTypeName="HORSE_GRAY" gender="female" minWeight="45" targetWeight="500.0" maxWeight="900.0">
 			<visuals>
 				<visual minAge="0" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/horse/store_horseGray.png" canBeBought="true">
@@ -2456,6 +2504,19 @@
 		<configFilename>$dataS/character/animals/domesticated/chicken/animals.xml</configFilename>
 		<navMeshAgent height="0.6" radius="0.2" maxClimbMeters="2" maxSlope="35"/>
 		<pasture sqmPerAnimal="4.6"/>
+		<pregnancy average="5" max="12"/>
+		<fertility>
+			<key ageMonth="0" value="0"/>
+			<key ageMonth="6" value="0"/>
+			<key ageMonth="6" value="600"/>
+			<key ageMonth="12" value="560"/>
+			<key ageMonth="24" value="500"/>
+			<key ageMonth="36" value="420"/>
+			<key ageMonth="60" value="300"/>
+			<key ageMonth="84" value="160"/>
+			<key ageMonth="120" value="400"/>
+			<key ageMonth="120" value="0"/>
+		</fertility>
 		<subType subType="CHICKEN" fillTypeName="CHICKEN" gender="female" minWeight="0.04" targetWeight="3.25" maxWeight="4.5">
 			<visuals>
 				<visual minAge="0" visualAnimalIndex="3" image="$dataS/character/animals/domesticated/chicken/store_chickenChick.png" canBeBought="true">

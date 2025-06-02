@@ -1,6 +1,6 @@
 <modDesc descVersion="99">
     <author>Arrow</author>
-    <version>1.0.1.1</version>
+    <version>1.0.1.2</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -82,6 +82,12 @@ Enhanced Animal Dealer
 - Animals at the dealer have a chance to be pregnant and will all have unique genetic qualities which will impact their price and usefulness
 
 Changelog:
+
+1.0.1.2
+- Added export to CSV button
+- Added high complete infertility chance to female cattle twins
+- Reworked animal pregnancy offspring numbers
+- Fixed health and productivity dropping to 0 after loading
 
 1.0.1.1
 - Added ear tag colour configuration menu
@@ -460,6 +466,9 @@ Marchand d'animaux amélioré
 				</paragraph>
 				<paragraph>
 					<text text="$l10n_rl_help_genetics_5"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_rl_help_genetics_6"/>
 				</paragraph>
 				
 			</page>

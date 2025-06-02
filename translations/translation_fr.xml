@@ -119,6 +119,7 @@
 		<text name="rl_ui_health" text="Santé"/>
 		<text name="rl_ui_fertility" text="Fécondité"/>
 
+		<text name="rl_ui_genetics_infertile" text="Infertile"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Extrêmement faible"/>
 		<text name="rl_ui_genetics_veryLow" text="Très faible"/>
 		<text name="rl_ui_genetics_low" text="Faible"/>
@@ -282,6 +283,10 @@
 		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
 		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
 
+		<text name="rl_settings_exportCSV_label" text="Export To CSV"/>
+		<text name="rl_settings_exportCSV_tooltip" text="Export stats to CSV"/>
+		<text name="rl_settings_exportCSV_text" text="Export To CSV"/>
+
 
 
 		<!--  HELP  -->
@@ -312,8 +317,8 @@
 		<text name="rl_help_genetics_1" text="Chaque animal possède quatre valeurs génétiques différentes : le métabolisme, la fertilité, la santé et la qualité. Les gènes sont mélangés entre la mère et le père, puis transmis à leurs enfants."/>
 		<text name="rl_help_genetics_2" text="Le métabolisme affecte la capacité de l'animal à convertir la nourriture en poids, et affecte la quantité qu'il mange."/>
 		<text name="rl_help_genetics_3" text="La fertilité affecte les chances de l'animal de tomber enceinte ou de mettre une femelle enceinte, ainsi que le nombre de descendants qu'il produira."/>
-		<text name="rl_help_genetics_3" text="La santé a une incidence sur la santé de l'animal et sur ses chances d'être retiré chaque mois. Un animal en meilleure santé génétique aura également une durée de vie plus longue."/>
-		<text name="rl_help_genetics_4" text="La qualité influe sur la valeur de l'animal lui-même. Un animal de qualité supérieure se vendra beaucoup plus cher."/>
-		<text name="rl_help_genetics_5" text="Les bovins, les ovins et les poulets ont également une génétique de production, qui influe sur la quantité de lait, d'œufs ou de laine qu'ils produisent."/>
+		<text name="rl_help_genetics_4" text="La santé a une incidence sur la santé de l'animal et sur ses chances d'être retiré chaque mois. Un animal en meilleure santé génétique aura également une durée de vie plus longue."/>
+		<text name="rl_help_genetics_5" text="La qualité influe sur la valeur de l'animal lui-même. Un animal de qualité supérieure se vendra beaucoup plus cher."/>
+		<text name="rl_help_genetics_6" text="Les bovins, les ovins et les poulets ont également une génétique de production, qui influe sur la quantité de lait, d'œufs ou de laine qu'ils produisent."/>
 	</texts>
 </l10n>

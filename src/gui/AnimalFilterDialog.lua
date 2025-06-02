@@ -426,6 +426,8 @@ function AnimalFilterDialog:onClickOk()
 
         for _, filter in pairs(self.filters) do
 
+            if filter.requiresMonitor and not animal.monitor.active and animal.monitor.removed then continue end
+
             if filter.template == "sliderTemplate" then
 
                 local value

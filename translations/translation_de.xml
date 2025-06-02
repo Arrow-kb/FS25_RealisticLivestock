@@ -119,6 +119,7 @@
 		<text name="rl_ui_health" text="Gesundheit"/>
 		<text name="rl_ui_fertility" text="Fruchtbarkeit"/>
 
+		<text name="rl_ui_genetics_infertile" text="Infertile"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Extrem niedrig"/>
 		<text name="rl_ui_genetics_veryLow" text="Sehr niedrig"/>
 		<text name="rl_ui_genetics_low" text="Niedrig"/>
@@ -282,6 +283,10 @@
 		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
 		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
 
+		<text name="rl_settings_exportCSV_label" text="Export To CSV"/>
+		<text name="rl_settings_exportCSV_tooltip" text="Export stats to CSV"/>
+		<text name="rl_settings_exportCSV_text" text="Export To CSV"/>
+
 
 
 		<!--  HELP  -->
@@ -312,9 +317,9 @@
 		<text name="rl_help_genetics_1" text="Jedes Tier hat 4 verschiedene genetische Werte: Stoffwechsel, Fruchtbarkeit, Gesundheit und Qualität. Die Genetik wird zwischen Mutter und Vater gemischt und dann an die Kinder weitergegeben."/>
 		<text name="rl_help_genetics_2" text="Der Stoffwechsel wirkt sich auf die Fähigkeit des Tieres aus, Nahrung in Gewicht umzuwandeln, und beeinflusst die Menge, die es frisst."/>
 		<text name="rl_help_genetics_3" text="Die Fruchtbarkeit wirkt sich auf die Wahrscheinlichkeit aus, dass ein Tier trächtig wird oder ein Weibchen trächtig wird, und auf die Anzahl der Nachkommen, die es produzieren wird."/>
-		<text name="rl_help_genetics_3" text="Der Gesundheitszustand wirkt sich auf die Gesundheit des Tieres und die Wahrscheinlichkeit aus, dass es jeden Monat entnommen wird. Ein Tier mit einer besseren Gesundheitsgenetik hat auch eine längere Lebensdauer."/>
-		<text name="rl_help_genetics_4" text="Die Qualität wirkt sich auf den Wert des Tieres selbst aus, ein Tier mit höherer Qualität wird zu einem viel höheren Preis verkauft."/>
-		<text name="rl_help_genetics_5" text="Rinder, Schafe und Hühner haben auch eine genetische Veranlagung, die sich darauf auswirkt, wie viel Milch, Eier oder Wolle sie produzieren."/>
+		<text name="rl_help_genetics_4" text="Der Gesundheitszustand wirkt sich auf die Gesundheit des Tieres und die Wahrscheinlichkeit aus, dass es jeden Monat entnommen wird. Ein Tier mit einer besseren Gesundheitsgenetik hat auch eine längere Lebensdauer."/>
+		<text name="rl_help_genetics_5" text="Die Qualität wirkt sich auf den Wert des Tieres selbst aus, ein Tier mit höherer Qualität wird zu einem viel höheren Preis verkauft."/>
+		<text name="rl_help_genetics_6" text="Rinder, Schafe und Hühner haben auch eine genetische Veranlagung, die sich darauf auswirkt, wie viel Milch, Eier oder Wolle sie produzieren."/>
 
 	</texts>
 </l10n>

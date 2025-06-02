@@ -120,6 +120,47 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
             local averageBuyAge = xmlFile:getInt(key .. "#averageBuyAge", 12)
             local maxBuyAge = xmlFile:getInt(key .. "#maxBuyAge", 60)
 
+            local averageChildren = xmlFile:getInt(key .. ".pregnancy#average", 1)
+            local maxChildren = xmlFile:getInt(key .. ".pregnancy#max", 3)
+
+            local pregnancy = {}
+            local totalChance = 0
+
+            for i = 0, averageChildren - 1 do
+
+                totalChance = totalChance + (i / averageChildren) / maxChildren
+
+                table.insert(pregnancy, totalChance)
+
+            end
+
+            totalChance = totalChance + 0.5
+            table.insert(pregnancy, totalChance)
+
+            for i = averageChildren + 1, maxChildren - 1 do
+
+                totalChance = totalChance + (1 - totalChance) * 0.8
+
+                table.insert(pregnancy, totalChance)
+
+            end
+
+            table.insert(pregnancy, 1)
+
+            local function pregnancyFunction(value)
+
+                for i = 0, #pregnancy - 1 do
+
+                    if pregnancy[i + 1] > value then return i end
+
+                end
+
+                return 0
+
+            end
+
+            local fertility = self:loadAnimCurve(xmlFile, key .. ".fertility")
+
 		    animalType = {
 			    ["name"] = name,
 			    ["groupTitle"] = title,
@@ -143,7 +184,12 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
                     ["earTagRight"] = { 0.8, 0.7, 0 },
                     ["earTagLeft_text"] = { 0, 0, 0 },
                     ["earTagRight_text"] = { 0, 0, 0 }
-                }
+                },
+                ["pregnancy"] = {
+                    ["get"] = pregnancyFunction,
+                    ["average"] = averageChildren
+                },
+                ["fertility"] = fertility
 		    }
             
 		end

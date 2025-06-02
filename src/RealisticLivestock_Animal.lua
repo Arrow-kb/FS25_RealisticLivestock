@@ -58,7 +58,9 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
 
         local fertilityChance = math.random()
 
-        if fertilityChance < 0.05 then
+        if fertilityChance < 0.001 then
+            self.genetics.fertility = 0
+        elseif fertilityChance < 0.05 then
             self.genetics.fertility = math.random(25, 35) / 100
         elseif fertilityChance < 0.25 then
             self.genetics.fertility = math.random(35, 90) / 100
@@ -522,9 +524,12 @@ function Animal:saveToXMLFile(xmlFile, key)
     xmlFile:setFloat(key .. "#weight", self.weight)
 
     if self.name ~= nil and self.name ~= "" then xmlFile:setString(key .. "#name", self.name) end
-    if self.dirt ~= nil then xmlFile:setFloat(key .. "#dirt", self.dirt) end
-    if self.fitness ~= nil then xmlFile:setFloat(key .. "#fitness", self.fitness) end
-    if self.riding ~= nil then xmlFile:setFloat(key .. "#riding", self.riding) end
+    
+    if self.animalTypeIndex == AnimalType.HORSE then
+        xmlFile:setFloat(key .. "#dirt", self.dirt)
+        xmlFile:setFloat(key .. "#fitness", self.fitness)
+        xmlFile:setFloat(key .. "#riding", self.riding)
+    end
 
     xmlFile:setSortedTable(key .. ".children.child", self.children, function (index, child)
         xmlFile:setString(index .. "#uniqueId", child.uniqueId)
@@ -596,6 +601,130 @@ function Animal:saveToXMLFile(xmlFile, key)
 
     xmlFile:setBool(key .. ".monitor#active", self.monitor.active)
     xmlFile:setBool(key .. ".monitor#removed", self.monitor.removed)
+
+end
+
+
+
+-- WIP
+
+
+function Animal:writeStream(streamId, connection)
+
+    streamWriteUInt8(streamId, self.subTypeIndex)
+    streamWriteUInt16(streamId, self.age)
+    streamWriteFloat32(streamId, self.health)
+    streamWriteFloat32(streamId, self.reproduction)
+    streamWriteUInt16(streamId, self.monthsSinceLastBirth)
+    streamWriteString(streamId, self.gender)
+
+    streamWriteBool(streamId, self.isParent and self.pregnancy ~= nil)
+    streamWriteBool(streamId, self.isPregnant)
+    streamWriteBool(streamId, self.isLactating)
+
+    streamWriteString(streamId, self.uniqueId)
+    streamWriteString(streamId, self.farmId)
+    streamWriteUInt8(streamId, self.variation or 1)
+    streamWriteString(streamId, self.motherId or "-1")
+    streamWriteString(streamId, self.fatherId or "-1")
+    streamWriteFloat32(streamId, self.weight)
+    streamWriteString(streamId, self.name or "")
+
+    if self.isParent and self.pregnancy ~= nil then
+
+        local pregnancy = self.pregnancy
+
+        streamWriteUInt8(streamId, pregnancy.expected.day)
+        streamWriteUInt8(streamId, pregnancy.expected.month)
+        streamWriteUInt8(streamId, pregnancy.expected.year)
+        streamWriteUInt8(streamId, pregnancy.expected.duration)
+
+        streamWriteUInt8(streamId, pregnancy.pregnancies == nil and 0 or #pregnancy.pregnancies)
+
+        for _, child in pairs(pregnancy.pregnancies or {}) do
+
+            streamWriteFloat32(streamId, child.health)
+            streamWriteString(streamId, child.gender)
+            streamWriteUInt8(streamId, child.subTypeIndex)
+            streamWriteString(streamId, child.motherId)
+            streamWriteString(streamId, child.fatherId)
+
+            local genetics = child.genetics
+
+            streamWriteFloat32(streamId, genetics.metabolism)
+            streamWriteFloat32(streamId, genetics.health)
+            streamWriteFloat32(streamId, genetics.fertility)
+            streamWriteFloat32(streamId, genetics.quality)
+            streamWriteFloat32(streamId, genetics.productivity or 0)
+
+        end
+
+    end
+
+end
+
+
+
+function Animal:readStream(streamId, connection)
+
+    self.subTypeIndex = streamReadUInt8(streamId)
+    self.age = streamReadUInt16(streamId)
+    self.health = streamReadFloat32(streamId)
+    self.reproduction = streamReadFloat32(streamId)
+    self.monthsSinceLastBirth = streamReadUInt16(streamId)
+    self.gender = streamReadString(streamId)
+
+    self.isParent = streamReadBool(streamId)
+    self.isPregnant = streamReadBool(streamId)
+    self.isLactating = streamReadBool(streamId)
+
+    self.uniqueId = streamReadString(streamId)
+    self.farmId = streamReadString(streamId)
+    self.variation = streamReadUInt8(streamId)
+    self.motherId = streamReadString(streamId)
+    self.fatherId = streamReadString(streamId)
+    self.weight = streamReadFloat32(streamId)
+    self.name = streamReadString(streamId)
+
+    if self.isParent then
+
+        local pregnancy = { ["expected"] = {}, ["pregnancies"] = {} }
+
+        pregnancy.expected.day = streamReadUInt8(streamId)
+        pregnancy.expected.month = streamReadUInt8(streamId)
+        pregnancy.expected.year = streamReadUInt8(streamId)
+        pregnancy.expected.duration = streamReadUInt8(streamId)
+
+        local numChildren = streamReadUInt8(streamId)
+
+        for i = 1, numChildren do
+
+            local health = streamReadFloat32(streamId)
+            local gender = streamReadString(streamId)
+            local subTypeIndex = streamReadUInt8(streamId)
+            local motherId = streamReadString(streamId)
+            local fatherId = streamReadString(streamId)
+
+            local genetics = {}
+
+            genetics.metabolism = streamReadFloat32(streamId)
+            genetics.health = streamReadFloat32(streamId)
+            genetics.fertility = streamReadFloat32(streamId)
+            genetics.quality = streamReadFloat32(streamId)
+
+            local productivity = streamReadFloat32(streamId)
+
+            if productivity ~= nil then genetics.productivity = productivity end
+
+            local child = Animal.new(0, health, 0, gender, subTypeIndex, 0, false, false, false, nil, nil, motherId, fatherId, nil, nil, nil, nil, nil, nil, nil, genetics)
+
+            table.insert(pregnany.pregnancies, child)
+
+        end
+
+        self.pregnancy = pregnancy
+
+    end
 
 end
 
@@ -690,6 +819,12 @@ function Animal:setUniqueId(farmId)
     end
 
     local ownerFarmId = self.clusterSystem.owner.ownerFarmId
+
+    if ownerFarmId == nil then
+        self.uniqueId, self.farmId = "1", "1"
+        return
+    end
+
     local farm = g_farmManager.farmIdToFarm[ownerFarmId]
 
 
@@ -916,7 +1051,7 @@ function Animal:addInfos(infos)
 
         end
 
-        if self.isLactating ~= nil and hasMonitor and self.age > 12 and self.clusterSystem.owner.spec_husbandryMilk ~= nil then
+        if self.isLactating ~= nil and hasMonitor and self.age > 12 and self.clusterSystem ~= nil and self.clusterSystem.owner.spec_husbandryMilk ~= nil then
 
             if self.infoLactation == nil then
                 self.infoLactation = {
@@ -1155,8 +1290,10 @@ function Animal:showGeneticsInfo(box)
         qualityText = "low"
     elseif fertility >= 0.35 then
         qualityText = "veryLow"
-    else
+    elseif fertility > 0 then
         qualityText = "extremelyLow"
+    else
+        qualityText = "infertile"
     end
 
     box:addLine(g_i18n:getText("rl_ui_fertility"), "rl_ui_genetics_" .. qualityText)
@@ -1308,8 +1445,10 @@ function Animal:addGeneticsInfo()
         qualityText = "low"
     elseif fertility >= 0.35 then
         qualityText = "veryLow"
-    else
+    elseif fertility > 0 then
         qualityText = "extremelyLow"
+    else
+        qualityText = "infertile"
     end
 
     text = {
@@ -1482,7 +1621,7 @@ function Animal:getCanReproduce()
 
     local subType = self:getSubType()
 
-    if not subType.supportsReproduction then return false end
+    if not subType.supportsReproduction or self.clusterSystem == nil then return false end
 
     local canReproduce = RealisticLivestock.hasMaleAnimalInPen(self.clusterSystem.owner.spec_husbandryAnimals, self.subType, self) and (self.monthsSinceLastBirth > 2 or not self.isParent)
 
@@ -1617,6 +1756,28 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
     local deadAnimals = 0
     local childrenSold = 0
     local childrenSoldAmount = 0
+
+
+    if self.animalTypeIndex == AnimalType.HORSE and not isSaleAnimal then
+
+        local ridingFactor = self:getRidingFactor()
+	    local ridingThresholdFactor = self:getSubType().ridingThresholdFactor
+	    local factor, delta
+
+	    if ridingThresholdFactor < ridingFactor then
+		    factor = (ridingFactor - ridingThresholdFactor) / (1 - ridingThresholdFactor)
+		    delta = 25
+	    else
+		    factor = ridingFactor / ridingThresholdFactor - 1
+		    delta = 10
+	    end
+
+	    self:changeFitness(delta * factor * g_currentMission.environment.timeAdjustment)
+	    self:resetRiding()
+	    self:changeDirt(10)
+    
+    end
+
 
     if isSaleAnimal or self.clusterSystem ~= nil then
 
@@ -1788,6 +1949,7 @@ function Animal:createPregnancy(childNum, month, year)
 
 
     local children = {}
+    local hasMale, hasFemale = false, false
 
 
     for i = 1, childNum do
@@ -1812,7 +1974,12 @@ function Animal:createPregnancy(childNum, month, year)
         local metabolism = math.random(minMetabolism * 100, maxMetabolism * 100) / 100
         local quality = math.random(minMeat * 100, maxMeat * 100) / 100
         local healthGenetics = math.random(minHealth * 100, maxHealth * 100) / 100
-        local fertility = math.random(minFertility * 100, maxFertility * 100) / 100
+
+        local fertility = 0
+        
+        if math.random() > 0.001 then fertility = math.random(minFertility * 100, maxFertility * 100) / 100 end
+
+
         local productivity = nil
                         
         if genetics.productivity ~= nil then productivity = math.random(minProductivity * 100, maxProductivity * 100) / 100 end
@@ -1828,6 +1995,22 @@ function Animal:createPregnancy(childNum, month, year)
 
 
         table.insert(children, child)
+
+        if gender == "male" then
+            hasMale = true
+        else
+            hasFemale = true
+        end
+
+    end
+
+    if self.animalTypeIndex == AnimalType.COW and hasMale and hasFemale then
+
+        for _, child in pairs(children) do
+
+            if child.gender == "female" and math.random() >= 0.03 then child.genetics.fertility = 0 end
+
+        end
 
     end
 
@@ -1879,197 +2062,22 @@ end
 
 function Animal:generateRandomOffspring()
 
-    local age = self.age
-    local health = self.health
-    local animalType = self.animalTypeIndex
-    local isParent = self.isParent
-    local childNumProb = 500
-    local childNum = 1
-    local noChildProb = 50
+    local animalSystem = g_currentMission.animalSystem
+    local animalType = animalSystem:getTypeByIndex(self.animalTypeIndex)
 
-    if health <= 60 then
-        childNumProb = math.random(0, 250)
-    elseif health <= 75 then
-        childNumProb = math.random(10, 500)
-    elseif health <= 90 then
-        childNumProb = math.random(50, 900)
-    else
-        childNumProb = math.random(70, 1000)
-    end
+    local fertility = self.genetics.fertility
 
-    childNumProb = childNumProb * self.genetics.fertility
+    local fertilityValue = fertility * (animalType.fertility:get(self.age) / 100)
 
+    if math.random() >= fertilityValue then return 0 end
 
-    if animalType == AnimalType.COW then
+    local factor = 0.75 + fertility / 4
 
-        if age <= 28 then
-            noChildProb = 40
-        elseif age <= 36 then
-            noChildProb = 32
-        elseif age <= 48 then
-            noChildProb = 24
-        elseif age <= 60 then
-            noChildProb = 21
-        elseif age <= 84 then
-            noChildProb = 70
-        elseif age <= 108 then
-            noChildProb = 220
-        elseif age <= 132 then
-            noChildProb = 460
-        else
-            noChildProb = 1000
-        end
+    if math.random() >= 0.25 then return animalType.pregnancy.average end
 
+    local amount = animalType.pregnancy.get(math.random() * factor)
 
-        if childNumProb <= noChildProb then
-            childNum = 0
-        elseif childNumProb >= 950 and childNumProb <= 997 then
-            childNum = 2
-        elseif childNumProb >= 997 then
-            childNum = 3
-        end
-
-    elseif animalType == AnimalType.PIG then
-
-        if age <= 12 then
-            noChildProb = 60
-        elseif age <= 36 then
-            noChildProb = 40
-        elseif age <= 60 then
-            noChildProb = 130
-        elseif age <= 80 then
-            noChildProb = 250
-        elseif age <= 96 then
-            noChildProb = 460
-        else
-            noChildProb = 1000
-        end
-
-
-        if childNumProb <= noChildProb then
-            childNum = 0
-        elseif childNumProb <= 90 then
-            childNum = math.random(1, 6)
-        elseif childNumProb <= 240 then
-            childNum = math.random(7, 10)
-        elseif childNumProb <= 850 then
-            childNum = math.random(11, 13)
-        else
-            childNum = math.random(14, 16)
-        end
-
-    elseif animalType == AnimalType.HORSE then
-
-        if age <= 12 then
-            noChildProb = 60
-        elseif age <= 48 then
-            noChildProb = 50
-        elseif age <= 60 then
-            noChildProb = 65
-        elseif age <= 84 then
-            noChildProb = 85
-        elseif age <= 108 then
-            noChildProb = 120
-        elseif age <= 132 then
-            noChildProb = 160
-        elseif age <= 156 then
-            noChildProb = 220
-        elseif age <= 180 then
-            noChildProb = 290
-        elseif age <= 216 then
-            noChildProb = 460
-        elseif age <= 240 then
-            noChildProb = 630
-        elseif age <= 264 then
-            noChildProb = 850
-        else
-            noChildProb = 1000
-        end
-
-
-        if childNumProb <= noChildProb then
-            childNum = 0
-        elseif childNumProb >= 955 and childNumProb <= 997 then
-            childNum = 2
-        elseif childNumProb >= 997 then
-            childNum = 3
-        end
-
-    elseif animalType == AnimalType.CHICKEN then
-
-        if age <= 12 then
-            noChildProb = 400
-        elseif age <= 24 then
-            noChildProb = 440
-        elseif age <= 36 then
-            noChildProb = 500
-        elseif age <= 48 then
-            noChildProb = 580
-        elseif age <= 60 then
-            noChildProb = 675
-        elseif age <= 84 then
-            noChildProb = 820
-        elseif age <= 120 then
-            noChildProb = 960
-        else
-            noChildProb = 1000
-        end
-
-
-        if childNumProb <= noChildProb then
-            childNum = 0
-        elseif childNumProb <= 480 then
-            childNum = math.random(1, 5)
-        elseif childNumProb <= 760 then
-            childNum = math.random(5, 7)
-        elseif childNumProb <= 920 then
-            childNum = math.random(7, 9)
-        else
-            childNum = math.random(10, 12)
-        end
-
-    elseif animalType == AnimalType.SHEEP then
-
-        if age <= 18 then
-            noChildProb = 280
-        elseif age <= 24 then
-            noChildProb = 220
-        elseif age <= 36 then
-            noChildProb = 180
-        elseif age <= 72 then
-            noChildProb = 140
-        elseif age <= 84 then
-            noChildProb = 320
-        elseif age <= 108 then
-            noChildProb = 600
-        elseif age <= 120 then
-            noChildProb = 870
-        else
-            noChildProb = 1000
-        end
-
-
-        if childNumProb <= noChildProb then
-            childNum = 0
-        elseif not isParent and childNumProb <= 870 then
-            childNum = 1
-        elseif age < 36 and childNumProb >= 500 and childNumProb <= 965 then
-            childNum = 2
-        elseif age >= 36 and age < 72 and childNumProb >= 350 and childNumProb <= 920 then
-            childNum = 2
-        elseif age >= 72 and childNumProb <= 980 then
-            childNum = 2
-        elseif age < 36 and childNumProb >= 965 then
-            childNum = 3
-        elseif age >= 36 and age < 72 and childNumProb >= 920 then
-            childNum = 3
-        elseif age >= 72 and childNumProb >= 980 then
-            childNum = 3
-        end
-
-    end
-
-    return childNum
+    return amount
 
 end
 
@@ -2514,7 +2522,7 @@ function Animal:getSellPrice()
 
     sellPrice = sellPrice + (((sellPrice * 0.6) / subType.targetWeight) * weight * (-1 + meatFactor))
 
-    if string.contains(self.subType, "HORSE", true) or string.contains(self.subType, "STALLION", true) then
+    if self.animalTypeIndex == AnimalType.HORSE then
         return math.max(sellPrice * meatFactor * weightFactor * (0.3 + 0.5 * self:getHealthFactor() + 0.3 * self:getRidingFactor() + 0.2 * self:getFitnessFactor() - 0.2 * self:getDirtFactor()), sellPrice * 0.05)
     end
 

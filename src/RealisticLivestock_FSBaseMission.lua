@@ -83,6 +83,7 @@ function RealisticLivestock_FSBaseMission:onStartMission()
 	RLSettings.applyDefaultSettings()
 
     local temp = self.environment.weather.temperatureUpdater.currentMin or 20
+	local isServer = self:getIsServer() 
 
     for _, placeable in pairs(self.husbandrySystem.placeables) do
 
@@ -93,7 +94,7 @@ function RealisticLivestock_FSBaseMission:onStartMission()
             animal:updateOutput(temp)
         end
 
-        if self.isServer then placeable:updateInputAndOutput(animals) end
+        if isServer then placeable:updateInputAndOutput(animals) end
 
     end
 
