@@ -100,21 +100,12 @@
 			<imageUVs value="0 0 1 1"/>
 			<imageSliceId value="noSlice"/>
 		</Profile>
-		<Profile name="fs25_animalInfoSeparator" extends="fs25_lineSeparatorTop">
-			<height value="1dp"/>
-			<absoluteSizeOffset value="-10px 0px"/>
-			<imageColor value="$preset_fs25_colorGrey"/>
-		</Profile>
 		<Profile name="rl_animalInfoDialogBg" extends="fs25_dialogBg">
 			<height value="860px"/>
 			<width value="860px"/>
 		</Profile>
 		<Profile name="rl_dialogBgMiddleLarge" extends="fs25_dialogBgMiddle" with="anchorStretchingYStretchingX pivotBottomCenter">
 			<absoluteSizeOffset value="0px 704px"/>
-		</Profile>
-		<Profile name="fs25_animalDetailsContainer" extends="baseReference" with="anchorTopCenter">
-			<size value="820px 800px"/>
-			<position value="0px -200px"/>
 		</Profile>
 		<Profile name="rl_animalInfoTitle" extends="fs25_textDefault" with="anchorTopLeft">
 			<textBold value="true"/>

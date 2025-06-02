@@ -7,14 +7,14 @@
 
   <Files>
     <File fileId="3" filename="$data/shaders/vehicleShader.xml"/>
-    <File fileId="5" filename="$data/shared/detailLibrary/flat_normal.dds"/>
-    <File fileId="6" filename="$data/shared/detailLibrary/metallic/clear_diffuse.dds"/>
-    <File fileId="4" filename="$data/shared/detailLibrary/metallic/clear_specular.dds"/>
+    <File fileId="5" filename="$data/shared/detailLibrary/flat_normal.png"/>
+    <File fileId="6" filename="$data/shared/detailLibrary/metallic/clear_diffuse.png"/>
+    <File fileId="4" filename="$data/shared/detailLibrary/metallic/clear_specular.png"/>
   </Files>
 
 
   <Materials>
-    <Material name="chromeMat.001" materialId="27" diffuseColor="0.8 0.8 0.8 1" specularColor="0.45098 1 0" customShaderId="3">
+    <Material name="chromeMat.001" materialId="13" diffuseColor="0.8 0.8 0.8 1" specularColor="0.501961 1 0" customShaderId="3">
       <Custommap name="detailSpecular" fileId="4"/>
       <Custommap name="detailNormal" fileId="5"/>
       <Custommap name="detailDiffuse" fileId="6"/>
@@ -26,7 +26,7 @@
   </Shapes>
 
   <Scene>
-    <Shape name="noseRing" shapeId="1" clipDistance="300" nodeId="8" castsShadows="true" receiveShadows="true" materialIds="27"/>
+    <Shape name="noseRing" shapeId="1" clipDistance="300" nodeId="8" castsShadows="true" receiveShadows="true" materialIds="13"/>
   </Scene>
 
 </i3D>

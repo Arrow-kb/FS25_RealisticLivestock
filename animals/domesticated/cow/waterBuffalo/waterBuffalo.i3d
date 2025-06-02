@@ -85,7 +85,7 @@
                       <TransformGroup name="cow_eyeball_R_skin_jnt" translation="-0.118429 0.060655 0.208753" rotation="145.635 -27.737 -141.239" nodeId="158"/>
                       <TransformGroup name="cow_upper_lid_L_skin_jnt" translation="0.141856 0.062183 0.230108" rotation="9.56099 -42.2904 3.73283" nodeId="159"/>
                       <TransformGroup name="cow_upper_lid_R_skin_jnt" translation="-0.141856 0.062183 0.230108" rotation="171.531 -42.2904 176.267" nodeId="160"/>
-                      <ReferenceNode name="noseRing" translation="0.00541614 -0.203746 0.452712" rotation="60.0824 0.746844 0.335526" scale="0.2 0.2 0.2" referenceId="4" nodeId="164"/>
+                      <ReferenceNode name="noseRing" translation="0.00541614 -0.203746 0.452712" rotation="60.0824 0.746844 0.335526" scale="0.5 0.5 0.5" referenceId="4" nodeId="164"/>
                     </TransformGroup>
                   </TransformGroup>
                 </TransformGroup>

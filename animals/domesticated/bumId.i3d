@@ -18,7 +18,7 @@
     </Material>
     <Material name="Material.001" materialId="6" specularColor="1 1 0" customShaderId="4">
       <Texture fileId="3"/>
-      <CustomParameter name="playScale" value="0 0 38 1"/>
+      <CustomParameter name="playScale" value="0 0 64 1"/>
     </Material>
   </Materials>
 

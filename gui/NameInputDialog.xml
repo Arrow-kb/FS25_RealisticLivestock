@@ -22,24 +22,4 @@
 			<Button profile="buttonMenuSwitch" text="$l10n_rl_button_random" onClick="onClickRandom" id="randomButton"/>
 		</BoxLayout>
 	</GuiElement>
-	<GUIProfiles>
-		<Profile name="fs25_textInputDialogBg" extends="fs25_dialogBg">
-			<size value="490px 200px"/>
-			<Variant name="mobile">
-				<size value="1200px 350px"/>
-			</Variant>
-		</Profile>
-		<Profile name="fs25_textInputDialogText" extends="fs25_dialogText">
-			<position value="0px -25px"/>
-			<textSize value="15px"/>
-			<textWrapWidth value="370px"/>
-			<Variant name="mobile">
-				<position value="0px -70px"/>
-				<size value="1100px 30px"/>
-				<textSize value="35px"/>
-				<textMaxWidth value="1100px"/>
-				<textMaxNumLines value="2"/>
-			</Variant>
-		</Profile>
-	</GUIProfiles>
 </GUI>
