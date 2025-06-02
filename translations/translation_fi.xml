@@ -209,51 +209,51 @@
 		<text name="rl_ui_sellBulkResult" text="%s eläintä myytiin %s:lla" tag="format" />
 		<text name="rl_ui_moveBulkResult" text="%s eläintä siirrettiin" tag="format" />
 
-		<text name="rl_ui_monitor" text="Monitor"/>
-		<text name="rl_ui_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="finance_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="rl_ui_monitorFee" text="Monitor fee"/>
-		<text name="rl_ui_applyMonitor" text="Apply Monitor"/>
-		<text name="rl_ui_removeMonitor" text="Remove Monitor"/>
-		<text name="rl_ui_input_food" text="Food"/>
-		<text name="rl_ui_input_water" text="Water"/>
-		<text name="rl_ui_input_straw" text="Straw"/>
-		<text name="rl_ui_output_milk" text="Milk"/>
-		<text name="rl_ui_output_manure" text="Manure"/>
-		<text name="rl_ui_output_liquidManure" text="Liquid manure"/>
-		<text name="rl_ui_output_pallets_eggs" text="Eggs"/>
-		<text name="rl_ui_output_pallets_wool" text="Wool"/>
-		<text name="rl_ui_output_pallets_goatMilk" text="Goat milk"/>
-		<text name="rl_ui_amountPerDay" text="%.0fL / day" tag="format"/>
-		<text name="rl_ui_feePerMonth" text="%s / month" tag="format"/>
+		<text name="rl_ui_monitor" text="Seurantalaitteet"/>
+		<text name="rl_ui_monitorSubscriptions" text="Seurantalaitetilaukset"/>
+		<text name="finance_monitorSubscriptions" text="Seurantalaitetilaukset"/>
+		<text name="rl_ui_monitorFee" text="Seurantalaitemaksu"/>
+		<text name="rl_ui_applyMonitor" text="Aseta seurantalaite"/>
+		<text name="rl_ui_removeMonitor" text="Poista seurantalaite"/>
+		<text name="rl_ui_input_food" text="Ruoka"/>
+		<text name="rl_ui_input_water" text="Vesi"/>
+		<text name="rl_ui_input_straw" text="Olki"/>
+		<text name="rl_ui_output_milk" text="Maito"/>
+		<text name="rl_ui_output_manure" text="Lanta"/>
+		<text name="rl_ui_output_liquidManure" text="Liete"/>
+		<text name="rl_ui_output_pallets_eggs" text="Munia"/>
+		<text name="rl_ui_output_pallets_wool" text="Villa"/>
+		<text name="rl_ui_output_pallets_goatMilk" text="Vuohenmaito"/>
+		<text name="rl_ui_amountPerDay" text="%.0fl / päivä" tag="format"/>
+		<text name="rl_ui_feePerMonth" text="%s / kk" tag="format"/>
 
-		<text name="rl_ui_animalType" text="Type"/>
-		<text name="rl_ui_amountMonitored" text="Monitored"/>
-		<text name="rl_ui_production" text="Products"/>
-		<text name="rl_ui_applyAllMonitor" text="Apply All Monitors"/>
-		<text name="rl_ui_removeAllMonitor" text="Remove All Monitors"/>
-		<text name="rl_ui_fee" text="Fee"/>
+		<text name="rl_ui_animalType" text="Eläintyyppi"/>
+		<text name="rl_ui_amountMonitored" text="Seurannassa"/>
+		<text name="rl_ui_production" text="Tuotanto"/>
+		<text name="rl_ui_applyAllMonitor" text="Aseta kaikille seurantalaite"/>
+		<text name="rl_ui_removeAllMonitor" text="Poista kaikilta seurantalaite"/>
+		<text name="rl_ui_fee" text="Maksu"/>
 
-		<text name="rl_ui_leftEarTag" text="Left Ear Tag"/>
-		<text name="rl_ui_rightEarTag" text="Right Ear Tag"/>
-		<text name="rl_ui_backgroundColour" text="Background Colour"/>
-		<text name="rl_ui_backgroundHue" text="Background Hue"/>
-		<text name="rl_ui_backgroundRgb" text="Background RGB"/>
-		<text name="rl_ui_textColour" text="Text Colour"/>
-		<text name="rl_ui_textHue" text="Text Hue"/>
-		<text name="rl_ui_textRgb" text="Text RGB"/>
+		<text name="rl_ui_leftEarTag" text="Vasen korvamerkki"/>
+		<text name="rl_ui_rightEarTag" text="Oikea korvamerkki"/>
+		<text name="rl_ui_backgroundColour" text="Taustaväri"/>
+		<text name="rl_ui_backgroundHue" text="Taustan sävy"/>
+		<text name="rl_ui_backgroundRgb" text="Taustan RGB"/>
+		<text name="rl_ui_textColour" text="Tekstin väri"/>
+		<text name="rl_ui_textHue" text="Tekstin sävy"/>
+		<text name="rl_ui_textRgb" text="Tekstin RGB"/>
 
-		<text name="rl_ui_formatMonths" text="%s months"/>
-		<text name="rl_ui_formatMonth" text="%s month"/>
-		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
-		<text name="rl_ui_any" text="Any"/>
-		<text name="rl_ui_pregnancy" text="Pregnancy"/>
-		<text name="rl_ui_productivity" text="Pregnancy"/>
-		<text name="rl_ui_selectAll" text="Select All"/>
-		<text name="rl_ui_selectNone" text="Select None"/>
-		<text name="rl_ui_filters" text="Filters"/>
-		<text name="rl_ui_doesntHaveName" text="No Name"/>
-		<text name="rl_ui_doesHaveName" text="Has Name"/>
+		<text name="rl_ui_formatMonths" text="%s kuukautta"/>
+		<text name="rl_ui_formatMonth" text="%s kuukausi"/>
+		<text name="rl_ui_notPregnant" text="Ei tiineenä"/>
+		<text name="rl_ui_any" text="Mikä tahansa"/>
+		<text name="rl_ui_pregnancy" text="Tiineys"/>
+		<text name="rl_ui_productivity" text="Tuottavuus"/>
+		<text name="rl_ui_selectAll" text="Valitse kaikki"/>
+		<text name="rl_ui_selectNone" text="Älä valitse mitään"/>
+		<text name="rl_ui_filters" text="Suodattimet"/>
+		<text name="rl_ui_doesntHaveName" text="Ei ole nimeä"/>
+		<text name="rl_ui_doesHaveName" text="On nimi"/>
 
 
 
@@ -261,7 +261,7 @@
 		<!--  SETTINGS  -->
 		
 
-		<text name="rl_settings" text="Realistic Livestock" />
+		<text name="rl_settings" text="Realistinen karja" />
 
 		<text name="rl_settings_off" text="Pois" />
 		<text name="rl_settings_on" text="Päällä" />
@@ -276,46 +276,46 @@
 		<text name="rl_settings_foodScale_label" text="Ruokaskaala" />
 		<text name="rl_settings_foodScale_tooltip" text="Muuttaa eläinten kuluttamaa ruuan määrää" />
 
-		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
-		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
+		<text name="rl_settings_maxDealerAnimals_label" text="Eläinten enimmäismäärä eläinkauppiaalla"/>
+		<text name="rl_settings_maxDealerAnimals_tooltip" text="Muuta eläinkauppiaalta ostettavien eläinten enimmäismäärää eläinlajia kohden"/>
 
-		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
-		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
-		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
+		<text name="rl_settings_tagColour_label" text="Muuta merkin väriä"/>
+		<text name="rl_settings_tagColour_tooltip" text="Muuta korvamerkin väriä"/>
+		<text name="rl_settings_tagColour_text" text="Muuta merkin väriä"/>
 
 
 
 		<!--  HELP  -->
 
 
-		<text name="rl_help_monitors_title" text="Monitors"/>
-		<text name="rl_help_monitors_1" text="In order to see the majority of an animal's statistics, you need to apply a monitoring tag to it, which can be done through the animal menu (where you buy and sell animals). Monitoring tags are also visually shown on the animal, on their left ear next to their ID tag."/>
-		<text name="rl_help_monitors_2" text="Monitoring tags will result in important information being shown to you, including health, weight, lactation, production, and straw, food and water requirements."/>
-		<text name="rl_help_monitors_3" text="Applying a tag to an animal will cost you a small monthly subscription based on the animal's species. If you choose to remove the tag, the tag will be removed at the start of the next month."/>
+		<text name="rl_help_monitors_title" text="Seurantalaitteet"/>
+		<text name="rl_help_monitors_1" text="Nähdäksesi suurimman osan eläimen tilastoista, sinun on kiinnitettävä siihen seurantalaite, jonka voit tehdä eläinvalikon kautta (jossa ostetaan ja myydään eläimiä). Seurantalaitteet näkyvät myös visuaalisesti eläimen vasemmassa korvassa, tunnistemerkin vieressä."/>
+		<text name="rl_help_monitors_2" text="Seurantalaitteen avulla sinulle näytetään tärkeitä tietoja, mm. terveys, paino, imetys, tuotanto sekä olkien, ruoan ja veden tarve."/>
+		<text name="rl_help_monitors_3" text="Laitteen kiinnittämisestä peritään pieni kuukausimaksun eläimen lajin mukaan. Jos päätät poistaa laitteen, niin se poistetaan seuraavan kuun alussa."/>
 
-		<text name="rl_help_pregnancy_title" text="Pregnancy"/>
-		<text name="rl_help_pregnancy_1" text="Female animals all require at least 1 male animal in order to potentially become pregnant. Both animals must be of the correct age and health, and must be from the same species. Breeding between different breeds (eg: holstein cow and angus bull) is allowed."/>
-		<text name="rl_help_pregnancy_2" text="Inbreeding is not allowed. If a male and a female are directly related, they will not breed together."/>
-		<text name="rl_help_pregnancy_3" text="The chance for a female to become pregnant depends upon both her and the male's fertility. A female with higher fertility also has a significantly higher chance of producing more offspring at once."/>
-		<text name="rl_help_pregnancy_4" text="Once a female becomes pregnant, she will start to carry her offspring. You can view the expected date of pregnancy and the number of offspring by looking at the animal in the pen, or by clicking on her in the animal menu."/>
-		<text name="rl_help_pregnancy_5" text="When she reaches her due date, she will give birth to her babies. However, the newborns have a certain chance of being removed, as does the mother if the pregnancy goes badly. Newborns that are born in an overcrowded pen will be sold automatically."/>
+		<text name="rl_help_pregnancy_title" text="Tiineys"/>
+		<text name="rl_help_pregnancy_1" text="Kaikki naaraspuoliset eläimet tarvitsevat vähintään yhden uroseläimen tullakseen tiineeksi. Molempien eläinten on oltava oikean ikäisiä, terveitä sekä samaa lajia. Jalostus eri rotujen välillä (esim. holstein-lehmä ja angushärkä) on sallittua."/>
+		<text name="rl_help_pregnancy_2" text="Sukusiitos ei ole sallittua. Jos uros ja naaras ovat suoraan sukua, he eivät lisäänny yhdessä."/>
+		<text name="rl_help_pregnancy_3" text="Naaraan mahdollisuus tulla tiineeksi riippuu kummankin hedelmällisyydestä. Naaralla, jolla on korkeampi hedelmällisyys, on myös huomattavasti suurempi mahdollisuus tuottaa kerralla enemmän jälkeläisiä."/>
+		<text name="rl_help_pregnancy_4" text="Kun naaras tulee tiineeksi, alkaa se kantamaan jälkeläisiä. Näet odotetun tiineyden päivämäärän ja jälkeläisten lukumäärän katsomalla eläintä karsinassa tai klikkaamalla sitä eläinvalikosta."/>
+		<text name="rl_help_pregnancy_5" text="Naaras poikii odottettuna päivänä. Vastasyntyneillä on kuitenkin tietty mahdollisuus poistua, kuten myös emolla, jos raskaus sujuu huonosti. Ahtaaseen karsinaan syntyneet vastasyntyneet myydään automaattisesti."/>
 
-		<text name="rl_help_production_title" text="Production"/>
-		<text name="rl_help_production_1" text="Cows of any breed will only begin to produce milk after giving birth. Once she has given birth, the cow will produce milk exponentially for 3 months, then her production will slowly drop for the next 6 months. 10 months after pregnancy, the cow will stop producing milk until her next pregnancy."/>
-		<text name="rl_help_production_2" text="Sheep will produce wool in warm months. In cold months, under 12C, they will not produce wool."/>
-		<text name="rl_help_production_3" text="Milk, wool and egg production is further affected by the animal's genetics. An animal with good production genetics will produce more, whereas animal with bad genetics wont produce much at all."/>
+		<text name="rl_help_production_title" text="Tuottavuus"/>
+		<text name="rl_help_production_1" text="Kaikkien rotujen lehmät alkavat tuottaa maitoa vasta poikimisen jälkeen. Kun lehmä on poikinut, se tuottaa maitoa eksponentiaalisesti 3 kuukauden ajan, minkä jälkeen tuotanto laskee hitaasti seuraavan 6 kuukauden ajan. 10 kuukautta tiineyden jälkeen lehmä lopettaa maidontuotannon seuraavaan tiineyteen asti."/>
+		<text name="rl_help_production_2" text="Lampaat tuottavat villaa lämpiminä kuukausina. Kylminä kuukausina alle 12 C:ssa ne eivät tuota villaa."/>
+		<text name="rl_help_production_3" text="Maidon, villan ja munien tuotantoon vaikuttaa eläimen genetiikka. Eläin, jolla on hyvä tuotantogenetiikka, tuottaa enemmän, kun taas eläin, jolla on huono genetiikka, ei tuota juuri ollenkaan."/>
 
-		<text name="rl_help_weight_title" text="Weight"/>
-		<text name="rl_help_weight_1" text="Animals have a certain weight that which is affected by how much they eat and drink. Every species and breed has its own average weight which affects the weight of each animal."/>
-		<text name="rl_help_weight_2" text="Weight increases the value of the animal, and a low weight affects its chance of being removed each month."/>
+		<text name="rl_help_weight_title" text="Paino"/>
+		<text name="rl_help_weight_1" text="Eläimillä on tietty paino, johon vaikuttaa se, kuinka paljon ne syövät ja juovat. Jokaisella lajilla ja rodulla on oma keskipainonsa, joka vaikuttaa kunkin eläimen painoon."/>
+		<text name="rl_help_weight_2" text="Paino nostaa eläimen arvoa ja alhainen paino vaikuttaa sen mahdollisuuteen poistua joka kuukausi."/>
 
-		<text name="rl_help_genetics_title" text="Genetics"/>
-		<text name="rl_help_genetics_1" text="Each animal has 4 different genetic values; metabolism, fertility, health and quality. Genetics are mixed between the mother and father and then passed down to their children."/>
-		<text name="rl_help_genetics_2" text="Metabolism affects the animal's ability to convert food into weight, and affects the amount it eats."/>
-		<text name="rl_help_genetics_3" text="Fertility affects the animal's chance of getting pregnant, or getting a female pregnant, and the number of offspring it will produce."/>
-		<text name="rl_help_genetics_3" text="Health affects the animal's health and its chance of being removed each month. An animal with higher health genetics will also have a longer lifespan."/>
-		<text name="rl_help_genetics_4" text="Quality affects the value of the animal itself, an animal with higher quality will sell for much more."/>
-		<text name="rl_help_genetics_5" text="Cattle, sheep and chicken also have production genetics, which affects how much milk/eggs/wool they produce."/>
+		<text name="rl_help_genetics_title" text="Genetiikka"/>
+		<text name="rl_help_genetics_1" text="Jokaisella eläimellä on 4 erilaista geneettistä arvoa: aineenvaihdunta, hedelmällisyys, terveys ja laatu. Genetiikka sekoitetaan emon ja isän välillä ja välitetään sitten poikasille."/>
+		<text name="rl_help_genetics_2" text="Aineenvaihdunta vaikuttaa eläimen kykyyn muuntaa ruokaa painoksi ja vaikuttaa sen syömään määrään."/>
+		<text name="rl_help_genetics_3" text="Hedelmällisyys vaikuttaa naaraan mahdollisuuteen tulla tiineeksi ja poikasten määrään, sekä uuroksen mahdollisuutta saattaa naaras tiineeksi."/>
+		<text name="rl_help_genetics_3" text="Terveys vaikuttaa eläimen terveyteen ja sen mahdollisuuteen poistua joka kuukausi. Eläimillä, joilla on korkeampi terveysgenetiikka, on myös pidempi elinikä."/>
+		<text name="rl_help_genetics_4" text="Laatu vaikuttaa itse eläimen arvoon, laadukkaammasta eläimestä saa korkeamman hinnan."/>
+		<text name="rl_help_genetics_5" text="Nautaeläimillä, lampailla ja kanoilla on myös tuotantogenetiikkaa, joka vaikuttaa siihen, kuinka paljon maitoa/munia/villaa ne tuottavat."/>
 		
 	</texts>
 </l10n>
