@@ -119,7 +119,7 @@
 		<text name="rl_ui_health" text="Kondice"/>
 		<text name="rl_ui_fertility" text="Plodnost"/>
 
-		<text name="rl_ui_genetics_infertile" text="Infertile"/>
+		<text name="rl_ui_genetics_infertile" text="Neplodná"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Extrémně nízká"/>
 		<text name="rl_ui_genetics_veryLow" text="Velmi nízká"/>
 		<text name="rl_ui_genetics_low" text="Nízká"/>
@@ -209,7 +209,7 @@
 		<text name="rl_ui_sellBulkResult" text="%s zvířat prodáno za %s" tag="format"/>
 		<text name="rl_ui_moveBulkResult" text="%s zvířat přesunuto" tag="format"/>
 
-		<text name="rl_ui_monitor" text="Monitor"/>
+		<text name="rl_ui_monitor" text="Monitoring"/>
 		<text name="rl_ui_monitorSubscriptions" text="Monitorovaná předplatná"/>
 		<text name="finance_monitorSubscriptions" text="Monitorovaná předplatná"/>
 		<text name="rl_ui_monitorFee" text="Poplatek za monitorování"/>
