@@ -7,6 +7,8 @@
 		<text name="fillType_bull_holstein" text="Býk plemene Holštýn"/>
 		<text name="fillType_bull_angus" text="Býk plemene Angus"/>
 		<text name="fillType_bull_limousin" text="Býk plemene Limousin"/>
+		<text name="fillType_cow_hereford" text="Hereford"/>
+		<text name="fillType_bull_hereford" text="Herefordský býk"/>
 		<text name="animal_descriptionBullFeed" text="Býci mají rádi trávu, seno a TMR (směsná krmná dávka)."/>
 		<text name="animal_descriptionBullYoung" text="Toto je tele býčka."/>
 		<text name="animal_descriptionBullReproduction" text="Býci, kteří jsou zdraví a starší 12 měsíců, se mohou rozmnožovat."/>
@@ -77,7 +79,7 @@
 		<text name="rl_ui_tooYoungBracketed" text="Ne (příliš mladé)"/>
 		<text name="rl_ui_pregnant" text="Březí"/>
 		<text name="rl_ui_lactating" text="Kojící"/>
-		<text name="rl_ui_canReproduce" text="Může se rozmnožovat"/>
+		<text name="rl_ui_canReproduce" text="Možnost reprodukce"/>
 		<text name="rl_ui_impregnatedBy" text="Oplodněn/a kým"/>
 		<text name="rl_ui_unknown" text="Neznámé"/>
 		<text name="rl_ui_yes" text="Ano"/>
@@ -101,8 +103,8 @@
 
 		<text name="rl_ui_breederQuality" text="Chovatelská kvalita"/>
 		<text name="rl_ui_birthday" text="Narozeniny"/>
-		<text name="rl_ui_pregnancyExpected" text="Březost"/>
-		<text name="rl_ui_pregnancyExpecting" text="Březí"/>
+		<text name="rl_ui_pregnancyExpected" text="Porod"/>
+		<text name="rl_ui_pregnancyExpecting" text="Čeká"/>
 		<text name="rl_ui_pregnancyBaby" text="Mládě"/>
 		<text name="rl_ui_pregnancyBabies" text="Mláďata"/>
 		<text name="rl_ui_animalOrigin" text="Původ"/>
@@ -119,7 +121,7 @@
 		<text name="rl_ui_health" text="Kondice"/>
 		<text name="rl_ui_fertility" text="Plodnost"/>
 
-		<text name="rl_ui_genetics_infertile" text="Infertile"/>
+		<text name="rl_ui_genetics_infertile" text="Neplodná"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Extrémně nízká"/>
 		<text name="rl_ui_genetics_veryLow" text="Velmi nízká"/>
 		<text name="rl_ui_genetics_low" text="Nízká"/>
@@ -209,18 +211,18 @@
 		<text name="rl_ui_sellBulkResult" text="%s zvířat prodáno za %s" tag="format"/>
 		<text name="rl_ui_moveBulkResult" text="%s zvířat přesunuto" tag="format"/>
 
-		<text name="rl_ui_monitor" text="Monitor"/>
+		<text name="rl_ui_monitor" text="Monitoring"/>
 		<text name="rl_ui_monitorSubscriptions" text="Monitorovaná předplatná"/>
 		<text name="finance_monitorSubscriptions" text="Monitorovaná předplatná"/>
 		<text name="rl_ui_monitorFee" text="Poplatek za monitorování"/>
 		<text name="rl_ui_applyMonitor" text="Použít monitor"/>
 		<text name="rl_ui_removeMonitor" text="Odebrat monitor"/>
 		<text name="rl_ui_input_food" text="Krmivo"/>
-		<text name="rl_ui_input_water" text="Voda"/>Add commentMore actions
+		<text name="rl_ui_input_water" text="Voda"/>
 		<text name="rl_ui_input_straw" text="Sláma"/>
 		<text name="rl_ui_output_milk" text="Mléko"/>
 		<text name="rl_ui_output_manure" text="Hnůj"/>
-		<text name="rl_ui_output_liquidManure" text="Tekutý hnůj"/>
+		<text name="rl_ui_output_liquidManure" text="Močůvka"/>
 		<text name="rl_ui_output_pallets_eggs" text="Vejce"/>
 		<text name="rl_ui_output_pallets_wool" text="Vlna"/>
 		<text name="rl_ui_output_pallets_goatMilk" text="Kozí mléko"/>
@@ -248,14 +250,12 @@
 		<text name="rl_ui_notPregnant" text="Není březí"/>
 		<text name="rl_ui_any" text="Jakýkoli"/>
 		<text name="rl_ui_pregnancy" text="Březost"/>
-		<text name="rl_ui_productivity" text="Březost"/>
+		<text name="rl_ui_productivity" text="Produktivita"/>
 		<text name="rl_ui_selectAll" text="Vybrat vše"/>
 		<text name="rl_ui_selectNone" text="Zrušit výběr"/>
 		<text name="rl_ui_filters" text="Filtry"/>
 		<text name="rl_ui_doesntHaveName" text="Bez jména"/>
 		<text name="rl_ui_doesHaveName" text="Má jméno"/>
-
-
 
 
 		<!--  SETTINGS  -->
@@ -266,12 +266,12 @@
 		<text name="rl_settings_off" text="Vypnuto"/>
 		<text name="rl_settings_on" text="Zapnuto"/>
 
-		<text name="rl_settings_deathEnabled_label" text="Uhynutí zvířat"/>
+		<text name="rl_settings_deathEnabled_label" text="Úhyn zvířat"/>
 		<text name="rl_settings_deathEnabled_tooltip_1" text="Zvířata nebudou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
 		<text name="rl_settings_deathEnabled_tooltip_2" text="Zvířata budou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
 
 		<text name="rl_settings_accidentsChance_label" text="Pravděpodobnost nehody"/>
-		<text name="rl_settings_accidentsChance_tooltip" text="Změnit pravděpodobnost uhynutí zvířat kvůli náhodným nehodám"/>
+		<text name="rl_settings_accidentsChance_tooltip" text="Změnit pravděpodobnost úhynu zvířat kvůli náhodným nehodám"/>
 		
 		<text name="rl_settings_foodScale_label" text="Množství potravy"/>
 		<text name="rl_settings_foodScale_tooltip" text="Změna množství potravy, kterou zvířata konzumují"/>
@@ -287,16 +287,15 @@
 		<text name="rl_settings_tagColour_tooltip" text="Změnit barvu ušních značek"/>
 		<text name="rl_settings_tagColour_text" text="Změnit barvu značky"/>
 
-		<text name="rl_settings_exportCSV_label" text="Export To CSV"/>
-		<text name="rl_settings_exportCSV_tooltip" text="Export stats to CSV"/>
-		<text name="rl_settings_exportCSV_text" text="Export To CSV"/>
-
+		<text name="rl_settings_exportCSV_label" text="Exportovat do CSV"/>
+		<text name="rl_settings_exportCSV_tooltip" text="Exportovat statistiky do CSV"/>
+		<text name="rl_settings_exportCSV_text" text="Exportovat do CSV"/>
 
 
 		<!--  HELP  -->
 
 
-		<text name="rl_help_monitors_title" text="Monitory"/>
+		<text name="rl_help_monitors_title" text="Monitoring"/>
 		<text name="rl_help_monitors_1" text="Abyste viděli většinu statistik zvířete, musíte na něj použít monitorovací značku, což lze provést v nabídce zvířat (kde nakupujete a prodáváte zvířata). Monitorovací štítky se na zvířeti zobrazují také vizuálně, a to na jeho levém uchu vedle identifikačního štítku."/>
 		<text name="rl_help_monitors_2" text="Sledování značek vám poskytne důležité informace, včetně informací o zdravotním stavu, hmotnosti, laktaci, produkci a požadavcích na slámu, krmivo a vodu."/>
 		<text name="rl_help_monitors_3" text="Aplikace značky na zvíře vás bude stát malé měsíční předplatné podle druhu zvířete. Pokud se rozhodnete značku odstranit, bude odstraněna na začátku následujícího měsíce."/>
