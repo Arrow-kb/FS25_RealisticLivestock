@@ -52,6 +52,8 @@ function RLSettings.onClickExportCSV()
 
 	file:close()
 
+	InfoDialog.show(modSettingsDirectory .. "animals.csv")
+
 end
 
 
@@ -128,32 +130,25 @@ RLSettings.Button = nil
 
 function RLSettings.loadFromXMLFile()
 
-	local savegameIndex = g_careerScreen.savegameList.selectedIndex
-	local savegame = g_savegameController:getSavegame(savegameIndex)
+	local path = g_currentMission.missionInfo.savegameDirectory .. "/rlSettings.xml"
 
-	if savegame ~= nil and savegame.savegameDirectory ~= nil then
+	local xmlFile = XMLFile.loadIfExists("rlSettings", path)
 
-		local path = savegame.savegameDirectory .. "/rlSettings.xml"
+	if xmlFile ~= nil then
 
-		local xmlFile = XMLFile.loadIfExists("rlSettings", path)
-
-		if xmlFile ~= nil then
-
-			local key = "settings"
+		local key = "settings"
 			
-			for name, setting in pairs(RLSettings.SETTINGS) do
+		for name, setting in pairs(RLSettings.SETTINGS) do
 
-				if setting.ignore then continue end
+			if setting.ignore then continue end
 
-				setting.state = xmlFile:getInt(key .. "." .. name .. "#value", setting.default)
+			setting.state = xmlFile:getInt(key .. "." .. name .. "#value", setting.default)
 
-				if setting.state > #setting.values then setting.state = #setting.values end
-
-			end
-
-			xmlFile:delete()
+			if setting.state > #setting.values then setting.state = #setting.values end
 
 		end
+
+		xmlFile:delete()
 
 	end
 
@@ -162,37 +157,36 @@ end
 
 function RLSettings.saveToXMLFile(name, state)
 
+	if RLSettings.isSaving then return end
+
 	if g_server ~= nil then
 
-		local savegameIndex = g_careerScreen.savegameList.selectedIndex
-		local savegame = g_savegameController:getSavegame(savegameIndex)
+		RLSettings.isSaving = true
 
-		if savegame ~= nil and savegame.savegameDirectory ~= nil then
+		local path = g_currentMission.missionInfo.savegameDirectory .. "/rlSettings.xml"
+		--local xmlFile = XMLFile.loadIfExists("rlSettings", path)
+		local xmlFile = XMLFile.create("rlSettings", path, "settings")
 
-			local path = savegame.savegameDirectory .. "/rlSettings.xml"
-			--local xmlFile = XMLFile.loadIfExists("rlSettings", path)
-			local xmlFile = XMLFile.create("rlSettings", path, "settings")
+		--if xmlFile == nil then xmlFile = XMLFile.create("rlSettings", path, "settings") end
 
-			--if xmlFile == nil then xmlFile = XMLFile.create("rlSettings", path, "settings") end
+		if xmlFile ~= nil then
 
-			if xmlFile ~= nil then
+			--xmlFile:setInt("settings." .. name .. "#value", state)
 
-				--xmlFile:setInt("settings." .. name .. "#value", state)
-
-				for settingName, setting in pairs(RLSettings.SETTINGS) do
-					if setting.ignore then continue end
-					xmlFile:setInt("settings." .. settingName .. "#value", setting.state)
-				end
-
-				local saved = xmlFile:save(false, true)
-
-				xmlFile:delete()
-
+			for settingName, setting in pairs(RLSettings.SETTINGS) do
+				if setting.ignore then continue end
+				xmlFile:setInt("settings." .. settingName .. "#value", setting.state)
 			end
+
+			local saved = xmlFile:save(false, true)
+
+			xmlFile:delete()
 
 		end
 
 	end
+
+	RLSettings.isSaving = false
 
 end
 
@@ -349,7 +343,7 @@ function RLSettings.onSettingChanged(_, state, button)
 
 	if g_server ~= nil then
 
-		RLSettings.saveToXMLFile(name, state)
+		--RLSettings.saveToXMLFile(name, state)
 
 	else
 

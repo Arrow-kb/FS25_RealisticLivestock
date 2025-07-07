@@ -116,11 +116,11 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
         if type(animalIds) ~= "table" then continue end
 
         local idsToRemove = {}
-        local idIndex = 1
 
         for animalId, animal in pairs(animalIds) do
 
             if removeAll or animal == nil or animal.isSold or animal.isDead or animal.id == nil or animal.uniqueId == "1-1" or animal.uniqueId == "0-0" or animal.numAnimals <= 0 then
+
                 self.husbandryIdsToVisualAnimalCount[self.husbandryIds[husbandryId]] = math.max(self.husbandryIdsToVisualAnimalCount[self.husbandryIds[husbandryId]] - 1, 0)
                 self.visualAnimalCount = math.max(self.visualAnimalCount - 1, 0)
                 removeHusbandryAnimal(self.husbandryIds[husbandryId], animalId)
@@ -128,15 +128,17 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
                     animal.id = nil
                     animal.idFull = nil
                 end
-                table.insert(idsToRemove, idIndex)
+
+                table.insert(idsToRemove, animalId)
+
             end
 
-            idIndex = idIndex + 1
         end
 
-        for i=#idsToRemove, 1, -1 do
-            table.remove(animalIds, idsToRemove[i])
+        for _, animalId in pairs(idsToRemove) do
+            animalIds[animalId] = nil
         end
+
     end
 
 

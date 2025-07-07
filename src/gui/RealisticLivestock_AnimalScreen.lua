@@ -89,7 +89,7 @@ function RealisticLivestock_AnimalScreen:onClickSellMode(a, b)
     self.pendingBulkTransaction = nil
     self.filters = nil
     self.filteredItems = nil
-    
+
     self.buttonToggleSelectAll:setVisible(true)
     self.buttonToggleSelectAll:setText(g_i18n:getText("rl_ui_selectAll"))
     self.buttonBuySelected:setText(self.isTrailerFarm and g_i18n:getText("rl_ui_moveSelected") or g_i18n:getText("rl_ui_sellSelected"))
@@ -149,11 +149,13 @@ function RealisticLivestock_AnimalScreen:changeName(text, clickOk)
 
         local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
         local animal = item.animal or item.cluster
-        
+
         if animal ~= nil then
 
             text = text ~= "" and text or nil
             animal.name = text
+
+            AnimalNameChangeEvent.sendEvent(animal.clusterSystem.owner, animal, text)
 
             local visualData = g_currentMission.animalSystem:getVisualByAge(animal.subTypeIndex, animal.age)
 
@@ -170,6 +172,7 @@ function RealisticLivestock_AnimalScreen:changeName(text, clickOk)
                     if rootNode ~= 0 then
 
                         local earTagNode = I3DUtil.indexToObject(rootNode, visualData.earTagRight)
+                        local numCharacters = RealisticLivestock.NUM_CHARACTERS
 
                         if earTagNode ~= nil and earTagNode ~= 0 then
 
@@ -225,7 +228,7 @@ function RealisticLivestock_AnimalScreen:changeName(text, clickOk)
                                     local characterScale = 0
 
                                     if #word > 6 then
-                                
+
                                         sx, sy, sz = getScale(templateNodeFront)
                                         characterScale = math.min((#word - 6) * 0.02, 0.2)
 
@@ -288,7 +291,7 @@ function RealisticLivestock_AnimalScreen:changeName(text, clickOk)
             end
 
         end
-        
+
         g_animalScreen:updateInfoBox()
     end
 
@@ -376,11 +379,19 @@ AnimalScreen.onClickInfoMode = RealisticLivestock_AnimalScreen.onClickInfoMode
 function AnimalScreen:onClickMonitor()
 
     local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
+
+    if item == nil then return end
+
     local animal = item.animal or item.cluster
+
+    if animal == nil then return end
+
     local monitor = animal.monitor
 
     monitor.active = not monitor.active
     monitor.removed = not monitor.active
+
+    AnimalMonitorEvent.sendEvent(animal.clusterSystem.owner, animal, monitor.active, monitor.removed)
 
     self.buttonMonitor:setText(g_i18n:getText("rl_ui_" .. (monitor.active and "remove" or "apply") .. "Monitor"))
     self.buttonMonitor:setDisabled(monitor.removed)
@@ -447,7 +458,7 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
             self.detailsContainer:setVisible(true)
 
             local animal = item.animal or item.cluster
-        
+
             self.inputBox:setVisible(self.isInfoMode and (animal.monitor.active or animal.monitor.removed))
             self.outputBox:setVisible(self.isInfoMode and (animal.monitor.active or animal.monitor.removed))
 
@@ -585,7 +596,7 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
 
 
             self.infoBox:setVisible(not self.isInfoMode)
-            self.numAnimalsBox:setVisible(not self.isInfoMode)
+            --self.numAnimalsBox:setVisible(not self.isInfoMode)
             self.parentBox:setVisible(self.isInfoMode and not self.isBuyMode)
             self.geneticsBox:setVisible(self.isInfoMode)
             self.buttonRename:setVisible(self.isInfoMode)
@@ -599,7 +610,7 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
 
     end
 
-    --self.numAnimalsBox:setVisible(false)
+    self.numAnimalsBox:setVisible(false)
 
 end
 
@@ -639,7 +650,7 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, keepSelection)
         self.targetSelector:setState(1)
         self:setSelectionState(AnimalScreen.SELECTION_SOURCE)
     end
-    
+
     self:onTargetSelectionChanged(true)
 
     local hasAnimals = self.sourceList:getItemCount() > 0
@@ -647,8 +658,8 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, keepSelection)
 
     self.detailsContainer:setVisible(hasAnimals)
     self.infoBox:setVisible(not self.isInfoMode)
-    self.numAnimalsBox:setVisible(not self.isInfoMode)
-    --self.numAnimalsBox:setVisible(false)
+    --self.numAnimalsBox:setVisible(not self.isInfoMode)
+    self.numAnimalsBox:setVisible(false)
     self.parentBox:setVisible(self.isInfoMode)
     self.geneticsBox:setVisible(self.isInfoMode)
 
@@ -686,7 +697,7 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, keepSelection)
 
     self.buttonsPanel:invalidateLayout()
 
-    --self:setSelectionState(1) -- ?
+    self:setSelectionState(1) -- ?
 
 end
 
@@ -696,13 +707,14 @@ AnimalScreen.updateScreen = Utils.overwrittenFunction(AnimalScreen.updateScreen,
 function RealisticLivestock_AnimalScreen:setMaxNumAnimals()
 
     self.infoBox:setVisible(not self.isInfoMode)
-    self.numAnimalsBox:setVisible(not self.isInfoMode)
+    --self.numAnimalsBox:setVisible(not self.isInfoMode)
+    self.numAnimalsBox:setVisible(false)
     self.parentBox:setVisible(self.isInfoMode and not self.isBuyMode)
     self.geneticsBox:setVisible(self.isInfoMode)
 
 end
 
-AnimalScreen.setMaxNumAnimals = Utils.prependedFunction(AnimalScreen.setMaxNumAnimals, RealisticLivestock_AnimalScreen.setMaxNumAnimals)
+AnimalScreen.setMaxNumAnimals = Utils.appendedFunction(AnimalScreen.setMaxNumAnimals, RealisticLivestock_AnimalScreen.setMaxNumAnimals)
 
 
 function RealisticLivestock_AnimalScreen:getCellTypeForItemInSection(_, list, _, index)
@@ -780,7 +792,7 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
         end
 
         self.isHorse = g_currentMission.animalSystem:getSubTypeByIndex(item:getSubTypeIndex()).typeIndex == AnimalType.HORSE
-        
+
         local name = item:getName()
         local animal = item.animal or item.cluster
 
@@ -811,9 +823,9 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
 
                 local selectAllText = g_i18n:getText("rl_ui_selectAll")
                 local selectNoneText = g_i18n:getText("rl_ui_selectNone")
-        
+
                 checkbox.onClickCallback = function(animalScreen, button)
-                
+
                     if self.selectedItems[originalIndex] then
                         self.selectedItems[originalIndex] = false
                         check:setVisible(false)
@@ -899,9 +911,9 @@ function AnimalScreen:onClickBuySelected()
 
     for animalIndex, isSelected in pairs(self.selectedItems) do
         if isSelected then
-            
+
             if isSelected then
-                
+
                 if self.isTrailerFarm then
                     table.insert(itemsToProcess, animalIndex)
                 elseif self.isBuyMode then
@@ -995,7 +1007,7 @@ function RealisticLivestock_AnimalScreen:getPrice()
 
     if self.filteredItems == nil then
         animalIndex = self.sourceList.selectedIndex
-    elseif #self.filteredItems > 0 then
+    elseif #self.filteredItems > 0 and self.filteredItems[self.sourceList.selectedIndex] ~= nil then
         animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
     else
         return false, 0, 0, 0
@@ -1074,7 +1086,7 @@ function RealisticLivestock_AnimalScreen:onYesNoSource(_, clickYes)
         else
             animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
         end
-            
+
 		self.controller:applySource(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
 	end
 
@@ -1237,11 +1249,37 @@ function RealisticLivestock_AnimalScreen:setSelectionState(superFunc, state) -- 
 
     local returnValue = superFunc(self, state)
 
-    self.buttonBuy:setVisible(self.isBuyMode)
-    self.buttonSell:setVisible(not self.isBuyMode and not self.isInfoMode)
+    local hasItems = self.sourceList:getItemCount() > 0
+
+    self.buttonBuy:setVisible(self.isBuyMode and hasItems)
+    self.buttonSell:setVisible(not self.isBuyMode and not self.isInfoMode and hasItems)
+
+	self.buttonsPanel:invalidateLayout()
 
     return returnValue
 
 end
 
---AnimalScreen.setSelectionState = Utils.overwrittenFunction(AnimalScreen.setSelectionState, RealisticLivestock_AnimalScreen.setSelectionState)
+AnimalScreen.setSelectionState = Utils.overwrittenFunction(AnimalScreen.setSelectionState, RealisticLivestock_AnimalScreen.setSelectionState)
+
+
+function AnimalScreen:onClickInfoPrompt() end
+
+
+function AnimalScreen:onHighlightInfoPrompt(button)
+
+    self.infoPrompt:setVisible(true)
+
+    local x = button.absPosition[1] - self.infoPrompt.size[1]
+    local y = button.absPosition[2] - self.infoPrompt.size[2] * 0.5
+
+    self.infoPrompt:setAbsolutePosition(x, y)
+
+end
+
+
+function AnimalScreen:onHighlightRemoveInfoPrompt()
+
+    self.infoPrompt:setVisible(false)
+
+end

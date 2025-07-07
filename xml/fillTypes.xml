@@ -23,6 +23,16 @@
 			<economy pricePerLiter="5000"/>
 			<image hud="$dataS/menu/hud/fillTypes/hud_fill_cow.png"/>
 		</fillType>
+		<fillType name="COW_HEREFORD" title="$l10n_fillType_cow_hereford" showOnPriceTable="false">
+			<physics massPerLiter="600.0" maxPhysicalSurfaceAngle="0"/>
+			<economy pricePerLiter="5000"/>
+			<image hud="$dataS/menu/hud/fillTypes/hud_fill_cow.png"/>
+		</fillType>
+		<fillType name="BULL_HEREFORD" title="$l10n_fillType_bull_hereford" showOnPriceTable="false">
+			<physics massPerLiter="750.0" maxPhysicalSurfaceAngle="0"/>
+			<economy pricePerLiter="5000"/>
+			<image hud="$dataS/menu/hud/fillTypes/hud_fill_cow.png"/>
+		</fillType>
 
 		<!-- WATER BUFFALOS -->
 

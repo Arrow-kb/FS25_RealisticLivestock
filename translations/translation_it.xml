@@ -7,6 +7,8 @@
         <text name="fillType_bull_holstein" text="Toro Holstein"/>
         <text name="fillType_bull_angus" text="Toro Angus"/>
         <text name="fillType_bull_limousin" text="Toro Limousine"/>
+		<text name="fillType_cow_hereford" text="Hereford"/>
+		<text name="fillType_bull_hereford" text="Hereford Bull"/>
 		<text name="animal_descriptionBullFeed" text="I Tori amano l'erba, il fieno e i mangimi a lunga conservazione"/>
         <text name="animal_descriptionBullYoung" text="Questo è un vitello Maschio"/>
         <text name="animal_descriptionBullReproduction" text="I Tori sani e di età superiore ai 12 mesi possono riprodursi"/>
@@ -245,7 +247,7 @@
 		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
 		<text name="rl_ui_any" text="Any"/>
 		<text name="rl_ui_pregnancy" text="Pregnancy"/>
-		<text name="rl_ui_productivity" text="Pregnancy"/>
+		<text name="rl_ui_productivity" text="Productivity"/>
 		<text name="rl_ui_selectAll" text="Select All"/>
 		<text name="rl_ui_selectNone" text="Select None"/>
 		<text name="rl_ui_filters" text="Filters"/>

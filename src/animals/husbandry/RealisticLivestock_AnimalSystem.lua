@@ -396,7 +396,7 @@ function AnimalSystem:initialiseCountries()
     MoneyType.MONITOR_SUBSCRIPTIONS = MoneyType.register("monitorSubscriptions", "rl_ui_monitorSubscriptions")
     MoneyType.LAST_ID = MoneyType.LAST_ID + 1
 
-    g_messageCenter:subscribe(MessageType.HOUR_CHANGED, self.onHourChanged, self)
+    if self.isServer then g_messageCenter:subscribe(MessageType.HOUR_CHANGED, self.onHourChanged, self) end
     g_messageCenter:subscribe(MessageType.DAY_CHANGED, self.onDayChanged, self)
     g_messageCenter:subscribe(MessageType.PERIOD_CHANGED, self.onPeriodChanged, self)
 
@@ -459,7 +459,7 @@ function AnimalSystem:validateFarms(hasData)
 
                 local farm = { ["quality"] = math.random(250, 1750) / 1000, ["ids"] = {} }
 
-                for i = 0, math.random(0, math.min(2, #animalTypeIndexes)) do
+                for i = 0, math.random(0, math.min(3, #animalTypeIndexes)) do
 
                     --local randomProduce = math.random()
                     --local baseChance = 1 / (5 - i)
@@ -604,12 +604,7 @@ end
 
 function AnimalSystem:loadFromXMLFile()
 
-    local savegameIndex = g_careerScreen.savegameList.selectedIndex
-    local savegame = g_savegameController:getSavegame(savegameIndex)
-
-    if savegame == nil or savegame.savegameDirectory == nil then return false end
-
-    local xmlFile = XMLFile.loadIfExists("animalSystem", savegame.savegameDirectory .. "/animalSystem.xml")
+    local xmlFile = XMLFile.loadIfExists("animalSystem", g_currentMission.missionInfo.savegameDirectory .. "/animalSystem.xml")
 
     if xmlFile == nil then return false end
 
@@ -720,17 +715,17 @@ function AnimalSystem:saveToXMLFile(path)
             
             xmlFile:setInt(farmKey .. "#id", farm.id)
             xmlFile:setFloat(farmKey .. "#quality", farm.quality)
-            
-            --if farm.cowId ~= nil then xmlFile:setInt(farmKey .. "#cowId", farm.cowId) end
-            --if farm.pigId ~= nil then xmlFile:setInt(farmKey .. "#pigId", farm.pigId) end
-            --if farm.sheepId ~= nil then xmlFile:setInt(farmKey .. "#sheepId", farm.sheepId) end
-            --if farm.horseId ~= nil then xmlFile:setInt(farmKey .. "#horseId", farm.horseId) end
-            --if farm.chickenId ~= nil then xmlFile:setInt(farmKey .. "#chickenId", farm.chickenId) end
+
+            local j = 0
 
             for animalTypeIndex, id in pairs(farm.ids) do
 
-                xmlFile:setInt(farmKey .. ".id#type", animalTypeIndex)
-                xmlFile:setInt(farmKey .. ".id#id", id)
+                local idKey = farmKey .. ".id( " .. j .. ")"
+
+                xmlFile:setInt(idKey .. "#type", animalTypeIndex)
+                xmlFile:setInt(idKey .. "#id", id)
+
+                j = j + 1
 
             end
 
@@ -915,13 +910,13 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
 
     local geneticsModifier = farmQuality * 1000
     local genetics = {
-        ["metabolism"] = math.clamp(math.random(geneticsModifier - 150, geneticsModifier + 150) / 1000, 0.25, 1.75),
-        ["quality"] = math.clamp(math.random(geneticsModifier - 150, geneticsModifier + 150) / 1000, 0.25, 1.75),
-        ["fertility"] = math.clamp(math.random(geneticsModifier - 150, geneticsModifier + 150) / 1000, 0.25, 1.75),
-        ["health"] = math.clamp(math.random(geneticsModifier - 150, geneticsModifier + 150) / 1000, 0.25, 1.75)
+        ["metabolism"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 0.25, 1.75),
+        ["quality"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 0.25, 1.75),
+        ["fertility"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 0.25, 1.75),
+        ["health"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 0.25, 1.75)
     }
 
-    if animalTypeIndex == AnimalType.COW or animalTypeIndex == AnimalType.SHEEP or animalTypeIndex == AnimalType.CHICKEN then genetics.productivity = math.clamp(math.random(geneticsModifier - 150, geneticsModifier + 150) / 1000, 0.25, 1.75) end
+    if animalTypeIndex == AnimalType.COW or animalTypeIndex == AnimalType.SHEEP or animalTypeIndex == AnimalType.CHICKEN then genetics.productivity = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 0.25, 1.75) end
 
   
     local name
@@ -1138,6 +1133,7 @@ end
 function AnimalSystem:onHourChanged()
 
     local day = g_currentMission.environment.currentMonotonicDay
+    local hasChanges = false
 
     for animalTypeIndex, animals in pairs(self.animals) do
 
@@ -1163,7 +1159,10 @@ function AnimalSystem:onHourChanged()
 
                 local averageGenetics = geneticQuality / totalGenetics
 
-                if math.random() >= (saleDay / day) / (averageGenetics * 1.45) then table.insert(indexesToRemove, i) end
+                if math.random() >= (saleDay / day) / (averageGenetics * 1.45) then
+                    table.insert(indexesToRemove, i)
+                    hasChanges = true
+                end
 
             end
 
@@ -1173,7 +1172,7 @@ function AnimalSystem:onHourChanged()
             table.remove(animals, indexesToRemove[i])
         end
 
-        local threshold = math.random(5, self.maxDealerAnimals)
+        local threshold = math.random(10, self.maxDealerAnimals)
 
         if #animals < threshold then
 
@@ -1181,7 +1180,10 @@ function AnimalSystem:onHourChanged()
 
                 local animal = self:createNewSaleAnimal(animalTypeIndex)
 
-                if animal ~= nil then table.insert(animals, animal) end
+                if animal ~= nil then
+                    table.insert(animals, animal)
+                    hasChanges = true
+                end
 
             end
 
@@ -1189,7 +1191,7 @@ function AnimalSystem:onHourChanged()
     
     end
 
-
+    if hasChanges then g_server:broadcastEvent(AnimalSystemStateEvent.new(self.countries, self.animals)) end
 
 end
 
@@ -1328,6 +1330,8 @@ end
 
 
 function AnimalSystem.onClickResetDealer()
+
+    if not self.isServer then return end
 
     local animalSystem = g_currentMission.animalSystem
 

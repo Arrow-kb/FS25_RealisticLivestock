@@ -258,6 +258,8 @@
 		<text name="rl_ui_doesHaveName" text="Má jméno"/>
 
 
+
+
 		<!--  SETTINGS  -->
 
 
@@ -290,6 +292,7 @@
 		<text name="rl_settings_exportCSV_label" text="Exportovat do CSV"/>
 		<text name="rl_settings_exportCSV_tooltip" text="Exportovat statistiky do CSV"/>
 		<text name="rl_settings_exportCSV_text" text="Exportovat do CSV"/>
+
 
 
 		<!--  HELP  -->

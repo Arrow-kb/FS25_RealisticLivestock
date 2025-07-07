@@ -298,6 +298,8 @@ function RealisticLivestockFrame:onClickChangeMonitors()
 			animal.monitor.active = false
 			animal.monitor.removed = true
 
+			AnimalMonitorEvent.sendEvent(selectedRow.placeable, animal, false, true)
+
 		end
 
 	else
@@ -306,6 +308,8 @@ function RealisticLivestockFrame:onClickChangeMonitors()
 
 			animal.monitor.active = true
 			animal.monitor.removed = false
+
+			AnimalMonitorEvent.sendEvent(selectedRow.placeable, animal, true, false)
 
 		end
 

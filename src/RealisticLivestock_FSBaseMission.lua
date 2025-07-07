@@ -145,3 +145,19 @@ function RealisticLivestock_FSBaseMission:leaveCurrentGame()
 end
 
 InGameMenu.leaveCurrentGame = Utils.prependedFunction(InGameMenu.leaveCurrentGame, RealisticLivestock_FSBaseMission.leaveCurrentGame)
+
+
+function RealisticLivestock_FSBaseMission:sendInitialClientState(connection, _, _)
+
+    local animalSystem = g_currentMission.animalSystem
+
+	for _, setting in pairs(RLSettings.SETTINGS) do
+		if not setting.ignore then setting.state = setting.state or setting.default end
+	end
+
+    connection:sendEvent(RL_BroadcastSettingsEvent.new())
+    connection:sendEvent(AnimalSystemStateEvent.new(animalSystem.countries, animalSystem.animals))
+
+end
+
+FSBaseMission.sendInitialClientState = Utils.prependedFunction(FSBaseMission.sendInitialClientState, RealisticLivestock_FSBaseMission.sendInitialClientState)

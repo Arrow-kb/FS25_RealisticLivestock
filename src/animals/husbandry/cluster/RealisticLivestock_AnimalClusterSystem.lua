@@ -1,8 +1,6 @@
 RealisticLivestock_AnimalClusterSystem = {}
 local AnimalClusterSystem_mt = Class(AnimalClusterSystem)
 
--- TESTING FILE
-
 function RealisticLivestock_AnimalClusterSystem.new(superFunc, isServer, owner, customMt)
 
     local self = setmetatable({}, customMt or AnimalClusterSystem_mt)
@@ -114,6 +112,82 @@ function RealisticLivestock_AnimalClusterSystem:saveToXMLFile(superFunc, xmlFile
 end
 
 AnimalClusterSystem.saveToXMLFile = Utils.overwrittenFunction(AnimalClusterSystem.saveToXMLFile, RealisticLivestock_AnimalClusterSystem.saveToXMLFile)
+
+
+function RealisticLivestock_AnimalClusterSystem:readStream(_, streamId, connection)
+
+    local numAnimals = streamReadUInt16(streamId)
+
+    for i = 1, numAnimals do
+
+        local animalTypeIndex = streamReadUInt8(streamId)
+        local country = streamReadUInt8(streamId)
+        local uniqueId = streamReadString(streamId)
+        local farmId = streamReadString(streamId)
+
+        local existingAnimal = false
+
+        for _, animal in pairs(self.animals) do
+
+            if animal.birthday.country == country and animal.animalTypeIndex == animalTypeIndex and animal.uniqueId == uniqueId and animal.farmId == farmId then
+                animal:readStream(streamId, connection)
+                animal.foundThisUpdate = true
+                existingAnimal = true
+                break
+            end
+
+        end
+
+        if not existingAnimal then
+
+            local animal = Animal.new()
+            animal:readStream(streamId, connection)
+            animal.foundThisUpdate = true
+            self:addCluster(animal)
+
+        end
+
+    end
+
+    for i = #self.animals, 1, -1 do
+
+        local animal = self.animals[i]
+
+        if not animal.foundThisUpdate then
+            self:removeCluster(i)
+        else
+            animal.foundThisUpdate = false
+        end
+
+    end
+
+    self:updateIdMapping()
+	g_messageCenter:publish(AnimalClusterUpdateEvent, self.owner, self.animals)
+
+end
+
+AnimalClusterSystem.readStream = Utils.overwrittenFunction(AnimalClusterSystem.readStream, RealisticLivestock_AnimalClusterSystem.readStream)
+
+
+function RealisticLivestock_AnimalClusterSystem:writeStream(_, streamId, connection)
+
+    streamWriteUInt16(streamId, #self.animals)
+
+    for _, animal in pairs(self.animals) do
+
+        streamWriteUInt8(streamId, animal.animalTypeIndex)
+        streamWriteUInt8(streamId, animal.birthday.country)
+        streamWriteString(streamId, animal.uniqueId)
+        streamWriteString(streamId, animal.farmId)
+
+        local success = animal:writeStream(streamId, connection)
+
+    end
+
+end
+
+AnimalClusterSystem.writeStream = Utils.overwrittenFunction(AnimalClusterSystem.writeStream, RealisticLivestock_AnimalClusterSystem.writeStream)
+
 
 function RealisticLivestock_AnimalClusterSystem:getClusters(superFunc)
     return self.animals or {}
@@ -341,7 +415,7 @@ function RealisticLivestock_AnimalClusterSystem:updateIdMapping(superFunc)
         
     if self.owner.updatedClusters ~= nil then self.owner:updatedClusters(self.owner, self.animals) end
 
-    g_server:broadcastEvent(AnimalClusterUpdateEvent.new(self.owner, self.animals))
+    if g_server ~= nil then g_server:broadcastEvent(AnimalClusterUpdateEvent.new(self.owner, self.animals)) end
     g_messageCenter:publish(AnimalClusterUpdateEvent, self.owner, self.animals)
     
 end

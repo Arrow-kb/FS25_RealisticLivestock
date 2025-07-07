@@ -7,6 +7,8 @@
 		<text name="fillType_bull_holstein" text="Holstein Bullen"/>
 		<text name="fillType_bull_angus" text="Angus Bullen"/>
 		<text name="fillType_bull_limousin" text="Limousin Bullen"/>
+		<text name="fillType_cow_hereford" text="Hereford"/>
+		<text name="fillType_bull_hereford" text="Hereford Bullen"/>
 		<text name="animal_descriptionBullFeed" text="Bullen mögen Gras, Heu und TMR."/>
 		<text name="animal_descriptionBullYoung" text="Das ist ein männliches Kalb."/>
 		<text name="animal_descriptionBullReproduction" text="Bullen, die gesund und älter als 12 Monate sind, können sich fortpflanzen."/>
@@ -119,7 +121,7 @@
 		<text name="rl_ui_health" text="Gesundheit"/>
 		<text name="rl_ui_fertility" text="Fruchtbarkeit"/>
 
-		<text name="rl_ui_genetics_infertile" text="Infertile"/>
+		<text name="rl_ui_genetics_infertile" text="Unfruchtbar"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Extrem niedrig"/>
 		<text name="rl_ui_genetics_veryLow" text="Sehr niedrig"/>
 		<text name="rl_ui_genetics_low" text="Niedrig"/>
@@ -234,26 +236,26 @@
 		<text name="rl_ui_removeAllMonitor" text="Alle Monitore entfernen"/>
 		<text name="rl_ui_fee" text="Gebühr"/>
 
-		<text name="rl_ui_leftEarTag" text="Left Ear Tag"/>
-		<text name="rl_ui_rightEarTag" text="Right Ear Tag"/>
-		<text name="rl_ui_backgroundColour" text="Background Colour"/>
-		<text name="rl_ui_backgroundHue" text="Background Hue"/>
-		<text name="rl_ui_backgroundRgb" text="Background RGB"/>
-		<text name="rl_ui_textColour" text="Text Colour"/>
+		<text name="rl_ui_leftEarTag" text="Linkes Ohr-Etikett"/>
+		<text name="rl_ui_rightEarTag" text="Rechte Ohrmarke"/>
+		<text name="rl_ui_backgroundColour" text="Hintergrundfarbe"/>
+		<text name="rl_ui_backgroundHue" text="Hintergrund Hue"/>
+		<text name="rl_ui_backgroundRgb" text="Hintergrund RGB"/>
+		<text name="rl_ui_textColour" text="Textfarbe"/>
 		<text name="rl_ui_textHue" text="Text Hue"/>
 		<text name="rl_ui_textRgb" text="Text RGB"/>
 
-		<text name="rl_ui_formatMonths" text="%s months"/>
-		<text name="rl_ui_formatMonth" text="%s month"/>
-		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
-		<text name="rl_ui_any" text="Any"/>
-		<text name="rl_ui_pregnancy" text="Pregnancy"/>
-		<text name="rl_ui_productivity" text="Pregnancy"/>
-		<text name="rl_ui_selectAll" text="Select All"/>
-		<text name="rl_ui_selectNone" text="Select None"/>
-		<text name="rl_ui_filters" text="Filters"/>
-		<text name="rl_ui_doesntHaveName" text="No Name"/>
-		<text name="rl_ui_doesHaveName" text="Has Name"/>
+		<text name="rl_ui_formatMonths" text="%s Monate"/>
+		<text name="rl_ui_formatMonth" text="%s Monat"/>
+		<text name="rl_ui_notPregnant" text="Nicht schwanger"/>
+		<text name="rl_ui_any" text="Jeder"/>
+		<text name="rl_ui_pregnancy" text="Schwangerschaft"/>
+		<text name="rl_ui_productivity" text="Produktivität"/>
+		<text name="rl_ui_selectAll" text="Alle auswählen"/>
+		<text name="rl_ui_selectNone" text="Keine auswählen"/>
+		<text name="rl_ui_filters" text="Filter"/>
+		<text name="rl_ui_doesntHaveName" text="Ohne Namen"/>
+		<text name="rl_ui_doesHaveName" text="Hat Namen"/>
 
 
 
@@ -264,7 +266,7 @@
 		<text name="rl_settings" text="Realistische Viehbestände"/>
 
 		<text name="rl_settings_off" text="Aus"/>
-		<text name="rl_settings_on" text="AN"/>
+		<text name="rl_settings_on" text="Auf"/>
 
 		<text name="rl_settings_deathEnabled_label" text="Tierentfernung"/>
 		<text name="rl_settings_deathEnabled_tooltip_1" text="Tiere werden nicht aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen entfernt."/>
@@ -279,13 +281,13 @@
 		<text name="rl_settings_maxDealerAnimals_label" text="Maximale Händler-Tiere"/>
 		<text name="rl_settings_maxDealerAnimals_tooltip" text="Ändern Sie die maximale Anzahl der Tiere, die der Tierhändler pro Tierart auf Lager hat"/>
 
-		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
-		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
-		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
+		<text name="rl_settings_tagColour_label" text="Tag-Farbe ändern"/>
+		<text name="rl_settings_tagColour_tooltip" text="Ändern Sie die Farbe der Ohrmarken."/>
+		<text name="rl_settings_tagColour_text" text="Tag-Farbe ändern"/>
 
-		<text name="rl_settings_exportCSV_label" text="Export To CSV"/>
-		<text name="rl_settings_exportCSV_tooltip" text="Export stats to CSV"/>
-		<text name="rl_settings_exportCSV_text" text="Export To CSV"/>
+		<text name="rl_settings_exportCSV_label" text="Als CSV exportieren"/>
+		<text name="rl_settings_exportCSV_tooltip" text="Statistiken in CSV exportieren"/>
+		<text name="rl_settings_exportCSV_text" text="Als CSV exportieren"/>
 
 
 

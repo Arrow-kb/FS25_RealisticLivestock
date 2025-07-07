@@ -7,6 +7,8 @@
 		<text name="fillType_bull_holstein" text="Holstein Boğa"/>
 		<text name="fillType_bull_angus" text="Angus Boğa"/>
 		<text name="fillType_bull_limousin" text="Limuzin Boğa"/>
+		<text name="fillType_cow_hereford" text="Hereford"/>
+		<text name="fillType_bull_hereford" text="Hereford Bull"/>
 		<text name="animal_descriptionBullFeed" text="Boğalar çim, kuru ot ve TKT'yi sever."/>
 		<text name="animal_descriptionBullYoung" text="Bu bir erkek buzağı."/>
 		<text name="animal_descriptionBullReproduction" text="Sağlıklı ve 12 aydan büyük boğalar üreyebilir."/>
@@ -248,7 +250,7 @@
 		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
 		<text name="rl_ui_any" text="Any"/>
 		<text name="rl_ui_pregnancy" text="Pregnancy"/>
-		<text name="rl_ui_productivity" text="Pregnancy"/>
+		<text name="rl_ui_productivity" text="Productivity"/>
 		<text name="rl_ui_selectAll" text="Select All"/>
 		<text name="rl_ui_selectNone" text="Select None"/>
 		<text name="rl_ui_filters" text="Filters"/>

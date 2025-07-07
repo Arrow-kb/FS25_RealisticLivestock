@@ -8,6 +8,8 @@
 		<text name="fillType_bull_holstein" text="Гольштінський бик"/>
 		<text name="fillType_bull_angus" text="Ангусьский бик"/>
 		<text name="fillType_bull_limousin" text="Лімузинський бик"/>
+		<text name="fillType_cow_hereford" text="Hereford"/>
+		<text name="fillType_bull_hereford" text="Hereford Bull"/>
 		<text name="animal_descriptionBullFeed" text="Бики їдять траву, сіно та TMR."/>
 		<text name="animal_descriptionBullYoung" text="Це бичок."/>
 		<text name="animal_descriptionBullReproduction" text="Бики, які здорові та старші за 12 місяців, можуть розмножуватись."/>
@@ -122,7 +124,8 @@
 		<text name="rl_ui_genetics_good" text="Хороша"/>
 		<text name="rl_ui_genetics_veryGood" text="Дуже хороша"/>
 		<text name="rl_ui_genetics_extremelyGood" text="Крайня хороша"/>
-                <text name="rl_ui_cow_multipleBirths" text="Народилося %s телят" tag="format"/>
+
+		<text name="rl_ui_cow_multipleBirths" text="Народилося %s телят" tag="format"/>
 		<text name="rl_ui_cow_singleBirth" text="Народилося 1 теля"/>
 		<text name="rl_ui_pig_multipleBirths" text="Народилося %s поросят" tag="format"/>
 		<text name="rl_ui_pig_singleBirth" text="Народилося 1 порося"/>

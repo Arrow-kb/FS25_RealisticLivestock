@@ -15,19 +15,22 @@ PlaceableHusbandryAnimals.updateVisualAnimals = Utils.overwrittenFunction(Placea
 
 
 
-function RealisticLivestock_PlaceableHusbandryAnimals:addAnimals(_, subTypeIndex, numAnimals, age)
+--function RealisticLivestock_PlaceableHusbandryAnimals:addAnimals(_, subTypeIndex, numAnimals, age)
+function RealisticLivestock_PlaceableHusbandryAnimals:addAnimals(_, animals)
 
-    local newAnimals = {}
+    --local newAnimals = {}
 
-    for i=1, numAnimals do
+    --for i=1, numAnimals do
 
-        local subType = g_currentMission.animalSystem:getSubTypeByIndex(subTypeIndex)
-        local animal = Animal.new(age, 100, 0, subType.gender, subTypeIndex, 0, false, false, false, self.spec_husbandryAnimals.clusterSystem)
-        table.insert(newAnimals, animal)
+        --local subType = g_currentMission.animalSystem:getSubTypeByIndex(subTypeIndex)
+        --local animal = Animal.new(age, 100, 0, subType.gender, subTypeIndex, 0, false, false, false, self.spec_husbandryAnimals.clusterSystem)
+        --table.insert(newAnimals, animal)
 
-    end
+    --end
 
-    if #newAnimals >= 1 then self:addCluster(newAnimals) end
+    --if #newAnimals >= 1 then self:addCluster(newAnimals) end
+
+    for _, animal in pairs(animals) do self:addCluster(animal) end
 
 end
 

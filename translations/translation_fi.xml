@@ -8,6 +8,8 @@
 		<text name="fillType_bull_holstein" text="Holstein Sonni" />
 		<text name="fillType_bull_angus" text="Angus Sonni" />
 		<text name="fillType_bull_limousin" text="Limousin Sonni" />
+		<text name="fillType_cow_hereford" text="Hereford"/>
+		<text name="fillType_bull_hereford" text="Hereford Bull"/>
 		<text name="animal_descriptionBullFeed" text="Sonni syö mielellään ruohoa, heinää ja TMR-rehua." />
 		<text name="animal_descriptionBullYoung" text="Tämä on urosvasikka." />
 		<text name="animal_descriptionBullReproduction" text="Terveet ja yli 12 kuukauden ikäiset sonnit voivat lisääntyä." />

@@ -1,6 +1,6 @@
 <modDesc descVersion="99">
     <author>Arrow</author>
-    <version>1.0.1.2</version>
+    <version>1.1.0.0</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -83,95 +83,14 @@ Enhanced Animal Dealer
 
 Changelog:
 
-1.0.1.2
-- Added export to CSV button
-- Added high complete infertility chance to female cattle twins
-- Reworked animal pregnancy offspring numbers
-- Fixed health and productivity dropping to 0 after loading
+1.1.0.0
+- Added multiplayer support
+- More variation in genetics for dealer animals
+- Fixed RealisticLivestock_AnimalScreen.lua:1007: attempt to index nil with ['originalIndex'
 
-1.0.1.1
-- Added ear tag colour configuration menu
-- Added filter window to the animal menu with a large range of filters
-- Added select all/none button to the animal menu
-- Fixed animals not being sold/bought correctly
-- Fixed checkboxes visually setting to unchecked after scrolling down the animal menu
-- Fixed error: RealisticLivestock_Animal.lua:843: attempt to compare nil < number
-
-1.0.1.0
-- Further additions to the help menu
-- Added monitor information to the animal screen
-- Added monitor tab
-- Fixed monitor information showing per hour
-- Fixed monitor information not showing relative to the days per month
-- Fixed animals not being removed from the list when buying/selling in bulk
-
-1.0.0.9
-- Added visual monitor tags which allow seeing certain stats in exchange for a small monthly payment
-- Began adding help menu
-- Fixed cockerels not being found as a suitable male animal
-- Fixed straw not being used
-- Fixed animal limit set to 0
-
-1.0.0.8
-- Added limited compatibility for custom map animals
-- Fixed some input and output issues from 1.0.0.7
-- Fixed error on first load due to a setting
-- Fixed animal types not appearing due to too many filltypes
-
-1.0.0.7
-- Reworked production (backend for future feature)
-- Liberated the Czech Republic from the USSR
-- Added the following settings options:
---- Change animal dealer max animals
-- Animals with reproduction > 0 are now correctly given offspring when loading the mod for the first time and wont be stuck at x reproduction
-- Further fixes to prevent irregular aging of newborns
-- Fixed baby goats producing goat milk
-- Fixed baby roosters showing as adults
-- Fixed animals still showing on dealer list after being sold
-- Fixed brush cant be used on horses
-- Fixed horse info box not showing after dismounting
-- Fixed error when attempting to unload multiple horses into non-husbandry
-
-1.0.0.6
-- Fixed animal pens becoming overcrowded after pregnancies
-- Fixed riding, cleanliness etc being shown for non-horses
-- Pregnant animals now eat more based on the how many babies they are carrying
-- Reduced some death chances
-- Added the following settings options:
---- Change food scale
-- Added Ukrainian and Czech translations
-
-1.0.0.5
-- Fixed pregnancies not working in 1.0.0.4
-
-1.0.0.4
-- Ported over settings menu from Realistic Weather
-- Added the following settings options:
---- Enable/disable removal from pregnancy, age, health and accidents
---- Change chance of removal from random accidents
-- Ear tag names now update when changing the name through the menu
-- Fixed an issue causing children to not be born
-- Fixed an issue causing new borns' age to be displayed as higher than 0
-- Fixed animal ages sometimes increasing when they shouldnt (some animals may age an extra month when loading for the first time with this fix)
-- Fixed female animals saying there is no male animal in the pen when there is
-- Fixed visual animals not updating when moving animals between pens with a trailer
-- Fixed non-owned animals dying
-- Fixed goats not lactating when giving birth
-- Changes to the saving/loading system for more first time installation and uninstallation compatibility
-
-1.0.0.3
-- Added a way to buy/sell/move animals in bulk
-- Fixed trailers charging a transportation fee
-
-1.0.0.2
-- Fixed error RealisticLivestock_AnimalSystem.lua:395: attempt to index nil with 'day'
-- Fixed error Unknown entity id 0 for 'object' in method 'removeHusbandryAnimal'
-- Fixed livestock trailers not working
-
-1.0.0.1
-- Fixed game freezing when the animal dealer runs out of animals
-- Fixed the animal dealer sometimes adding new animals when loading the game
-- Added missing translations]]>
+1.0.2.0
+- Gave Herefords a white head
+- Fixed settings being reverted]]>
 </en>
 <de>
     <![CDATA[ Dies ist eine komplette Überarbeitung des Tiersystems.
@@ -323,7 +242,7 @@ Marchand d'animaux amélioré
 </fr>
     </description>
     <iconFilename>icon_RealisticLivestock.dds</iconFilename>
-    <multiplayer supported="false"/>
+    <multiplayer supported="true"/>
     <extraSourceFiles>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalCluster.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalClusterHusbandry.lua"/>
@@ -336,6 +255,7 @@ Marchand d'animaux amélioré
         <sourceFile filename="src/animals/husbandry/placeables/RealisticLivestock_PlaceableHusbandryMilk.lua"/>
         <sourceFile filename="src/animals/husbandry/placeables/RealisticLivestock_PlaceableHusbandryFood.lua"/>
         <sourceFile filename="src/animals/husbandry/placeables/RealisticLivestock_PlaceableHusbandryPallets.lua"/>
+        <sourceFile filename="src/animals/husbandry/AnimalSystemStateEvent.lua"/>
         <sourceFile filename="src/animals/husbandry/RealisticLivestock_HusbandrySystem.lua"/>
         <sourceFile filename="src/animals/husbandry/RealisticLivestock_AnimalNameSystem.lua"/>
         <sourceFile filename="src/animals/husbandry/RealisticLivestock_AnimalSystem.lua"/>
@@ -345,7 +265,9 @@ Marchand d'animaux amélioré
         <sourceFile filename="src/animals/shop/controllers/AnimalScreenDealerTrailer.lua"/>
         <sourceFile filename="src/animals/shop/controllers/AnimalScreenTrailer.lua"/>
         <sourceFile filename="src/animals/shop/controllers/AnimalScreenTrailerFarm.lua"/>
-        <sourceFile filename="src/animals/shop/events/RealisticLivestock_AnimalSellEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AnimalBuyEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AnimalMoveEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AnimalSellEvent.lua"/>
         <sourceFile filename="src/animals/shop/AnimalItemNew.lua"/>
         <sourceFile filename="src/animals/shop/RealisticLivestock_AnimalItemStock.lua"/>
         <sourceFile filename="src/farms/FarmManager.lua"/>
@@ -370,6 +292,12 @@ Marchand d'animaux amélioré
         <sourceFile filename="src/player/RealisticLivestock_PlayerInputComponent.lua"/>
         <sourceFile filename="src/vehicles/specializations/RealisticLivestock_LivestockTrailer.lua"/>
         <sourceFile filename="src/vehicles/RealisticLivestock_VehicleSystem.lua"/>
+        <sourceFile filename="src/AnimalBirthEvent.lua"/>
+        <sourceFile filename="src/AnimalDeathEvent.lua"/>
+        <sourceFile filename="src/AnimalMonitorEvent.lua"/>
+        <sourceFile filename="src/AnimalNameChangeEvent.lua"/>
+        <sourceFile filename="src/AnimalPregnancyEvent.lua"/>
+        <sourceFile filename="src/AnimalUpdateEvent.lua"/>
         <sourceFile filename="src/FSCareerMissionInfo.lua"/>
         <sourceFile filename="src/I18N.lua"/>
         <sourceFile filename="src/RealisticLivestock.lua"/>
@@ -377,6 +305,7 @@ Marchand d'animaux amélioré
 		<sourceFile filename="src/RealisticLivestock_FSBaseMission.lua"/>
 		<sourceFile filename="src/RLConsoleCommandManager.lua"/>
         <sourceFile filename="src/RLSettings.lua"/>
+        <sourceFile filename="src/RL_BroadcastSettingsEvent.lua"/>
     </extraSourceFiles>
     <l10n filenamePrefix="translations/translation"/>
     <inputBinding>

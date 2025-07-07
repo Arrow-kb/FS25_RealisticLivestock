@@ -15,3 +15,14 @@ function RL_InGameMenuSettingsFrame:onFrameOpen(_)
 end
 
 InGameMenuSettingsFrame.onFrameOpen = Utils.appendedFunction(InGameMenuSettingsFrame.onFrameOpen, RL_InGameMenuSettingsFrame.onFrameOpen)
+
+
+function RL_InGameMenuSettingsFrame:onFrameClose()
+
+	if g_server ~= nil then RLSettings.saveToXMLFile() end
+
+	RL_BroadcastSettingsEvent.sendEvent()
+
+end
+
+InGameMenuSettingsFrame.onFrameClose = Utils.appendedFunction(InGameMenuSettingsFrame.onFrameClose, RL_InGameMenuSettingsFrame.onFrameClose)

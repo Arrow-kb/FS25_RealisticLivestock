@@ -265,11 +265,11 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
     self:updateInput()
     self:updateOutput(g_currentMission.environment.weather.temperatureUpdater.currentMin or 20)
 
-    self.monitor = monitor or { ["active"] = false, ["removed"] = false }
+    self.monitor = monitor or { ["active"] = false, ["removed"] = false, ["fee"] = 5 }
 
     local animalType = g_currentMission.animalSystem.types[self.animalTypeIndex]
 
-    self.monitor.fee = math.max(animalType.navMeshAgentAttributes.height * animalType.navMeshAgentAttributes.radius * 15, 0.25)
+    self.monitor.fee = animalType == nil and 5 or math.max(animalType.navMeshAgentAttributes.height * animalType.navMeshAgentAttributes.radius * 15, 0.25)
 
     return self
 
@@ -477,11 +477,7 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
                 if month > 12 then month = month - 12 end
                 local year = g_currentMission.environment.currentYear
 
-                print(1)
-
                 animal:createPregnancy(childNum, month, year)
-
-                print(2)
 
             else
 
@@ -605,10 +601,6 @@ function Animal:saveToXMLFile(xmlFile, key)
 end
 
 
-
--- WIP
-
-
 function Animal:writeStream(streamId, connection)
 
     streamWriteUInt8(streamId, self.subTypeIndex)
@@ -618,8 +610,8 @@ function Animal:writeStream(streamId, connection)
     streamWriteUInt16(streamId, self.monthsSinceLastBirth)
     streamWriteString(streamId, self.gender)
 
-    streamWriteBool(streamId, self.isParent and self.pregnancy ~= nil)
-    streamWriteBool(streamId, self.isPregnant)
+    streamWriteBool(streamId, self.isParent)
+    streamWriteBool(streamId, self.isPregnant and self.pregnancy ~= nil)
     streamWriteBool(streamId, self.isLactating)
 
     streamWriteString(streamId, self.uniqueId)
@@ -628,16 +620,39 @@ function Animal:writeStream(streamId, connection)
     streamWriteString(streamId, self.motherId or "-1")
     streamWriteString(streamId, self.fatherId or "-1")
     streamWriteFloat32(streamId, self.weight)
-    streamWriteString(streamId, self.name or "")
+    streamWriteFloat32(streamId, self.targetWeight)
 
-    if self.isParent and self.pregnancy ~= nil then
+    streamWriteBool(streamId, self.name ~= nil and self.name ~= "")
+    
+    if self.name ~= nil and self.name ~= "" then streamWriteString(streamId, self.name) end
+
+    streamWriteFloat32(streamId, self.dirt or 0)
+    streamWriteFloat32(streamId, self.fitness or 0)
+    streamWriteFloat32(streamId, self.riding or 0)
+
+    if self.isPregnant and self.pregnancy ~= nil then
+
+        streamWriteBool(streamId, self.impregnatedBy ~= nil)
+
+        if self.impregnatedBy ~= nil then
+
+            local impregnatedBy = self.impregnatedBy
+
+            streamWriteString(streamId, impregnatedBy.uniqueId or "-1")
+            streamWriteFloat32(streamId, impregnatedBy.metabolism or 1)
+            streamWriteFloat32(streamId, impregnatedBy.productivity or 1)
+            streamWriteFloat32(streamId, impregnatedBy.quality or 1)
+            streamWriteFloat32(streamId, impregnatedBy.health or 1)
+            streamWriteFloat32(streamId, impregnatedBy.fertility or 1)
+
+        end
 
         local pregnancy = self.pregnancy
 
         streamWriteUInt8(streamId, pregnancy.expected.day)
         streamWriteUInt8(streamId, pregnancy.expected.month)
         streamWriteUInt8(streamId, pregnancy.expected.year)
-        streamWriteUInt8(streamId, pregnancy.expected.duration)
+        streamWriteUInt8(streamId, pregnancy.duration)
 
         streamWriteUInt8(streamId, pregnancy.pregnancies == nil and 0 or #pregnancy.pregnancies)
 
@@ -661,6 +676,42 @@ function Animal:writeStream(streamId, connection)
 
     end
 
+    if self.isParent then
+
+        streamWriteUInt16(streamId, #self.children)
+
+        for _, child in pairs(self.children or {}) do
+            streamWriteString(streamId, child.uniqueId or "")
+            streamWriteString(streamId, child.farmId or "")
+        end
+
+    end
+
+    local birthday = self.birthday
+
+    streamWriteUInt8(streamId, birthday.day)
+    streamWriteUInt8(streamId, birthday.month)
+    streamWriteUInt8(streamId, birthday.year)
+    streamWriteUInt8(streamId, birthday.country)
+    streamWriteUInt8(streamId, birthday.lastAgeMonth)
+
+    local genetics, numGenetics = self.genetics, 0
+    
+    for trait, quality in pairs(genetics) do numGenetics = numGenetics + 1 end
+
+    streamWriteUInt8(streamId, numGenetics)
+
+    for trait, quality in pairs(genetics) do
+        streamWriteString(streamId, trait)
+        streamWriteFloat32(streamId, quality)
+    end
+
+    streamWriteBool(streamId, self.monitor.active)
+    streamWriteBool(streamId, self.monitor.removed)
+    streamWriteFloat32(streamId, self.monitor.fee or 5)
+
+    return true
+
 end
 
 
@@ -668,6 +719,10 @@ end
 function Animal:readStream(streamId, connection)
 
     self.subTypeIndex = streamReadUInt8(streamId)
+
+    self.subType = g_currentMission.animalSystem:getSubTypeByIndex(self.subTypeIndex).name
+    self.animalTypeIndex = g_currentMission.animalSystem:getTypeIndexBySubTypeIndex(self.subTypeIndex)
+
     self.age = streamReadUInt16(streamId)
     self.health = streamReadFloat32(streamId)
     self.reproduction = streamReadFloat32(streamId)
@@ -684,16 +739,43 @@ function Animal:readStream(streamId, connection)
     self.motherId = streamReadString(streamId)
     self.fatherId = streamReadString(streamId)
     self.weight = streamReadFloat32(streamId)
-    self.name = streamReadString(streamId)
+    self.targetWeight = streamReadFloat32(streamId)
+    
+    local hasName = streamReadBool(streamId)
+    self.name = hasName and streamReadString(streamId) or nil
 
-    if self.isParent then
+    self.dirt = streamReadFloat32(streamId)
+    self.fitness = streamReadFloat32(streamId)
+    self.riding = streamReadFloat32(streamId)
+
+    if self.isPregnant then
+
+        if streamReadBool(streamId) then
+
+            local uniqueId = streamReadString(streamId)
+            local metabolism = streamReadFloat32(streamId)
+            local productivity = streamReadFloat32(streamId)
+            local quality = streamReadFloat32(streamId)
+            local health = streamReadFloat32(streamId)
+            local fertility = streamReadFloat32(streamId)
+
+            self.impregnatedBy = {
+                ["uniqueId"] = uniqueId,
+                ["metabolism"] = metabolism,
+                ["productivity"] = productivity,
+                ["quality"] = quality,
+                ["health"] = health,
+                ["fertility"] = fertility
+            }
+
+        end
 
         local pregnancy = { ["expected"] = {}, ["pregnancies"] = {} }
 
         pregnancy.expected.day = streamReadUInt8(streamId)
         pregnancy.expected.month = streamReadUInt8(streamId)
         pregnancy.expected.year = streamReadUInt8(streamId)
-        pregnancy.expected.duration = streamReadUInt8(streamId)
+        pregnancy.duration = streamReadUInt8(streamId)
 
         local numChildren = streamReadUInt8(streamId)
 
@@ -718,13 +800,85 @@ function Animal:readStream(streamId, connection)
 
             local child = Animal.new(0, health, 0, gender, subTypeIndex, 0, false, false, false, nil, nil, motherId, fatherId, nil, nil, nil, nil, nil, nil, nil, genetics)
 
-            table.insert(pregnany.pregnancies, child)
+            table.insert(pregnancy.pregnancies, child)
 
         end
 
         self.pregnancy = pregnancy
 
     end
+
+    if self.isParent then
+
+        local children = {}
+        local numChildren = streamReadUInt16(streamId)
+
+        for i = 1, numChildren do
+
+            table.insert(children, {
+                ["uniqueId"] = streamReadString(streamId),
+                ["farmId"] = streamReadString(streamId)
+            })
+
+        end
+
+        self.children = children
+
+    end
+
+    self.birthday = {
+        ["day"] = streamReadUInt8(streamId),
+        ["month"] = streamReadUInt8(streamId),
+        ["year"] = streamReadUInt8(streamId),
+        ["country"] = streamReadUInt8(streamId),
+        ["lastAgeMonth"] = streamReadUInt8(streamId)
+    }
+
+    self.genetics = {}
+    local numGenetics = streamReadUInt8(streamId)
+
+    for i = 1, numGenetics do
+        local trait = streamReadString(streamId)
+        local quality = streamReadFloat32(streamId)
+        self.genetics[trait] = quality
+    end
+
+    self.monitor = {
+        ["active"] = streamReadBool(streamId),
+        ["removed"] = streamReadBool(streamId),
+        ["fee"] = streamReadFloat32(streamId)
+    }
+
+    return true
+
+end
+
+
+function Animal:writeStreamIdentifiers(streamId, connection)
+
+    streamWriteString(streamId, self.uniqueId)
+    streamWriteString(streamId, self.farmId)
+    streamWriteUInt8(streamId, self.birthday.country)
+    streamWriteUInt8(streamId, self.animalTypeIndex)
+
+    return true
+
+end
+
+
+function Animal.readStreamIdentifiers(streamId, connection)
+
+    local uniqueId = streamReadString(streamId)
+    local farmId = streamReadString(streamId)
+    local country = streamReadUInt8(streamId)
+    local animalTypeIndex = streamReadUInt8(streamId)
+
+    return {
+        ["uniqueId"] = uniqueId,
+        ["farmId"] = farmId,
+        ["country"] = country,
+        ["animalTypeIndex"] = animalTypeIndex
+    }
 
 end
 
@@ -1745,12 +1899,6 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 
     end
 
-    --if self.uniqueId == "610017" and self.farmId == "988324" then
-
-        --print(birthday.needsAgeIncrease, self.age, "-----")
-
-    --end
-
 
     local children = 0
     local deadAnimals = 0
@@ -1792,7 +1940,7 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 
             self:changeReproduction(self:getReproductionDelta())
 
-            if self.reproduction >= 100 and self.pregnancy ~= nil and spec ~= nil then
+            if self.reproduction >= 100 and g_server ~= nil and self.pregnancy ~= nil and spec ~= nil then
 
                 if self.impregnatedBy == nil then
                     self.impregnatedBy = {
@@ -1826,11 +1974,10 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 
             end
 
-        elseif not isSaleAnimal and self:getCanReproduce() then
+        elseif g_server ~= nil and not isSaleAnimal and self:getCanReproduce() then
 
             local fertility = self.genetics.fertility
             local childNum = self:generateRandomOffspring()
-
 
             if math.random() >= (2 - fertility) * 0.5 and childNum > 0 then self:createPregnancy(childNum, month, year) end
 
@@ -1840,11 +1987,13 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 
     local lowHealthDeath, oldDeath, randomDeath, randomDeathMoney = 0, 0, 0, 0
 
-    if self.deathEnabled and (self.clusterSystem == nil or self.clusterSystem.owner:getOwnerFarmId() ~= FarmManager.INVALID_FARM_ID) then
+    if self.deathEnabled and g_server ~= nil and (self.clusterSystem == nil or self.clusterSystem.owner:getOwnerFarmId() ~= FarmManager.INVALID_FARM_ID) then
 
         lowHealthDeath = self:CalculateLowHealthMonthlyAnimalDeaths()
-        oldDeath = self:CalculateOldAgeMonthlyAnimalDeaths()
-        if spec ~= nil then randomDeath, randomMoney = self:CalculateRandomMonthlyAnimalDeaths(spec) end
+        if lowHealthDeath == 0 then oldDeath = self:CalculateOldAgeMonthlyAnimalDeaths() end
+        if spec ~= nil and lowHealthDeath == 0 and oldDeath == 0 then randomDeath, randomMoney = self:CalculateRandomMonthlyAnimalDeaths(spec) end
+
+        if lowHealthDeath > 0 or oldDeath > 0 or randomDeath > 0 then g_server:broadcastEvent(AnimalDeathEvent.new(self.clusterSystem ~= nil and self.clusterSystem.owner or nil, self)) end
 
     end
 
@@ -2049,6 +2198,8 @@ function Animal:createPregnancy(childNum, month, year)
         },
         ["pregnancies"] = children
     }
+
+    g_server:broadcastEvent(AnimalPregnancyEvent.new(self.clusterSystem ~= nil and self.clusterSystem.owner or nil, self))
 
 end
 
@@ -2268,6 +2419,8 @@ function Animal:reproduce(spec, day, month, year, isSaleAnimal)
 
 
     self.impregnatedBy = nil
+
+    g_server:broadcastEvent(AnimalBirthEvent.new(self.clusterSystem ~= nil and self.clusterSystem.owner or nil, self, pregnancies, parentDied))
 
     if parentDied then self:die() end
 

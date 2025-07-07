@@ -141,7 +141,7 @@ RealisticLivestock.ALPHABET = {
 }
 
 
-RealisticLivestock.NUM_CHARACTERS = 38
+RealisticLivestock.NUM_CHARACTERS = 64
 
 
 RealisticLivestock.DAYS_PER_MONTH = {

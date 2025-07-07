@@ -7,6 +7,8 @@
 		<text name="fillType_bull_holstein" text="Taureau Holstein"/>
 		<text name="fillType_bull_angus" text="Taureau Angus"/>
 		<text name="fillType_bull_limousin" text="Taureau Limousin"/>
+		<text name="fillType_cow_hereford" text="Hereford"/>
+		<text name="fillType_bull_hereford" text="Taureau Hereford"/>
 		<text name="animal_descriptionBullFeed" text="Les taureaux aiment l'herbe, le foin et le TMR."/>
 		<text name="animal_descriptionBullYoung" text="Il s'agit d'un veau mâle."/>
 		<text name="animal_descriptionBullReproduction" text="Les taureaux en bonne santé et âgés de plus de 12 mois peuvent se reproduire."/>
@@ -234,26 +236,26 @@
 		<text name="rl_ui_removeAllMonitor" text="Supprimer tous les moniteurs"/>
 		<text name="rl_ui_fee" text="Frais"/>
 
-		<text name="rl_ui_leftEarTag" text="Left Ear Tag"/>
-		<text name="rl_ui_rightEarTag" text="Right Ear Tag"/>
-		<text name="rl_ui_backgroundColour" text="Background Colour"/>
-		<text name="rl_ui_backgroundHue" text="Background Hue"/>
-		<text name="rl_ui_backgroundRgb" text="Background RGB"/>
-		<text name="rl_ui_textColour" text="Text Colour"/>
-		<text name="rl_ui_textHue" text="Text Hue"/>
-		<text name="rl_ui_textRgb" text="Text RGB"/>
+		<text name="rl_ui_leftEarTag" text="Étiquette d'oreille gauche"/>
+		<text name="rl_ui_rightEarTag" text="Étiquette d'oreille droite"/>
+		<text name="rl_ui_backgroundColour" text="Couleur d'arrière-plan"/>
+		<text name="rl_ui_backgroundHue" text="Arrière-plan Hue"/>
+		<text name="rl_ui_backgroundRgb" text="Arrière-plan RGB"/>
+		<text name="rl_ui_textColour" text="Couleur du texte"/>
+		<text name="rl_ui_textHue" text="Texte Hue"/>
+		<text name="rl_ui_textRgb" text="Texte RGB"/>
 
-		<text name="rl_ui_formatMonths" text="%s months"/>
-		<text name="rl_ui_formatMonth" text="%s month"/>
-		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
-		<text name="rl_ui_any" text="Any"/>
-		<text name="rl_ui_pregnancy" text="Pregnancy"/>
-		<text name="rl_ui_productivity" text="Pregnancy"/>
-		<text name="rl_ui_selectAll" text="Select All"/>
-		<text name="rl_ui_selectNone" text="Select None"/>
-		<text name="rl_ui_filters" text="Filters"/>
-		<text name="rl_ui_doesntHaveName" text="No Name"/>
-		<text name="rl_ui_doesHaveName" text="Has Name"/>
+		<text name="rl_ui_formatMonths" text="%s mois"/>
+		<text name="rl_ui_formatMonth" text="%s mois"/>
+		<text name="rl_ui_notPregnant" text="Non enceinte"/>
+		<text name="rl_ui_any" text="N'importe quel"/>
+		<text name="rl_ui_pregnancy" text="Grossesse"/>
+		<text name="rl_ui_productivity" text="Productivité"/>
+		<text name="rl_ui_selectAll" text="Sélectionner tout"/>
+		<text name="rl_ui_selectNone" text="Sélectionner Aucun"/>
+		<text name="rl_ui_filters" text="Filtres"/>
+		<text name="rl_ui_doesntHaveName" text="Sans nom"/>
+		<text name="rl_ui_doesHaveName" text="A un nom"/>
 
 
 
@@ -279,13 +281,13 @@
 		<text name="rl_settings_maxDealerAnimals_label" text="Animaux maximums du croupier"/>
 		<text name="rl_settings_maxDealerAnimals_tooltip" text="Modifier le nombre maximum d'animaux que le marchand d'animaux peut avoir en stock par type d'animal."/>
 
-		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
-		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
-		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
+		<text name="rl_settings_tagColour_label" text="Changer la couleur de l'étiquette"/>
+		<text name="rl_settings_tagColour_tooltip" text="Changer la couleur des marques auriculaires"/>
+		<text name="rl_settings_tagColour_text" text="Changer la couleur de l'étiquette"/>
 
-		<text name="rl_settings_exportCSV_label" text="Export To CSV"/>
-		<text name="rl_settings_exportCSV_tooltip" text="Export stats to CSV"/>
-		<text name="rl_settings_exportCSV_text" text="Export To CSV"/>
+		<text name="rl_settings_exportCSV_label" text="Exporter au format CSV"/>
+		<text name="rl_settings_exportCSV_tooltip" text="Exporter les statistiques au format CSV"/>
+		<text name="rl_settings_exportCSV_text" text="Exporter au format CSV"/>
 
 
 
