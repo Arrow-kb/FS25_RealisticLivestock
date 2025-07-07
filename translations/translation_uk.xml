@@ -122,7 +122,7 @@
 		<text name="rl_ui_genetics_good" text="Хороша"/>
 		<text name="rl_ui_genetics_veryGood" text="Дуже хороша"/>
 		<text name="rl_ui_genetics_extremelyGood" text="Крайня хороша"/>
-        <text name="rl_ui_cow_multipleBirths" text="Народилося %s телят" tag="format"/>
+                <text name="rl_ui_cow_multipleBirths" text="Народилося %s телят" tag="format"/>
 		<text name="rl_ui_cow_singleBirth" text="Народилося 1 теля"/>
 		<text name="rl_ui_pig_multipleBirths" text="Народилося %s поросят" tag="format"/>
 		<text name="rl_ui_pig_singleBirth" text="Народилося 1 порося"/>
@@ -196,51 +196,51 @@
 		<text name="rl_ui_sellBulkResult" text="Продано %s тварин за %s" tag="format"/>
 		<text name="rl_ui_moveBulkResult" text="Переміщено %s тварин" tag="format"/>
 
-		<text name="rl_ui_monitor" text="Monitor"/>
-		<text name="rl_ui_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="finance_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="rl_ui_monitorFee" text="Monitor fee"/>
-		<text name="rl_ui_applyMonitor" text="Apply Monitor"/>
-		<text name="rl_ui_removeMonitor" text="Remove Monitor"/>
-		<text name="rl_ui_input_food" text="Food"/>
-		<text name="rl_ui_input_water" text="Water"/>
-		<text name="rl_ui_input_straw" text="Straw"/>
-		<text name="rl_ui_output_milk" text="Milk"/>
-		<text name="rl_ui_output_manure" text="Manure"/>
-		<text name="rl_ui_output_liquidManure" text="Liquid manure"/>
-		<text name="rl_ui_output_pallets_eggs" text="Eggs"/>
-		<text name="rl_ui_output_pallets_wool" text="Wool"/>
-		<text name="rl_ui_output_pallets_goatMilk" text="Goat milk"/>
-		<text name="rl_ui_amountPerDay" text="%.0fL / day" tag="format"/>
-		<text name="rl_ui_feePerMonth" text="%s / month" tag="format"/>
+		<text name="rl_ui_monitor" text="Монітор"/>
+		<text name="rl_ui_monitorSubscriptions" text="Моніторинг підписок"/>
+		<text name="finance_monitorSubscriptions" text="Моніторинг підписок"/>
+		<text name="rl_ui_monitorFee" text="Плата за моніторинг"/>
+		<text name="rl_ui_applyMonitor" text="Застосувати монітор"/>
+		<text name="rl_ui_removeMonitor" text="Видалити монітор"/>
+		<text name="rl_ui_input_food" text="Їжа"/>
+		<text name="rl_ui_input_water" text="Вода"/>
+		<text name="rl_ui_input_straw" text="Солома"/>
+		<text name="rl_ui_output_milk" text="Молоко"/>
+		<text name="rl_ui_output_manure" text="Гній"/>
+		<text name="rl_ui_output_liquidManure" text="Рідкий гній"/>
+		<text name="rl_ui_output_pallets_eggs" text="Яйця"/>
+		<text name="rl_ui_output_pallets_wool" text="Шерсть"/>
+		<text name="rl_ui_output_pallets_goatMilk" text="Козяче молоко"/>
+		<text name="rl_ui_amountPerDay" text="%.0fЛ / день" tag="format"/>
+		<text name="rl_ui_feePerMonth" text="%s / місяць" tag="format"/>
 
-		<text name="rl_ui_animalType" text="Type"/>
-		<text name="rl_ui_amountMonitored" text="Monitored"/>
-		<text name="rl_ui_production" text="Products"/>
-		<text name="rl_ui_applyAllMonitor" text="Apply All Monitors"/>
-		<text name="rl_ui_removeAllMonitor" text="Remove All Monitors"/>
-		<text name="rl_ui_fee" text="Fee"/>
+		<text name="rl_ui_animalType" text="Тип"/>
+		<text name="rl_ui_amountMonitored" text="Під контролем"/>
+		<text name="rl_ui_production" text="Продукти"/>
+		<text name="rl_ui_applyAllMonitor" text="Застосувати всі монітори"/>
+		<text name="rl_ui_removeAllMonitor" text="Вилучити всі монітори"/>
+		<text name="rl_ui_fee" text="Гонорар"/>
 
-		<text name="rl_ui_leftEarTag" text="Left Ear Tag"/>
-		<text name="rl_ui_rightEarTag" text="Right Ear Tag"/>
-		<text name="rl_ui_backgroundColour" text="Background Colour"/>
-		<text name="rl_ui_backgroundHue" text="Background Hue"/>
-		<text name="rl_ui_backgroundRgb" text="Background RGB"/>
-		<text name="rl_ui_textColour" text="Text Colour"/>
-		<text name="rl_ui_textHue" text="Text Hue"/>
-		<text name="rl_ui_textRgb" text="Text RGB"/>
+		<text name="rl_ui_leftEarTag" text="Бірка з лівим вухом"/>
+		<text name="rl_ui_rightEarTag" text="Бірка для правого вуха"/>
+		<text name="rl_ui_backgroundColour" text="Колір фону"/>
+		<text name="rl_ui_backgroundHue" text="Відтінок фону"/>
+		<text name="rl_ui_backgroundRgb" text="Фон RGB"/>
+		<text name="rl_ui_textColour" text="Колір тексту"/>
+		<text name="rl_ui_textHue" text="Відтінок тексту"/>
+		<text name="rl_ui_textRgb" text="Текст RGB"/>
 
-		<text name="rl_ui_formatMonths" text="%s months"/>
-		<text name="rl_ui_formatMonth" text="%s month"/>
-		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
-		<text name="rl_ui_any" text="Any"/>
-		<text name="rl_ui_pregnancy" text="Pregnancy"/>
-		<text name="rl_ui_productivity" text="Pregnancy"/>
-		<text name="rl_ui_selectAll" text="Select All"/>
-		<text name="rl_ui_selectNone" text="Select None"/>
-		<text name="rl_ui_filters" text="Filters"/>
-		<text name="rl_ui_doesntHaveName" text="No Name"/>
-		<text name="rl_ui_doesHaveName" text="Has Name"/>
+		<text name="rl_ui_formatMonths" text="%s місяці"/>
+		<text name="rl_ui_formatMonth" text="%s місяць"/>
+		<text name="rl_ui_notPregnant" text="Не вагітна"/>
+		<text name="rl_ui_any" text="Будь-який"/>
+		<text name="rl_ui_pregnancy" text="Вагітність"/>
+		<text name="rl_ui_productivity" text="Вагітність"/>
+		<text name="rl_ui_selectAll" text="Вибрати все"/>
+		<text name="rl_ui_selectNone" text="Виберіть Ні"/>
+		<text name="rl_ui_filters" text="Фільтри"/>
+		<text name="rl_ui_doesntHaveName" text="Немає ім'я"/>
+		<text name="rl_ui_doesHaveName" text="Має ім'я"/>
 
 
 		<!-- НАЛАШТУВАННЯ -->
@@ -253,52 +253,52 @@
 		<text name="rl_settings_accidentsChance_label" text="Ймовірність нещасних випадків"/>
 		<text name="rl_settings_accidentsChance_tooltip" text="Змініть ймовірність видалення тварин через випадкові нещасні випадки"/>
 
-		<text name="rl_settings_foodScale_label" text="Food Scale"/>
-		<text name="rl_settings_foodScale_tooltip" text="Change the amount of food eaten by animals"/>
+		<text name="rl_settings_foodScale_label" text="Харчові ваги"/>
+		<text name="rl_settings_foodScale_tooltip" text="Змінити кількість їжі, яку їдять тварини"/>
 
-		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
-		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
+		<text name="rl_settings_maxDealerAnimals_label" text="Максимальна кількість тварин у продавця"/>
+		<text name="rl_settings_maxDealerAnimals_tooltip" text="Змінити максимальну кількість тварин, яку продавець тварин може мати в наявності для кожного типу тварин"/>
 
-		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
-		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
-		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
+		<text name="rl_settings_tagColour_label" text="Змінити колір тегу"/>
+		<text name="rl_settings_tagColour_tooltip" text="Змінити колір вушних бірок"/>
+		<text name="rl_settings_tagColour_text" text="Змінити колір тегу"/>
 
-		<text name="rl_settings_exportCSV_label" text="Export To CSV"/>
-		<text name="rl_settings_exportCSV_tooltip" text="Export stats to CSV"/>
-		<text name="rl_settings_exportCSV_text" text="Export To CSV"/>
+		<text name="rl_settings_exportCSV_label" text="Експорт до CSV"/>
+		<text name="rl_settings_exportCSV_tooltip" text="Експорт статистики в CSV"/>
+		<text name="rl_settings_exportCSV_text" text="Експорт до CSV"/>
 
 
 
 		<!--  HELP  -->
 
 
-		<text name="rl_help_monitors_title" text="Monitors"/>
-		<text name="rl_help_monitors_1" text="In order to see the majority of an animal's statistics, you need to apply a monitoring tag to it, which can be done through the animal menu (where you buy and sell animals). Monitoring tags are also visually shown on the animal, on their left ear next to their ID tag."/>
-		<text name="rl_help_monitors_2" text="Monitoring tags will result in important information being shown to you, including health, weight, lactation, production, and straw, food and water requirements."/>
-		<text name="rl_help_monitors_3" text="Applying a tag to an animal will cost you a small monthly subscription based on the animal's species. If you choose to remove the tag, the tag will be removed at the start of the next month."/>
+		<text name="rl_help_monitors_title" text="Монітори"/>
+		<text name="rl_help_monitors_1" text="Для того, щоб бачити більшість статистичних даних тварини, вам потрібно прикріпити до неї мітку моніторингу, що можна зробити через меню тварини (де ви купуєте і продаєте тварин). Моніторингові мітки також візуально відображаються на тварині, на її лівому вусі поруч з ідентифікатором."/>
+		<text name="rl_help_monitors_2" text="Моніторинг міток дозволить вам отримати важливу інформацію про стан здоров'я, вагу, лактацію, продуктивність, а також про потреби в соломі, кормі та воді."/>
+		<text name="rl_help_monitors_3" text="Прикріплення бірки до тварини коштуватиме вам невелику щомісячну підписку в залежності від виду тварини. Якщо ви вирішите зняти бірку, вона буде видалена на початку наступного місяця."/>
 
-		<text name="rl_help_pregnancy_title" text="Pregnancy"/>
-		<text name="rl_help_pregnancy_1" text="Female animals all require at least 1 male animal in order to potentially become pregnant. Both animals must be of the correct age and health, and must be from the same species. Breeding between different breeds (eg: holstein cow and angus bull) is allowed."/>
-		<text name="rl_help_pregnancy_2" text="Inbreeding is not allowed. If a male and a female are directly related, they will not breed together."/>
-		<text name="rl_help_pregnancy_3" text="The chance for a female to become pregnant depends upon both her and the male's fertility. A female with higher fertility also has a significantly higher chance of producing more offspring at once."/>
-		<text name="rl_help_pregnancy_4" text="Once a female becomes pregnant, she will start to carry her offspring. You can view the expected date of pregnancy and the number of offspring by looking at the animal in the pen, or by clicking on her in the animal menu."/>
-		<text name="rl_help_pregnancy_5" text="When she reaches her due date, she will give birth to her babies. However, the newborns have a certain chance of being removed, as does the mother if the pregnancy goes badly. Newborns that are born in an overcrowded pen will be sold automatically."/>
+		<text name="rl_help_pregnancy_title" text="Вагітність"/>
+		<text name="rl_help_pregnancy_1" text="Для того, щоб завагітніти, самкам потрібен щонайменше 1 самець. Обидві тварини повинні бути відповідного віку і стану здоров'я, а також належати до одного виду. Допускається розведення між різними породами (наприклад, голштинська корова і бик ангус)."/>
+		<text name="rl_help_pregnancy_2" text="Інбридинг не допускається. Якщо самець і самка є прямими родичами, вони не будуть розмножуватися разом."/>
+		<text name="rl_help_pregnancy_3" text="Шанс самки завагітніти залежить від фертильності як її, так і самця. Самка з вищою фертильністю також має значно вищі шанси на народження більшої кількості нащадків за один раз."/>
+		<text name="rl_help_pregnancy_4" text="Як тільки самка завагітніє, вона почне виношувати своє потомство. Очікувану дату вагітності та кількість потомства можна переглянути, подивившись на тварину в загоні або натиснувши на неї в меню тварин."/>
+		<text name="rl_help_pregnancy_5" text="Коли вона досягне свого терміну, вона народить своїх дітей. Однак новонароджені мають певні шанси бути вилученими, так само як і мати, якщо вагітність протікає погано. Новонароджені, які з'являться на світ у переповненому загоні, будуть продані автоматично."/>
 
-		<text name="rl_help_production_title" text="Production"/>
-		<text name="rl_help_production_1" text="Cows of any breed will only begin to produce milk after giving birth. Once she has given birth, the cow will produce milk exponentially for 3 months, then her production will slowly drop for the next 6 months. 10 months after pregnancy, the cow will stop producing milk until her next pregnancy."/>
-		<text name="rl_help_production_2" text="Sheep will produce wool in warm months. In cold months, under 12C, they will not produce wool."/>
-		<text name="rl_help_production_3" text="Milk, wool and egg production is further affected by the animal's genetics. An animal with good production genetics will produce more, whereas animal with bad genetics wont produce much at all."/>
+		<text name="rl_help_production_title" text="Виробництво"/>
+		<text name="rl_help_production_1" text="Корови будь-якої породи починають виробляти молоко тільки після пологів. Після пологів корова буде виробляти молоко в геометричній прогресії протягом 3 місяців, потім її продуктивність буде повільно знижуватися протягом наступних 6 місяців. Через 10 місяців після вагітності корова перестане виробляти молоко до наступної вагітності."/>
+		<text name="rl_help_production_2" text="Вівці будуть виробляти вовну в теплі місяці. У холодні місяці, при температурі нижче 12°C, вони не будуть виробляти вовну."/>
+		<text name="rl_help_production_3" text="На виробництво молока, вовни та яєць також впливає генетика тварини. Тварина з хорошою генетикою вироблятиме більше, тоді як тварина з поганою генетикою не вироблятиме багато взагалі."/>
 
-		<text name="rl_help_weight_title" text="Weight"/>
-		<text name="rl_help_weight_1" text="Animals have a certain weight that which is affected by how much they eat and drink. Every species and breed has its own average weight which affects the weight of each animal."/>
-		<text name="rl_help_weight_2" text="Weight increases the value of the animal, and a low weight affects its chance of being removed each month."/>
+		<text name="rl_help_weight_title" text="Вага"/>
+		<text name="rl_help_weight_1" text="Тварини мають певну вагу, яка залежить від того, скільки вони їдять і п'ють. Кожен вид і порода має свою середню вагу, яка впливає на вагу кожної тварини."/>
+		<text name="rl_help_weight_2" text="Вага збільшує цінність тварини, а низька вага впливає на ймовірність того, що її вилучать щомісяця."/>
 
-		<text name="rl_help_genetics_title" text="Genetics"/>
-		<text name="rl_help_genetics_1" text="Each animal has 4 different genetic values; metabolism, fertility, health and quality. Genetics are mixed between the mother and father and then passed down to their children."/>
-		<text name="rl_help_genetics_2" text="Metabolism affects the animal's ability to convert food into weight, and affects the amount it eats."/>
-		<text name="rl_help_genetics_3" text="Fertility affects the animal's chance of getting pregnant, or getting a female pregnant, and the number of offspring it will produce."/>
-		<text name="rl_help_genetics_4" text="Health affects the animal's health and its chance of being removed each month. An animal with higher health genetics will also have a longer lifespan."/>
-		<text name="rl_help_genetics_5" text="Quality affects the value of the animal itself, an animal with higher quality will sell for much more."/>
-		<text name="rl_help_genetics_6" text="Cattle, sheep and chicken also have production genetics, which affects how much milk/eggs/wool they produce."/>
+		<text name="rl_help_genetics_title" text="Генетика"/>
+		<text name="rl_help_genetics_1" text="Кожна тварина має 4 різні генетичні цінності: метаболізм, фертильність, здоров'я та якість. Генетика змішується між матір'ю і батьком, а потім передається їхнім дітям."/>
+		<text name="rl_help_genetics_2" text="Метаболізм впливає на здатність тварини перетворювати їжу у вагу і впливає на кількість з'їденого."/>
+		<text name="rl_help_genetics_3" text="Фертильність впливає на шанс тварини завагітніти або завагітніти самкою, а також на кількість потомства, яке вона принесе."/>
+		<text name="rl_help_genetics_4" text="Стан здоров'я тварини впливає на її шанси бути вилученою щомісяця. Тварина з кращою генетикою здоров'я також матиме довшу тривалість життя."/>
+		<text name="rl_help_genetics_5" text="Якість впливає на вартість самої тварини, тварина з вищою якістю буде продаватися набагато дорожче."/>
+		<text name="rl_help_genetics_6" text="Велика рогата худоба, вівці та кури також мають виробничу генетику, яка впливає на кількість молока/яєць/вовни, яку вони виробляють."/>
 	</texts>
 </l10n>
