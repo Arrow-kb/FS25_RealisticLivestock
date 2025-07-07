@@ -10,6 +10,8 @@ FinanceStats.statNameToIndex["monitorSubscriptions"] = #FinanceStats.statNames
 
 function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDirectory)
 
+    RLSettings.initialize()
+
     self.customEnvironment = modName
 
     local path = modDirectory .. "xml/animals.xml"

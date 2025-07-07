@@ -175,7 +175,7 @@ function RLSettings.saveToXMLFile(name, state)
 
 			for settingName, setting in pairs(RLSettings.SETTINGS) do
 				if setting.ignore then continue end
-				xmlFile:setInt("settings." .. settingName .. "#value", setting.state)
+				xmlFile:setInt("settings." .. settingName .. "#value", setting.state or setting.default)
 			end
 
 			local saved = xmlFile:save(false, true)
@@ -379,6 +379,3 @@ function RLSettings.applyDefaultSettings()
 
 	end
 end
-
-
-RLSettings.initialize()
