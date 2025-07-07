@@ -183,108 +183,114 @@
 
 			<ScrollingLayout profile="rl_animalScreenScrollingLayout" id="scrollingLayout" onScroll="onScrollLayoutScroll">
 
-				<GuiElement profile="rl_animalScreenScrollingLayoutBox">
+				<GuiElement profile="rl_animalScreenScrollingLayoutBox" id="scrollingLayoutBox">
 				
-				<Bitmap profile="fs25_animalIconGradient"/>
-				<Bitmap profile="rl_animalScreenAnimalIcon" id="infoIcon"/>
-				<Text profile="fs25_animalIconTitle" text="Holstein" id="infoName"/>
-				<Text profile="fs25_animalInfoTitle" position="10px -360px" id="infoTitle[1]" text=""/>
-				<Text profile="fs25_animalInfoValue" position="210px -360px" id="infoValue[1]" text=""/>
-				<ThreePartBitmap profile="fs25_animalInfoSeparator" position="0px -430px"/>
-				<Text profile="fs25_animalInfoTitle" position="10px -400px" id="infoTitle[2]" text=""/>
-				<Text profile="fs25_animalInfoValue" position="210px -400px" id="infoValue[2]" text=""/>
-				<ThreePartBitmap profile="fs25_animalInfoSeparator" position="0px -470px"/>
-				<Text profile="fs25_animalInfoTitle" position="10px -440px" id="infoTitle[3]" text=""/>
-				<Text profile="fs25_animalInfoValue" position="210px -440px" id="infoValue[3]" text=""/>
-				<Text profile="fs25_animalInfoTitle" position="380px -360px" id="infoTitle[4]" text=""/>
-				<Text profile="fs25_animalInfoValue" position="580px -360px" id="infoValue[4]" text=""/>
-				<Text profile="fs25_animalInfoTitle" position="380px -400px" id="infoTitle[5]" text=""/>
-				<Text profile="fs25_animalInfoValue" position="580px -400px" id="infoValue[5]" text=""/>
-				<Text profile="fs25_animalInfoTitle" position="380px -440px" id="infoTitle[6]" text=""/>
-				<Text profile="fs25_animalInfoValue" position="580px -440px" id="infoValue[6]" text=""/>
-				<Text profile="fs25_animalInfoTitle" position="10px -480px" id="infoTitle[7]" text=""/>
-				<Text profile="fs25_animalInfoValue" position="210px -480px" id="infoValue[7]" text=""/>
-				<Text profile="fs25_animalInfoTitle" position="380px -480px" id="infoTitle[8]" text=""/>
-				<Text profile="fs25_animalInfoValue" position="580px -480px" id="infoValue[8]" text=""/>
-				<Text profile="fs25_animalInfoTitle" position="10px -520px" id="infoTitle[9]" text=""/>
-				<Text profile="fs25_animalInfoValue" position="210px -520px" id="infoValue[9]" text=""/>
-				<Text profile="fs25_animalInfoTitle" position="380px -520px" id="infoTitle[10]" text=""/>
-				<Text profile="fs25_animalInfoValue" position="580px -520px" id="infoValue[10]" text=""/>
-				<Text profile="fs25_animalInfoTitle" position="10px -552px" text="$l10n_ui_information"/>
-				<Text profile="fs25_animalInfoText" position="10px -582px" id="infoDescription"/>
-				<ThreePartBitmap profile="fs25_animalAmountSelectorBoxBg" id="numAnimalsBoxBg"/>
-				<GuiElement profile="fs25_animalAmountSelectorBox" id="numAnimalsBox" position="8px 240px">
-					<Text profile="fs25_animalAmountSelectorTitle" text="$l10n_ui_animalNumber"/>
-					<Bitmap profile="fs25_animalAmountSelectorSeparator"/>
-					<MultiTextOption profile="fs25_animalAmountSelector" id="numAnimalsElement" onClick="onClickNumAnimals" onFocus="onFocusNumAnimals" onLeave="onFocusTargetSelection"/>
-				</GuiElement>
-				<GuiElement profile="fs25_animalInfoBox" id="infoBox" position="-15px 200px">
-					<Bitmap profile="fs25_animalMoneyBg" position="0px 154px"/>
-					<Text profile="fs25_animalMoneyTitle" position="10px 160px" text="$l10n_ui_prices"/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 160px" text="0" id="infoPrice"/>
-					<Text profile="fs25_animalMoneyTitle" position="10px 130px" text="$l10n_shop_fee"/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 130px" text="0" id="infoFee"/>
-					<Bitmap profile="fs25_animalMoneyTotalBg" position="0px 84px"/>
-					<Text profile="fs25_animalMoneyTotalTitle" position="10px 89px" text="$l10n_ui_total"/>
-					<Text profile="fs25_animalMoneyTotalValue" position="-10px 89px" text="0" id="infoTotal"/>
-					<Bitmap profile="fs25_animalInfoIcon"/>
-					<Text profile="fs25_animalInfo" text="$l10n_shop_transportationFee"/>
-				</GuiElement>
+					<Bitmap profile="fs25_animalIconGradient"/>
+					<Bitmap profile="rl_animalScreenAnimalIcon" id="infoIcon"/>
+					<Text profile="fs25_animalIconTitle" text="Holstein" id="infoName"/>
+					<Text profile="fs25_animalInfoTitle" position="10px -360px" id="infoTitle[1]" text=""/>
+					<Text profile="fs25_animalInfoValue" position="210px -360px" id="infoValue[1]" text=""/>
+					<ThreePartBitmap profile="fs25_animalInfoSeparator" position="0px -430px"/>
+					<Text profile="fs25_animalInfoTitle" position="10px -400px" id="infoTitle[2]" text=""/>
+					<Text profile="fs25_animalInfoValue" position="210px -400px" id="infoValue[2]" text=""/>
+					<ThreePartBitmap profile="fs25_animalInfoSeparator" position="0px -470px"/>
+					<Text profile="fs25_animalInfoTitle" position="10px -440px" id="infoTitle[3]" text=""/>
+					<Text profile="fs25_animalInfoValue" position="210px -440px" id="infoValue[3]" text=""/>
+					<Text profile="fs25_animalInfoTitle" position="380px -360px" id="infoTitle[4]" text=""/>
+					<Text profile="fs25_animalInfoValue" position="580px -360px" id="infoValue[4]" text=""/>
+					<Text profile="fs25_animalInfoTitle" position="380px -400px" id="infoTitle[5]" text=""/>
+					<Text profile="fs25_animalInfoValue" position="580px -400px" id="infoValue[5]" text=""/>
+					<Text profile="fs25_animalInfoTitle" position="380px -440px" id="infoTitle[6]" text=""/>
+					<Text profile="fs25_animalInfoValue" position="580px -440px" id="infoValue[6]" text=""/>
+					<Text profile="fs25_animalInfoTitle" position="10px -480px" id="infoTitle[7]" text=""/>
+					<Text profile="fs25_animalInfoValue" position="210px -480px" id="infoValue[7]" text=""/>
+					<Text profile="fs25_animalInfoTitle" position="380px -480px" id="infoTitle[8]" text=""/>
+					<Text profile="fs25_animalInfoValue" position="580px -480px" id="infoValue[8]" text=""/>
+					<Text profile="fs25_animalInfoTitle" position="10px -520px" id="infoTitle[9]" text=""/>
+					<Text profile="fs25_animalInfoValue" position="210px -520px" id="infoValue[9]" text=""/>
+					<Text profile="fs25_animalInfoTitle" position="380px -520px" id="infoTitle[10]" text=""/>
+					<Text profile="fs25_animalInfoValue" position="580px -520px" id="infoValue[10]" text=""/>
+					<Text profile="fs25_animalInfoTitle" position="10px -552px" text="$l10n_ui_information"/>
+					<Text profile="fs25_animalInfoText" position="10px -582px" id="infoDescription"/>
+					<ThreePartBitmap profile="fs25_animalAmountSelectorBoxBg" id="numAnimalsBoxBg"/>
+					<GuiElement profile="fs25_animalAmountSelectorBox" id="numAnimalsBox" position="8px 240px">
+						<Text profile="fs25_animalAmountSelectorTitle" text="$l10n_ui_animalNumber"/>
+						<Bitmap profile="fs25_animalAmountSelectorSeparator"/>
+						<MultiTextOption profile="fs25_animalAmountSelector" id="numAnimalsElement" onClick="onClickNumAnimals" onFocus="onFocusNumAnimals" onLeave="onFocusTargetSelection"/>
+					</GuiElement>
+					<GuiElement profile="fs25_animalInfoBox" id="infoBox" position="-15px 200px">
+						<Bitmap profile="fs25_animalMoneyBg" position="0px 154px"/>
+						<Text profile="fs25_animalMoneyTitle" position="10px 160px" text="$l10n_ui_prices"/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 160px" text="0" id="infoPrice"/>
+						<Text profile="fs25_animalMoneyTitle" position="10px 130px" text="$l10n_shop_fee"/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 130px" text="0" id="infoFee"/>
+						<Bitmap profile="fs25_animalMoneyTotalBg" position="0px 84px"/>
+						<Text profile="fs25_animalMoneyTotalTitle" position="10px 89px" text="$l10n_ui_total"/>
+						<Text profile="fs25_animalMoneyTotalValue" position="-10px 89px" text="0" id="infoTotal"/>
+						<Bitmap profile="fs25_animalInfoIcon"/>
+						<Text profile="fs25_animalInfo" text="$l10n_shop_transportationFee"/>
+					</GuiElement>
 
-				<!--
+					<!--
 			
-				<GuiElement profile="fs25_animalParentTabListBox" id="parentBox">
-					<Bitmap profile="fs25_animalMoneyBg" position="0px 154px" onClick="onClickAnimalInfo"/>
-					<Text profile="fs25_animalMoneyTitle" position="10px 160px" text="$l10n_rl_ui_mother"/>
-					<Text profile="fs25_animalMoneyValue" id="parentBoxMother" position="-10px 160px" text="id"/>
-					<Text profile="fs25_animalMoneyTitle" position="10px 120px" text="$l10n_rl_ui_father"/>
-					<Text profile="fs25_animalMoneyValue" id="parentBoxFather" position="-10px 130px" text="id"/>
-				</GuiElement>
+					<GuiElement profile="fs25_animalParentTabListBox" id="parentBox">
+						<Bitmap profile="fs25_animalMoneyBg" position="0px 154px" onClick="onClickAnimalInfo"/>
+						<Text profile="fs25_animalMoneyTitle" position="10px 160px" text="$l10n_rl_ui_mother"/>
+						<Text profile="fs25_animalMoneyValue" id="parentBoxMother" position="-10px 160px" text="id"/>
+						<Text profile="fs25_animalMoneyTitle" position="10px 120px" text="$l10n_rl_ui_father"/>
+						<Text profile="fs25_animalMoneyValue" id="parentBoxFather" position="-10px 130px" text="id"/>
+					</GuiElement>
 			
-				<-->
+					<-->
 
-				<GuiElement profile="fs25_animalInfoBox" id="geneticsBox" position="-15px 220px">
-					<Text profile="fs25_animalMoneyTitle" position="80px 190px" id="geneticsTitle[1]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 190px" id="geneticsValue[1]" text=""/>
-					<Text profile="fs25_animalMoneyTitle" position="80px 160px" id="geneticsTitle[2]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 160px" id="geneticsValue[2]" text=""/>
-					<Text profile="fs25_animalMoneyTitle" position="80px 130px" id="geneticsTitle[3]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 130px" id="geneticsValue[3]" text=""/>
-					<Text profile="fs25_animalMoneyTitle" position="80px 100px" id="geneticsTitle[4]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 100px" id="geneticsValue[4]" text=""/>
-					<Text profile="fs25_animalMoneyTitle" position="80px 70px" id="geneticsTitle[5]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 70px" id="geneticsValue[5]" text=""/>
-					<Text profile="fs25_animalMoneyTitle" position="80px 40px" id="geneticsTitle[6]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 40px" id="geneticsValue[6]" text=""/>
-				</GuiElement>
+					<GuiElement profile="fs25_animalInfoBox" id="geneticsBox" position="-15px 220px">
+						<Text profile="fs25_animalMoneyTitle" position="80px 190px" id="geneticsTitle[1]" text=""/>
+						<!--<Button profile="rl_infoPromptButton" position="65px 195px" onClick="onClickInfoPrompt" onHighlight="onHighlightInfoPrompt" onHighlightRemove="onHighlightRemoveInfoPrompt"/>-->
+						<Text profile="fs25_animalMoneyValue" position="-10px 190px" id="geneticsValue[1]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="80px 160px" id="geneticsTitle[2]" text=""/>
+						<!--<Button profile="rl_infoPromptButton" position="65px 165px" onClick="onClickInfoPrompt" onHighlight="onHighlightInfoPrompt" onHighlightRemove="onHighlightRemoveInfoPrompt"/>-->
+						<Text profile="fs25_animalMoneyValue" position="-10px 160px" id="geneticsValue[2]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="80px 130px" id="geneticsTitle[3]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 130px" id="geneticsValue[3]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="80px 100px" id="geneticsTitle[4]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 100px" id="geneticsValue[4]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="80px 70px" id="geneticsTitle[5]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 70px" id="geneticsValue[5]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="80px 40px" id="geneticsTitle[6]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 40px" id="geneticsValue[6]" text=""/>
+					</GuiElement>
 
-				<BoxLayout profile="fs25_animalParentTabListBox" position="0px 220px" id="parentBox">
-					<Button profile="rl_animalInfoButtonMother" onClick="onClickAnimalInfo" id="motherInfoButton" text="Mother"/>
-					<Button profile="rl_animalInfoButtonFather" onClick="onClickAnimalInfo" id="fatherInfoButton" text="Father"/>
-					<Button profile="rl_animalInfoButtonChildren" onClick="onClickAnimalInfo" id="childInfoButton" text="Children"/>
-				</BoxLayout>
+					<BoxLayout profile="fs25_animalParentTabListBox" position="0px 220px" id="parentBox">
+						<Button profile="rl_animalInfoButtonMother" onClick="onClickAnimalInfo" id="motherInfoButton" text="Mother"/>
+						<Button profile="rl_animalInfoButtonFather" onClick="onClickAnimalInfo" id="fatherInfoButton" text="Father"/>
+						<Button profile="rl_animalInfoButtonChildren" onClick="onClickAnimalInfo" id="childInfoButton" text="Children"/>
+					</BoxLayout>
 
-				<GuiElement profile="fs25_animalInfoBox" id="inputBox" position="-410px 0px">
-					<Text profile="fs25_animalMoneyTitle" position="110px 190px" id="inputTitle[1]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 190px" id="inputValue[1]" text=""/>
-					<Text profile="fs25_animalMoneyTitle" position="110px 160px" id="inputTitle[2]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 160px" id="inputValue[2]" text=""/>
-					<Text profile="fs25_animalMoneyTitle" position="110px 130px" id="inputTitle[3]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 130px" id="inputValue[3]" text=""/>
-				</GuiElement>
+					<GuiElement profile="fs25_animalInfoBox" id="inputBox" position="-410px 0px">
+						<Text profile="fs25_animalMoneyTitle" position="110px 190px" id="inputTitle[1]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 190px" id="inputValue[1]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="110px 160px" id="inputTitle[2]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 160px" id="inputValue[2]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="110px 130px" id="inputTitle[3]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 130px" id="inputValue[3]" text=""/>
+					</GuiElement>
 
-				<GuiElement profile="fs25_animalInfoBox" id="outputBox" position="0px 0px">
-					<Text profile="fs25_animalMoneyTitle" position="110px 190px" id="outputTitle[1]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 190px" id="outputValue[1]" text=""/>
-					<Text profile="fs25_animalMoneyTitle" position="110px 160px" id="outputTitle[2]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 160px" id="outputValue[2]" text=""/>
-					<Text profile="fs25_animalMoneyTitle" position="110px 130px" id="outputTitle[3]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 130px" id="outputValue[3]" text=""/>
-					<Text profile="fs25_animalMoneyTitle" position="110px 100px" id="outputTitle[4]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 100px" id="outputValue[4]" text=""/>
-					<Text profile="fs25_animalMoneyTitle" position="110px 70px" id="outputTitle[5]" text=""/>
-					<Text profile="fs25_animalMoneyValue" position="-10px 70px" id="outputValue[5]" text=""/>
-				</GuiElement>
+					<GuiElement profile="fs25_animalInfoBox" id="outputBox" position="0px 0px">
+						<Text profile="fs25_animalMoneyTitle" position="110px 190px" id="outputTitle[1]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 190px" id="outputValue[1]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="110px 160px" id="outputTitle[2]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 160px" id="outputValue[2]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="110px 130px" id="outputTitle[3]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 130px" id="outputValue[3]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="110px 100px" id="outputTitle[4]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 100px" id="outputValue[4]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="110px 70px" id="outputTitle[5]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 70px" id="outputValue[5]" text=""/>
+					</GuiElement>
+
+					<Bitmap profile="rl_infoPrompt" visible="false" position="0px 0px" id="infoPrompt">
+						
+					</Bitmap>
 
 				</GuiElement>
 

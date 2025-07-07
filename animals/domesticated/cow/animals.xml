@@ -23,7 +23,6 @@
 			<statesTimers idleMin="6666" idleMax="19998" sleepMin="120000" sleepMax="180000" restMin="12000" restMax="26666" grazeMin="26666" grazeMax="39999" chewMin="9000" chewMax="18000" eatMin="66665" eatMax="93331" wanderMin="5000" wanderMax="10000"/>
 			<assets filename="angus/cattleAngus.i3d" filenamePosed="$dataS/character/animals/domesticated/cow/angus/cattleAngus_posed.i3d" animation="$dataS/character/animals/domesticated/cow/animations/adult/cattleAdultAnimations.i3d" skeletonIndex="0" meshIndex="1" proxyIndex="2" shaderIndex="1|0|0" headIndex="0>0|0|0|0|0|0|0|0">
 				<texture multi="true" tileUIndex="0" tileVIndex="1" numTilesU="2" numTilesV="2" mirrorV="false"/>
-				<texture multi="true" tileUIndex="1" tileVIndex="1" numTilesU="2" numTilesV="2" mirrorV="false"/>
 				<node index="1|0|0" visibility="false"/>
 				<node index="1|1|0" visibility="false"/>
 				<node index="1|2|0" visibility="false"/>
@@ -62,7 +61,6 @@
 			<statesTimers idleMin="6666" idleMax="19998" sleepMin="120000" sleepMax="180000" restMin="12000" restMax="26666" grazeMin="0" grazeMax="0" chewMin="0" chewMax="0" eatMin="66665" eatMax="93331" wanderMin="5000" wanderMax="10000"/>
 			<assets filename="angus/cattleCalfBaby.i3d" filenamePosed="$dataS/character/animals/domesticated/cow/calf/cattleCalfBaby_posed.i3d" animation="$dataS/character/animals/domesticated/cow/animations/young/cattleCalfBabyAnimations.i3d" skeletonIndex="1" meshIndex="0" proxyIndex="2" shaderIndex="0|0" headIndex="1>0|0|0|0|0|0|0|0">
 				<texture multi="true" tileUIndex="0" tileVIndex="1" numTilesU="2" numTilesV="2" mirrorV="false"/>
-				<texture multi="true" tileUIndex="1" tileVIndex="1" numTilesU="2" numTilesV="2" mirrorV="false"/>
 			</assets>
 			<locomotion filename="$dataS/character/animals/domesticated/cow/locomotionBaby.xml"/>
 			<audio eatSoundGroup="eat" yellSoundGroup="yellBaby" yellMinInterval="8000" yellMaxInterval="20000" yellTimerCrowdScale="0.2"/>
@@ -98,7 +96,6 @@
 			<statesTimers idleMin="6666" idleMax="19998" sleepMin="120000" sleepMax="180000" restMin="12000" restMax="26666" grazeMin="26666" grazeMax="39999" chewMin="9000" chewMax="18000" eatMin="66665" eatMax="93331" wanderMin="5000" wanderMax="10000"/>
 			<assets filename="angus/cattleCalf.i3d" filenamePosed="$dataS/character/animals/domesticated/cow/calf/cattleCalf_posed.i3d" animation="$dataS/character/animals/domesticated/cow/animations/young/cattleCalfAnimations.i3d" skeletonIndex="1" meshIndex="0" proxyIndex="2" shaderIndex="0|0" headIndex="1>0|0|0|0|0|0|0|0">
 				<texture multi="true" tileUIndex="0" tileVIndex="1" numTilesU="2" numTilesV="2" mirrorV="false"/>
-				<texture multi="true" tileUIndex="1" tileVIndex="1" numTilesU="2" numTilesV="2" mirrorV="false"/>>
 			</assets>
 			<locomotion filename="$dataS/character/animals/domesticated/cow/locomotionKid.xml"/>
 			<audio eatSoundGroup="eat" yellSoundGroup="yellBaby" yellMinInterval="8000" yellMaxInterval="20000" yellTimerCrowdScale="0.2"/>
@@ -144,6 +141,33 @@
 			</assets>
 			<locomotion filename="$dataS/character/animals/domesticated/waterBuffalo/locomotion.xml"/>
 			<audio eatSoundGroup="eat" yellSoundGroup="yellBuffalo" yellMinInterval="12000" yellMaxInterval="24000" yellTimerCrowdScale="0.2"/>
+		</animal>
+		<animal visualAnimalIndex="16" radius="1.8" handleThreats="false" threatAwarenessRadius="5" slowingDistance="0.5" allowMilkingPlace="true" headOffset="0.8" canEat="true" canDrink="true" canSleep="true" canEatDuringNight="true" canBeCleaned="true" interessDistance="10.0">
+			<statesTimers idleMin="6666" idleMax="19998" sleepMin="120000" sleepMax="180000" restMin="12000" restMax="26666" grazeMin="26666" grazeMax="39999" chewMin="9000" chewMax="18000" eatMin="66665" eatMax="93331" wanderMin="5000" wanderMax="10000"/>
+			<assets filename="angus/cattleAngus.i3d" filenamePosed="$dataS/character/animals/domesticated/cow/angus/cattleAngus_posed.i3d" animation="$dataS/character/animals/domesticated/cow/animations/adult/cattleAdultAnimations.i3d" skeletonIndex="0" meshIndex="1" proxyIndex="2" shaderIndex="1|0|0" headIndex="0>0|0|0|0|0|0|0|0">
+				<texture multi="true" tileUIndex="1" tileVIndex="1" numTilesU="2" numTilesV="2" mirrorV="false"/>
+				<node index="1|0|0" visibility="false"/>
+				<node index="1|1|0" visibility="false"/>
+				<node index="1|2|0" visibility="false"/>
+			</assets>
+			<locomotion filename="$dataS/character/animals/domesticated/cow/locomotion.xml"/>
+			<audio eatSoundGroup="eat" yellSoundGroup="yell" yellMinInterval="8000" yellMaxInterval="20000" yellTimerCrowdScale="0.2"/>
+		</animal>
+		<animal visualAnimalIndex="17" radius="1.1" handleThreats="false" threatAwarenessRadius="5" slowingDistance="0.5" allowMilkingPlace="true" headOffset="0.8" canEat="false" canDrink="false" canSleep="true" canEatDuringNight="false" canBeCleaned="true" interessDistance="10.0">
+			<statesTimers idleMin="6666" idleMax="19998" sleepMin="120000" sleepMax="180000" restMin="12000" restMax="26666" grazeMin="26666" grazeMax="39999" chewMin="9000" chewMax="18000" eatMin="66665" eatMax="93331" wanderMin="5000" wanderMax="10000"/>
+			<assets filename="angus/cattleCalf.i3d" filenamePosed="$dataS/character/animals/domesticated/cow/calf/cattleCalf_posed.i3d" animation="$dataS/character/animals/domesticated/cow/animations/young/cattleCalfAnimations.i3d" skeletonIndex="1" meshIndex="0" proxyIndex="2" shaderIndex="0|0" headIndex="1>0|0|0|0|0|0|0|0">
+				<texture multi="true" tileUIndex="1" tileVIndex="1" numTilesU="2" numTilesV="2" mirrorV="false"/>
+			</assets>
+			<locomotion filename="$dataS/character/animals/domesticated/cow/locomotionKid.xml"/>
+			<audio eatSoundGroup="eat" yellSoundGroup="yellBaby" yellMinInterval="8000" yellMaxInterval="20000" yellTimerCrowdScale="0.2"/>
+		</animal>
+		<animal visualAnimalIndex="18" radius="0.7" handleThreats="false" threatAwarenessRadius="5" slowingDistance="0.5" allowMilkingPlace="true" headOffset="0.8" canEat="false" canDrink="false" canSleep="true" canEatDuringNight="false" canBeCleaned="true" interessDistance="10.0">
+			<statesTimers idleMin="6666" idleMax="19998" sleepMin="120000" sleepMax="180000" restMin="12000" restMax="26666" grazeMin="0" grazeMax="0" chewMin="0" chewMax="0" eatMin="66665" eatMax="93331" wanderMin="5000" wanderMax="10000"/>
+			<assets filename="angus/cattleCalfBaby.i3d" filenamePosed="$dataS/character/animals/domesticated/cow/calf/cattleCalfBaby_posed.i3d" animation="$dataS/character/animals/domesticated/cow/animations/young/cattleCalfBabyAnimations.i3d" skeletonIndex="1" meshIndex="0" proxyIndex="2" shaderIndex="0|0" headIndex="1>0|0|0|0|0|0|0|0">
+				<texture multi="true" tileUIndex="1" tileVIndex="1" numTilesU="2" numTilesV="2" mirrorV="false"/>
+			</assets>
+			<locomotion filename="$dataS/character/animals/domesticated/cow/locomotionBaby.xml"/>
+			<audio eatSoundGroup="eat" yellSoundGroup="yellBaby" yellMinInterval="8000" yellMaxInterval="20000" yellTimerCrowdScale="0.2"/>
 		</animal>
 	</animals>
 	<sound>

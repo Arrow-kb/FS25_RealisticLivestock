@@ -44,4 +44,22 @@
 		<size value="33% 100%"/>
 	</Profile>
 	
+	<Profile name="rl_infoPromptButton" extends="baseReference" with="anchorBottomLeft">
+		<size value="10px 15px"/>
+		<iconColor value="$preset_fs25_colorMainLight"/>
+		<iconHighlightedColor value="$preset_fs25_colorMainHighlight"/>
+		<iconSize value="10px 15px"/>
+		<iconSliceId value="gui.dialogType_info"/>
+		<imageColor value="$preset_colorTransparent"/>
+		<imageFocusedColor value="$preset_colorTransparent"/>
+		<imageSelectedColor value="$preset_colorTransparent"/>
+		<imageSliceId value="gui.colorPreset"/>
+	</Profile>
+
+	<Profile name="rl_infoPrompt" extends="baseReference">
+		<size value="300px 70px"/>
+		<imageSliceId value="gui.map_box_selected"/>
+		<imageColor value="$preset_fs25_colorMainHighlight"/>
+	</Profile>
+	
 </GUIProfiles>
