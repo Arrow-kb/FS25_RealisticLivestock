@@ -97,7 +97,7 @@ function AnimalSellEvent:run(connection)
 
 	for i, identifier in pairs(self.animals) do
 
-		clusterSystem:removeCluster(identifier.farmId .. " " .. identifier.uniqueId .. " " .. identifier.country)
+		clusterSystem:removeCluster(identifier.farmId .. " " .. identifier.uniqueId .. " " .. (identifier.country or identifier.birthday.country))
 
 	end
 

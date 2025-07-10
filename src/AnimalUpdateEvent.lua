@@ -73,7 +73,7 @@ function AnimalUpdateEvent:run(connection)
 
     for _, animal in pairs(clusterSystem.animals) do
 
-        if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == identifiers.country and animal.animalTypeIndex == identifiers.animalTypeIndex then
+        if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) and animal.animalTypeIndex == identifiers.animalTypeIndex then
 
             animal[self.trait] = self.value
             return

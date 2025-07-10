@@ -1333,9 +1333,9 @@ end
 
 function AnimalSystem.onClickResetDealer()
 
-    if not self.isServer then return end
-
     local animalSystem = g_currentMission.animalSystem
+    
+    if not animalSystem.isServer then return end
 
     animalSystem:removeAllSaleAnimals()
 

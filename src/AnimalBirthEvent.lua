@@ -76,7 +76,7 @@ function AnimalBirthEvent:run(connection)
 
         for i, animal in pairs(animals) do
 
-            if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == identifiers.country then
+            if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
 
                 animal.isParent = true
                 animal.monthsSinceLastBirth = 0
@@ -103,7 +103,7 @@ function AnimalBirthEvent:run(connection)
 
         for _, animal in pairs(clusterSystem.animals) do
 
-            if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == identifiers.country then
+            if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
 
                 animal.isParent = true
                 animal.monthsSinceLastBirth = 0
@@ -120,7 +120,7 @@ function AnimalBirthEvent:run(connection)
 
         end
         
-        if self.parentDied then clusterSystem:removeCluster(identifiers.farmId .. " " .. identifiers.uniqueId .. " " .. identifiers.country) end
+        if self.parentDied then clusterSystem:removeCluster(identifiers.farmId .. " " .. identifiers.uniqueId .. " " .. (identifiers.country or identifiers.birthday.country)) end
 
     end
 

@@ -54,14 +54,14 @@ function AnimalDeathEvent:run(connection)
 
         for i, animal in pairs(animals) do
 
-            if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == identifiers.country then
+            if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
                 table.remove(animals, i)
                 return
             end
 
         end
     else
-        self.object:getClusterSystem():removeCluster(identifiers.farmId .. " " .. identifiers.uniqueId .. " " .. identifiers.country)
+        self.object:getClusterSystem():removeCluster(identifiers.farmId .. " " .. identifiers.uniqueId .. " " .. (identifiers.country or identifiers.birthday.country))
     end
 
 end

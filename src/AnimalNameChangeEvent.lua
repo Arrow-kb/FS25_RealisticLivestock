@@ -57,7 +57,7 @@ function AnimalNameChangeEvent:run(connection)
 
     for _, animal in pairs(clusterSystem.animals) do
 
-        if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == identifiers.country then
+        if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
 
             animal.name = self.name
 
