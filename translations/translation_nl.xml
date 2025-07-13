@@ -7,6 +7,8 @@
 		<text name="fillType_bull_holstein" text="Holstein Stier"/>
 		<text name="fillType_bull_angus" text="Angus Stier"/>
 		<text name="fillType_bull_limousin" text="Limousin Stier"/>
+		<text name="fillType_cow_hereford" text="Hereford"/>
+		<text name="fillType_bull_hereford" text="Hereford Stier"/>
 		<text name="animal_descriptionBullFeed" text="Stieren houden van gras, hooi and CGR."/>
 		<text name="animal_descriptionBullYoung" text="Dit is een mannelijk kalf."/>
 		<text name="animal_descriptionBullReproduction" text="Stieren die gezond zijn en ouder dan 12 maanden kunnen zich voortplanten."/>
