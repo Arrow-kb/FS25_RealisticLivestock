@@ -606,6 +606,12 @@ end
 
 function AnimalSystem:loadFromXMLFile()
 
+	-- On a new game the savegame directory is not set on startup 
+	-- As there is no settings file yet either return to prevent errors
+	if g_currentMission == nil or g_currentMission.missionInfo == nil or g_currentMission.missionInfo.savegameDirectory == nil then
+		return
+	end
+
     local xmlFile = XMLFile.loadIfExists("animalSystem", g_currentMission.missionInfo.savegameDirectory .. "/animalSystem.xml")
 
     if xmlFile == nil then return false end
