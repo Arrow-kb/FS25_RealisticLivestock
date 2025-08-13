@@ -319,6 +319,6 @@ function AnimalScreenDealerTrailer:applyTargetBulk(animalTypeIndex, items)
 
     self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenDealerFarm.L10N_SYMBOL.SELLING))
     g_messageCenter:subscribe(AnimalSellEvent, self.onAnimalSold, self)
-	g_client:getServerConnection():sendEvent(AnimalSellEvent.new(husbandry, self.targetAnimals, totalPrice, 0))
+	g_client:getServerConnection():sendEvent(AnimalSellEvent.new(trailer, self.targetAnimals, totalPrice, 0))
 
 end

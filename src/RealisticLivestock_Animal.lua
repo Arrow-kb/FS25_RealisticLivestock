@@ -2,11 +2,13 @@ Animal = {}
 local Animal_mt = Class(Animal)
 
 
-function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor)
+function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated)
 
     local self = setmetatable({}, Animal_mt)
 
     self.input, self.output = {}, {}
+
+    self.isCastrated = isCastrated or false
 
     self.clusterSystem = clusterSystem
 
@@ -456,9 +458,11 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 
     local monitor = { ["active"] = xmlFile:getBool(key .. ".monitor#active", false), ["removed"] = xmlFile:getBool(key .. ".monitor#removed", false) }
 
+    local isCastrated = xmlFile:getBool(key .. "#isCastrated", false)
 
 
-    local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor)
+
+    local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated)
     --local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, impregnatedById, pos, name, dirt, fitness, riding, farmId, weight, metabolism, impregnatedByMetabolism, impregnatedByProductivity, productivity, quality, impregnatedByMeatQuality, impregnatedByHealth, impregnatedByFertility, healthGenetics, fertility, variation, children)
 
     animal:setBirthday(birthday)
@@ -598,6 +602,8 @@ function Animal:saveToXMLFile(xmlFile, key)
     xmlFile:setBool(key .. ".monitor#active", self.monitor.active)
     xmlFile:setBool(key .. ".monitor#removed", self.monitor.removed)
 
+    if self.isCastrated then xmlFile:setBool(key .. "#isCastrated", true) end
+
 end
 
 
@@ -709,6 +715,8 @@ function Animal:writeStream(streamId, connection)
     streamWriteBool(streamId, self.monitor.active)
     streamWriteBool(streamId, self.monitor.removed)
     streamWriteFloat32(streamId, self.monitor.fee or 5)
+
+    streamWriteBool(streamId, self.isCastrated or false)
 
     return true
 
@@ -849,6 +857,8 @@ function Animal:readStream(streamId, connection)
         ["fee"] = streamReadFloat32(streamId)
     }
 
+    self.isCastrated = streamReadBool(streamId)
+
     return true
 
 end
@@ -888,7 +898,7 @@ function Animal:clone()
     local impregnatedBy = self.impregnatedBy or nil
     
     --local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, impregnatedBy ~= nil and impregnatedBy.uniqueId or nil, self.pos or nil, self.name or nil, self.dirt or nil, self.fitness or nil, self.riding or nil, self.farmId, self.weight, self.metabolism, impregnatedBy ~= nil and impregnatedBy.metabolism or nil, impregnatedBy ~= nil and impregnatedBy.productivity or nil, self.genetics.productivity or nil, self.genetics.quality, impregnatedBy ~= nil and impregnatedBy.quality or nil, impregnatedBy ~= nil and impregnatedBy.health or nil, impregnatedBy ~= nil and impregnatedBy.fertility or nil, self.genetics.health, self.genetics.fertility, self.variation, self.children)
-    local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, self.pos, self.name, self.dirt, self.fitness, self.riding, self.farmId, self.weight, self.genetics, self.impregnatedBy, self.variation, self.children, self.monitor)
+    local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, self.pos, self.name, self.dirt, self.fitness, self.riding, self.farmId, self.weight, self.genetics, self.impregnatedBy, self.variation, self.children, self.monitor, self.isCastrated)
 
     --if self.impregnatedBy ~= nil then
         --newAnimal.impregnatedBy = {
@@ -1361,6 +1371,8 @@ function Animal:showInfo(box)
 
     box:addLine(g_i18n:getText("rl_ui_value"), g_i18n:formatMoney(self:getSellPrice(), 2, true, true))
 
+    if self.isCastrated then box:addLine(g_i18n:getText("rl_ui_castrated"), g_i18n:getText("rl_ui_yes")) end
+
 end
 
 
@@ -1831,6 +1843,8 @@ function Animal:updateWeight(foodFactor)
 
     increase = increase * metabolism
 
+    if self.isCastrated then increase = increase * 1.15 end
+
     if self.clusterSystem ~= nil and self.clusterSystem.owner ~= nil and self.clusterSystem.owner.spec_husbandryMilk ~= nil and self.isLactating then increase = increase * 0.75 end
 
     local decrease = 0
@@ -2021,7 +2035,7 @@ function Animal:createPregnancy(childNum, month, year)
 
     for _, animal in pairs(self.clusterSystem:getAnimals()) do
 
-        if animal.gender ~= "male" then continue end
+        if animal.gender ~= "male" or animal.isCastrated or animal.genetics.fertility <= 0 then continue end
 
         if animal.subType == "BULL_WATERBUFFALO" and self.subType ~= "COW_WATERBUFFALO" then continue end
         if animal.subType == "RAM_GOAT" and self.subType ~= "GOAT" then continue end
@@ -2090,7 +2104,7 @@ function Animal:createPregnancy(childNum, month, year)
 
     if genetics.productivity ~= nil then
         motherProductivity = genetics.productivity
-        fatherProductivity = father.productivity
+        fatherProductivity = father.productivity or 1
         minProductivity = motherProductivity >= fatherProductivity and fatherProductivity or motherProductivity
         maxProductivity = motherProductivity < fatherProductivity and fatherProductivity or motherProductivity
         if maxProductivity == minProductivity then maxProductivity = maxProductivity + 0.01 end
@@ -2673,7 +2687,9 @@ function Animal:getSellPrice()
 
     sellPrice = sellPrice + (sellPrice * 0.25 * (meatFactor - 1))
 
-    sellPrice = sellPrice + (((sellPrice * 0.6) / subType.targetWeight) * weight * (-1 + meatFactor))
+    sellPrice = math.max(sellPrice + (((sellPrice * 0.6) / subType.targetWeight) * weight * (-1 + meatFactor)), 0.5)
+
+    if self.isCastrated then sellPrice = sellPrice + sellPrice * 0.15 end
 
     if self.animalTypeIndex == AnimalType.HORSE then
         return math.max(sellPrice * meatFactor * weightFactor * (0.3 + 0.5 * self:getHealthFactor() + 0.3 * self:getRidingFactor() + 0.2 * self:getFitnessFactor() - 0.2 * self:getDirtFactor()), sellPrice * 0.05)

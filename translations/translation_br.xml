@@ -256,6 +256,11 @@
 		<text name="rl_ui_filters" text="Filters"/>
 		<text name="rl_ui_doesntHaveName" text="No Name"/>
 		<text name="rl_ui_doesHaveName" text="Has Name"/>
+
+
+
+		<text name="rl_ui_castrated" text="Castrated"/>
+		<text name="rl_ui_castrate" text="Castrate"/>
     
 
 		<!--  CONFIGURAÇÕES  -->

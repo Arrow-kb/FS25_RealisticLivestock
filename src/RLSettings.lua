@@ -130,11 +130,7 @@ RLSettings.Button = nil
 
 function RLSettings.loadFromXMLFile()
 
-	-- On a new game the savegame directory is not set on startup 
-	-- As there is no settings file yet either return to prevent errors
-	if g_currentMission == nil or g_currentMission.missionInfo == nil or g_currentMission.missionInfo.savegameDirectory == nil then
-		return
-	end
+	if g_currentMission.missionInfo == nil or g_currentMission.missionInfo.savegameDirectory == nil then return end
 
 	local path = g_currentMission.missionInfo.savegameDirectory .. "/rlSettings.xml"
 

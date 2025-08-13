@@ -78,6 +78,7 @@ function RealisticLivestock_AnimalScreen:onClickBuyMode(a, b)
     self.buttonToggleSelectAll:setVisible(true)
     self.buttonToggleSelectAll:setText(g_i18n:getText("rl_ui_selectAll"))
     self.buttonBuySelected:setText(self.isTrailerFarm and g_i18n:getText("rl_ui_moveSelected") or g_i18n:getText("rl_ui_buySelected"))
+    self.buttonCastrate:setVisible(false)
 end
 
 AnimalScreen.onClickBuyMode = Utils.prependedFunction(AnimalScreen.onClickBuyMode, RealisticLivestock_AnimalScreen.onClickBuyMode)
@@ -93,6 +94,7 @@ function RealisticLivestock_AnimalScreen:onClickSellMode(a, b)
     self.buttonToggleSelectAll:setVisible(true)
     self.buttonToggleSelectAll:setText(g_i18n:getText("rl_ui_selectAll"))
     self.buttonBuySelected:setText(self.isTrailerFarm and g_i18n:getText("rl_ui_moveSelected") or g_i18n:getText("rl_ui_sellSelected"))
+    self.buttonCastrate:setVisible(false)
 end
 
 AnimalScreen.onClickSellMode = Utils.prependedFunction(AnimalScreen.onClickSellMode, RealisticLivestock_AnimalScreen.onClickSellMode)
@@ -425,6 +427,24 @@ function AnimalScreen:onClickMonitor()
 end
 
 
+function AnimalScreen:onClickCastrate()
+
+    self.buttonCastrate:setDisabled(true)
+
+    local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
+
+    if item == nil then return end
+
+    local animal = item.animal or item.cluster
+
+    if animal == nil then return end
+
+    animal.isCastrated = true
+    animal.genetics.fertility = 0
+
+end
+
+
 function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelected)
 
     if not g_gui.currentlyReloading then
@@ -435,6 +455,7 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
 
         local animalType = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
         local item
+        self.buttonCastrate:setVisible(false)
 
         if self.filteredItems == nil then
 
@@ -488,7 +509,69 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
                 end
             end
 
+            if self.geneticsBoxPositionNormal == nil then
+
+                self.geneticsBoxPositionNormal = GuiUtils.getNormalizedScreenValues("-15px 0px")
+                self.geneticsBoxPositionInfo = GuiUtils.getNormalizedScreenValues("-15px 220px")
+            
+            end
+
+            local geneticsPosition = self.isInfoMode and self.geneticsBoxPositionInfo or self.geneticsBoxPositionNormal
+
+            self.geneticsBox:setPosition(geneticsPosition[1], geneticsPosition[2])
+            self.geneticsBox:setVisible(true)
+            
+            local genetics = animal:addGeneticsInfo()
+
+            for i, title in ipairs(self.geneticsTitle) do
+                local value = self.geneticsValue[i]
+
+                title:setVisible(genetics[i] ~= nil)
+                value:setVisible(genetics[i] ~= nil)
+
+                if genetics[i] == nil then continue end
+
+                title:setText(genetics[i].title)
+                value:setText(g_i18n:getText(genetics[i].text))
+
+                local quality = genetics[i].text
+
+                if quality == "rl_ui_genetics_infertile"  then
+                    title:setTextColor(1, 0, 0, 1)
+                    value:setTextColor(1, 0, 0, 1)
+                elseif quality == "rl_ui_genetics_extremelyLow" or quality == "rl_ui_genetics_extremelyBad" then
+                    title:setTextColor(1, 0, 0, 1)
+                    value:setTextColor(1, 0, 0, 1)
+                elseif quality == "rl_ui_genetics_veryLow" or quality == "rl_ui_genetics_veryBad" then
+                    title:setTextColor(1, 0.2, 0, 1)
+                    value:setTextColor(1, 0.2, 0, 1)
+                elseif quality == "rl_ui_genetics_low" or quality == "rl_ui_genetics_bad" then
+                    title:setTextColor(1, 0.52, 0, 1)
+                    value:setTextColor(1, 0.52, 0, 1)
+                elseif quality == "rl_ui_genetics_average" then
+                    title:setTextColor(1, 1, 0, 1)
+                    value:setTextColor(1, 1, 0, 1)
+                elseif quality == "rl_ui_genetics_high" or quality == "rl_ui_genetics_good" then
+                    title:setTextColor(0.52, 1, 0, 1)
+                    value:setTextColor(0.52, 1, 0, 1)
+                elseif quality == "rl_ui_genetics_veryHigh" or quality == "rl_ui_genetics_veryGood" then
+                    title:setTextColor(0.2, 1, 0, 1)
+                    value:setTextColor(0.2, 1, 0, 1)
+                else
+                    title:setTextColor(0, 1, 0, 1)
+                    value:setTextColor(0, 1, 0, 1)
+                end
+
+
+            end
+
+
             if self.isInfoMode then
+
+                if animal.gender == "male" and animal.animalTypeIndex ~= AnimalType.CHICKEN then
+                    self.buttonCastrate:setVisible(true)
+                    self.buttonCastrate:setDisabled(animal.isCastrated)
+                end
 
                 self.buttonMonitor:setText(g_i18n:getText("rl_ui_" .. (animal.monitor.active and "remove" or "apply") .. "Monitor"))
                 self.buttonMonitor:setDisabled(animal.monitor.removed)
@@ -501,45 +584,16 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
 
                 self.childInfoButton:setDisabled(not animal.isParent)
 
-                local genetics = animal:addGeneticsInfo()
 
-                for i, title in ipairs(self.geneticsTitle) do
-                    local value = self.geneticsValue[i]
-
-                    title:setVisible(genetics[i] ~= nil)
-                    value:setVisible(genetics[i] ~= nil)
-
-                    if genetics[i] == nil then continue end
-
-                    title:setText(genetics[i].title)
-                    value:setText(g_i18n:getText(genetics[i].text))
-
-                    local quality = genetics[i].text
-
-                    if quality == "rl_ui_genetics_extremelyLow" or quality == "rl_ui_genetics_extremelyBad" then
-                        title:setTextColor(1, 0, 0, 1)
-                        value:setTextColor(1, 0, 0, 1)
-                    elseif quality == "rl_ui_genetics_veryLow" or quality == "rl_ui_genetics_veryBad" then
-                        title:setTextColor(1, 0.2, 0, 1)
-                        value:setTextColor(1, 0.2, 0, 1)
-                    elseif quality == "rl_ui_genetics_low" or quality == "rl_ui_genetics_bad" then
-                        title:setTextColor(1, 0.52, 0, 1)
-                        value:setTextColor(1, 0.52, 0, 1)
-                    elseif quality == "rl_ui_genetics_average" then
-                        title:setTextColor(1, 1, 0, 1)
-                        value:setTextColor(1, 1, 0, 1)
-                    elseif quality == "rl_ui_genetics_high" or quality == "rl_ui_genetics_good" then
-                        title:setTextColor(0.52, 1, 0, 1)
-                        value:setTextColor(0.52, 1, 0, 1)
-                    elseif quality == "rl_ui_genetics_veryHigh" or quality == "rl_ui_genetics_veryGood" then
-                        title:setTextColor(0.2, 1, 0, 1)
-                        value:setTextColor(0.2, 1, 0, 1)
-                    else
-                        title:setTextColor(0, 1, 0, 1)
-                        value:setTextColor(0, 1, 0, 1)
-                    end
+                for i = 1, #self.inputTitle do
+                    self.inputTitle[i]:setVisible(false)
+                    self.inputValue[i]:setVisible(false)
+                end
 
 
+                for i = 1, #self.outputTitle do
+                    self.outputTitle[i]:setVisible(false)
+                    self.outputValue[i]:setVisible(false)
                 end
 
 
@@ -552,6 +606,9 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
                     if infoIndex > #self.inputTitle then break end
 
                     local title, value = self.inputTitle[infoIndex], self.inputValue[infoIndex]
+
+                    title:setVisible(true)
+                    value:setVisible(true)
 
                     title:setText(g_i18n:getText("rl_ui_input_" .. fillType))
                     value:setText(string.format(g_i18n:getText("rl_ui_amountPerDay"), (amount * 24) / daysPerMonth))
@@ -569,6 +626,9 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
                     if infoIndex > #self.outputTitle then break end
 
                     local title, value = self.outputTitle[infoIndex], self.outputValue[infoIndex]
+
+                    title:setVisible(true)
+                    value:setVisible(true)
 
                     local outputText = fillType
 
@@ -598,7 +658,6 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
             self.infoBox:setVisible(not self.isInfoMode)
             --self.numAnimalsBox:setVisible(not self.isInfoMode)
             self.parentBox:setVisible(self.isInfoMode and not self.isBuyMode)
-            self.geneticsBox:setVisible(self.isInfoMode)
             self.buttonRename:setVisible(self.isInfoMode)
 
         else

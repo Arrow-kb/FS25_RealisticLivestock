@@ -246,6 +246,11 @@
 		<text name="rl_ui_doesHaveName" text="Має ім'я"/>
 
 
+
+		<text name="rl_ui_castrated" text="Castrated"/>
+		<text name="rl_ui_castrate" text="Castrate"/>
+
+
 		<!-- НАЛАШТУВАННЯ -->
 		<text name="rl_settings" text="Реалістичне тваринництво"/>
 		<text name="rl_settings_off" text="Вимкнено"/>

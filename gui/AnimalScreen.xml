@@ -322,6 +322,9 @@
 		<Button profile="rlButtonMenuExtra2" text="$l10n_rl_ui_buySelected" onClick="onClickBuySelected" id="buttonBuySelected">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
+		<Button profile="buttonMenuSwitch" text="$l10n_rl_ui_castrate" onClick="onClickCastrate" id="buttonCastrate">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
 		<Button profile="rlButtonMenuExtra2" text="$l10n_rl_ui_applyMonitor" onClick="onClickMonitor" id="buttonMonitor">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>

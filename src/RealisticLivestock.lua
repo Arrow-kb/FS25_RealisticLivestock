@@ -28,7 +28,7 @@ RealisticLivestock.MAP_TO_AREA_CODE = {
     ["Frankenmuth Farming Map"] = 2,
     ["North Frisian 25"] = 6,
     ["Alma, Missouri"] = 2,
-    ["Michigan Map"] = 2,
+    ["Michigan Map"] = 2
 }
 
 RealisticLivestock.AREA_CODES = {

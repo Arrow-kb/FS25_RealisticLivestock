@@ -259,6 +259,11 @@
 
 
 
+		<text name="rl_ui_castrated" text="Castrated"/>
+		<text name="rl_ui_castrate" text="Castrate"/>
+
+
+
 		<!--  SETTINGS  -->
 		
 

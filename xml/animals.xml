@@ -1365,6 +1365,11 @@
 				<key ageMonth="18" value="150"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="3"/>
+					<key ageMonth="5" value="20"/>
+					<key ageMonth="18" value="40"/>
+				</straw>
 				<water>
 					<key ageMonth="0" value="3"/>
 					<key ageMonth="5" value="38"/>
@@ -1377,6 +1382,11 @@
 				</food>
 			</input>
 			<output>
+				<manure>
+					<key ageMonth="0" value="5"/>
+					<key ageMonth="5" value="16"/>
+					<key ageMonth="18" value="35"/>
+				</manure>
 				<pallets fillType="WOOL">
 					<key ageMonth="0" value="0"/>
 					<key ageMonth="6" value="15"/>
@@ -1420,6 +1430,11 @@
 				<key ageMonth="18" value="200"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="3"/>
+					<key ageMonth="5" value="20"/>
+					<key ageMonth="18" value="40"/>
+				</straw>
 				<water>
 					<key ageMonth="0" value="3"/>
 					<key ageMonth="5" value="42"/>
@@ -1432,6 +1447,11 @@
 				</food>
 			</input>
 			<output>
+				<manure>
+					<key ageMonth="0" value="5"/>
+					<key ageMonth="5" value="16"/>
+					<key ageMonth="18" value="35"/>
+				</manure>
 				<pallets fillType="WOOL">
 					<key ageMonth="0" value="0"/>
 					<key ageMonth="6" value="15"/>
@@ -1478,6 +1498,11 @@
 				<key ageMonth="18" value="150"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="3"/>
+					<key ageMonth="5" value="20"/>
+					<key ageMonth="18" value="40"/>
+				</straw>
 				<water>
 					<key ageMonth="0" value="4"/>
 					<key ageMonth="5" value="45"/>
@@ -1490,6 +1515,11 @@
 				</food>
 			</input>
 			<output>
+				<manure>
+					<key ageMonth="0" value="5"/>
+					<key ageMonth="5" value="16"/>
+					<key ageMonth="18" value="35"/>
+				</manure>
 				<pallets fillType="WOOL">
 					<key ageMonth="0" value="0"/>
 					<key ageMonth="6" value="12"/>
@@ -1533,6 +1563,11 @@
 				<key ageMonth="18" value="200"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="3"/>
+					<key ageMonth="5" value="20"/>
+					<key ageMonth="18" value="40"/>
+				</straw>
 				<water>
 					<key ageMonth="0" value="4"/>
 					<key ageMonth="5" value="51"/>
@@ -1545,6 +1580,11 @@
 				</food>
 			</input>
 			<output>
+				<manure>
+					<key ageMonth="0" value="5"/>
+					<key ageMonth="5" value="16"/>
+					<key ageMonth="18" value="35"/>
+				</manure>
 				<pallets fillType="WOOL">
 					<key ageMonth="0" value="0"/>
 					<key ageMonth="6" value="12"/>
@@ -1591,6 +1631,11 @@
 				<key ageMonth="18" value="150"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="3"/>
+					<key ageMonth="5" value="20"/>
+					<key ageMonth="18" value="40"/>
+				</straw>
 				<water>
 					<key ageMonth="0" value="5"/>
 					<key ageMonth="5" value="50"/>
@@ -1603,6 +1648,11 @@
 				</food>
 			</input>
 			<output>
+				<manure>
+					<key ageMonth="0" value="5"/>
+					<key ageMonth="5" value="16"/>
+					<key ageMonth="18" value="35"/>
+				</manure>
 				<pallets fillType="WOOL">
 					<key ageMonth="0" value="0"/>
 					<key ageMonth="6" value="8"/>
@@ -1646,6 +1696,11 @@
 				<key ageMonth="18" value="200"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="3"/>
+					<key ageMonth="5" value="20"/>
+					<key ageMonth="18" value="40"/>
+				</straw>
 				<water>
 					<key ageMonth="0" value="5"/>
 					<key ageMonth="5" value="56"/>
@@ -1658,6 +1713,11 @@
 				</food>
 			</input>
 			<output>
+				<manure>
+					<key ageMonth="0" value="5"/>
+					<key ageMonth="5" value="16"/>
+					<key ageMonth="18" value="35"/>
+				</manure>
 				<pallets fillType="WOOL">
 					<key ageMonth="0" value="0"/>
 					<key ageMonth="6" value="8"/>
@@ -1704,6 +1764,11 @@
 				<key ageMonth="18" value="150"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="3"/>
+					<key ageMonth="5" value="20"/>
+					<key ageMonth="18" value="40"/>
+				</straw>
 				<water>
 					<key ageMonth="0" value="3"/>
 					<key ageMonth="5" value="36"/>
@@ -1716,6 +1781,11 @@
 				</food>
 			</input>
 			<output>
+				<manure>
+					<key ageMonth="0" value="5"/>
+					<key ageMonth="5" value="16"/>
+					<key ageMonth="18" value="35"/>
+				</manure>
 				<pallets fillType="WOOL">
 					<key ageMonth="0" value="0"/>
 					<key ageMonth="6" value="20"/>
@@ -1759,6 +1829,11 @@
 				<key ageMonth="18" value="200"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="3"/>
+					<key ageMonth="5" value="20"/>
+					<key ageMonth="18" value="40"/>
+				</straw>
 				<water>
 					<key ageMonth="0" value="3"/>
 					<key ageMonth="5" value="39"/>
@@ -1771,6 +1846,11 @@
 				</food>
 			</input>
 			<output>
+				<manure>
+					<key ageMonth="0" value="5"/>
+					<key ageMonth="5" value="16"/>
+					<key ageMonth="18" value="35"/>
+				</manure>
 				<pallets fillType="WOOL">
 					<key ageMonth="0" value="0"/>
 					<key ageMonth="6" value="20"/>
@@ -1816,6 +1896,11 @@
 				<key ageMonth="8" value="50"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="3"/>
+					<key ageMonth="5" value="20"/>
+					<key ageMonth="18" value="40"/>
+				</straw>
 				<water>
 					<key ageMonth="0" value="2"/>
 					<key ageMonth="5" value="20"/>
@@ -1826,6 +1911,11 @@
 				</food>
 			</input>
 			<output>
+				<manure>
+					<key ageMonth="0" value="5"/>
+					<key ageMonth="5" value="16"/>
+					<key ageMonth="18" value="35"/>
+				</manure>
 				<pallets fillType="GOATMILK">
 					<key ageMonth="0" value="0"/>
 					<key ageMonth="6" value="0"/>
@@ -1869,6 +1959,11 @@
 				<key ageMonth="8" value="125"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="3"/>
+					<key ageMonth="5" value="20"/>
+					<key ageMonth="18" value="40"/>
+				</straw>
 				<water>
 					<key ageMonth="0" value="2"/>
 					<key ageMonth="5" value="23"/>
@@ -1878,6 +1973,13 @@
 					<key ageMonth="5" value="54"/>
 				</food>
 			</input>
+			<output>
+				<manure>
+					<key ageMonth="0" value="5"/>
+					<key ageMonth="5" value="16"/>
+					<key ageMonth="18" value="35"/>
+				</manure>
+			</output>
 		</subType>
 	</animal>
 	<animal type="HORSE" groupTitle="$l10n_animal_group_horses" statsBreeding="breedHorsesCount" clusterClass="AnimalClusterHorse" averageBuyAge="24" maxBuyAge="240">
@@ -2695,6 +2797,11 @@
 				<key ageMonth="6" value="5"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="1"/>
+					<key ageMonth="6" value="3"/>
+					<key ageMonth="12" value="7"/>
+				</straw>
 				<food>
 					<key ageMonth="0" value="1"/>
 					<key ageMonth="6" value="3"/>
@@ -2702,6 +2809,11 @@
 				</food>
 			</input>
 			<output>
+				<manure>
+					<key ageMonth="0" value="2"/>
+					<key ageMonth="6" value="6"/>
+					<key ageMonth="12" value="12"/>
+				</manure>
 				<pallets fillType="EGG">
 					<key ageMonth="0" value="0"/>
 					<key ageMonth="6" value="0"/>
@@ -2738,12 +2850,24 @@
 				<key ageMonth="0" value="1"/>
 			</transportPrice>
 			<input>
+				<straw>
+					<key ageMonth="0" value="1"/>
+					<key ageMonth="6" value="3"/>
+					<key ageMonth="12" value="7"/>
+				</straw>
 				<food>
 					<key ageMonth="0" value="1"/>
 					<key ageMonth="6" value="3"/>
 					<key ageMonth="12" value="5"/>
 				</food>
 			</input>
+			<output>
+				<manure>
+					<key ageMonth="0" value="2"/>
+					<key ageMonth="6" value="6"/>
+					<key ageMonth="12" value="12"/>
+				</manure>
+			</output>
 		</subType>
 	</animal>
 </animals>

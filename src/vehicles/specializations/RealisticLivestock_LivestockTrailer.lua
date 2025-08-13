@@ -1,11 +1,9 @@
 RealisticLivestock_LivestockTrailer = {}
 
-function RealisticLivestock_LivestockTrailer:addAnimals(superFunc, subTypeIndex, numAnimals, age)
+function RealisticLivestock_LivestockTrailer:addAnimals(superFunc, animals)
 
-    for i=1, numAnimals do
+    for _, animal in pairs(animals) do
 
-        local subType = g_currentMission.animalSystem:getSubTypeByIndex(subTypeIndex)
-        local animal = Animal.new(age, 100, 0, subType.gender, subTypeIndex, 0, false, false, false, self.spec_livestockTrailer.clusterSystem)
         self:addCluster(animal)
 
     end

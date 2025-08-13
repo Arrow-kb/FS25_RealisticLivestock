@@ -1,6 +1,6 @@
 <modDesc descVersion="99">
     <author>Arrow</author>
-    <version>1.1.0.2</version>
+    <version>1.1.0.3</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -82,6 +82,20 @@ Enhanced Animal Dealer
 - Animals at the dealer have a chance to be pregnant and will all have unique genetic qualities which will impact their price and usefulness
 
 Changelog:
+
+1.1.0.3
+- Added ability to castrate male animals
+- Added straw and manure to chickens and sheep
+- Added genetics information to buy/sell pages
+- Fixed animals cant be loaded into trailers
+- Fixed animals cant be sold from trailers
+- Fixed error: RealisticLivestock_AnimalSystem.lua:609: attempt to concatenate nil with string
+- Fixed error: RealisticLivestock_AnimalClusterHusbandry.lua:157: attempt to index nil with 'colours' (temporary workaround)
+- Fixed error: RealisticLivestock_AnimalSystem.lua:769: attempt to index nil with 'subTypes' (temporary workaround)
+- Fixed inconsistent filter behaviour
+- Fixed animals having negative value
+- Fixed horses not loading properly when not in a pen
+- Fixed save rarely not loading after 89%
 
 1.1.0.2
 - Fixed dealer reset button on SP
@@ -299,6 +313,7 @@ Marchand d'animaux amélioré
         <sourceFile filename="src/player/RealisticLivestock_PlayerHUDUpdater.lua"/>
         <sourceFile filename="src/player/RealisticLivestock_PlayerInputComponent.lua"/>
         <sourceFile filename="src/vehicles/specializations/RealisticLivestock_LivestockTrailer.lua"/>
+        <sourceFile filename="src/vehicles/specializations/Rideable.lua"/>
         <sourceFile filename="src/vehicles/RealisticLivestock_VehicleSystem.lua"/>
         <sourceFile filename="src/AnimalBirthEvent.lua"/>
         <sourceFile filename="src/AnimalDeathEvent.lua"/>

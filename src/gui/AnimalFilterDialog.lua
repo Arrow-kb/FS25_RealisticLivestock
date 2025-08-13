@@ -356,8 +356,8 @@ function AnimalFilterDialog:onOpen()
 
             end
 
-            if value < filter.min then filter.min = value end
-            if value > filter.max then filter.max = value end
+            if value < filter.min then filter.min = math.floor(value) end
+            if value > filter.max then filter.max = math.ceil(value) end
 
             filter.hasValues = true
 

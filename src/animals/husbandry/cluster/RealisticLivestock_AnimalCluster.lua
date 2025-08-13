@@ -1,5 +1,6 @@
 RealisticLivestock_AnimalCluster = {}
 
+
 function RealisticLivestock_AnimalCluster:saveToXMLFile(xmlFile, key, _)
     if self.monthsSinceLastBirth == nil then self.monthsSinceLastBirth = 0 end
     if self.lactatingAnimals == nil then self.lactatingAnimals = 0 end
@@ -14,6 +15,7 @@ end
 AnimalCluster.saveToXMLFile = Utils.appendedFunction(AnimalCluster.saveToXMLFile, RealisticLivestock_AnimalCluster.saveToXMLFile)
 
 function RealisticLivestock_AnimalCluster:loadFromXMLFile(superFunc, xmlFile, key)
+
     local r = superFunc(self, xmlFile, key)
 
     self.isParent = xmlFile:getBool(key .. "#isParent")

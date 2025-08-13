@@ -153,8 +153,9 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
     local profile = Utils.getPerformanceClassId()
     local maxAnimalsPerHusbandry = (profile == GS_PROFILE_VERY_LOW and 8) or (profile == GS_PROFILE_LOW and 10) or (profile == GS_PROFILE_MEDIUM and 16) or (profile == GS_PROFILE_HIGH and 20) or (profile == GS_PROFILE_VERY_HIGH and 25) or (profile == GS_PROFILE_ULTRA and 25) or 8
  
-    
-    local colours = g_currentMission.animalSystem.types[self.placeable:getAnimalTypeIndex()].colours
+    local animalSystem = g_currentMission.animalSystem
+    local animalType = animalSystem.types[self.placeable:getAnimalTypeIndex()]
+    local colours = animalType.colours or animalSystem.baseColours
     
     local earTagLeftR, earTagLeftG, earTagLeftB = colours.earTagLeft[1], colours.earTagLeft[2], colours.earTagLeft[3]
     local earTagLeftTextR, earTagLeftTextG, earTagLeftTextB = colours.earTagLeft_text[1], colours.earTagLeft_text[2], colours.earTagLeft_text[3]

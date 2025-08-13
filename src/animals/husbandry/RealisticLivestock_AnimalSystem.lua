@@ -14,6 +14,13 @@ function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDir
 
     self.customEnvironment = modName
 
+    self.baseColours = {
+        ["earTagLeft"] = { 0.8, 0.7, 0 },
+        ["earTagRight"] = { 0.8, 0.7, 0 },
+        ["earTagLeft_text"] = { 0, 0, 0 },
+        ["earTagRight_text"] = { 0, 0, 0 }
+    }
+
     local path = modDirectory .. "xml/animals.xml"
     local xmlFile = XMLFile.load("animals", path)
 
@@ -606,11 +613,7 @@ end
 
 function AnimalSystem:loadFromXMLFile()
 
-	-- On a new game the savegame directory is not set on startup 
-	-- As there is no settings file yet either return to prevent errors
-	if g_currentMission == nil or g_currentMission.missionInfo == nil or g_currentMission.missionInfo.savegameDirectory == nil then
-		return
-	end
+    if g_currentMission.missionInfo == nil or g_currentMission.missionInfo.savegameDirectory == nil then return end
 
     local xmlFile = XMLFile.loadIfExists("animalSystem", g_currentMission.missionInfo.savegameDirectory .. "/animalSystem.xml")
 
@@ -772,6 +775,9 @@ end
 function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
 
     local animalType = self:getTypeByIndex(animalTypeIndex)
+
+    if animalType == nil then return nil end
+
     local subTypeIndex = animalType.subTypes[math.random(1, #animalType.subTypes)]
     local subType = self:getSubTypeByIndex(subTypeIndex)
     
