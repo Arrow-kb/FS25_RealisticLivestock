@@ -2,8 +2,6 @@
 
 Realistic Livestock mod for FS25.
 
-Please note that due to the complexity of the mod (it is several tens of thousands of lines of code), it does not currently support MP but this is planned
-
 # Features:
 <ins>**Male Animals**</ins>
 - Higher value
@@ -68,13 +66,6 @@ Please note that due to the complexity of the mod (it is several tens of thousan
 ![screenshot3](https://github.com/user-attachments/assets/3731d7e0-6bae-411d-957f-5b4496a1607f)
 ![screenshot5](https://github.com/user-attachments/assets/cee43caf-9401-421d-8ada-745d4fa41c7a)
 
-# Planned Features
-- Illnesses
-- Genetic diseases
-
 # In Progress
-- Ear tag colour configuration menu (complete)
-  ![fsScreen_2025_05_27_00_26_49](https://github.com/user-attachments/assets/290e2063-035d-433e-9f28-2257799f95c4)
-
-- Animal dealer search filters (in progress)
-  ![fsScreen_2025_05_27_00_26_31](https://github.com/user-attachments/assets/c949e0eb-2d4a-421d-975c-4272f058bb14)
+- Diseases
+- Message log tab for husbandries
