@@ -24,48 +24,48 @@ AnimalScreenDealer.initTargetItems = Utils.overwrittenFunction(AnimalScreenDeale
 function RL_AnimalScreenDealer:initSourceItems(_)
 
     self.sourceItems = {}
-	local animalSystem = g_currentMission.animalSystem
-	self.sourceAnimalTypes = animalSystem:getTypes()
+    local animalSystem = g_currentMission.animalSystem
+    self.sourceAnimalTypes = animalSystem:getTypes()
 
-	local animalTypes = {}
+    local animalTypes = {}
 
-	if g_localPlayer == nil then return end
-	local farm = g_localPlayer.farmId
+    if g_localPlayer == nil then return end
+    local farm = g_localPlayer.farmId
 
-	for _, placeable in pairs(g_currentMission.placeableSystem.placeables) do
+    for _, placeable in pairs(g_currentMission.placeableSystem.placeables) do
 
-		if placeable.ownerFarmId == farm and placeable.spec_husbandryAnimals then
-		
-			local animalType = placeable.spec_husbandryAnimals:getAnimalTypeIndex()
-		    animalTypes[animalType] = true
+        if placeable.ownerFarmId == farm and placeable.spec_husbandryAnimals then
 
-		end
+            local animalType = placeable.spec_husbandryAnimals:getAnimalTypeIndex()
+            animalTypes[animalType] = true
 
-	end
+        end
 
+    end
 
-	for i = #self.sourceAnimalTypes, 1, -1 do
+    local filteredTypes = {}
 
-		local animalType = self.sourceAnimalTypes[i]
+    for _, animalType in ipairs(self.sourceAnimalTypes) do
 
-		if not animalTypes[animalType.typeIndex] then table.remove(self.sourceAnimalTypes, i) end
+        if animalTypes[animalType.typeIndex] then
+            table.insert(filteredTypes, animalType)
 
-	end
+            local animals = animalSystem:getSaleAnimalsByTypeIndex(animalType.typeIndex)
 
-	for index, animalType in pairs(self.sourceAnimalTypes) do
+            self.sourceItems[animalType.typeIndex] = {}
 
-		local animals = animalSystem:getSaleAnimalsByTypeIndex(index)
-    
-		self.sourceItems[index] = {}
+            for _, animal in pairs(animals) do
+                local item = AnimalItemNew.new(animal)
+                table.insert(self.sourceItems[animalType.typeIndex], item)
+            end
 
-		for _, animal in pairs(animals) do
-			local item = AnimalItemNew.new(animal)
-			table.insert(self.sourceItems[index], item)
-		end
+            table.sort(self.sourceItems[animalType.typeIndex], RL_AnimalScreenBase.sortSaleAnimals)
 
-		table.sort(self.sourceItems[index], RL_AnimalScreenBase.sortSaleAnimals)
+        end
 
-	end
+    end
+
+    self.sourceAnimalTypes = filteredTypes
 
 end
 
@@ -160,8 +160,8 @@ function RL_AnimalScreenDealer:applyTarget(_, animalTypeIndex, animalIndex)
     local animal = item.animal or item.cluster
     husbandry:getClusterSystem():removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
     g_currentMission:addMoney(price + transportationFee, ownerFarmId, MoneyType.NEW_ANIMALS_COST, true, true)
-    
-    g_currentMission.animalSystem:removeSaleAnimal(animalTypeIndex, animal.birthday.country, animal.farmId, animal.uniqueId)
+
+    g_currentMission.animalSystem:removeSaleAnimal(animal.animalTypeIndex, animal.birthday.country, animal.farmId, animal.uniqueId)
     table.remove(self.targetItems, animalIndex)
 
     self.targetActionFinished(nil, "Animal sold successfully")
