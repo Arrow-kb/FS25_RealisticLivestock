@@ -685,10 +685,12 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, keepSelection)
 
     local v77, v78
 
+    local animalTypeIndex = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
+
     if self.isBuyMode then
-        v77, v78 = self.controller:getSourceData(self.sourceSelector:getState())
+        v77, v78 = self.controller:getSourceData(animalTypeIndex)
     else
-        v77, v78 = self.controller:getTargetData(self.sourceSelector:getState())
+        v77, v78 = self.controller:getTargetData(animalTypeIndex)
     end
 
     self.targetText:setText(v78)
