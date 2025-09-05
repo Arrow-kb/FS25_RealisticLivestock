@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+	<GuiElement profile="newLayer"/>
+	<Bitmap profile="dialogFullscreenBg" id="dialogBg"/>
+	<GuiElement profile="rl_animalFilterDialog" id="dialogElement" width="900px">
+		<ThreePartBitmap profile="fs25_dialogBgMiddleSmall"/>
+		<ThreePartBitmap profile="fs25_dialogBgTopSmall"/>
+		<ThreePartBitmap profile="fs25_dialogBgBottom"/>
+		
+		<GuiElement profile="rl_animalFilterDialogContainer">
+
+			<GuiElement profile="rl_headerContainer" position="15px -25px">
+
+				<Button profile="rl_headerButton" position="5px 0px" width="120px" text="$l10n_rl_disease" onClick="onClickMessageSortButton" id="titleButton"/>
+				<Button profile="rl_headerButton" position="160px 0px" width="110px" text="$l10n_rl_ui_duration" onClick="onClickMessageSortButton" id="durationButton"/>
+				<Button profile="rl_headerButton" position="245px 0px" width="110px" text="$l10n_rl_ui_fee" onClick="onClickMessageSortButton" id="feeButton"/>
+				<Button profile="rl_headerButton" position="410px 0px" width="110px" text="$l10n_ui_missionStatusTitle" onClick="onClickMessageSortButton" id="statusButton"/>
+				<Bitmap profile="fs25_vehiclesHeaderIconSortAscending" position="10px 0px" id="sortingIcon_false"/>
+				<Bitmap profile="fs25_vehiclesHeaderIconSortDescending" position="10px 0px" id="sortingIcon_true"/>
+				<ThreePartBitmap profile="fs25_lineSeparatorBottom" position="0px -2dp"/>
+
+			</GuiElement>
+
+			<SmoothList profile="rl_husbandryList" id="diseaseList" position="15px -55px">
+				<ListItem profile="rl_husbandryListItem">
+					<Text profile="rl_husbandryListText" position="5px 0px" name="title"/>
+					<Text profile="rl_husbandryListText" position="135px 0px" name="duration"/>
+					<Text profile="rl_husbandryListText" position="295px 0px" name="fee"/>
+					<Text profile="rl_husbandryListText" position="420px 0px" name="status"/>
+				</ListItem>
+			</SmoothList>
+
+			<ThreePartBitmap profile="rl_sliderBox" position="40px -45px">
+				<Slider profile="fs25_listSlider" dataElementId="diseaseList"/>
+			</ThreePartBitmap>
+			
+		</GuiElement>
+		
+		<BoxLayout profile="fs25_dialogButtonBox" id="buttonsPC">
+			<Button profile="buttonOK" text="$l10n_rl_ui_startTreatment" onClick="onClickOk" id="yesButton"/>
+			<Bitmap profile="fs25_dialogButtonBoxSeparator"/>
+			<Button profile="buttonBack" text="$l10n_rl_button_cancel" onClick="onClickBack" id="noButton"/>
+		</BoxLayout>
+	</GuiElement>
+	
+	<GUIProfiles>
+		
+	</GUIProfiles>
+</GUI>

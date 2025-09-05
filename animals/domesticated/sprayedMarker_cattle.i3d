@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="sprayedMarker_cattle.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.6"/>
+  </Asset>
+
+  <Files>
+    <File fileId="3" filename="colourShader.xml"/>
+    <File fileId="1" filename="sprayedMarker.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="Material.001" materialId="5" specularColor="1 1 0" customShaderId="3">
+      <Texture fileId="1"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="sprayedMarker_cattle.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <Shape name="sprayedMarker" rotation="4.45738 90 0" scale="0.171093 0.171093 0.171093" shapeId="1" clipDistance="300" nodeId="8" castsShadows="false" receiveShadows="false" materialIds="5"/>
+  </Scene>
+
+</i3D>

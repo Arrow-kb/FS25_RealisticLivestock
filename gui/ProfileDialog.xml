@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+	<GuiElement profile="newLayer"/>
+	<Bitmap profile="dialogFullscreenBg" id="dialogBg"/>
+	<GuiElement profile="fs25_textInputDialogBg" id="dialogElement">
+		<ThreePartBitmap profile="fs25_dialogBgMiddleSmall"/>
+		<ThreePartBitmap profile="fs25_dialogBgTopSmall"/>
+		<ThreePartBitmap profile="fs25_dialogBgBottom"/>
+		<GuiElement profile="fs25_dialogContentContainer">
+
+			<GuiElement id="saveContainer">
+				
+				<Text profile="fs25_menuHeaderTitle" text="$l10n_rl_ui_saveProfile" textSize="28px" position="150px 40px"/>
+				<TextInput profile="fs25_dialogTextInput" id="saveProfileInput" maxCharacters="20" onEnterPressed="onEnterPressed" onEscPressed="onEscPressed" enterWhenClickOutside="false">
+					<ThreePartBitmap profile="fs25_textInputBg"/>
+					<Bitmap profile="fs25_dialogTextInputIconBox">
+						<Bitmap profile="fs25_dialogTextInputIcon"/>
+					</Bitmap>
+				</TextInput>
+				
+			</GuiElement>
+
+			<GuiElement id="loadContainer">
+				
+				<Text profile="fs25_menuHeaderTitle" text="$l10n_rl_ui_loadProfile" textSize="28px" position="150px 40px"/>
+				<MultiTextOption profile="rl_aiMultiOption" id="loadProfileSelector" position="-24px -60px"/>
+				
+			</GuiElement>
+			
+		</GuiElement>
+		<BoxLayout profile="fs25_dialogButtonBox" id="buttonsPC">
+			<Button profile="buttonOK" text="$l10n_rl_ui_save" onClick="onClickSave" id="saveButton"/>
+			<Bitmap profile="fs25_dialogButtonBoxSeparator"/>
+			<Button profile="buttonOK" text="$l10n_rl_ui_load" onClick="onClickLoad" id="loadButton"/>
+			<Bitmap profile="fs25_dialogButtonBoxSeparator"/>
+			<Button profile="buttonBack" text="$l10n_rl_button_cancel" onClick="onClickBack" id="noButton"/>
+			<Bitmap profile="fs25_dialogButtonBoxSeparator"/>
+		</BoxLayout>
+	</GuiElement>
+</GUI>

@@ -2,39 +2,40 @@
 
 <i3D name="waterBuffaloCalfBaby.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
   <Asset>
-    <Export program="GIANTS Editor 64bit" version="10.0.4"/>
+    <Export program="GIANTS Editor 64bit" version="10.0.6"/>
   </Asset>
 
   <Files>
-    <File fileId="7" filename="$data/shaders/tileAndMirrorShader.xml"/>
-    <File fileId="9" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_diffuse.png"/>
-    <File fileId="10" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_normal.png"/>
-    <File fileId="11" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_specular.png"/>
-    <File fileId="4" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_diffuse.png"/>
-    <File fileId="5" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_normal.png"/>
-    <File fileId="6" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_specular.png"/>
+    <File fileId="8" filename="$data/shaders/tileAndMirrorShader.xml"/>
+    <File fileId="10" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_diffuse.png"/>
+    <File fileId="11" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_normal.png"/>
+    <File fileId="12" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalfHair_specular.png"/>
+    <File fileId="5" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_diffuse.png"/>
+    <File fileId="6" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_normal.png"/>
+    <File fileId="7" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffaloCalf/waterBuffaloCalf_specular.png"/>
     <File fileId="1" filename="../../earTags.i3d"/>
     <File fileId="3" filename="../../earTagsRight.i3d"/>
     <File fileId="2" filename="../../monitor.i3d"/>
+    <File fileId="4" filename="../../sprayedMarker_cattle.i3d"/>
   </Files>
 
 
   <Materials>
     <Material name="standardSurface1" materialId="5" diffuseColor="0.4 0.4 0.4 1">
     </Material>
-    <Material name="WaterBuffaloCalf_hair_alpha_mat" materialId="6" alphaBlending="true" customShaderId="7" customShaderVariation="sssSpecularDirt">
-      <Texture fileId="9"/>
-      <Normalmap fileId="10"/>
-      <Glossmap fileId="11"/>
+    <Material name="WaterBuffaloCalf_hair_alpha_mat" materialId="6" alphaBlending="true" customShaderId="8" customShaderVariation="sssSpecularDirt">
+      <Texture fileId="10"/>
+      <Normalmap fileId="11"/>
+      <Glossmap fileId="12"/>
       <CustomParameter name="mirrorScaleAndOffsetUV" value="1 1 0 0"/>
       <CustomParameter name="atlasInvSizeAndOffsetUV" value="0.5 0.5 0 0.5"/>
       <CustomParameter name="dirt" value="0 20 20"/>
       <CustomParameter name="sssColor" value="0.8 0.8 0.8 1"/>
     </Material>
-    <Material name="WaterBuffaloCalf_mat" materialId="7" customShaderId="7" customShaderVariation="sssSpecularDirt">
-      <Texture fileId="4"/>
-      <Normalmap fileId="5"/>
-      <Glossmap fileId="6"/>
+    <Material name="WaterBuffaloCalf_mat" materialId="7" customShaderId="8" customShaderVariation="sssSpecularDirt">
+      <Texture fileId="5"/>
+      <Normalmap fileId="6"/>
+      <Glossmap fileId="7"/>
       <CustomParameter name="mirrorScaleAndOffsetUV" value="1 1 0 0"/>
       <CustomParameter name="atlasInvSizeAndOffsetUV" value="0.5 0.5 0 0.5"/>
       <CustomParameter name="dirt" value="0 20 20"/>
@@ -128,24 +129,25 @@
               </TransformGroup>
             </TransformGroup>
           </TransformGroup>
+          <ReferenceNode name="sprayedMarker" translation="0.115699 0.179838 0.00146503" rotation="1.3001 90 0" scale="0.08 0.08 0.08" referenceId="4" nodeId="174"/>
         </TransformGroup>
       </TransformGroup>
     </TransformGroup>
-    <TransformGroup name="geo" nodeId="171">
-      <Shape name="Tongue" shapeId="1" clipDistance="300" nodeId="172" castsShadows="true" receiveShadows="true" skinBindNodeIds="30 31 28 29" materialIds="7"/>
-      <Shape name="Teeth" shapeId="2" clipDistance="300" nodeId="173" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29" materialIds="7"/>
-      <Shape name="Eye" shapeId="3" clipDistance="300" nodeId="174" castsShadows="true" receiveShadows="true" skinBindNodeIds="141 142" materialIds="7"/>
-      <Shape name="Horn" shapeId="4" visibility="false" clipDistance="300" nodeId="175" castsShadows="true" receiveShadows="true" skinBindNodeIds="28" materialIds="7"/>
-      <TransformGroup name="Hair" nodeId="176">
-        <Shape name="Whiskers" shapeId="5" clipDistance="300" nodeId="177" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29" materialIds="6"/>
-        <Shape name="Lash" shapeId="6" clipDistance="300" nodeId="178" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29" materialIds="6"/>
-        <Shape name="Tail" shapeId="7" clipDistance="300" nodeId="179" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29 160" materialIds="6"/>
-        <Shape name="WaterBuffaloCalf" shapeId="8" clipDistance="300" nodeId="180" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 29 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170" materialIds="7"/>
-        <Shape name="Fur" shapeId="9" clipDistance="300" nodeId="181" castsShadows="true" receiveShadows="true" skinBindNodeIds="21 22 23 24 25 26 27 28 29 30 31 32 33 99 100 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170" materialIds="6"/>
-        <Shape name="Lash_reverse" shapeId="10" clipDistance="300" nodeId="182" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29" materialIds="6"/>
+    <TransformGroup name="geo" nodeId="175">
+      <Shape name="Tongue" shapeId="1" clipDistance="300" nodeId="176" castsShadows="true" receiveShadows="true" skinBindNodeIds="30 31 28 29" materialIds="7"/>
+      <Shape name="Teeth" shapeId="2" clipDistance="300" nodeId="177" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29" materialIds="7"/>
+      <Shape name="Eye" shapeId="3" clipDistance="300" nodeId="178" castsShadows="true" receiveShadows="true" skinBindNodeIds="141 142" materialIds="7"/>
+      <Shape name="Horn" shapeId="4" visibility="false" clipDistance="300" nodeId="179" castsShadows="true" receiveShadows="true" skinBindNodeIds="28" materialIds="7"/>
+      <TransformGroup name="Hair" nodeId="180">
+        <Shape name="Whiskers" shapeId="5" clipDistance="300" nodeId="181" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29" materialIds="6"/>
+        <Shape name="Lash" shapeId="6" clipDistance="300" nodeId="182" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29" materialIds="6"/>
+        <Shape name="Tail" shapeId="7" clipDistance="300" nodeId="183" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29 160" materialIds="6"/>
+        <Shape name="WaterBuffaloCalf" shapeId="8" clipDistance="300" nodeId="184" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 29 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170" materialIds="7"/>
+        <Shape name="Fur" shapeId="9" clipDistance="300" nodeId="185" castsShadows="true" receiveShadows="true" skinBindNodeIds="21 22 23 24 25 26 27 28 29 30 31 32 33 99 100 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170" materialIds="6"/>
+        <Shape name="Lash_reverse" shapeId="10" clipDistance="300" nodeId="186" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 23 24 25 26 27 28 32 33 99 100 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 161 162 163 164 165 166 167 168 169 170 29" materialIds="6"/>
       </TransformGroup>
     </TransformGroup>
-    <Shape name="proxy" shapeId="11" visibility="false" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="183" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
+    <Shape name="proxy" shapeId="11" visibility="false" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="187" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
   </Scene>
 
 </i3D>

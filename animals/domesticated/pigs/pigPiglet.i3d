@@ -2,7 +2,7 @@
 
 <i3D name="pigPiglet.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
   <Asset>
-    <Export program="GIANTS Editor 64bit" version="10.0.4"/>
+    <Export program="GIANTS Editor 64bit" version="10.0.6"/>
   </Asset>
 
   <Files>
@@ -102,7 +102,7 @@
             </TransformGroup>
           </TransformGroup>
         </TransformGroup>
-      </TransformGroup>
+	</TransformGroup>
     </TransformGroup>
     <TransformGroup name="pigPiglet" nodeId="167">
       <TransformGroup name="LOD_0" nodeId="168">
@@ -127,6 +127,7 @@
       </TransformGroup>
     </TransformGroup>
     <Shape name="pigPigletProxy" shapeId="13" visibility="false" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="184" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
+    
   </Scene>
 
   <UserAttributes>

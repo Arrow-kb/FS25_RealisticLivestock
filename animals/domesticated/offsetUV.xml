@@ -9,7 +9,6 @@
     <UvUsages>
         <UvUsage textureName="normalMap"        uvType="uv0" uvScale="1.0"/>
         <UvUsage textureName="glossMap"         uvType="uv0" uvScale="1.0"/>
-        <UvUsage textureName="mLedPanelMaskMap" uvType="uv1" uvScale="1.0"/>
     </UvUsages>
 	<Textures/>
     <VertexAttributes>

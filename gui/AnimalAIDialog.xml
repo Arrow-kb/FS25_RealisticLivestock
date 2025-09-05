@@ -1,0 +1,59 @@
+<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+	<GuiElement profile="newLayer"/>
+	<Bitmap profile="dialogFullscreenBg" id="dialogBg"/>
+	<GuiElement profile="rl_animalAIDialogBg" id="dialogElement">
+		<ThreePartBitmap profile="fs25_dialogBgMiddle"/>
+		<ThreePartBitmap profile="fs25_dialogBgTop"/>
+		<ThreePartBitmap profile="fs25_dialogBgBottom"/>
+		<GuiElement profile="fs25_dialogContentContainer">
+			<Animation profile="fs25_dialogLoading" id="iconLoadingElement"/>
+
+			<GuiElement profile="rl_headerContainer" position="0px -35px">
+
+				<Button profile="rl_headerButtonLeft" position="5px 0px" width="145px" text="$l10n_infohud_name" onClick="onClickSortButton" id="nameButton"/>
+				<Button profile="rl_headerButton" position="150px 0px" width="125px" text="$l10n_rl_ui_earTag" onClick="onClickSortButton" id="identifierButton"/>
+				<Button profile="rl_headerButton" position="295px 0px" width="100px" text="$l10n_infohud_type" onClick="onClickSortButton" id="subTypeButton"/>
+				<Button profile="rl_headerButton" position="485px 0px" width="100px" text="$l10n_rl_ui_strawMultiple" onClick="onClickSortButton" id="strawsButton"/>
+				<Button profile="rl_headerButton" position="585px 0px" width="120px" text="$l10n_rl_ui_success" onClick="onClickSortButton" id="successButton"/>
+				<Button profile="rl_headerButton" position="745px 0px" width="120px" text="$l10n_rl_ui_metabolism" onClick="onClickSortButton" id="metabolismButton"/>
+				<Button profile="rl_headerButton" position="875px 0px" width="160px" text="$l10n_rl_ui_quality" onClick="onClickSortButton" id="qualityButton"/>
+				<Button profile="rl_headerButton" position="1045px 0px" width="120px" text="$l10n_rl_ui_health" onClick="onClickSortButton" id="healthButton"/>
+				<Button profile="rl_headerButton" position="1185px 0px" width="120px" text="$l10n_rl_ui_fertility" onClick="onClickSortButton" id="fertilityButton"/>
+				<Button profile="rl_headerButton" position="1325px 0px" width="160px" text="$l10n_rl_ui_productivity" onClick="onClickSortButton" id="productivityButton"/>
+				<Bitmap profile="fs25_vehiclesHeaderIconSortAscending" position="10px 0px" id="sortingIcon_false"/>
+				<Bitmap profile="fs25_vehiclesHeaderIconSortDescending" position="10px 0px" id="sortingIcon_true"/>
+				<ThreePartBitmap profile="fs25_lineSeparatorBottom" position="0px -2dp"/>
+
+			</GuiElement>
+
+			<SmoothList profile="rl_husbandryList" id="dewarList" position="5px -75px">
+				<ListItem profile="rl_husbandryListItem">
+					<Text profile="rl_husbandryListTextRight" position="5px 0px" name="name"/>
+					<Text profile="rl_husbandryListText" position="195px 0px" name="identifier"/>
+					<Text profile="rl_husbandryListText" position="345px 0px" name="subType"/>
+					<Text profile="rl_husbandryListText" position="475px 0px" name="straws"/>
+					<Text profile="rl_husbandryListText" position="595px 0px" name="success"/>
+					<Text profile="rl_husbandryListText" position="745px 0px" name="metabolism"/>
+					<Text profile="rl_husbandryListText" position="875px 0px" name="quality"/>
+					<Text profile="rl_husbandryListText" position="1045px 0px" name="health"/>
+					<Text profile="rl_husbandryListText" position="1185px 0px" name="fertility"/>
+					<Text profile="rl_husbandryListText" position="1325px 0px" name="productivity"/>
+				</ListItem>
+			</SmoothList>
+
+			<ThreePartBitmap profile="rl_sliderBox">
+				<Slider profile="fs25_listSlider" dataElementId="dewarList"/>
+			</ThreePartBitmap>
+			
+		</GuiElement>
+		<BoxLayout profile="fs25_dialogButtonBox">
+			<Button profile="buttonOK" text="$l10n_rl_ui_inseminate" onClick="onClickOk" id="okButton"/>
+			<Button profile="buttonBack" text="$l10n_button_back" onClick="onClickBack" id="backButton"/>
+		</BoxLayout>
+	</GuiElement>
+	<GuiProfiles>
+		<Profile name="rl_animalAIDialogBg" extends="fs25_dialogBg">
+			<size value="85% 75%"/>
+		</Profile>
+	</GuiProfiles>
+</GUI>

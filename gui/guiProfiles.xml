@@ -1,4 +1,96 @@
 <GUIProfiles>
+
+	<Profile name="rl_animalFilterListItemName" extends="fs25_textDefault" with="anchorTopCenter">
+		<textAutoWidth value="true"/>
+		<textLayoutMode value="scrolling"/>
+		<position value="0px -10px"/>
+	</Profile>
+	
+	<Profile name="rl_animalFilterListItemSliderFillingBar" extends="fs25_optionSliderFillingBar">
+		<imageColor value="$preset_fs25_colorMainHighlight"/>
+		<imageFocusedColor value="$preset_fs25_colorMainHighlight"/>
+		<startImageColor value="$preset_fs25_colorMainHighlight"/>
+		<startImageFocusedColor value="$preset_fs25_colorMainHighlight"/>
+		<endImageColor value="$preset_fs25_colorMainHighlight"/>
+		<endImageFocusedColor value="$preset_fs25_colorMainHighlight"/>
+	</Profile>
+	
+	<Profile name="rl_animalFilterListItemSlider" extends="fs25_optionSlider">
+		<width value="400px"/>
+		<defaultProfileFillingBarThreePart value="rl_animalFilterListItemSliderFillingBar"/>
+	</Profile>
+	
+	<Profile name="rl_animalFilterListItemBinaryOption" extends="rl_tripleOption">
+		<position value="-12px 0px"/>
+		<focusOnHighlight value="true"/>
+	</Profile>
+
+	<Profile name="rl_animalFilterDialog" extends="fs25_dialogBg">
+		<size value="740px 740px"/>
+	</Profile>
+	
+	<Profile name="rl_animalFilterDialogContainer" extends="emptyPanel" with="anchorStretchingYStretchingX pivotTopLeft">
+		<absoluteSizeOffset value="100px 100px"/>
+		<position value="4px -4px"/>
+	</Profile>
+
+	<Profile name="rl_headerContainer" extends="emptyPanel" with="anchorTopStretchingX">
+		<height value="32px"/>
+		<position value="0px -100px"/>
+		<absoluteSizeOffset value="15px 0px"/>
+	</Profile>
+
+	<Profile name="rl_headerButton" extends="baseReference">
+		<height value="32px"/>
+		<imageColor value="0 0 0 0"/>
+		<textFocusedColor value="$preset_fs25_colorMainHighlight"/>
+		<textHighlightedColor value="$preset_fs25_colorMainHighlight"/>
+		<textSize value="18px"/>
+		<textBold value="true"/>
+		<textUpperCase value="true"/>
+		<textAlignment value="right"/>
+		<textColor value="$preset_colorWhite_50"/>
+		<textDisabledColor value="$preset_colorDisabled"/>
+	</Profile>
+
+	<Profile name="rl_headerButtonLeft" extends="rl_headerButton">
+		<textAlignment value="left"/>
+	</Profile>
+
+	<Profile name="rl_husbandryListText" extends="baseReference" with="anchorStretchingYLeft">
+		<size value="155px 32px"/>
+		<textBold value="false"/>
+		<textSize value="16px"/>
+		<textColor value="$preset_fs25_colorMainLight"/>
+		<textSelectedColor value="$preset_fs25_colorMainDark"/>
+		<textDisabledColor value="$preset_colorDisabled"/>
+	</Profile>
+
+	<Profile name="rl_husbandryListTextRight" extends="rl_husbandryListText">
+		<textAlignment value="left"/>
+	</Profile>
+
+	<Profile name="rl_husbandryList" extends="emptyPanel" with="anchorStretchingYLeft pivotTopLeft">
+		<position value="0px -140px"/>
+		<absoluteSizeOffset value="15px 160px"/>
+	</Profile>
+
+	<Profile name="rl_husbandryListItem" extends="baseReference" with="anchorTopStretchingX alternating">
+		<height value="32px"/>
+		<imageColor value="$preset_fs25_colorGrey"/>
+		<imageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+		<alternateBackgroundColor value="$preset_fs25_colorGreyDark_50"/>
+	</Profile>
+
+	<Profile name="rl_sliderBox" extends="fs25_listSliderBox" with="anchorTopStretchingX pivotTopRight">
+		<position value="28px -40px"/>
+		<absoluteSizeOffset value="0px 80px"/>
+	</Profile>
+
+	<Profile name="rl_husbandryListImage" extends="baseReference" with="anchorMiddleLeft">
+		<size value="18px 18px"/>
+		<imageSliceId value="realistic_livestock.importance_3"/>
+	</Profile>
 	
 	<Profile name="rl_settingsButton" extends="emptyPanel" with="anchorMiddleRight">
 		<size value="280px 32px"/>

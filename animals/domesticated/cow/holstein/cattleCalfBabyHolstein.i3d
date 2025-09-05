@@ -2,7 +2,7 @@
 
 <i3D name="cattleCalfBabyHolstein.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
   <Asset>
-    <Export program="GIANTS Editor 64bit" version="10.0.4"/>
+    <Export program="GIANTS Editor 64bit" version="10.0.6"/>
   </Asset>
 
   <Files>
@@ -14,6 +14,7 @@
     <File fileId="7" filename="../../earTags.i3d"/>
     <File fileId="9" filename="../../earTagsRight.i3d"/>
     <File fileId="8" filename="../../monitor.i3d"/>
+    <File fileId="10" filename="../../sprayedMarker_cattle.i3d"/>
   </Files>
 
 
@@ -143,10 +144,11 @@
               </TransformGroup>
             </TransformGroup>
           </TransformGroup>
+          <ReferenceNode name="sprayedMarker" translation="0.115132 0.154848 0.00146503" rotation="1.3001 90 0" scale="0.08 0.08 0.08" referenceId="10" nodeId="198"/>
         </TransformGroup>
       </TransformGroup>
     </TransformGroup>
-    <Shape name="calfProxy" shapeId="17" visibility="false" kinematic="true" collisionFilterGroup="0x10200000" collisionFilterMask="0xfffffbff" density="0.0001" nodeId="195" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="7"/>
+    <Shape name="calfProxy" shapeId="17" visibility="false" kinematic="true" collisionFilterGroup="0x10200000" collisionFilterMask="0xfffffbff" density="0.0001" nodeId="199" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="7"/>
   </Scene>
 
 </i3D>

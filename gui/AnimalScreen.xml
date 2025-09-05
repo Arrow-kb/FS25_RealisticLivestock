@@ -1,6 +1,478 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
 	<Bitmap profile="fs25_fullScreenBackground"/>
+
+	<GuiElement id="logContainer" profile="fs25_menuContainer" visible="false">
+
+		<GuiElement profile="fs25_menuHeaderPanel" position="63px 74px">
+			<Bitmap profile="fs25_menuHeaderIconBg">
+				<Bitmap profile="fs25_menuHeaderIcon" imageSliceId="gui.icon_ingameMenu_animals"/>
+			</Bitmap>
+			<Text profile="fs25_menuHeaderTitle" text="$l10n_rl_ui_messages"/>
+		</GuiElement>
+
+		<GuiElement profile="rl_headerContainer">
+
+			<Button profile="rl_headerButton" position="10px 0px" width="120px" text="$l10n_rl_ui_importance" onClick="onClickMessageSortButton" id="messagesImportanceButton"/>
+			<Button profile="rl_headerButton" position="125px 0px" width="110px" text="$l10n_rl_ui_type" onClick="onClickMessageSortButton" id="messagesTypeButton"/>
+			<Button profile="rl_headerButton" position="235px 0px" width="110px" text="$l10n_rl_ui_date" id="messagesDateButton"/>
+			<Button profile="rl_headerButton" position="355px 0px" width="110px" text="$l10n_infohud_animal" onClick="onClickMessageSortButton" id="messagesAnimalButton"/>
+			<Button profile="rl_headerButton" position="535px 0px" width="120px" text="$l10n_rl_ui_message" onClick="onClickMessageSortButton" id="messagesMessageButton"/>
+			<Bitmap profile="fs25_vehiclesHeaderIconSortAscending" position="10px 0px" id="sortingIcon_false"/>
+			<Bitmap profile="fs25_vehiclesHeaderIconSortDescending" position="10px 0px" id="sortingIcon_true"/>
+			<ThreePartBitmap profile="fs25_lineSeparatorBottom" position="0px -2dp"/>
+
+		</GuiElement>
+
+		<SmoothList profile="rl_husbandryList" id="husbandryList">
+			<ListItem profile="rl_husbandryListItem">
+				<Bitmap profile="rl_husbandryListImage" position="15px 0px" name="importance"/>
+				<Text profile="rl_husbandryListText" position="135px 0px" name="type"/>
+				<Text profile="rl_husbandryListText" position="250px 0px" name="date"/>
+				<Text profile="rl_husbandryListText" position="390px 0px" name="animal"/>
+				<Text profile="rl_husbandryListTextRight" position="575px 0px" name="message" width="600px"/>
+			</ListItem>
+		</SmoothList>
+
+		<GuiElement profile="rl_husbandryListPageContainer">
+			<Button profile="rl_husbandryListPageFirst" id="messageListPageFirst" onClick="onClickMessagePageFirst"/>
+			<Button profile="rl_husbandryListPagePrevious" id="messageListPagePrevious" onClick="onClickMessagePagePrevious"/>
+			<Text profile="rl_husbandryListPageText" id="messageListPageNumber" position="55px 10px"/>
+			<Text profile="rl_husbandryListPageText" id="messageListMessageNumber" position="30px -10px"/>
+			<Button profile="rl_husbandryListPageNext" id="messageListPageNext" onClick="onClickMessagePageNext"/>
+			<Button profile="rl_husbandryListPageLast" id="messageListPageLast" onClick="onClickMessagePageLast"/>
+		</GuiElement>
+
+		<ThreePartBitmap profile="rl_sliderBox">
+			<Slider profile="fs25_listSlider" dataElementId="husbandryList"/>
+		</ThreePartBitmap>
+	</GuiElement>
+
+	<GuiElement id="herdsmanContainer" profile="fs25_menuContainer" visible="false">
+
+		<GuiElement profile="fs25_menuHeaderPanel" position="63px 74px">
+			<Bitmap profile="fs25_menuHeaderIconBg">
+				<Bitmap profile="fs25_menuHeaderIcon" imageSliceId="gui.icon_ingameMenu_animals"/>
+			</Bitmap>
+			<Text profile="fs25_menuHeaderTitle" text="$l10n_rl_ui_herdsman"/>
+			<RoundCorner profile="fs25_shopMoneyBoxBg"/>
+			<BoxLayout profile="fs25_shopMoneyBox">
+				<Text profile="fs25_shopBalance" text="$l10n_rl_ui_previousWage"/>
+				<Text profile="fs25_shopMoney" id="herdsmanPreviousWageText"/>
+			</BoxLayout>
+
+			<Button profile="rl_herdsmanSaveButton" position="60px 0px" onClick="onClickHerdsmanSaveProfile"/>
+			<Button profile="rl_herdsmanLoadButton" position="100px 0px" onClick="onClickHerdsmanLoadProfile" id="herdsmanLoadProfileButton"/>
+		</GuiElement>
+
+		<BoxLayout profile="fs25_subCategorySelectorTabbedBox" absoluteSizeOffset="60px 0px" position="0px -20px" elementSpacing="50px">
+			<Button profile="fs25_subCategorySelectorTabbedTab" text="$l10n_button_buy" onClick="onClickHerdsmanPageBuy">
+				<ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" id="herdsmanPageBuyButtonBg" name="background"/>
+			</Button>
+			<Button profile="fs25_subCategorySelectorTabbedTab" text="$l10n_button_sell" onClick="onClickHerdsmanPageSell">
+				<ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" id="herdsmanPageSellButtonBg" name="background"/>
+			</Button>
+			<Button profile="fs25_subCategorySelectorTabbedTab" text="$l10n_rl_ui_castrate" onClick="onClickHerdsmanPageCastrate">
+				<ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" id="herdsmanPageCastrateButtonBg" name="background"/>
+			</Button>
+			<Button profile="fs25_subCategorySelectorTabbedTab" text="$l10n_rl_ui_naming" onClick="onClickHerdsmanPageNaming">
+				<ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" id="herdsmanPageNamingButtonBg" name="background"/>
+			</Button>
+			<Button profile="fs25_subCategorySelectorTabbedTab" text="$l10n_rl_ui_artificialInsemination" onClick="onClickHerdsmanPageAI">
+				<ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" id="herdsmanPageAIButtonBg" name="background"/>
+			</Button>
+		</BoxLayout>
+
+		<ThreePartBitmap profile="fs25_lineSeparatorTopHighlighted" absoluteSizeOffset="60px 0px" position="0px -77px"/>
+
+		<GuiElement id="herdsmanPageBuy" visible="false">
+
+			<ScrollingLayout profile="rl_scrollingLayout" id="herdsmanPageBuyScrollingLayout">
+
+				<BinaryOption profile="rl_aiBinaryOption" name="enabled" position="-12px -110px" onClick="onClickEnableHerdsman">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_budgetType" position="-12px -110px"/>
+				<BinaryOption profile="rl_aiBinaryOption" name="budget|type" position="-12px -110px" onClick="onClickChangeHerdsmanBudgetType">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<TextInput profile="rl_aiTextInput" name="budget|fixed" position="-12px -110px" focusOnHighlight="true" maxCharacters="6" onTextChanged="onHerdsmanTextChangedInt">
+					<ThreePartBitmap profile="fs25_textInputBg"/>
+					<Bitmap profile="fs25_textInputIconBox">
+						<Bitmap profile="fs25_textInputIcon"/>
+					</Bitmap>
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</TextInput>
+
+				<MultiTextOption profile="rl_aiMultiOption" name="budget|percentage" position="-24px -110px"  visible="false">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</MultiTextOption>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_maxAnimals" position="-12px -110px"/>
+				<TextInput profile="rl_aiTextInput" name="maxAnimals" position="-12px -110px" focusOnHighlight="true" maxCharacters="5" onTextChanged="onHerdsmanTextChangedInt">
+					<ThreePartBitmap profile="fs25_textInputBg"/>
+					<Bitmap profile="fs25_textInputIconBox">
+						<Bitmap profile="fs25_textInputIcon"/>
+					</Bitmap>
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</TextInput>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_breed" position="-12px -110px"/>
+				<MultiTextOption profile="rl_aiMultiOption" name="breed" position="-24px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</MultiTextOption>
+
+				<BinaryOption profile="rl_aiBinaryOption" name="diseases" position="-12px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<TripleOption profile="rl_aiTripleOption" name="gender" position="-12px -180px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</TripleOption>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_infohud_age" position="-12px -230px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="age" position="-12px -250px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_meat" position="-12px -230px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="quality" position="-12px -250px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_health" position="-12px -320px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="health" position="-12px -340px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_fertility" position="-12px -410px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="fertility" position="-12px -430px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_productivity" position="-12px -500px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="productivity" position="-12px -520px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_metabolism" position="-12px -590px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="metabolism" position="-12px -610px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+			</ScrollingLayout>
+
+			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
+				<Slider profile="fs25_listSlider" dataElementId="herdsmanPageBuyScrollingLayout"/>
+			</ThreePartBitmap>
+
+		</GuiElement>
+
+		<GuiElement id="herdsmanPageSell" visible="false">
+
+			<ScrollingLayout profile="rl_scrollingLayout" id="herdsmanPageSellScrollingLayout">
+
+				<BinaryOption profile="rl_aiBinaryOption" name="enabled" position="-12px -110px" onClick="onClickEnableHerdsman">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_maxAnimals" position="-12px -110px"/>
+				<TextInput profile="rl_aiTextInput" name="maxAnimals" position="-12px -110px" focusOnHighlight="true" maxCharacters="5" onTextChanged="onHerdsmanTextChangedInt">
+					<ThreePartBitmap profile="fs25_textInputBg"/>
+					<Bitmap profile="fs25_textInputIconBox">
+						<Bitmap profile="fs25_textInputIcon"/>
+					</Bitmap>
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</TextInput>
+
+				<BinaryOption profile="rl_aiBinaryOption" name="mark" position="-12px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<BinaryOption profile="rl_aiBinaryOption" name="diseasesSecondary" position="-12px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<TripleOption profile="rl_aiTripleOption" name="gender" position="-12px -180px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</TripleOption>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_infohud_age" position="-12px -230px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="age" position="-12px -250px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_meat" position="-12px -230px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="quality" position="-12px -250px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_health" position="-12px -320px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="health" position="-12px -340px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_fertility" position="-12px -410px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="fertility" position="-12px -430px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_productivity" position="-12px -500px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="productivity" position="-12px -520px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_metabolism" position="-12px -590px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="metabolism" position="-12px -610px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+			</ScrollingLayout>
+
+			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
+				<Slider profile="fs25_listSlider" dataElementId="herdsmanPageSellScrollingLayout"/>
+			</ThreePartBitmap>
+
+		</GuiElement>
+
+		<GuiElement id="herdsmanPageCastrate" visible="false">
+
+			<ScrollingLayout profile="rl_scrollingLayout" id="herdsmanPageCastrateScrollingLayout">
+
+				<BinaryOption profile="rl_aiBinaryOption" name="enabled" position="-12px -110px" onClick="onClickEnableHerdsman">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<BinaryOption profile="rl_aiBinaryOption" name="mark" position="-12px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<BinaryOption profile="rl_aiBinaryOption" name="diseasesSecondary" position="-12px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_infohud_age" position="-12px -230px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="age" position="-12px -250px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_meat" position="-12px -230px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="quality" position="-12px -250px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_health" position="-12px -320px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="health" position="-12px -340px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_fertility" position="-12px -410px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="fertility" position="-12px -430px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_productivity" position="-12px -500px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="productivity" position="-12px -520px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_metabolism" position="-12px -590px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="metabolism" position="-12px -610px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+			</ScrollingLayout>
+
+			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
+				<Slider profile="fs25_listSlider" dataElementId="herdsmanPageCastrateScrollingLayout"/>
+			</ThreePartBitmap>
+
+		</GuiElement>
+
+		<GuiElement id="herdsmanPageNaming" visible="false">
+
+			<ScrollingLayout profile="rl_scrollingLayout" id="herdsmanPageNamingScrollingLayout">
+
+				<BinaryOption profile="rl_aiBinaryOption" name="enabled" position="-12px -110px" onClick="onClickEnableHerdsman">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<BinaryOption profile="rl_aiBinaryOption" name="convention" position="-12px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+			</ScrollingLayout>
+
+			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
+				<Slider profile="fs25_listSlider" dataElementId="herdsmanPageNamingScrollingLayout"/>
+			</ThreePartBitmap>
+
+		</GuiElement>
+
+		<GuiElement id="herdsmanPageAI" visible="false">
+
+			<ScrollingLayout profile="rl_scrollingLayout" id="herdsmanPageAIScrollingLayout">
+
+				<BinaryOption profile="rl_aiBinaryOption" name="enabled" position="-12px -110px" onClick="onClickEnableHerdsman">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_maxAnimals" position="-12px -110px"/>
+				<TextInput profile="rl_aiTextInput" name="maxAnimals" position="-12px -110px" focusOnHighlight="true" maxCharacters="5" onTextChanged="onHerdsmanTextChangedInt">
+					<ThreePartBitmap profile="fs25_textInputBg"/>
+					<Bitmap profile="fs25_textInputIconBox">
+						<Bitmap profile="fs25_textInputIcon"/>
+					</Bitmap>
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</TextInput>
+
+				<BinaryOption profile="rl_aiBinaryOption" name="mark" position="-12px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<BinaryOption profile="rl_aiBinaryOption" name="diseasesSecondary" position="-12px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+				
+				<MultiTextOption profile="rl_aiMultiOption" name="semen" position="-24px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</MultiTextOption>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_infohud_age" position="-12px -230px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="age" position="-12px -250px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_meat" position="-12px -230px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="quality" position="-12px -250px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_health" position="-12px -320px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="health" position="-12px -340px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_fertility" position="-12px -410px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="fertility" position="-12px -430px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_productivity" position="-12px -500px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="productivity" position="-12px -520px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_metabolism" position="-12px -590px"/>
+				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="metabolism" position="-12px -610px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</DoubleOptionSlider>
+
+			</ScrollingLayout>
+
+			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
+				<Slider profile="fs25_listSlider" dataElementId="herdsmanPageAIScrollingLayout"/>
+			</ThreePartBitmap>
+
+		</GuiElement>
+		
+	</GuiElement>
+
+	<GuiElement id="aiContainer" profile="fs25_menuContainer" visible="false">
+
+		<GuiElement profile="fs25_menuHeaderPanel" position="63px 74px">
+			<Bitmap profile="fs25_menuHeaderIconBg">
+				<Bitmap profile="fs25_menuHeaderIcon" imageSliceId="gui.icon_ingameMenu_animals"/>
+			</Bitmap>
+			<Text profile="fs25_menuHeaderTitle" text="$l10n_rl_ui_artificialInsemination"/>
+			<RoundCorner profile="fs25_shopMoneyBoxBg" id="aiShopMoneyBoxBg"/>
+			<BoxLayout profile="fs25_shopMoneyBox" id="aiShopMoneyBox">
+				<Text profile="fs25_shopBalance" text="$l10n_ui_balance"/>
+				<Text profile="fs25_shopMoney" id="aiCurrentBalanceText"/>
+			</BoxLayout>
+		</GuiElement>
+
+		<ThreePartBitmap profile="fs25_primaryMenuContainerBg" position="-35px -50px">
+			<Bitmap profile="fs25_menuContainerArrow"/>
+			<GuiElement profile="fs25_subCategoryContainer">
+				<MultiTextOption profile="fs25_subCategorySelector" id="aiPageAnimalTypeSelector" onClick="onClickChangeAIAnimalType"/>
+				<BoxLayout profile="fs25_subCategorySelectorBox"/>
+				<RoundCorner profile="fs25_subCategorySelectorDot"/>
+				<GuiElement profile="fs25_subCategoryListContainer">
+					<Bitmap profile="fs25_subCategoryStartClipper" name="startClipper"/>
+					<Bitmap profile="fs25_subCategoryStopClipper" name="endClipper"/>
+					<SmoothList profile="fs25_subCategoryList" id="aiList" startClipperElementName="startClipper" endClipperElementName="endClipper">
+						<ListItem profile="fs25_subCategoryListItem" name="defaultCell">
+							<Bitmap profile="fs25_subCategoryListItemIcon" name="icon"/>
+							<Text profile="fs25_subCategoryListItemName" name="name"/>
+							<Text profile="fs25_animalSourceListItemPrice" name="price"/>
+						</ListItem>
+						<ListItem profile="fs25_animalSourceListSection" name="sectionCell">
+							<GuiElement profile="fs25_subCategoryListSectionHeaderTitle">
+								<Text profile="fs25_subCategoryListSectionHeaderTitle" name="title" position="0px -15px"/>
+							</GuiElement>
+							<Bitmap profile="fs25_subCategoryListItem" position="0px -50px" name="background">
+								<Bitmap profile="fs25_subCategoryListItemIcon" name="icon"/>
+								<Text profile="fs25_subCategoryListItemName" name="name"/>
+								<Text profile="fs25_animalSourceListItemPrice" name="price"/>
+							</Bitmap>
+						</ListItem>
+					</SmoothList>
+					<ThreePartBitmap profile="fs25_subCategoryListSliderBox">
+						<Slider profile="fs25_listSlider" dataElementId="aiList"/>
+					</ThreePartBitmap>
+				</GuiElement>
+			</GuiElement>
+		</ThreePartBitmap>
+
+		<GuiElement id="aiInfoContainer">
+
+			<ScrollingLayout profile="rl_animalScreenScrollingLayout" id="aiInfoSlider" width="50%">
+
+				<Text profile="fs25_menuHeaderTitle" text="$l10n_rl_ui_genetics" position="250px 0px"/>
+
+				<GuiElement profile="rl_aiGeneticsBox">
+					<Text profile="fs25_animalMoneyTitle" position="0px 190px" id="aiGeneticsTitle[1]" text="$l10n_rl_ui_meat"/>
+					<Text profile="fs25_animalMoneyValue" position="-90px 190px" id="aiGeneticsValue[1]"/>
+					<Text profile="fs25_animalMoneyTitle" position="0px 160px" id="aiGeneticsTitle[2]" text="$l10n_rl_ui_metabolism"/>
+					<Text profile="fs25_animalMoneyValue" position="-90px 160px" id="aiGeneticsValue[2]"/>
+					<Text profile="fs25_animalMoneyTitle" position="0px 130px" id="aiGeneticsTitle[3]" text="$l10n_rl_ui_health"/>
+					<Text profile="fs25_animalMoneyValue" position="-90px 130px" id="aiGeneticsValue[3]"/>
+					<Text profile="fs25_animalMoneyTitle" position="0px 100px" id="aiGeneticsTitle[4]" text="$l10n_rl_ui_fertility"/>
+					<Text profile="fs25_animalMoneyValue" position="-90px 100px" id="aiGeneticsValue[4]"/>
+					<Text profile="fs25_animalMoneyTitle" position="0px 70px" id="aiGeneticsTitle[5]" text="$l10n_rl_ui_productivity"/>
+					<Text profile="fs25_animalMoneyValue" position="-90px 70px" id="aiGeneticsValue[5]"/>
+				</GuiElement>
+
+				<GuiElement profile="rl_aiGeneticsBox">
+					<Text profile="rl_aiSuccessTitle" text="$l10n_rl_ui_averageSuccessColon"/>
+					<Text profile="rl_aiSuccessValue" id="aiSuccessValue"/>
+				</GuiElement>
+
+				<GuiElement profile="fs25_animalAmountSelectorBox" position="0px 240px" width="450px">
+					<Text profile="fs25_animalAmountSelectorTitle" text="$l10n_rl_ui_quantity"/>
+					<Bitmap profile="fs25_animalAmountSelectorSeparator"/>
+					<MultiTextOption profile="fs25_animalAmountSelector" id="aiQuantitySelector" onClick="onClickChangeAIQuantity" width="100%"/>
+				</GuiElement>
+
+				<GuiElement profile="fs25_animalAmountSelectorBox" position="0px 240px" width="450px">
+					<Text profile="fs25_animalAmountSelectorTitle" id="aiQuantityPrice"/>
+					<Bitmap profile="fs25_animalAmountSelectorSeparator"/>
+				</GuiElement>
+
+			</ScrollingLayout>
+
+
+			<ThreePartBitmap profile="fs25_listSliderBox" position="46px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
+				<Slider profile="fs25_listSlider" dataElementId="aiInfoSlider"/>
+			</ThreePartBitmap>
+			
+		</GuiElement>
+		
+	</GuiElement>
+	
 	<ThreePartBitmap profile="fs25_primaryMenuContainerBg" id="sourceBoxBg" position="125px 0px">
 		<Bitmap profile="fs25_menuContainerArrow" id="sourceBoxArrow"/>
 		<GuiElement profile="fs25_subCategoryContainer">
@@ -15,7 +487,7 @@
 						<Bitmap profile="fs25_subCategoryListItemIcon" name="icon"/>
 						<Text profile="fs25_subCategoryListItemName" name="name"/>
 						<Text profile="fs25_animalSourceListItemPrice" name="price"/>
-						<Text profile="fs25_animalSourceListItemAmount" name="amount"/>
+						<Text profile="rl_animalListItemAIPurchase" name="herdsmanPurchase" text="$l10n_rl_ui_herdsmanRecentlyBought"/>
 						<Button profile="rl_checkboxButton" name="checkbox">
 							<ThreePartBitmap profile="rl_checkboxBox"/>
 							<Bitmap profile="rl_checkbox" name="check"/>
@@ -25,11 +497,11 @@
 						<GuiElement profile="fs25_subCategoryListSectionHeaderTitle">
 							<Text profile="fs25_subCategoryListSectionHeaderTitle" name="title" position="0px -15px"/>
 						</GuiElement>
-						<Bitmap profile="fs25_subCategoryListItem" position="0px -50px">
+						<Bitmap profile="fs25_subCategoryListItem" position="0px -50px" name="background">
 							<Bitmap profile="fs25_subCategoryListItemIcon" name="icon"/>
 							<Text profile="fs25_subCategoryListItemName" name="name"/>
 							<Text profile="fs25_animalSourceListItemPrice" name="price"/>
-							<Text profile="fs25_animalSourceListItemAmount" name="amount"/>
+							<Text profile="rl_animalListItemAIPurchase" name="herdsmanPurchase" text="$l10n_rl_ui_herdsmanRecentlyBought"/>
 							<Button profile="rl_checkboxButton" name="checkbox">
 								<ThreePartBitmap profile="rl_checkboxBox"/>
 								<Bitmap profile="rl_checkbox" name="check"/>
@@ -43,7 +515,7 @@
 			</GuiElement>
 		</GuiElement>
 	</ThreePartBitmap>
-	<Bitmap profile="fs25_tabListContainer"/>
+	<Bitmap profile="fs25_tabListContainer" id="tabListContainer"/>
 	<BoxLayout profile="fs25_animalTabListBox">
 		<GuiElement profile="fs25_tabListItem" id="tabBuy">
 			<Button profile="fs25_animalTabListItemButton" onClick="onClickBuyMode" iconSliceId="gui.icon_animalDealer_in"/>
@@ -60,8 +532,23 @@
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
+		<GuiElement profile="fs25_tabListItem" id="tabAI">
+			<Button profile="rl_animalTabListItemButtonMessages" onClick="onClickAIMode" iconSliceId="gui.icon_ingameMenu_animals" id="tabLogButton"/>
+			<Bitmap profile="fs25_tabListItemSeparator"/>
+			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
+		</GuiElement>
+		<GuiElement profile="fs25_tabListItem" id="tabLog">
+			<Button profile="rl_animalTabListItemButtonMessages" onClick="onClickLogMode" iconSliceId="gui.newMessage" id="tabLogButton"/>
+			<Bitmap profile="fs25_tabListItemSeparator"/>
+			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
+		</GuiElement>
+		<GuiElement profile="fs25_tabListItem" id="tabHerdsman">
+			<Button profile="rl_animalTabListItemButtonMessages" onClick="onClickHerdsmanMode" iconSliceId="gui.icon_options_generalSettings2"/>
+			<Bitmap profile="fs25_tabListItemSeparator"/>
+			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
+		</GuiElement>
 	</BoxLayout>
-	<GuiElement profile="fs25_menuContentContainer">
+	<GuiElement profile="fs25_menuContentContainer" id="mainContentContainer">
 		<GuiElement profile="fs25_menuHeaderPanel" position="63px 74px">
 			<Bitmap profile="fs25_menuHeaderIconBg">
 				<Bitmap profile="fs25_menuHeaderIcon" imageSliceId="gui.icon_ingameMenu_animals"/></Bitmap>
@@ -243,7 +730,7 @@
 			
 					<-->
 
-					<GuiElement profile="fs25_animalInfoBox" id="geneticsBox" position="-15px 220px">
+					<GuiElement profile="rl_geneticsBox" id="geneticsBox">
 						<Text profile="fs25_animalMoneyTitle" position="80px 190px" id="geneticsTitle[1]" text=""/>
 						<!--<Button profile="rl_infoPromptButton" position="65px 195px" onClick="onClickInfoPrompt" onHighlight="onHighlightInfoPrompt" onHighlightRemove="onHighlightRemoveInfoPrompt"/>-->
 						<Text profile="fs25_animalMoneyValue" position="-10px 190px" id="geneticsValue[1]" text=""/>
@@ -258,6 +745,23 @@
 						<Text profile="fs25_animalMoneyValue" position="-10px 70px" id="geneticsValue[5]" text=""/>
 						<Text profile="fs25_animalMoneyTitle" position="80px 40px" id="geneticsTitle[6]" text=""/>
 						<Text profile="fs25_animalMoneyValue" position="-10px 40px" id="geneticsValue[6]" text=""/>
+					</GuiElement>
+
+					<GuiElement profile="rl_geneticsBoxInfo" id="diseasesBox" position="-20px -30px">
+						<Text profile="fs25_animalMoneyTitle" position="80px 220px" text="$l10n_rl_disease"/>
+						<Text profile="fs25_animalMoneyTitle" position="400px 220px" text="$l10n_ui_missionStatusTitle"/>
+						<Text profile="fs25_animalMoneyTitle" position="80px 190px" id="diseasesTitle[1]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 190px" id="diseasesValue[1]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="80px 160px" id="diseasesTitle[2]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 160px" id="diseasesValue[2]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="80px 130px" id="diseasesTitle[3]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 130px" id="diseasesValue[3]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="80px 100px" id="diseasesTitle[4]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 100px" id="diseasesValue[4]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="80px 70px" id="diseasesTitle[5]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 70px" id="diseasesValue[5]" text=""/>
+						<Text profile="fs25_animalMoneyTitle" position="80px 40px" id="diseasesTitle[6]" text=""/>
+						<Text profile="fs25_animalMoneyValue" position="-10px 40px" id="diseasesValue[6]" text=""/>
 					</GuiElement>
 
 					<BoxLayout profile="fs25_animalParentTabListBox" position="0px 220px" id="parentBox">
@@ -307,7 +811,10 @@
 	<MultiTextOption profile="fs25_multiTextOption" id="pageSelector" visible="false" handleFocus="false" position="-10 -10"/>
 	<BoxLayout profile="fs25_buttonBox" id="buttonsPanel">
 		<Button profile="buttonBack" onClick="onClickBack" text="$l10n_button_back"/>
-		<Button profile="buttonCancel" onClick="onClickFilter" text="$l10n_rl_ui_filters">
+		<Button profile="buttonCancel" onClick="onClickFilter" text="$l10n_rl_ui_filters" id="buttonFilters">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
+		<Button profile="buttonCancel" onClick="onClickDeleteMessage" text="$l10n_rl_ui_deleteMessage" id="buttonDeleteMessage">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
 		<Button profile="buttonMenuPrev" onClick="onPagePrevious" text="$l10n_ui_ingameMenuPrev">
@@ -319,6 +826,15 @@
 		<Button profile="buttonMenuSwitch" text="$l10n_button_buy" onClick="onClickBuy" id="buttonBuy">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
+		<Button profile="buttonOK" text="$l10n_button_buy" onClick="onClickBuyAI" id="buttonBuyAI">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
+		<Button profile="buttonMenuSwitch" text="$l10n_rl_diseases" onClick="onClickDiseases" id="buttonDiseases">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
+		<Button profile="buttonMenuSwitch" text="$l10n_rl_ui_favourite" onClick="onClickFavouriteAnimal" id="buttonFavourite">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
 		<Button profile="rlButtonMenuExtra2" text="$l10n_rl_ui_buySelected" onClick="onClickBuySelected" id="buttonBuySelected">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
@@ -328,6 +844,12 @@
 		<Button profile="rlButtonMenuExtra2" text="$l10n_rl_ui_applyMonitor" onClick="onClickMonitor" id="buttonMonitor">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
+		<Button profile="rlButtonMenuExtra2" text="$l10n_rl_ui_artificialInsemination" onClick="onClickArtificialInsemination" id="buttonArtificialInsemination">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
+		<Button profile="rlButtonMenuExtra2" text="$l10n_rl_ui_mark" onClick="onClickMark" id="buttonMark">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
 		<Button profile="buttonSelect" text="$l10n_rl_ui_selectAll" onClick="onClickToggleSelectAll" id="buttonToggleSelectAll">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
@@ -335,6 +857,9 @@
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
 		<Button profile="buttonMenuSwitch" text="$l10n_button_sell" onClick="onClickSell" id="buttonSell">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
+		<Button profile="buttonOK" text="$l10n_rl_button_apply" onClick="onClickApplyHerdsmanSettings" id="buttonApplyHerdsmanSettings">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
 		<Button profile="buttonOK" text="$l10n_button_select" onClick="onClickSelect" id="buttonSelect">
@@ -361,8 +886,11 @@
 			<autoValidateLayout value="true"/>
 		</Profile>
 		<Profile name="rl_animalTabListItemButton" extends="fs25_tabListItemButton">
-			<iconSize value="25px 60px"/>
+			<iconSize value="20px 50px"/>
 			<iconTextOffset value="-20px 0px"/>
+		</Profile>
+		<Profile name="rl_animalTabListItemButtonMessages" extends="rl_animalTabListItemButton">
+			<iconSize value="40px 40px"/>
 		</Profile>
 		<Profile name="rl_animalScreenAnimalIcon" extends="baseReference" with="anchorTopCenter">
 			<size value="340px 340px"/>
@@ -410,6 +938,102 @@
 
 		<Profile name="rl_animalScreenScrollingLayoutBox" extends="baseReference" with="anchorTopRight">
 			<size value="750px 1100px"/>
+		</Profile>
+
+		<Profile name="rl_husbandryListPageContainer" extends="emptyPanel" with="anchorBottomCenter">
+			<position value="0px -50px"/>
+			<size value="275px 80px"/>
+		</Profile>
+
+		<Profile name="rl_husbandryListPagePrevious" extends="buttonBase" with="anchorMiddleLeft">
+			<imageSliceId value="realistic_livestock.page_next"/>
+			<imageDisabledColor value="$preset_fs25_colorGreyMTODisabled"/>
+			<imageRotation value="180"/>
+			<size value="32px 32px"/>
+			<position value="35px 0px"/>
+		</Profile>
+
+		<Profile name="rl_husbandryListPageNext" extends="rl_husbandryListPagePrevious" with="anchorMiddleRight">
+			<imageRotation value="0"/>
+			<position value="-35px 0px"/>
+		</Profile>
+		
+		<Profile name="rl_husbandryListPageLast" extends="buttonBase" with="anchorMiddleRight">
+			<size value="32px 32px"/>
+			<imageSliceId value="realistic_livestock.page_last"/>
+			<position value="0px 0px"/>
+			<imageDisabledColor value="$preset_fs25_colorGreyMTODisabled"/>
+		</Profile>
+		
+		<Profile name="rl_herdsmanSaveButton" extends="buttonBase" with="anchorMiddleCenter">
+			<size value="32px 32px"/>
+			<imageSliceId value="realistic_livestock.upload"/>
+			<imageDisabledColor value="$preset_fs25_colorGreyMTODisabled"/>
+		</Profile>
+		
+		<Profile name="rl_herdsmanLoadButton" extends="rl_herdsmanSaveButton">
+			<imageSliceId value="realistic_livestock.download"/>
+		</Profile>
+
+		<Profile name="rl_husbandryListPageFirst" extends="rl_husbandryListPageLast" with="anchorMiddleLeft">
+			<imageRotation  value="180"/>
+		</Profile>
+
+		<Profile name="rl_husbandryListPageText" extends="fs25_textDefault" with="anchorMiddleCenter">
+			<position value="0px 0px"/>
+			<width value="125px"/>
+		</Profile>
+		<Profile name="rl_geneticsBox" extends="fs25_animalInfoBox" with="anchorBottomLeft">
+			<position value="-80px 0px"/>
+		</Profile>
+		<Profile name="rl_aiGeneticsBox" extends="fs25_animalInfoBox" with="anchorTopCenter">
+			<position value="-150px -30px"/>
+			<size value="500px 250px"/>
+		</Profile>
+		<Profile name="rl_geneticsBoxInfo" extends="fs25_animalInfoBox" with="anchorBottomRight">
+			<position value="-15px 220px"/>
+		</Profile>
+		<Profile name="rl_scrollingLayout" extends="emptyPanel" with="anchorMiddleCenter">
+			<flowDirection value="vertical"/>
+			<autoValidateLayout value="false"/>
+			<position value="0px -75px"/>
+			<alignmentX value="center"/>
+			<elementSpacing value="30px"/>
+			<height value="85%"/>
+		</Profile>
+		<Profile name="rl_aiBinaryOption" extends="fs25_settingsBinaryOption" with="anchorTopCenter"/>
+
+		<Profile name="rl_aiDoubleSlider" extends="rl_animalFilterListItemSlider" with="anchorTopCenter"/>
+		
+		<Profile name="rl_aiTripleOption" extends="rl_animalFilterListItemBinaryOption" with="anchorTopCenter"/>
+		
+		<Profile name="rl_aiTextInput" extends="fs25_settingsTextInput" with="anchorTopCenter"/>
+		
+		<Profile name="rl_aiMultiOption" extends="fs25_settingsMultiTextOption" with="anchorTopCenter"/>
+
+		<Profile name="rl_aiTooltip" extends="fs25_multiTextOptionTooltip" with="anchorMiddleRight">
+			<position value="550px 0px"/>
+			<width value="350px"/>
+		</Profile>
+
+		<Profile name="rl_animalListItemAIPurchase" extends="fs25_animalSourceListItemAmount" with="anchorBottomRight">
+			<width value="200px"/>
+			<position value="-30px 17px"/>
+			<textSize value="13px"/>
+		</Profile>
+
+		<Profile name="rl_animalListItem" extends="fs25_subCategoryListItem">
+			
+		</Profile>
+
+		<Profile name="rl_aiSuccessValue" extends="fs25_animalMoneyValue" with="anchorMiddleCenter">
+			<textAlignment value="right"/>
+			<position value="-5px 0px"/>
+		</Profile>
+
+		<Profile name="rl_aiSuccessTitle" extends="fs25_animalMoneyTitle" with="anchorMiddleCenter">
+			<textAlignment value="left"/>
+			<position value="5px 0px"/>
 		</Profile>
 	</GUIProfiles>
 </GUI>

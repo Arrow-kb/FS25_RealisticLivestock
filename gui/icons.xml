@@ -5,5 +5,14 @@
 	</meta>
 	<slices>
 		<slice id="main_icon" uvs="0px 0px 256px 256px"/>
+		<slice id="importance_3" uvs="512px 0px 256px 256px"/>
+		<slice id="importance_2" uvs="768px 0px 256px 256px"/>
+		<slice id="importance_1" uvs="0px 256px 256px 256px"/>
+		<slice id="page_last" uvs="256px 256px 105px 98px"/>
+		<slice id="page_next" uvs="361px 256px 105px 98px"/>
+		<slice id="messages" uvs="466px 256px 128px 128px"/>
+		<slice id="messages_new" uvs="594px 256px 128px 128px"/>
+		<slice id="upload" uvs="0px 512px 256px 256px"/>
+		<slice id="download" uvs="256px 512px 256px 256px"/>
 	</slices>
 </texture>

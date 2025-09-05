@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="textTemplate.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.6"/>
+  </Asset>
+
+  <Files>
+    <File fileId="1" filename="font_normal_white.dds"/>
+    <File fileId="3" filename="offsetUV.xml"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="Material.001" materialId="6" specularColor="1 1 0" customShaderId="3">
+      <Texture fileId="1"/>
+      <CustomParameter name="playScale" value="0 0 64 1"/>
+      <CustomParameter name="colorScale" value="0 0 0"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="textTemplate.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <Shape name="animalIdFront_6" shapeId="1" clipDistance="300" nodeId="49" castsShadows="true" receiveShadows="true" materialIds="6"/>
+  </Scene>
+
+</i3D>

@@ -33,36 +33,8 @@
 	</GuiElement>
 	
 	<GUIProfiles>
-		<Profile name="rl_animalFilterDialog" extends="fs25_dialogBg">
-			<size value="740px 740px"/>
-		</Profile>
-		<Profile name="rl_animalFilterDialogContainer" extends="emptyPanel" with="anchorStretchingYStretchingX pivotTopLeft">
-			<absoluteSizeOffset value="100px 100px"/>
-			<position value="4px -4px"/>
-		</Profile>
 		<Profile name="rl_animalFilterListItem" extends="emptyPanel" with="anchorTopStretchingX pivotTopLeft">
 			<height value="140px"/>
-		</Profile>
-		<Profile name="rl_animalFilterListItemName" extends="fs25_textDefault" with="anchorTopCenter">
-			<textAutoWidth value="true"/>
-			<textLayoutMode value="scrolling"/>
-			<position value="0px -10px"/>
-		</Profile>
-		<Profile name="rl_animalFilterListItemSliderFillingBar" extends="fs25_optionSliderFillingBar">
-			<imageColor value="$preset_fs25_colorMainHighlight"/>
-			<imageFocusedColor value="$preset_fs25_colorMainHighlight"/>
-			<startImageColor value="$preset_fs25_colorMainHighlight"/>
-			<startImageFocusedColor value="$preset_fs25_colorMainHighlight"/>
-			<endImageColor value="$preset_fs25_colorMainHighlight"/>
-			<endImageFocusedColor value="$preset_fs25_colorMainHighlight"/>
-		</Profile>
-		<Profile name="rl_animalFilterListItemSlider" extends="fs25_optionSlider">
-			<width value="400px"/>
-			<defaultProfileFillingBarThreePart value="rl_animalFilterListItemSliderFillingBar"/>
-		</Profile>
-		<Profile name="rl_animalFilterListItemBinaryOption" extends="rl_tripleOption">
-			<position value="-12px 0px"/>
-			<focusOnHighlight value="true"/>
 		</Profile>
 	</GUIProfiles>
 </GUI>

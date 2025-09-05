@@ -61,58 +61,6 @@
 			<imageSliceId value="realistic_livestock.main_icon"/>
 			<imageColor value="$preset_fs25_colorMainDark"/>
 		</Profile>
-
-		<Profile name="rl_headerContainer" extends="emptyPanel" with="anchorTopStretchingX">
-			<height value="32px"/>
-			<position value="0px -100px"/>
-		</Profile>
-		
-		<Profile name="rl_headerButton" extends="baseReference">
-			<height value="32px"/>
-			<imageColor value="0 0 0 0"/>
-			<textFocusedColor value="$preset_fs25_colorMainHighlight"/>
-			<textHighlightedColor value="$preset_fs25_colorMainHighlight"/>
-			<textSize value="18px"/>
-			<textBold value="true"/>
-			<textUpperCase value="true"/>
-			<textAlignment value="right"/>
-			<textColor value="$preset_colorWhite_50"/>
-			<textDisabledColor value="$preset_colorDisabled"/>
-		</Profile>
-
-		<Profile name="rl_headerButtonLeft" extends="rl_headerButton">
-			<textAlignment value="left"/>
-		</Profile>
-
-		<Profile name="rl_husbandryListText" extends="baseReference" with="anchorStretchingYLeft">
-			<size value="155px 32px"/>
-			<textBold value="false"/>
-			<textSize value="16px"/>
-			<textColor value="$preset_fs25_colorMainLight"/>
-			<textSelectedColor value="$preset_fs25_colorMainDark"/>
-			<textDisabledColor value="$preset_colorDisabled"/>
-		</Profile>
-
-		<Profile name="rl_husbandryListTextRight" extends="rl_husbandryListText">
-			<textAlignment value="left"/>
-		</Profile>
-
-		<Profile name="rl_husbandryList" extends="emptyPanel" with="anchorStretchingYLeft pivotTopLeft">
-			<position value="0px -140px"/>
-			<absoluteSizeOffset value="0px 160px"/>
-		</Profile>
-			
-		<Profile name="rl_husbandryListItem" extends="baseReference" with="anchorTopStretchingX alternating">
-			<height value="32px"/>
-			<imageColor value="$preset_fs25_colorGrey"/>
-			<imageSelectedColor value="$preset_fs25_colorMainHighlight"/>
-			<alternateBackgroundColor value="$preset_fs25_colorGreyDark_50"/>
-		</Profile>
-
-		<Profile name="rl_sliderBox" extends="fs25_listSliderBox" with="anchorTopStretchingX pivotTopRight">
-			<position value="28px -40px"/>
-			<absoluteSizeOffset value="0px 80px"/>
-		</Profile>
 		
 	</GUIProfiles>
 	

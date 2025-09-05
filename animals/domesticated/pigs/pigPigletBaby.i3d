@@ -2,14 +2,14 @@
 
 <i3D name="pigPigletBaby.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
   <Asset>
-    <Export program="GIANTS Editor 64bit" version="10.0.4"/>
+    <Export program="GIANTS Editor 64bit" version="10.0.6"/>
   </Asset>
 
   <Files>
-    <File fileId="7" filename="$data/shaders/tileAndMirrorShader.xml"/>
-    <File fileId="4" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_diffuse.png"/>
-    <File fileId="5" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_normal.png"/>
-    <File fileId="6" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_specular.png"/>
+    <File fileId="8" filename="$data/shaders/tileAndMirrorShader.xml"/>
+    <File fileId="5" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_diffuse.png"/>
+    <File fileId="6" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_normal.png"/>
+    <File fileId="7" filename="$dataS/character/animals/domesticated/pig/piglet/pigPiglet_specular.png"/>
     <File fileId="1" filename="../earTags.i3d"/>
     <File fileId="3" filename="../earTagsRight.i3d"/>
     <File fileId="2" filename="../monitor.i3d"/>
@@ -19,10 +19,10 @@
   <Materials>
     <Material name="lambert1" materialId="5" diffuseColor="0.501961 0.501961 0.501961 1">
     </Material>
-    <Material name="pigPiglet_mat" materialId="6" customShaderId="7" customShaderVariation="sssSpecularDirt">
-      <Texture fileId="4"/>
-      <Normalmap fileId="5"/>
-      <Glossmap fileId="6"/>
+    <Material name="pigPiglet_mat" materialId="6" customShaderId="8" customShaderVariation="sssSpecularDirt">
+      <Texture fileId="5"/>
+      <Normalmap fileId="6"/>
+      <Glossmap fileId="7"/>
     </Material>
   </Materials>
 
@@ -104,29 +104,29 @@
         </TransformGroup>
       </TransformGroup>
     </TransformGroup>
-    <TransformGroup name="pigPiglet" nodeId="167">
-      <TransformGroup name="LOD_0" nodeId="168">
-        <Shape name="body" shapeId="1" clipDistance="300" nodeId="169" castsShadows="true" receiveShadows="true" skinBindNodeIds="21 22 23 24 25 26 27 28 29 30 31 32 98 99 140 142 141 143 145 146 147 148 149 150 151 152 153 154 156 157 158 159 160 161 162 163 164 165 166 144 155" materialIds="6"/>
-        <Shape name="tongue" shapeId="2" clipDistance="300" nodeId="170" castsShadows="true" receiveShadows="true" skinBindNodeIds="30 29 28" materialIds="6"/>
-        <Shape name="eyes" shapeId="3" clipDistance="300" nodeId="171" castsShadows="true" receiveShadows="true" skinBindNodeIds="141 140" materialIds="6"/>
+    <TransformGroup name="pigPiglet" nodeId="171">
+      <TransformGroup name="LOD_0" nodeId="172">
+        <Shape name="body" shapeId="1" clipDistance="300" nodeId="173" castsShadows="true" receiveShadows="true" skinBindNodeIds="21 22 23 24 25 26 27 28 29 30 31 32 98 99 140 142 141 143 145 146 147 148 149 150 151 152 153 154 156 157 158 159 160 161 162 163 164 165 166 144 155" materialIds="6"/>
+        <Shape name="tongue" shapeId="2" clipDistance="300" nodeId="174" castsShadows="true" receiveShadows="true" skinBindNodeIds="30 29 28" materialIds="6"/>
+        <Shape name="eyes" shapeId="3" clipDistance="300" nodeId="175" castsShadows="true" receiveShadows="true" skinBindNodeIds="141 140" materialIds="6"/>
       </TransformGroup>
-      <TransformGroup name="LOD_1" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="172">
-        <Shape name="body" shapeId="4" clipDistance="350" nodeId="173" castsShadows="true" receiveShadows="true" skinBindNodeIds="159 164 155 31 32 98 99 146 151 140 141 142 143 149 154 148 153 27 161 166 160 165 157 162 28 158 163 25 26 21 145 150 144 22 23 24 156 29 30 147 152" materialIds="6"/>
-        <Shape name="tongue" shapeId="5" clipDistance="350" nodeId="174" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
-        <Shape name="eyes" shapeId="6" clipDistance="350" nodeId="175" castsShadows="true" receiveShadows="true" skinBindNodeIds="140 141" materialIds="6"/>
+      <TransformGroup name="LOD_1" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="176">
+        <Shape name="body" shapeId="4" clipDistance="350" nodeId="177" castsShadows="true" receiveShadows="true" skinBindNodeIds="159 164 155 31 32 98 99 146 151 140 141 142 143 149 154 148 153 27 161 166 160 165 157 162 28 158 163 25 26 21 145 150 144 22 23 24 156 29 30 147 152" materialIds="6"/>
+        <Shape name="tongue" shapeId="5" clipDistance="350" nodeId="178" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
+        <Shape name="eyes" shapeId="6" clipDistance="350" nodeId="179" castsShadows="true" receiveShadows="true" skinBindNodeIds="140 141" materialIds="6"/>
       </TransformGroup>
-      <TransformGroup name="LOD_2" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="176">
-        <Shape name="body" shapeId="7" clipDistance="350" nodeId="177" castsShadows="true" receiveShadows="true" skinBindNodeIds="159 164 155 31 32 98 99 146 151 140 141 142 143 149 154 148 153 27 161 166 160 165 157 162 28 158 163 25 26 21 145 150 144 22 23 24 156 29 30 147 152" materialIds="6"/>
-        <Shape name="tongue" shapeId="8" clipDistance="350" nodeId="178" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
-        <Shape name="eyes" shapeId="9" clipDistance="350" nodeId="179" castsShadows="true" receiveShadows="true" skinBindNodeIds="140 141" materialIds="6"/>
+      <TransformGroup name="LOD_2" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="180">
+        <Shape name="body" shapeId="7" clipDistance="350" nodeId="181" castsShadows="true" receiveShadows="true" skinBindNodeIds="159 164 155 31 32 98 99 146 151 140 141 142 143 149 154 148 153 27 161 166 160 165 157 162 28 158 163 25 26 21 145 150 144 22 23 24 156 29 30 147 152" materialIds="6"/>
+        <Shape name="tongue" shapeId="8" clipDistance="350" nodeId="182" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
+        <Shape name="eyes" shapeId="9" clipDistance="350" nodeId="183" castsShadows="true" receiveShadows="true" skinBindNodeIds="140 141" materialIds="6"/>
       </TransformGroup>
-      <TransformGroup name="LOD_3" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="180">
-        <Shape name="body" shapeId="10" clipDistance="350" nodeId="181" castsShadows="true" receiveShadows="true" skinBindNodeIds="159 164 155 31 32 98 99 146 151 140 141 142 143 149 154 148 153 27 161 166 160 165 157 162 28 158 163 25 26 21 145 150 144 22 23 24 156 29 30 147 152" materialIds="6"/>
-        <Shape name="tongue" shapeId="11" clipDistance="350" nodeId="182" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
-        <Shape name="eyes" shapeId="12" clipDistance="350" nodeId="183" castsShadows="true" receiveShadows="true" skinBindNodeIds="140 141" materialIds="6"/>
+      <TransformGroup name="LOD_3" visibility="false" lodDistance="0 2 4" clipDistance="350" nodeId="184">
+        <Shape name="body" shapeId="10" clipDistance="350" nodeId="185" castsShadows="true" receiveShadows="true" skinBindNodeIds="159 164 155 31 32 98 99 146 151 140 141 142 143 149 154 148 153 27 161 166 160 165 157 162 28 158 163 25 26 21 145 150 144 22 23 24 156 29 30 147 152" materialIds="6"/>
+        <Shape name="tongue" shapeId="11" clipDistance="350" nodeId="186" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 29 30" materialIds="6"/>
+        <Shape name="eyes" shapeId="12" clipDistance="350" nodeId="187" castsShadows="true" receiveShadows="true" skinBindNodeIds="140 141" materialIds="6"/>
       </TransformGroup>
     </TransformGroup>
-    <Shape name="pigPigletProxy" shapeId="13" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="184" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
+    <Shape name="pigPigletProxy" shapeId="13" kinematic="true" collisionFilterGroup="0x200000" collisionFilterMask="0xfffffbff" linearDamping="0.5" angularDamping="0.5" nodeId="188" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="5"/>
   </Scene>
 
   <UserAttributes>
