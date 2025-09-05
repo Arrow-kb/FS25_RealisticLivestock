@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="straw.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.7"/>
+  </Asset>
+
+  <Files>
+  </Files>
+
+
+  <Materials>
+    <Material name="Material.001" materialId="5" diffuseColor="0.8 0.752941 0 1" specularColor="0.501961 1 0">
+    </Material>
+    <Material name="Material.002" materialId="6" diffuseColor="0.172549 0.172549 0.172549 1" specularColor="0.501961 1 0.298039">
+    </Material>
+    <Material name="Material.003" materialId="7" diffuseColor="0.470588 0.470588 0.470588 1" specularColor="1 1 0">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="straw.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <TransformGroup name="aiStraw" scale="1 1 0.6" clipDistance="300" nodeId="15">
+      <TransformGroup name="graphics" nodeId="16">
+        <Shape name="straw" shapeId="1" nodeId="17" castsShadows="true" receiveShadows="true" materialIds="7">
+          <Shape name="Cylinder" shapeId="2" nodeId="18" castsShadows="true" receiveShadows="true" materialIds="7"/>
+          <Shape name="ring" shapeId="3" nodeId="19" castsShadows="true" receiveShadows="true" materialIds="5"/>
+          <Shape name="ring.001" shapeId="4" nodeId="20" castsShadows="true" receiveShadows="true" materialIds="5"/>
+          <Shape name="ring.002" shapeId="5" nodeId="21" castsShadows="true" receiveShadows="true" materialIds="6"/>
+          <Shape name="ring.003" shapeId="6" nodeId="22" castsShadows="true" receiveShadows="true" materialIds="6"/>
+        </Shape>
+      </TransformGroup>
+      <TransformGroup name="handNode" translation="0.011735 0.0179554 -0.396116" rotation="158.306 87.053 -41.644" nodeId="23"/>
+      <TransformGroup name="firstPersonNode" translation="0.214 0.386744 -0.325212" rotation="64.8326 0 0" nodeId="24"/>
+    </TransformGroup>
+  </Scene>
+
+</i3D>

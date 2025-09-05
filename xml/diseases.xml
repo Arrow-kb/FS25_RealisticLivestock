@@ -1,0 +1,86 @@
+<diseases>
+
+	<disease title="mastitis" animals="COW SHEEP" value="0.85" transmission="0.2" immunity="12" recovery="3">
+		<prerequisites>
+			<prerequisite path="isLactating" value="true" valueType="Bool"/>
+		</prerequisites>
+		<probability>
+			<key age="0" value="0"/>
+			<key age="12" value="0.005"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0"/>
+		</fatality>
+		<output>
+			<fillType type="milk" modifier="0"/>
+			<fillType type="pallets" modifier="0"/>
+		</output>
+		<treatment cost="200" duration="1"/>
+	</disease>
+
+	<disease title="cvm" animals="COW" value="0.75">
+		<probability>
+			<key age="0" value="0"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.95"/>
+			<key time="1" value="1"/>
+		</fatality>
+		<carrier>
+			<output>
+				<fillType type="milk" modifier="1.5"/>
+			</output>
+		</carrier>
+		<genetic recessive="true" saleChance="0.005"/>
+	</disease>
+	
+	<disease title="footAndMouth" animals="COW SHEEP PIG" value="0.5" transmission="0.75" immunity="24">
+		<probability>
+			<key age="0" value="0"/>
+			<key age="6" value="0.00075"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.2"/>
+			<key time="6" value="0.12"/>
+			<key time="18" value="0.035"/>
+		</fatality>
+		<output>
+			<fillType type="milk" modifier="0.35"/>
+			<fillType type="pallets" modifier="0.9"/>
+		</output>
+		<treatment cost="250" duration="3"/>
+	</disease>
+	
+	<disease title="ped" animals="PIG" value="0.65" transmission="0.15" immunity="12" recovery="3">
+		<probability>
+			<key age="0" value="0.125"/>
+			<key age="6" value="0.05"/>
+			<key age="18" value="0.01"/>
+			<key age="24" value="0.001"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.85"/>
+			<key time="1" value="0.075"/>
+			<key time="2" value="0.00025"/>
+		</fatality>
+		<output>
+			<fillType type="liquidManure" modifier="4"/>
+			<fillType type="manure" modifier="0.25"/>
+		</output>
+		<treatment cost="150" duration="1"/>
+	</disease>
+	
+	<disease title="avianFlu" animals="CHICKEN" value="0.25" transmission="0.5" immunity="24" recovery="1">
+		<probability>
+			<key age="0" value="0.005"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.65"/>
+			<key time="3" value="0.15"/>
+		</fatality>
+		<output>
+			<fillType type="pallets" modifier="0"/>
+		</output>
+	</disease>
+	
+</diseases>

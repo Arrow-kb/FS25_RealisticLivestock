@@ -1,6 +1,6 @@
 <modDesc descVersion="99">
     <author>Arrow</author>
-    <version>1.1.0.3</version>
+    <version>1.2.0.0</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -82,6 +82,19 @@ Enhanced Animal Dealer
 - Animals at the dealer have a chance to be pregnant and will all have unique genetic qualities which will impact their price and usefulness
 
 Changelog:
+
+1.2.0.0
+- Added diseases (STILL IN DEVELOPMENT!!!)
+- Added artificial insemination
+- Added message tab
+- Added herdsman tab for automatic animal management
+- Added ability to mark animals (visually: temporarily only for cattle)
+- Added github specific translations
+- Fixed time, animal age and crops not progressing after buying an animal from the main dealer
+- Fixed husbandries cant be found in the main dealer
+- Fixed "Max Dealer Animals" setting
+- Fixed blank filter window
+- Fixed double sliders getting stuck together when at an equal value
 
 1.1.0.3
 - Added ability to castrate male animals
@@ -287,9 +300,13 @@ Marchand d'animaux amélioré
         <sourceFile filename="src/animals/shop/controllers/AnimalScreenDealerTrailer.lua"/>
         <sourceFile filename="src/animals/shop/controllers/AnimalScreenTrailer.lua"/>
         <sourceFile filename="src/animals/shop/controllers/AnimalScreenTrailerFarm.lua"/>
+        <sourceFile filename="src/animals/shop/events/AIAnimalBuyEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AIAnimalInseminationEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AIAnimalSellEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalBuyEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalMoveEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalSellEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/SemenBuyEvent.lua"/>
         <sourceFile filename="src/animals/shop/AnimalItemNew.lua"/>
         <sourceFile filename="src/animals/shop/RealisticLivestock_AnimalItemStock.lua"/>
         <sourceFile filename="src/farms/FarmManager.lua"/>
@@ -302,31 +319,44 @@ Marchand d'animaux amélioré
         <sourceFile filename="src/gui/VisualAnimalsDialog.lua"/>
         <sourceFile filename="src/gui/NameInputDialog.lua"/>
         <sourceFile filename="src/gui/RealisticLivestockFrame.lua"/>
+        <sourceFile filename="src/gui/AnimalAIDialog.lua"/>
         <sourceFile filename="src/gui/AnimalFilterDialog.lua"/>
         <sourceFile filename="src/gui/AnimalInfoDialog.lua"/>
+        <sourceFile filename="src/gui/DiseaseDialog.lua"/>
         <sourceFile filename="src/gui/EarTagColourPickerDialog.lua"/>
-        <sourceFile filename="src/gui/InGameMenuSettingsFrame.lua"/>
+		<sourceFile filename="src/gui/InGameMenuSettingsFrame.lua"/>
+		<sourceFile filename="src/gui/ProfileDialog.lua"/>
         <sourceFile filename="src/gui/RL_InfoDisplayKeyValueBox.lua"/>
         <sourceFile filename="src/gui/RealisticLivestock_InGameMenuAnimalsFrame.lua"/>
         <sourceFile filename="src/handTools/specializations/HandToolHorseBrush.lua"/>
+        <sourceFile filename="src/handTools/HandTool.lua"/>
+        <sourceFile filename="src/handTools/HandToolSystem.lua"/>
+        <sourceFile filename="src/handTools/RLHandTools.lua"/>
+        <sourceFile filename="src/objects/Dewar.lua"/>
         <sourceFile filename="src/placeables/RealisticLivestock_PlaceableSystem.lua"/>
         <sourceFile filename="src/player/RealisticLivestock_PlayerHUDUpdater.lua"/>
         <sourceFile filename="src/player/RealisticLivestock_PlayerInputComponent.lua"/>
         <sourceFile filename="src/vehicles/specializations/RealisticLivestock_LivestockTrailer.lua"/>
         <sourceFile filename="src/vehicles/specializations/Rideable.lua"/>
         <sourceFile filename="src/vehicles/RealisticLivestock_VehicleSystem.lua"/>
+        <sourceFile filename="src/AIAnimalManager.lua"/>
+        <sourceFile filename="src/AIStrawUpdater.lua"/>
         <sourceFile filename="src/AnimalBirthEvent.lua"/>
         <sourceFile filename="src/AnimalDeathEvent.lua"/>
         <sourceFile filename="src/AnimalMonitorEvent.lua"/>
         <sourceFile filename="src/AnimalNameChangeEvent.lua"/>
         <sourceFile filename="src/AnimalPregnancyEvent.lua"/>
         <sourceFile filename="src/AnimalUpdateEvent.lua"/>
+        <sourceFile filename="src/DewarManager.lua"/>
+        <sourceFile filename="src/Disease.lua"/>
+        <sourceFile filename="src/DiseaseManager.lua"/>
         <sourceFile filename="src/FSCareerMissionInfo.lua"/>
         <sourceFile filename="src/I18N.lua"/>
         <sourceFile filename="src/RealisticLivestock.lua"/>
         <sourceFile filename="src/RealisticLivestock_Animal.lua"/>
 		<sourceFile filename="src/RealisticLivestock_FSBaseMission.lua"/>
 		<sourceFile filename="src/RLConsoleCommandManager.lua"/>
+        <sourceFile filename="src/RLMessage.lua"/>
         <sourceFile filename="src/RLSettings.lua"/>
         <sourceFile filename="src/RL_BroadcastSettingsEvent.lua"/>
     </extraSourceFiles>

@@ -1,0 +1,18 @@
+<handTool xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="aiStraw">
+	<base canBeDropped="false">
+		<filename>objects/straw/straw.i3d</filename>
+		<typeDesc>AI Straw</typeDesc>
+		<graphics node="graphics"/>
+		<handNode node="handNode"/>
+		<firstPersonNode node="firstPersonNode"/>
+	</base>
+	<storable>
+		<holderType type="AISTRAW" node="0>"/>
+	</storable>
+	<i3dMappings>
+		<i3dMapping id="graphics" node="0>0"/>
+		<i3dMapping id="aiStraw" node="0>0|0"/>
+		<i3dMapping id="handNode" node="0>1"/>
+		<i3dMapping id="firstPersonNode" node="0>2"/>
+	</i3dMappings>
+</handTool>

@@ -1,0 +1,10 @@
+<handTools>
+	<types>
+		<type name="aiStraw" parent="base" xmlFile="objects/straw/straw.xml">
+		    <specialization name="aiStraw"/>
+		</type>
+	</types>
+	<specializations>
+		<specialization name="aiStraw" className="HandToolAIStraw" filename="src/handTools/specializations/HandToolAIStraw.lua"/>
+	</specializations>
+</handTools>
