@@ -100,6 +100,12 @@ function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
 	g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToFarm, self)
 	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(trailer, husbandry, self.sourceAnimals))
 
+    if totalMovedAnimals == 1 then
+        husbandry:addRLMessage("MOVED_ANIMALS_TARGET_SINGLE", nil, { trailer:getName() })
+    elseif totalMovedAnimals > 0 then
+        husbandry:addRLMessage("MOVED_ANIMALS_TARGET_MULTIPLE", nil, { totalMovedAnimals, trailer:getName() })
+    end
+
 end
 
 
@@ -155,6 +161,12 @@ function AnimalScreenTrailerFarm:applyTargetBulk(animalTypeIndex, items)
 	g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToTrailer, self)
 	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(husbandry, trailer, self.targetAnimals))
 
+    if totalMovedAnimals == 1 then
+        husbandry:addRLMessage("MOVED_ANIMALS_SOURCE_SINGLE", nil, { trailer:getName() })
+    elseif totalMovedAnimals > 0 then
+        husbandry:addRLMessage("MOVED_ANIMALS_SOURCE_MULTIPLE", nil, { totalMovedAnimals, trailer:getName() })
+    end
+
 end
 
 
@@ -193,6 +205,8 @@ function RL_AnimalScreenTrailerFarm:applyTarget(_, _, animalIndex)
     --table.remove(self.targetItems, animalIndex)
 
     --self.targetActionFinished(false, g_i18n:getText(AnimalScreenTrailerFarm.MOVE_TO_TRAILER_ERROR_CODE_MAPPING[AnimalMoveEvent.MOVE_SUCCESS].text))
+
+    husbandry:addRLMessage("MOVED_ANIMALS_SOURCE_SINGLE", nil, { trailer:getName() })
 
     return true
 
@@ -237,6 +251,8 @@ function RL_AnimalScreenTrailerFarm:applySource(_, animalTypeIndex, animalIndex)
     --table.remove(sourceItems, animalIndex)
 
     --self.sourceActionFinished(false, g_i18n:getText(AnimalScreenTrailerFarm.MOVE_TO_FARM_ERROR_CODE_MAPPING[AnimalMoveEvent.MOVE_SUCCESS].text))
+
+    husbandry:addRLMessage("MOVED_ANIMALS_TARGET_SINGLE", nil, { trailer:getName() })
 
     return true
 

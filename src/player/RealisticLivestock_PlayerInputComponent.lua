@@ -1,6 +1,11 @@
 RealisticLivestock_PlayerInputComponent = {}
 
+local modName = g_currentModName
+
+
 function RealisticLivestock_PlayerInputComponent:update(_)
+
+    self.dewar = nil
 
     if self.player.isOwner then
 
@@ -44,6 +49,19 @@ function RealisticLivestock_PlayerInputComponent:update(_)
 
                     end
 
+                else
+
+                    local object = g_currentMission:getNodeObject(closestNode)
+
+                    if object ~= nil and object:isa(Dewar) and object.straws > 0 then
+
+                        self.dewar = object
+
+                        g_inputBinding:setActionEventText(self.enterActionId, g_i18n:getText("rl_ui_takeStraw"))
+                        g_inputBinding:setActionEventActive(self.enterActionId, true)        
+
+                    end
+
                 end
 
             end
@@ -55,6 +73,34 @@ function RealisticLivestock_PlayerInputComponent:update(_)
 end
 
 PlayerInputComponent.update = Utils.appendedFunction(PlayerInputComponent.update, RealisticLivestock_PlayerInputComponent.update)
+
+
+function RealisticLivestock_PlayerInputComponent:onInputEnter()
+
+    if g_time <= g_currentMission.lastInteractionTime + 200 or g_currentMission.interactiveVehicleInRange ~= nil or self.rideablePlaceable ~= nil or self.dewar == nil or HandToolAIStraw.numHeldStraws > 10 then return end
+
+    local strawType = g_handToolTypeManager:getTypeByName(modName .. ".aiStraw")
+    local handTool = _G[strawType.className].new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
+
+    handTool:setType(strawType)
+    handTool:setLoadCallback(self.onFinishedLoadStraw, self, { ["animal"] = self.dewar:getAnimal(), ["dewarUniqueId"] = self.dewar:getUniqueId() })
+    handTool:loadNonStoreItem({ ["ownerFarmId"] = g_localPlayer.farmId, ["isRegistered"] = false, ["holder"] = g_localPlayer }, RLHandTools.xmlPaths.aiStraw)
+
+    self.dewar:changeStraws(-1)
+
+end
+
+PlayerInputComponent.onInputEnter = Utils.appendedFunction(PlayerInputComponent.onInputEnter, RealisticLivestock_PlayerInputComponent.onInputEnter)
+
+
+function PlayerInputComponent:onFinishedLoadStraw(handTool, loadingState, args)
+
+    if loadingState == HandToolLoadingState.OK then
+        handTool:setAnimal(args.animal)
+        handTool:setDewarUniqueId(args.dewarUniqueId)
+    end
+
+end
 
 
 function RealisticLivestock_PlayerInputComponent:registerGlobalPlayerActionEvents()

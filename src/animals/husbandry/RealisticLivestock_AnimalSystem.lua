@@ -8,6 +8,44 @@ table.insert(FinanceStats.statNames, "monitorSubscriptions")
 FinanceStats.statNameToIndex["monitorSubscriptions"] = #FinanceStats.statNames
 
 
+
+AnimalSystem.BREED_TO_NAME = {
+    ["HOLSTEIN"] = "Holstein",
+    ["SWISS_BROWN"] = "Swiss Brown",
+    ["ANGUS"] = "Angus",
+    ["LIMOUSIN"] = "Limousin",
+    ["HEREFORD"] = "Hereford",
+    ["WATER_BUFFALO"] = "Water Buffalo",
+    ["LANDRACE"] = "Landrace",
+    ["BLACK_PIED"] = "Black Pied",
+    ["BERKSHIRE"] = "Berkshire",
+    ["STEINSCHAF"] = "Steinschaf",
+    ["SWISS_MOUNTAIN"] = "Swiss Mountain",
+    ["BLACK_WELSH"] = "Black Welsh",
+    ["GOAT"] = "Goat",
+    ["GRAY"] = "Gray",
+    ["PINTO"] = "Pinto",
+    ["PALOMINO"] = "Palomino",
+    ["CHESTNUT"] = "Chestnut",
+    ["BAY"] = "Bay",
+    ["BLACK"] = "Black",
+    ["SEAL_BROWN"] = "Seal Brown",
+    ["DUN"] = "Dun",
+    ["CHICKEN"] = "Chicken",
+    ["OTHER"] = "Unknown"
+}
+
+
+AnimalSystem.BREED_TO_MARKER_COLOUR = {
+    ["HOLSTEIN"] = { 1, 0, 0 },
+    ["SWISS_BROWN"] = { 1, 1, 0 },
+    ["ANGUS"] = { 1, 1, 1 },
+    ["LIMOUSIN"] = { 0, 0, 1 },
+    ["HEREFORD"] = { 0, 0, 1 },
+    ["WATER_BUFFALO"] = { 1, 1, 1 }
+}
+
+
 function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDirectory)
 
     RLSettings.initialize()
@@ -198,7 +236,8 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
                     ["get"] = pregnancyFunction,
                     ["average"] = averageChildren
                 },
-                ["fertility"] = fertility
+                ["fertility"] = fertility,
+                ["breeds"] = {}
 		    }
             
 		end
@@ -327,6 +366,13 @@ function RealisticLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, ke
 			self.nameToSubTypeIndex[name] = subType.subTypeIndex
 			self.fillTypeIndexToSubType[fillTypeIndex] = subType
 
+            local breed = xmlFile:getString(subTypeKey .. "#breed", "OTHER")
+            subType.breed = breed
+
+            if animalType.breeds[breed] == nil then animalType.breeds[breed] = {} end
+
+            table.insert(animalType.breeds[breed], subType)
+
 		end
 
 	end
@@ -370,12 +416,14 @@ function RealisticLivestock_AnimalSystem:loadVisualData(superFunc, animalType, x
     local noseRing = xmlFile:getString(key .. "#noseRing", nil)
     local bumId = xmlFile:getString(key .. "#bumId", nil)
     local monitor = xmlFile:getString(key .. "#monitor", nil)
+    local marker = xmlFile:getString(key .. "#marker", nil)
 
     if earTagLeft ~= nil then visualData.earTagLeft = earTagLeft end
     if earTagRight ~= nil then visualData.earTagRight = earTagRight end
     if noseRing ~= nil then visualData.noseRing = noseRing end
     if bumId ~= nil then visualData.bumId = bumId end
     if monitor ~= nil then visualData.monitor = monitor end
+    if marker ~= nil then visualData.marker = marker end
 
     return visualData
 
@@ -389,8 +437,12 @@ function AnimalSystem:initialiseCountries()
     self.maxDealerAnimals = self.maxDealerAnimals or 40
     self.countries = {}
     self.animals = {}
+    self.aiAnimals = {}
 
-    for _, animalType in pairs(self.types) do self.animals[animalType.typeIndex] = {} end
+    for _, animalType in pairs(self.types) do
+        self.animals[animalType.typeIndex] = {}
+        self.aiAnimals[animalType.typeIndex] = {}
+    end
 
 
     for countryIndex, country in pairs(RealisticLivestock.AREA_CODES) do
@@ -467,6 +519,8 @@ function AnimalSystem:validateFarms(hasData)
             for i = #country.farms + 1, 20 do
 
                 local farm = { ["quality"] = math.random(250, 1750) / 1000, ["ids"] = {} }
+
+                farm.semenPrice = (math.random(75, 125) / 100) * farm.quality
 
                 for i = 0, math.random(0, math.min(3, #animalTypeIndexes)) do
 
@@ -572,6 +626,24 @@ function AnimalSystem:validateFarms(hasData)
             self.animals[animalTypeIndex] = animals
 
         end
+    
+        for animalTypeIndex, animals in pairs(self.aiAnimals) do
+
+            if #animals < 15 then
+
+                for i = #animals + 1, 15 do
+
+                    local animal = self:createNewAIAnimal(animalTypeIndex)
+
+                    if animal ~= nil then table.insert(animals, animal) end
+
+                end
+
+            end
+
+            self.aiAnimals[animalTypeIndex] = animals
+
+        end
    
     end
 
@@ -640,6 +712,7 @@ function AnimalSystem:loadFromXMLFile()
             local horseId = xmlFile:getInt(farmKey .. "#horseId", nil)
             local chickenId = xmlFile:getInt(farmKey .. "#chickenId", nil)
             local quality = xmlFile:getFloat(farmKey .. "#quality", math.random(250, 1750) / 1000)
+            local semenPrice = xmlFile:getFloat(farmKey .. "#semenPrice", (math.random(75, 125) / 100) * quality)
             
             local ids = {}
 
@@ -661,7 +734,7 @@ function AnimalSystem:loadFromXMLFile()
             end)
             
             --table.insert(farms, { ["id"] = farmId, ["quality"] = quality, ["cowId"] = cowId, ["pigId"] = pigId, ["sheepId"] = sheepId, ["horseId"] = horseId, ["chickenId"] = chickenId })
-            table.insert(farms, { ["id"] = farmId, ["quality"] = quality, ["ids"] = ids })
+            table.insert(farms, { ["id"] = farmId, ["quality"] = quality, ["ids"] = ids, ["semenPrice"] = semenPrice })
 
         end)
 
@@ -684,6 +757,30 @@ function AnimalSystem:loadFromXMLFile()
             }
 
             table.insert(self.animals[animalTypeIndex], animal)
+        end
+
+    end)
+
+
+    xmlFile:iterate("animalSystem.aiAnimals.animal", function(_, key)
+
+        local animal = Animal.loadFromXMLFile(xmlFile, key)
+
+        if animal ~= nil then
+
+            animal.favouritedBy = {}
+            animal.success = xmlFile:getFloat(key .. "#success", 0.65)
+            animal.isAIAnimal = true
+
+            xmlFile:iterate(key .. ".favourites.player", function(_, favKey)
+                local userId = xmlFile:getString(favKey .. "#userId", nil)
+                local value = xmlFile:getBool(favKey .. "#value", false)
+                if userId ~= nil then animal.favouritedBy[userId] = value end
+            end)
+
+            local animalTypeIndex = animal.animalTypeIndex
+            table.insert(self.aiAnimals[animalTypeIndex], animal)
+
         end
 
     end)
@@ -726,6 +823,7 @@ function AnimalSystem:saveToXMLFile(path)
             
             xmlFile:setInt(farmKey .. "#id", farm.id)
             xmlFile:setFloat(farmKey .. "#quality", farm.quality)
+            xmlFile:setFloat(farmKey .. "#semenPrice", farm.semenPrice)
 
             local j = 0
 
@@ -765,6 +863,37 @@ function AnimalSystem:saveToXMLFile(path)
 
     end)
 
+
+    local allAIAnimals = {}
+
+    for _, animals in pairs(self.aiAnimals) do
+
+        for _, animal in pairs(animals) do table.insert(allAIAnimals, animal) end
+        
+    end
+
+    
+    xmlFile:setSortedTable("animalSystem.aiAnimals.animal", allAIAnimals, function (key, animal)
+
+        animal:saveToXMLFile(xmlFile, key)
+
+        xmlFile:setFloat(key .. "#success", animal.success or 0.65)
+        
+        local i = 0
+
+        for userId, value in pairs(animal.favouritedBy) do
+            
+            if not value then continue end
+
+            local favKey = string.format("%s.favourites.player(%s)", key, i)
+            xmlFile:setString(favKey .. "#userId", userId)
+            xmlFile:setBool(favKey .. "#value", true)
+
+            i = i + 1
+
+        end
+
+    end)
 
     xmlFile:save(false, true)
     xmlFile:delete()
@@ -938,7 +1067,7 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
     if math.random() >= 0.85 then name = g_currentMission.animalNameSystem:getRandomName(animalGender) end
 
 
-    local animal = Animal.new(age, math.clamp((math.random(650, 1000) / 10) * genetics.health, 0, 100), monthsSinceLastBirth, animalGender, subTypeIndex, 0, isParent, isPregnant, animalTypeIndex == AnimalType.COW and isParent and monthsSinceLastBirth < 10, nil, nil, nil, nil, nil, name, nil, nil, nil, nil, nil, genetics)
+    local animal = Animal.new(age, math.clamp((math.random(650, 1000) / 10) * genetics.health, 0, 100), monthsSinceLastBirth, animalGender, subTypeIndex, 0, isParent, isPregnant, animalTypeIndex == AnimalType.COW and animalGender == "female" and isParent and monthsSinceLastBirth < 10, nil, nil, nil, nil, nil, name, nil, nil, nil, nil, nil, genetics)
 
     animal.farmId = tostring(farmId)
     animal.uniqueId = uniqueId
@@ -958,6 +1087,12 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
 
     local day = 1 + math.floor((environment.currentDayInPeriod - 1) * (RealisticLivestock.DAYS_PER_MONTH[month] / environment.daysPerPeriod))
     local year = environment.currentYear
+
+
+    animal.diseases = {}
+
+    g_diseaseManager:onDayChanged(animal)
+    g_diseaseManager:setGeneticDiseasesForSaleAnimal(animal)
 
 
     if isPregnant then
@@ -997,6 +1132,13 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
                 ["fertility"] = math.clamp(fertility, 0.25, 1.75),
                 ["productivity"] = productivity
             })
+        
+        
+            for _, disease in pairs(animal.diseases) do
+
+                disease:affectReproduction(child)
+
+            end
 
 
             table.insert(children, child)
@@ -1028,16 +1170,19 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
 
         local expectedDay = math.random(1, RealisticLivestock.DAYS_PER_MONTH[expectedMonth])
 
+        if #children > 0 then
 
-        animal.pregnancy = {
-            ["duration"] = reproductionDuration,
-            ["expected"] = {
-                ["day"] = expectedDay,
-                ["month"] = expectedMonth,
-                ["year"] = expectedYear
-            },
-            ["pregnancies"] = children
-        }
+            animal.pregnancy = {
+                ["duration"] = reproductionDuration,
+                ["expected"] = {
+                    ["day"] = expectedDay,
+                    ["month"] = expectedMonth,
+                    ["year"] = expectedYear
+                },
+                ["pregnancies"] = children
+            }
+
+        end
 
     end
 
@@ -1048,6 +1193,11 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
         ["day"] = environment.currentMonotonicDay
     }
 
+    if animal.reproduction > 0 and (animal.pregnancy == nil or #animal.pregnancy.pregnancies == 0) then
+        animal.reproduction = 0
+        animal.pregnancy = nil
+    end
+
     return animal
 
 end
@@ -1056,6 +1206,13 @@ end
 function AnimalSystem:getSaleAnimalsByTypeIndex(animalTypeIndex)
 
     return self.animals[animalTypeIndex] or {}
+
+end
+
+
+function AnimalSystem:getAIAnimalsByTypeIndex(animalTypeIndex)
+
+    return self.aiAnimals[animalTypeIndex] or {}
 
 end
 
@@ -1071,6 +1228,27 @@ function AnimalSystem:getFarmQuality(country, farmId)
         for _, farm in pairs(farms) do
 
             if farm.id == farmId then return farm.quality end
+
+        end
+
+    end
+
+    return 1
+
+end
+
+
+function AnimalSystem:getFarmSemenPrice(country, farmId)
+
+    if self.countries[country] ~= nil then
+
+        local farms = self.countries[country].farms
+
+        if type(farmId) == "string" then farmId = tonumber(farmId) end
+
+        for _, farm in pairs(farms) do
+
+            if farm.id == farmId then return farm.semenPrice end
 
         end
 
@@ -1144,6 +1322,20 @@ function AnimalSystem:removeSaleAnimal(animalTypeIndex, countryIndex, farmId, un
 end
 
 
+function AnimalSystem:removeAIAnimal(animalTypeIndex, countryIndex, farmId, uniqueId)
+
+    for i, animal in pairs(self.aiAnimals[animalTypeIndex]) do
+
+        if animal.birthday.country == countryIndex and animal.farmId == farmId and animal.uniqueId == uniqueId then
+            table.remove(self.aiAnimals[animalTypeIndex], i)
+            return
+        end
+
+    end
+
+end
+
+
 function AnimalSystem:onHourChanged()
 
     local day = g_currentMission.environment.currentMonotonicDay
@@ -1205,6 +1397,25 @@ function AnimalSystem:onHourChanged()
     
     end
 
+    for animalTypeIndex, animals in pairs(self.aiAnimals) do
+
+        if #animals < 15 then
+
+            for i = #animals + 1, 15 do
+
+                local animal = self:createNewAIAnimal(animalTypeIndex)
+
+                if animal ~= nil then
+                    table.insert(animals, animal)
+                    hasChanges = true
+                end
+
+            end
+
+        end
+    
+    end
+
     if hasChanges then g_server:broadcastEvent(AnimalSystemStateEvent.new(self.countries, self.animals)) end
 
 end
@@ -1226,9 +1437,17 @@ function AnimalSystem:onDayChanged()
 
         for _, animal in pairs(animals) do
 
+            animal.reserved = false
+
             animal:onDayChanged(nil, self.isServer, day, month, year, currentDayInPeriod, daysPerPeriod, true)
 
         end
+
+    end
+
+    for _, animals in pairs(self.aiAnimals) do
+
+        for _, animal in pairs(animals) do animal:onDayChanged(nil, self.isServer, day, month, year, currentDayInPeriod, daysPerPeriod, true) end
 
     end
 
@@ -1238,6 +1457,16 @@ end
 function AnimalSystem:onPeriodChanged()
 
     for _, animals in pairs(self.animals) do
+
+        for _, animal in pairs(animals) do
+
+            animal:onPeriodChanged()
+
+        end
+
+    end
+
+    for _, animals in pairs(self.aiAnimals) do
 
         for _, animal in pairs(animals) do
 
@@ -1338,7 +1567,7 @@ end
 
 function AnimalSystem.onSettingChanged(name, state)
 
-    AnimalSystem[name] = state
+    g_currentMission.animalSystem[name] = state
 
 end
 
@@ -1364,5 +1593,127 @@ function AnimalSystem.onClickResetDealer()
         animalSystem.animals[animalTypeIndex] = animals
 
     end
+
+end
+
+
+function AnimalSystem:getBreedsByAnimalTypeIndex(animalTypeIndex)
+
+    return self.types[animalTypeIndex].breeds
+
+end
+
+
+function AnimalSystem:createNewAIAnimal(animalTypeIndex)
+
+     local animalType = self:getTypeByIndex(animalTypeIndex)
+
+    if animalType == nil then return nil end
+
+    local subTypeIndex = animalType.subTypes[math.random(1, #animalType.subTypes)]
+
+    if self:getSubTypeByIndex(subTypeIndex).gender == "female" then subTypeIndex = subTypeIndex + 1 end
+
+    local subType = self:getSubTypeByIndex(subTypeIndex)
+    
+    local farmId, farmQuality, farmCountryIndex, lastAnimalId
+    local attemptedCountryIndexes = {}
+    
+    while farmId == nil do
+
+        if #attemptedCountryIndexes == #self.countries then return nil end
+
+        local countryIndex
+
+        if #attemptedCountryIndexes == 0 and math.random() >= 0.12 then
+            countryIndex = RealisticLivestock.getMapCountryIndex()
+        else
+            countryIndex = math.random(1, #self.countries)
+            while table.find(attemptedCountryIndexes, countryIndex) ~= nil do
+                countryIndex = math.random(1, #self.countries)
+            end
+        end
+
+        table.insert(attemptedCountryIndexes, countryIndex)
+
+        local country = self.countries[countryIndex]
+        local validFarms = {}
+
+        for i = 1, #country.farms do
+        
+            local farm = country.farms[i]
+
+            if farm.ids[animalTypeIndex] ~= nil and farm.quality >= 1.35 then table.insert(validFarms, i) end
+
+        end
+
+        if #validFarms == 0 then continue end
+
+        local farmIndex = validFarms[math.random(1, #validFarms)]
+        local farm = country.farms[farmIndex]
+
+        farmId = farm.id
+        farmQuality = farm.quality
+        farmCountryIndex = countryIndex
+
+        farm.ids[animalTypeIndex] = (farm.ids[animalTypeIndex] or 0) + 1
+        lastAnimalId = farm.ids[animalTypeIndex]
+
+    end
+
+    local age = math.random(subType.reproductionMinAgeMonth, subType.reproductionMinAgeMonth * 3)
+
+    local uniqueId = tostring(lastAnimalId)
+    local idLen = string.len(uniqueId)
+
+    if idLen < 5 then
+        if idLen == 1 then
+            uniqueId = "1000" .. uniqueId
+        elseif idLen == 2 then
+            uniqueId = "100" .. uniqueId
+        elseif idLen == 3 then
+            uniqueId = "10" .. uniqueId
+        elseif idLen == 4 then
+            uniqueId = "1" .. uniqueId
+        end
+    end
+
+    local concatenatedId = farmId .. uniqueId
+    local checkDigit = (tonumber(concatenatedId)::number % 7) + 1
+    uniqueId = checkDigit .. uniqueId
+
+
+    local geneticsModifier = farmQuality * 1000
+    local genetics = {
+        ["metabolism"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
+        ["quality"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
+        ["fertility"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
+        ["health"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75)
+    }
+
+    if animalTypeIndex == AnimalType.COW or animalTypeIndex == AnimalType.SHEEP or animalTypeIndex == AnimalType.CHICKEN then genetics.productivity = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75) end
+
+  
+    local name = g_currentMission.animalNameSystem:getRandomName("male")
+
+
+    local animal = Animal.new(age, math.clamp((math.random(650, 1000) / 10) * genetics.health, 75, 100), 0, "male", subTypeIndex, 0, false, false, false, nil, nil, nil, nil, nil, name, nil, nil, nil, nil, nil, genetics)
+
+    animal.farmId = tostring(farmId)
+    animal.uniqueId = uniqueId
+    animal.birthday.country = farmCountryIndex
+
+    local variations = self:getVisualByAge(subTypeIndex, age).visualAnimal.variations
+    local variationIndex = 1
+
+    if #variations > 1 then variationIndex = math.random(1, #variations) end
+
+    animal.variation = variationIndex
+
+    animal.favouritedBy = {}
+    animal.success = math.clamp((math.random(35, 50) * genetics.fertility) / 100, 0.5, 1)
+    animal.isAIAnimal = true
+
+    return animal
 
 end

@@ -119,6 +119,15 @@ RLSettings.SETTINGS = {
 		["type"] = "Button",
 		["ignore"] = true,
 		["callback"] = RLSettings.onClickExportCSV
+	},
+
+	["maxNumMessages"] = {
+		["index"] = 7,
+		["type"] = "MultiTextOption",
+		["default"] = 5,
+		["valueType"] = "int",
+		["values"] = { 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3500, 4000, 4500, 5000 },
+		["callback"] = RealisticLivestock_PlaceableHusbandryAnimals.onSettingChanged
 	}
 
 }
@@ -159,7 +168,7 @@ end
 
 function RLSettings.saveToXMLFile(name, state)
 
-	if RLSettings.isSaving then return end
+	if RLSettings.isSaving or g_currentMission.missionInfo == nil or g_currentMission.missionInfo.savegameDirectory == nil then return end
 
 	if g_server ~= nil then
 

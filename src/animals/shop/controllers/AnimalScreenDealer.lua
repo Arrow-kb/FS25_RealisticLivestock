@@ -1,5 +1,64 @@
 RL_AnimalScreenDealer = {}
 
+
+function RL_AnimalScreenDealer:initItems()
+
+    AnimalScreenDealer:superClass().initItems(self)
+	
+    self.husbandries = {}
+	self.targetHusbandries = {}
+	self.targetAnimalTypes = {}
+
+    local placeables = g_currentMission.husbandrySystem:getPlaceablesByFarm()
+    local animalSystem = g_currentMission.animalSystem
+
+	for _, placeable in pairs(placeables) do
+
+		local animalTypeIndex = placeable:getAnimalTypeIndex()
+
+		if self.husbandries[animalTypeIndex] == nil then self.husbandries[animalTypeIndex] = {} end
+
+		if placeable:getNumOfAnimals() > 0 then
+
+			table.insert(self.targetAnimalTypes, animalSystem:getTypeByIndex(animalTypeIndex))
+			table.insert(self.targetHusbandries, placeable)
+
+		end
+
+		table.insert(self.husbandries[animalTypeIndex], placeable)
+
+	end
+
+	table.sort(self.targetAnimalTypes, function(a, b) return a.typeIndex < b.typeIndex end)
+	
+    table.sort(self.targetHusbandries, function(a, b) return a:getAnimalTypeIndex() < b:getAnimalTypeIndex() end)
+
+end
+
+AnimalScreenDealer.initItems = Utils.overwrittenFunction(AnimalScreenDealer.initItems, RL_AnimalScreenDealer.initItems)
+
+
+function RL_AnimalScreenDealer:setCurrentHusbandry(_, animalTypeIndex, index, isBuyMode)
+
+    if isBuyMode then
+		local husbandries = self.husbandries[animalTypeIndex]
+		local husbandry
+		if husbandries == nil then
+			husbandry = nil
+		else
+			husbandry = husbandries[index] or nil
+		end
+		self.husbandry = husbandry
+	else
+		self.husbandry = self.targetHusbandries[index]
+	end
+	self:initTargetItems()
+
+end
+
+AnimalScreenDealer.setCurrentHusbandry = Utils.overwrittenFunction(AnimalScreenDealer.setCurrentHusbandry, RL_AnimalScreenDealer.setCurrentHusbandry)
+
+
 function RL_AnimalScreenDealer:initTargetItems(_)
 
     self.targetItems = {}
@@ -44,26 +103,26 @@ function RL_AnimalScreenDealer:initSourceItems(_)
 	end
 
 
-	for i = #self.sourceAnimalTypes, 1, -1 do
+	--for i = #self.sourceAnimalTypes, 1, -1 do
 
-		local animalType = self.sourceAnimalTypes[i]
+		--local animalType = self.sourceAnimalTypes[i]
 
-		if not animalTypes[animalType.typeIndex] then table.remove(self.sourceAnimalTypes, i) end
+		--if not animalTypes[animalType.typeIndex] then table.remove(self.sourceAnimalTypes, i) end
 
-	end
+	--end
 
 	for index, animalType in pairs(self.sourceAnimalTypes) do
 
-		local animals = animalSystem:getSaleAnimalsByTypeIndex(index)
+		local animals = animalSystem:getSaleAnimalsByTypeIndex(animalType.typeIndex)
     
-		self.sourceItems[index] = {}
+		self.sourceItems[animalType.typeIndex] = {}
 
 		for _, animal in pairs(animals) do
 			local item = AnimalItemNew.new(animal)
-			table.insert(self.sourceItems[index], item)
+			table.insert(self.sourceItems[animalType.typeIndex], item)
 		end
 
-		table.sort(self.sourceItems[index], RL_AnimalScreenBase.sortSaleAnimals)
+		table.sort(self.sourceItems[animalType.typeIndex], RL_AnimalScreenBase.sortSaleAnimals)
 
 	end
 
@@ -82,6 +141,8 @@ AnimalScreenDealer.getSourceMaxNumAnimals = Utils.overwrittenFunction(AnimalScre
 
 
 function RL_AnimalScreenDealer:applySource(_, animalTypeIndex, animalIndex)
+
+    if self.husbandry == nil then return false end
 
     self.sourceAnimals = nil
 
@@ -140,6 +201,8 @@ AnimalScreenDealer.onAnimalBought = Utils.prependedFunction(AnimalScreenDealer.o
 
 function RL_AnimalScreenDealer:applyTarget(_, animalTypeIndex, animalIndex)
 
+    if self.husbandry == nil then return false end
+
     local item = self.targetItems[animalIndex]
     local husbandry = self.husbandry
     local ownerFarmId = husbandry:getOwnerFarmId()
@@ -197,6 +260,8 @@ AnimalScreenDealer.getSourcePrice = Utils.overwrittenFunction(AnimalScreenDealer
 
 
 function AnimalScreenDealer:applySourceBulk(animalTypeIndex, items)
+
+    if self.husbandry == nil then return false end
 
     self.sourceAnimals = {}
 
@@ -257,6 +322,8 @@ end
 
 
 function AnimalScreenDealer:applyTargetBulk(animalTypeIndex, items)
+
+    if self.husbandry == nil then return false end
 
     self.targetAnimals = {}
 

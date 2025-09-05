@@ -50,10 +50,21 @@ function RealisticLivestock_AnimalNameSystem:getRandomName(_, gender)
     if names == nil or #names == 0 then return nil end
     local description = ""
 
-    if self.descriptions ~= nil and #self.descriptions > 0 and math.random() >= 0.75 then description = self.descriptions[math.random(1, #self.descriptions)] .. " " end
+    if self.descriptions ~= nil and #self.descriptions > 0 and math.random() >= 0.65 then description = self.descriptions[math.random(1, #self.descriptions)] .. " " end
 
     return description .. names[math.random(1, #names)]
 
 end
 
 AnimalNameSystem.getRandomName = Utils.overwrittenFunction(AnimalNameSystem.getRandomName, RealisticLivestock_AnimalNameSystem.getRandomName)
+
+
+function AnimalNameSystem:getNamesAlphabetical(gender)
+
+    local names = table.clone(gender == "female" and self.femaleNames or self.maleNames)
+
+    table.sort(names, function(a, b) return a < b end)
+
+    return names
+
+end

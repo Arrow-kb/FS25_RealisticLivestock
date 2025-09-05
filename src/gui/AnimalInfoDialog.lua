@@ -25,12 +25,13 @@ function AnimalInfoDialog.createFromExistingGui(gui)
 end
 
 
-function AnimalInfoDialog.show(farmId, uniqueId, children, animalType)
+function AnimalInfoDialog.show(farmId, uniqueId, children, animalType, identifiers)
 
     if AnimalInfoDialog.INSTANCE == nil then AnimalInfoDialog.register() end
 
     local dialog = AnimalInfoDialog.INSTANCE
 
+    dialog.identifiers = identifiers
     dialog.animalType = animalType
     dialog:setDialogType(DialogElement.TYPE_INFO)
     dialog.children = children or {}

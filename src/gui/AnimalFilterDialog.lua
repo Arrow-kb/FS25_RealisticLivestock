@@ -273,8 +273,6 @@ function AnimalFilterDialog:onOpen()
 
     }
 
-
-
     if self.animalTypeIndex == AnimalType.COW or self.animalTypeIndex == AnimalType.SHEEP or self.animalTypeIndex == AnimalType.CHICKEN then
         
         table.insert(filters, {

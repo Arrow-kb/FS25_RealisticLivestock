@@ -1,6 +1,198 @@
 RealisticLivestock_PlaceableHusbandryAnimals = {}
 
 
+function RealisticLivestock_PlaceableHusbandryAnimals.registerFunctions(placeable)
+	SpecializationUtil.registerFunction(placeable, "setHasUnreadRLMessages", PlaceableHusbandryAnimals.setHasUnreadRLMessages)
+	SpecializationUtil.registerFunction(placeable, "getHasUnreadRLMessages", PlaceableHusbandryAnimals.getHasUnreadRLMessages)
+	SpecializationUtil.registerFunction(placeable, "getRLMessages", PlaceableHusbandryAnimals.getRLMessages)
+	SpecializationUtil.registerFunction(placeable, "addRLMessage", PlaceableHusbandryAnimals.addRLMessage)
+	SpecializationUtil.registerFunction(placeable, "deleteRLMessage", PlaceableHusbandryAnimals.deleteRLMessage)
+	SpecializationUtil.registerFunction(placeable, "getNextRLMessageUniqueId", PlaceableHusbandryAnimals.getNextRLMessageUniqueId)
+	SpecializationUtil.registerFunction(placeable, "getAIManager", PlaceableHusbandryAnimals.getAIManager)
+end
+
+PlaceableHusbandryAnimals.registerFunctions = Utils.appendedFunction(PlaceableHusbandryAnimals.registerFunctions, RealisticLivestock_PlaceableHusbandryAnimals.registerFunctions)
+
+
+function PlaceableHusbandryAnimals:setHasUnreadRLMessages(hasUnreadMessages)
+    
+    self.spec_husbandryAnimals.unreadMessages = hasUnreadMessages
+
+end
+
+
+function PlaceableHusbandryAnimals:getHasUnreadRLMessages()
+    
+    return self.spec_husbandryAnimals.unreadMessages or false
+
+end
+
+
+function PlaceableHusbandryAnimals:getRLMessages()
+
+    return self.spec_husbandryAnimals.messages or {}
+
+end
+
+
+function PlaceableHusbandryAnimals:addRLMessage(id, animal, args, date, uniqueId, isLoading)
+
+    local spec = self.spec_husbandryAnimals
+
+    if spec.messages == nil then spec.messages = {} end
+
+    if date == nil then
+
+        local environment = g_currentMission.environment
+        local month = environment.currentPeriod + 2
+        local currentDayInPeriod = environment.currentDayInPeriod
+
+        if month > 12 then month = month - 12 end
+
+        local daysPerPeriod = environment.daysPerPeriod
+        local day = 1 + math.floor((currentDayInPeriod - 1) * (RealisticLivestock.DAYS_PER_MONTH[month] / daysPerPeriod))
+        local year = environment.currentYear
+
+        date = string.format("%s/%s/%s", day, month, year + RealisticLivestock.START_YEAR.FULL)
+
+    end
+
+    for i, arg in pairs(args or {}) do args[i] = tostring(arg) end
+
+    table.insert(spec.messages, {
+        ["id"] = id,
+        ["animal"] = animal,
+        ["args"] = args or {},
+        ["date"] = date,
+        ["uniqueId"] = uniqueId or spec:getNextRLMessageUniqueId()
+    })
+
+    if not isLoading and #spec.messages > PlaceableHusbandryAnimals.maxNumMessages then table.remove(spec.messages, 1) end
+
+    spec.unreadMessages = true
+
+end
+
+
+function PlaceableHusbandryAnimals:deleteRLMessage(uniqueId)
+
+    local spec = self.spec_husbandryAnimals
+
+    for i, message in pairs(spec.messages or {}) do
+
+        if message.uniqueId == uniqueId then
+            table.remove(spec.messages, i)
+            return
+        end
+
+    end
+
+end
+
+
+function PlaceableHusbandryAnimals:getNextRLMessageUniqueId()
+
+    local spec = self.spec_husbandryAnimals
+
+    if spec.rlMessageUniqueId == nil then spec.rlMessageUniqueId = 0 end
+
+    spec.rlMessageUniqueId = spec.rlMessageUniqueId + 1
+
+    return spec.rlMessageUniqueId
+
+end
+
+
+function RealisticLivestock_PlaceableHusbandryAnimals:saveToXMLFile(xmlFile, key)
+
+    local spec = self.spec_husbandryAnimals
+
+    xmlFile:setInt(key .. ".messages#uniqueId", spec.rlMessageUniqueId or 0)
+    xmlFile:setBool(key .. ".messages#unreadMessages", spec.unreadMessages or false)
+
+    for i, message in pairs(spec.messages or {}) do
+
+        local messageKey = string.format("%s.messages.message(%d)", key, i - 1)
+
+        xmlFile:setString(messageKey .. "#id", message.id)
+        xmlFile:setString(messageKey .. "#date", message.date)
+        if message.animal ~= nil then xmlFile:setString(messageKey .. "#animal", message.animal) end
+        xmlFile:setInt(messageKey .. "#uniqueId", message.uniqueId)
+        
+        for j, arg in pairs(message.args) do
+
+            xmlFile:setString(string.format("%s.args.arg(%d)#value", messageKey, j - 1), arg)
+
+        end
+
+    end
+
+    spec.aiAnimalManager:saveToXMLFile(xmlFile, key)
+
+end
+
+PlaceableHusbandryAnimals.saveToXMLFile = Utils.prependedFunction(PlaceableHusbandryAnimals.saveToXMLFile, RealisticLivestock_PlaceableHusbandryAnimals.saveToXMLFile)
+
+
+function RealisticLivestock_PlaceableHusbandryAnimals:loadFromXMLFile(xmlFile, key)
+
+    local spec = self.spec_husbandryAnimals
+    
+    spec.rlMessageUniqueId = xmlFile:getInt(key .. ".messages#uniqueId", 0)
+
+    xmlFile:iterate(key .. ".messages.message", function(_, messageKey)
+    
+        local id = xmlFile:getString(messageKey .. "#id")
+        local date = xmlFile:getString(messageKey .. "#date")
+        local animal = xmlFile:getString(messageKey .. "#animal")
+        local uniqueId = xmlFile:getInt(messageKey .. "#uniqueId")
+        local args = {}
+
+        xmlFile:iterate(messageKey .. ".args.arg", function(_, argKey)
+
+            table.insert(args, xmlFile:getString(argKey .. "#value"))
+
+        end)
+        
+        self:addRLMessage(id, animal, args, date, uniqueId, true)
+    
+    end)
+
+    spec.unreadMessages = xmlFile:getBool(key .. ".messages#unreadMessages", false)
+
+    spec.aiAnimalManager:loadFromXMLFile(xmlFile, key)
+
+end
+
+PlaceableHusbandryAnimals.loadFromXMLFile = Utils.prependedFunction(PlaceableHusbandryAnimals.loadFromXMLFile, RealisticLivestock_PlaceableHusbandryAnimals.loadFromXMLFile)
+
+
+function PlaceableHusbandryAnimals:getAIManager()
+
+    local spec = self.spec_husbandryAnimals
+
+    if spec.aiAnimalManager == nil then spec.aiAnimalManager = AIAnimalManager.new(self) end
+
+    return spec.aiAnimalManager
+
+end
+
+
+function RealisticLivestock_PlaceableHusbandryAnimals:onLoad()
+
+    self.spec_husbandryAnimals.aiAnimalManager = AIAnimalManager.new(self, self.isServer)
+
+end
+
+PlaceableHusbandryAnimals.onLoad = Utils.appendedFunction(PlaceableHusbandryAnimals.onLoad, RealisticLivestock_PlaceableHusbandryAnimals.onLoad)
+
+
+function RealisticLivestock_PlaceableHusbandryAnimals.onSettingChanged(name, state)
+
+    PlaceableHusbandryAnimals[name] = state
+
+end
+
 
 function RealisticLivestock_PlaceableHusbandryAnimals:updateVisualAnimals(_)
     local spec = self.spec_husbandryAnimals
@@ -85,43 +277,11 @@ function RealisticLivestock_PlaceableHusbandryAnimals:onDayChanged(_)
 
         local animalType = (spec.animalTypeIndex == AnimalType.COW and 1) or (spec.animalTypeIndex == AnimalType.PIG and 2) or (spec.animalTypeIndex == AnimalType.SHEEP and 3) or (spec.animalTypeIndex == AnimalType.CHICKEN and 4) or (spec.animalTypeIndex == AnimalType.HORSE and 5)
 
-        if totalChildren > 0 then
-            local msgText = ""
-
-            if animalType == 1 then msgText = totalChildren == 1 and g_i18n:getText("rl_ui_cow_singleBirth") or string.format(g_i18n:getText("rl_ui_cow_multipleBirths"), totalChildren) end
-            if animalType == 2 then msgText = totalChildren == 1 and g_i18n:getText("rl_ui_pig_singleBirth") or string.format(g_i18n:getText("rl_ui_pig_multipleBirths"), totalChildren) end
-            if animalType == 3 then msgText = totalChildren == 1 and g_i18n:getText("rl_ui_sheep_singleBirth") or string.format(g_i18n:getText("rl_ui_sheep_multipleBirths"), totalChildren) end
-            if animalType == 4 then msgText = totalChildren == 1 and g_i18n:getText("rl_ui_chicken_singleBirth") or string.format(g_i18n:getText("rl_ui_chicken_multipleBirths"), totalChildren) end
-            if animalType == 5 then msgText = totalChildren == 1 and g_i18n:getText("rl_ui_horse_singleBirth") or string.format(g_i18n:getText("rl_ui_horse_multipleBirths"), totalChildren) end
-
-            g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
-        end
-
-        if deadParents > 0 then
-
-            local msgText = ""
-
-            if animalType == 1 then msgText = deadParents == 1 and g_i18n:getText("rl_ui_cow_singleDeath_birth") or string.format(g_i18n:getText("rl_ui_cow_multipleDeaths_birth"), deadParents) end
-            if animalType == 2 then msgText = deadParents == 1 and g_i18n:getText("rl_ui_pig_singleDeath_birth") or string.format(g_i18n:getText("rl_ui_pig_multipleDeaths_birth"), deadParents) end
-            if animalType == 3 then msgText = deadParents == 1 and g_i18n:getText("rl_ui_sheep_singleDead_birth") or string.format(g_i18n:getText("rl_ui_sheep_multipleDeaths_birth"), deadParents) end
-            if animalType == 5 then msgText = deadParents == 1 and g_i18n:getText("rl_ui_horse_singleDeath_birth") or string.format(g_i18n:getText("rl_ui_horse_multipleDeaths_birth"), deadParents) end
-
-            g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
-        end
+        
 
         if childrenToSell > 0 and childrenToSellMoney > 0 then
             local farmIndex = spec:getOwnerFarmId()
             local farm = g_farmManager:getFarmById(farmIndex)
-
-            local msgText = ""
-
-            if animalType == 1 then msgText = childrenToSell == 1 and g_i18n:getText("rl_ui_cow_singleSold_birth") or string.format(g_i18n:getText("rl_ui_cow_multipleSold_birth"), childrenToSell) end
-            if animalType == 2 then msgText = childrenToSell == 1 and g_i18n:getText("rl_ui_pig_singleSold_birth") or string.format(g_i18n:getText("rl_ui_pig_multipleSold_birth"), childrenToSell) end
-            if animalType == 3 then msgText = childrenToSell == 1 and g_i18n:getText("rl_ui_sheep_singleSold_birth") or string.format(g_i18n:getText("rl_ui_sheep_multipleSold_birth"), childrenToSell) end
-            if animalType == 4 then msgText = childrenToSell == 1 and g_i18n:getText("rl_ui_chicken_singleSold_birth") or string.format(g_i18n:getText("rl_ui_chicken_multipleSold_birth"), childrenToSell) end
-            if animalType == 5 then msgText = childrenToSell == 1 and g_i18n:getText("rl_ui_horse_singleSold_birth") or string.format(g_i18n:getText("rl_ui_horse_multipleSold_birth"), childrenToSell) end
-
-            g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
 
             if self.isServer then
                 g_currentMission:addMoneyChange(childrenToSellMoney, farmIndex, MoneyType.SOLD_ANIMALS, true)
@@ -134,48 +294,10 @@ function RealisticLivestock_PlaceableHusbandryAnimals:onDayChanged(_)
             end
         end
 
-        if lowHealthDeaths > 0 then
-
-            local msgText = ""
-
-            if animalType == 1 then msgText = lowHealthDeaths == 1 and g_i18n:getText("rl_ui_cow_singleDeath_health") or string.format(g_i18n:getText("rl_ui_cow_multipleDeaths_health"), lowHealthDeaths) end
-            if animalType == 2 then msgText = lowHealthDeaths == 1 and g_i18n:getText("rl_ui_pig_singleDeath_health") or string.format(g_i18n:getText("rl_ui_pig_multipleDeaths_health"), lowHealthDeaths) end
-            if animalType == 3 then msgText = lowHealthDeaths == 1 and g_i18n:getText("rl_ui_sheep_singleDeath_health") or string.format(g_i18n:getText("rl_ui_sheep_multipleDeaths_health"), lowHealthDeaths) end
-            if animalType == 4 then msgText = lowHealthDeaths == 1 and g_i18n:getText("rl_ui_chicken_singleDeath_health") or string.format(g_i18n:getText("rl_ui_chicken_multipleDeaths_health"), lowHealthDeaths) end
-            if animalType == 5 then msgText = lowHealthDeaths == 1 and g_i18n:getText("rl_ui_horse_singleDeath_health") or string.format(g_i18n:getText("rl_ui_horse_multipleDeaths_health"), lowHealthDeaths) end
-
-            g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
-
-        end
-
-        if oldAgeDeaths > 0 then
-
-            local msgText = ""
-
-            if animalType == 1 then msgText = oldAgeDeaths == 1 and g_i18n:getText("rl_ui_cow_singleDeath_age") or string.format(g_i18n:getText("rl_ui_cow_multipleDeaths_age"), oldAgeDeaths) end
-            if animalType == 2 then msgText = oldAgeDeaths == 1 and g_i18n:getText("rl_ui_pig_singleDeath_age") or string.format(g_i18n:getText("rl_ui_pig_multipleDeaths_age"), oldAgeDeaths) end
-            if animalType == 3 then msgText = oldAgeDeaths == 1 and g_i18n:getText("rl_ui_sheep_singleDeath_age") or string.format(g_i18n:getText("rl_ui_sheep_multipleDeaths_age"), oldAgeDeaths) end
-            if animalType == 4 then msgText = oldAgeDeaths == 1 and g_i18n:getText("rl_ui_chicken_singleDeath_age") or string.format(g_i18n:getText("rl_ui_chicken_multipleDeaths_age"), oldAgeDeaths) end
-            if animalType == 5 then msgText = oldAgeDeaths == 1 and g_i18n:getText("rl_ui_horse_singleDeath_age") or string.format(g_i18n:getText("rl_ui_horse_multipleDeaths_age"), oldAgeDeaths) end
-
-            g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
-
-        end
-
         if randomDeaths > 0 then
 
             local farmIndex = spec:getOwnerFarmId()
             local farm = g_farmManager:getFarmById(farmIndex)
-
-            local msgText = ""
-
-            if animalType == 1 then msgText = randomDeaths == 1 and string.format(g_i18n:getText("rl_ui_cow_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("rl_ui_cow_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) end
-            if animalType == 2 then msgText = randomDeaths == 1 and string.format(g_i18n:getText("rl_ui_pig_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("rl_ui_pig_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) end
-            if animalType == 3 then msgText = randomDeaths == 1 and string.format(g_i18n:getText("rl_ui_sheep_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("rl_ui_sheep_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) end
-            if animalType == 4 then msgText = randomDeaths == 1 and g_i18n:getText("rl_ui_chicken_singleDeath_random") or string.format(g_i18n:getText("rl_ui_chicken_multipleDeaths_random"), randomDeaths) end
-            if animalType == 5 then msgText = randomDeaths == 1 and string.format(g_i18n:getText("rl_ui_horse_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("rl_ui_horse_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) end
-
-            g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
 
             if randomDeathsMoney > 0 then
 
@@ -197,8 +319,16 @@ function RealisticLivestock_PlaceableHusbandryAnimals:onDayChanged(_)
         spec.minTemp = minTemp
 
         if randomDeaths > 0 or oldAgeDeaths > 0 or lowHealthDeaths > 0 or deadParents > 0 or totalChildren > 0 then spec.clusterHusbandry:updateVisuals() end
+        
+        spec.aiAnimalManager:onDayChanged()
 
         self:raiseActive()
+
+    end
+
+    if self:getHasUnreadRLMessages() and g_localPlayer ~= nil and g_localPlayer.farmId == self:getOwnerFarmId() then
+
+        g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, string.format(g_i18n:getText("rl_ui_unreadMessages"), self:getName()))
 
     end
 
@@ -212,8 +342,16 @@ function RealisticLivestock_PlaceableHusbandryAnimals:onPeriodChanged(_)
     if self.isServer then
 
 		local animals = self.spec_husbandryAnimals.clusterSystem:getClusters()
+        local totalTreatmentCost = 0
 
-        for _, animal in pairs(animals) do animal:onPeriodChanged() end
+        for _, animal in pairs(animals) do
+            local treatmentCost = animal:onPeriodChanged()
+            totalTreatmentCost = totalTreatmentCost + treatmentCost
+        end
+
+        if totalTreatmentCost > 0 then g_currentMission:addMoneyChange(totalTreatmentCost, self.spec_husbandryAnimals:getOwnerFarmId(), MoneyType.MEDICINE, true) end
+
+        g_diseaseManager:calculateTransmission(animals)
 
     end
 

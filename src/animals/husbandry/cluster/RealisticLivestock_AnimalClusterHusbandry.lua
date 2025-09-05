@@ -155,6 +155,7 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
  
     local animalSystem = g_currentMission.animalSystem
     local animalType = animalSystem.types[self.placeable:getAnimalTypeIndex()]
+
     local colours = animalType.colours or animalSystem.baseColours
     
     local earTagLeftR, earTagLeftG, earTagLeftB = colours.earTagLeft[1], colours.earTagLeft[2], colours.earTagLeft[3]
@@ -321,6 +322,22 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
                             setShaderParameter(node, "playScale", characterIndex, 0, numCharacters, 1, false)
 
                         end
+
+                    end
+
+                end
+
+                if visualData.marker ~= nil then
+
+                    local markerNode = I3DUtil.indexToObject(animalRootNode, visualData.marker)
+
+                    if markerNode ~= 0 then
+
+                        local markerColour = AnimalSystem.BREED_TO_MARKER_COLOUR[animal.breed]
+                        local isMarked = animal:getMarked()
+
+                        setVisibility(markerNode, isMarked)
+                        if isMarked then setShaderParameter(markerNode, "colorScale", markerColour[1], markerColour[2], markerColour[3], nil, false) end
 
                     end
 

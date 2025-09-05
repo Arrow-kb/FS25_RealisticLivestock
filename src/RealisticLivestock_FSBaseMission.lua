@@ -75,7 +75,10 @@ function RealisticLivestock_FSBaseMission:onStartMission()
         xmlFile:delete()
     end
 
+    AnimalAIDialog.register()
     AnimalInfoDialog.register()
+    DiseaseDialog.register()
+    ProfileDialog.register()
     NameInputDialog.register()
     EarTagColourPickerDialog.register()
     AnimalFilterDialog.register()
@@ -97,8 +100,6 @@ function RealisticLivestock_FSBaseMission:onStartMission()
         if isServer then placeable:updateInputAndOutput(animals) end
 
     end
-
-    g_overlayManager:addTextureConfigFile(modDirectory .. "gui/icons.xml", "realistic_livestock")
 
     local realisticLivestockFrame = RealisticLivestockFrame.new() 
 	g_gui:loadGui(modDirectory .. "gui/RealisticLivestockFrame.xml", "RealisticLivestockFrame", realisticLivestockFrame, true)
@@ -161,3 +162,31 @@ function RealisticLivestock_FSBaseMission:sendInitialClientState(connection, _, 
 end
 
 FSBaseMission.sendInitialClientState = Utils.prependedFunction(FSBaseMission.sendInitialClientState, RealisticLivestock_FSBaseMission.sendInitialClientState)
+
+
+function RealisticLivestock_FSBaseMission:onDayChanged()
+
+	if not self:getIsServer() then return end
+
+	local husbandrySystem = self.husbandrySystem
+
+	for _, farm in pairs(g_farmManager:getFarms()) do
+
+		local husbandries = husbandrySystem:getPlaceablesByFarm(farm.farmId)
+		local wages = 0
+
+		for _, husbandry in pairs(husbandries) do
+
+			local aiManager = husbandry:getAIManager()
+
+			if aiManager ~= nil then wages = wages + (aiManager.wage or 0) end
+
+		end
+
+		if wages > 0 then self:addMoney(-wages, farm.farmId, MoneyType.HERDSMAN_WAGES, true, true) end
+
+	end
+
+end
+
+FSBaseMission.onDayChanged = Utils.appendedFunction(FSBaseMission.onDayChanged, RealisticLivestock_FSBaseMission.onDayChanged)

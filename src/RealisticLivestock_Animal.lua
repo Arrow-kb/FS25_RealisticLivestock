@@ -2,7 +2,7 @@ Animal = {}
 local Animal_mt = Class(Animal)
 
 
-function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated)
+function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated, diseases, recentlyBoughtByAI, marks, insemination)
 
     local self = setmetatable({}, Animal_mt)
 
@@ -12,6 +12,9 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
 
     self.clusterSystem = clusterSystem
 
+    self.insemination = insemination
+
+    self.recentlyBoughtByAI = false or recentlyBoughtByAI
     self.children = children or {}
     self.age = age or 0
     self.health = health or 0
@@ -29,6 +32,7 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
     self.isDead = false
     self.isSold = false
     self.weight = weight or nil
+    self.marks = marks or self:getDefaultMarks()
 
     self.variation = variation or nil
 
@@ -38,6 +42,8 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
     self.animalTypeIndex = g_currentMission.animalSystem:getTypeIndexBySubTypeIndex(self.subTypeIndex)
     local subType = g_currentMission.animalSystem:getSubTypeByIndex(self.subTypeIndex)
     local targetWeight = subType.targetWeight
+
+    self.breed = subType.breed or "UNKNOWN"
 
     if genetics == nil then
     
@@ -264,6 +270,8 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
 
     end
 
+    self.diseases = diseases or {}
+
     self:updateInput()
     self:updateOutput(g_currentMission.environment.weather.temperatureUpdater.currentMin or 20)
 
@@ -328,12 +336,22 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
     local isParent = xmlFile:getBool(key .. "#isParent")
     local isPregnant = xmlFile:getBool(key .. "#isPregnant")
     local isLactating = xmlFile:getBool(key .. "#isLactating")
+    local recentlyBoughtByAI = xmlFile:getBool(key .. "#recentlyBoughtByAI", false)
     local id = xmlFile:getString(key .. "#id", nil)
     local farmId = xmlFile:getString(key .. "#farmId", nil)
     local motherId = xmlFile:getString(key .. "#motherId", nil)
     local fatherId = xmlFile:getString(key .. "#fatherId", nil)
     local weight = xmlFile:getFloat(key .. "#weight", nil)
     local variation = xmlFile:getInt(key .. "#variation", nil)
+
+    local marks = Animal.getDefaultMarks()
+
+    xmlFile:iterate(key .. ".marks.mark", function(_, markKey)
+    
+        local mark = xmlFile:getString(markKey .. "#key", "PLAYER")
+        marks[mark].active = xmlFile:getBool(markKey .. "#active", false)
+    
+    end)
 
     if subTypeIndex == nil then
         local subTypeName = xmlFile:getString(key .. "#subType", nil)
@@ -460,9 +478,45 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 
     local isCastrated = xmlFile:getBool(key .. "#isCastrated", false)
 
+    local diseases = {}
+
+    xmlFile:iterate(key .. ".diseases.disease", function (_, diseaseKey)
+    
+        local diseaseType = g_diseaseManager:getDiseaseByTitle(xmlFile:getString(diseaseKey .. "#title"))
+        local disease = Disease.new(diseaseType)
+
+        disease:loadFromXMLFile(xmlFile, diseaseKey)
+
+        table.insert(diseases, disease)
+    
+    end)
+
+    
+    local insemination
+
+    if xmlFile:hasProperty(key .. ".insemination") then
+
+        insemination = {
+            ["country"] = xmlFile:getInt(key .. ".insemination#country"),
+            ["farmId"] = xmlFile:getString(key .. ".insemination#farmId"),
+            ["uniqueId"] = xmlFile:getString(key .. ".insemination#uniqueId"),
+            ["name"] = xmlFile:getString(key .. ".insemination#name"),
+            ["subTypeIndex"] = xmlFile:getInt(key .. ".insemination#subTypeIndex"),
+            ["genetics"] = {},
+            ["success"] = xmlFile:getFloat(key .. ".insemination#success")
+        }
+
+        insemination.genetics.metabolism = xmlFile:getFloat(key .. ".insemination.genetics#metabolism")
+        insemination.genetics.health = xmlFile:getFloat(key .. ".insemination.genetics#health")
+        insemination.genetics.fertility = xmlFile:getFloat(key .. ".insemination.genetics#fertility")
+        insemination.genetics.quality = xmlFile:getFloat(key .. ".insemination.genetics#quality")
+        insemination.genetics.productivity = xmlFile:getFloat(key .. ".insemination.genetics#productivity")
+
+    end
 
 
-    local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated)
+
+    local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated, diseases, recentlyBoughtByAI, marks, insemination)
     --local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, impregnatedById, pos, name, dirt, fitness, riding, farmId, weight, metabolism, impregnatedByMetabolism, impregnatedByProductivity, productivity, quality, impregnatedByMeatQuality, impregnatedByHealth, impregnatedByFertility, healthGenetics, fertility, variation, children)
 
     animal:setBirthday(birthday)
@@ -516,12 +570,26 @@ function Animal:saveToXMLFile(xmlFile, key)
     xmlFile:setBool(key .. "#isParent", self.isParent)
     xmlFile:setBool(key .. "#isPregnant", self.isPregnant)
     xmlFile:setBool(key .. "#isLactating", self.isLactating)
+    xmlFile:setBool(key .. "#recentlyBoughtByAI", self.recentlyBoughtByAI or false)
     xmlFile:setString(key .. "#id", self.uniqueId)
     if self.variation ~= nil then xmlFile:setInt(key .. "#variation", self.variation) end
     xmlFile:setString(key .. "#farmId", self.farmId)
     xmlFile:setString(key .. "#motherId", self.motherId)
     xmlFile:setString(key .. "#fatherId", self.fatherId)
     xmlFile:setFloat(key .. "#weight", self.weight)
+
+    local markI = 0
+    
+    for _, mark in pairs(self.marks) do
+
+        local markKey = string.format("%s.marks.mark(%s)", key, markI)
+
+        xmlFile:setString(markKey .. "#key", mark.key)
+        xmlFile:setBool(markKey .. "#active", mark.active)
+
+        markI = markI + 1
+
+    end
 
     if self.name ~= nil and self.name ~= "" then xmlFile:setString(key .. "#name", self.name) end
     
@@ -566,6 +634,10 @@ function Animal:saveToXMLFile(xmlFile, key)
 
             end
 
+            xmlFile:setSortedTable(index .. ".diseases.disease", child.diseases, function (diseaseKey, disease)
+                disease:saveToXMLFile(xmlFile, diseaseKey)
+            end)
+
         end)
 
     end
@@ -599,10 +671,34 @@ function Animal:saveToXMLFile(xmlFile, key)
 
     end
 
+    if self.insemination ~= nil then
+
+        local insemination = self.insemination
+
+        xmlFile:setInt(key .. ".insemination#country", insemination.country)
+        xmlFile:setString(key .. ".insemination#farmId", insemination.farmId)
+        xmlFile:setString(key .. ".insemination#uniqueId", insemination.uniqueId)
+        xmlFile:setString(key .. ".insemination#name", insemination.name)
+        xmlFile:setInt(key .. ".insemination#subTypeIndex", insemination.subTypeIndex)
+        xmlFile:setFloat(key .. ".insemination#success", insemination.success)
+        xmlFile:setFloat(key .. ".insemination.genetics#metabolism", insemination.genetics.metabolism)
+        xmlFile:setFloat(key .. ".insemination.genetics#quality", insemination.genetics.quality)
+        xmlFile:setFloat(key .. ".insemination.genetics#health", insemination.genetics.health)
+        xmlFile:setFloat(key .. ".insemination.genetics#fertility", insemination.genetics.fertility)
+        if insemination.genetics.productivity ~= nil then xmlFile:setFloat(key .. ".insemination.genetics#productivity", insemination.genetics.productivity) end
+
+    end
+
     xmlFile:setBool(key .. ".monitor#active", self.monitor.active)
     xmlFile:setBool(key .. ".monitor#removed", self.monitor.removed)
 
     if self.isCastrated then xmlFile:setBool(key .. "#isCastrated", true) end
+
+    for i, disease in pairs(self.diseases) do
+
+        disease:saveToXMLFile(xmlFile, key .. ".diseases.disease(" .. (i - 1) .. ")")
+
+    end
 
 end
 
@@ -619,6 +715,21 @@ function Animal:writeStream(streamId, connection)
     streamWriteBool(streamId, self.isParent)
     streamWriteBool(streamId, self.isPregnant and self.pregnancy ~= nil)
     streamWriteBool(streamId, self.isLactating)
+
+    streamWriteBool(streamId, self.recentlyBoughtByAI or false)
+
+    local numMarks = 0
+
+    for key, mark in pairs(self.marks) do numMarks = numMarks + 1 end
+
+    streamWriteUInt8(streamId, numMarks)
+    
+    for key, mark in pairs(self.marks) do
+
+        streamWriteString(streamId, key)
+        streamWriteBool(streamId, mark.active)
+
+    end
 
     streamWriteString(streamId, self.uniqueId)
     streamWriteString(streamId, self.farmId)
@@ -718,6 +829,32 @@ function Animal:writeStream(streamId, connection)
 
     streamWriteBool(streamId, self.isCastrated or false)
 
+    streamWriteUInt8(streamId, #self.diseases)
+
+    for i = 1, #self.diseases do
+
+        self.diseases[i]:writeStream(streamId, connection)
+
+    end
+
+    streamWriteBool(streamId, self.insemination ~= nil)
+
+    if self.insemination ~= nil then
+
+        streamWriteUInt8(streamId, self.insemination.country)
+        streamWriteString(streamId, self.insemination.farmId)
+        streamWriteString(streamId, self.insemination.uniqueId)
+        streamWriteString(streamId, self.insemination.name)
+        streamWriteUInt8(streamId, self.insemination.subTypeIndex)
+        streamWriteFloat32(streamId, self.insemination.success)
+        streamWriteFloat32(streamId, self.insemination.genetics.metabolism)
+        streamWriteFloat32(streamId, self.insemination.genetics.health)
+        streamWriteFloat32(streamId, self.insemination.genetics.fertility)
+        streamWriteFloat32(streamId, self.insemination.genetics.quality)
+        streamWriteFloat32(streamId, self.insemination.genetics.productivity or 0)
+
+    end
+
     return true
 
 end
@@ -740,6 +877,19 @@ function Animal:readStream(streamId, connection)
     self.isParent = streamReadBool(streamId)
     self.isPregnant = streamReadBool(streamId)
     self.isLactating = streamReadBool(streamId)
+
+    self.recentlyBoughtByAI = streamReadBool(streamId)
+    
+    local numMarks = streamReadUInt8(streamId)
+
+    for i = 1, numMarks do
+
+        local key = streamReadString(streamId)
+        local active = streamReadBool(streamId)
+
+        self.marks[key].active = active
+
+    end
 
     self.uniqueId = streamReadString(streamId)
     self.farmId = streamReadString(streamId)
@@ -859,6 +1009,49 @@ function Animal:readStream(streamId, connection)
 
     self.isCastrated = streamReadBool(streamId)
 
+    local numDiseases = streamReadUInt8(streamId)
+    local diseases = {}
+
+    for i = 1, numDiseases do
+
+        local diseaseType = g_diseaseManager:getDiseaseByTitle(streamReadString(streamId))
+        local disease = Disease.new(diseaseType)
+
+        disease:readStream(streamId, connection)
+
+        table.insert(diseases, disease)
+
+    end
+
+    self.diseases = diseases
+
+    local hasInsemination = streamReadBool(streamId)
+    local insemination
+
+    if hasInsemination then
+
+        insemination = {
+            ["country"] = streamReadUInt8(streamId),
+            ["farmId"] = streamReadString(streamId),
+            ["uniqueId"] = streamReadString(streamId),
+            ["name"] = streamReadString(streamId),
+            ["subTypeIndex"] = streamReadUInt8(streamId),
+            ["genetics"] = {},
+            ["success"] =streamReadFloat32(streamId)
+        }
+
+        insemination.genetics.metabolism = streamReadFloat32(streamId)
+        insemination.genetics.health = streamReadFloat32(streamId)
+        insemination.genetics.fertility = streamReadFloat32(streamId)
+        insemination.genetics.quality = streamReadFloat32(streamId)
+        insemination.genetics.productivity = streamReadFloat32(streamId)
+
+        if insemination.genetics.productivity == 0 then insemination.genetics.productivity = nil end
+
+    end
+
+    self.insemination = insemination
+
     return true
 
 end
@@ -898,7 +1091,7 @@ function Animal:clone()
     local impregnatedBy = self.impregnatedBy or nil
     
     --local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, impregnatedBy ~= nil and impregnatedBy.uniqueId or nil, self.pos or nil, self.name or nil, self.dirt or nil, self.fitness or nil, self.riding or nil, self.farmId, self.weight, self.metabolism, impregnatedBy ~= nil and impregnatedBy.metabolism or nil, impregnatedBy ~= nil and impregnatedBy.productivity or nil, self.genetics.productivity or nil, self.genetics.quality, impregnatedBy ~= nil and impregnatedBy.quality or nil, impregnatedBy ~= nil and impregnatedBy.health or nil, impregnatedBy ~= nil and impregnatedBy.fertility or nil, self.genetics.health, self.genetics.fertility, self.variation, self.children)
-    local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, self.pos, self.name, self.dirt, self.fitness, self.riding, self.farmId, self.weight, self.genetics, self.impregnatedBy, self.variation, self.children, self.monitor, self.isCastrated)
+    local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, self.pos, self.name, self.dirt, self.fitness, self.riding, self.farmId, self.weight, self.genetics, self.impregnatedBy, self.variation, self.children, self.monitor, self.isCastrated, self.diseases, self.recentlyBoughtByAI, self.marks, self.insemination)
 
     --if self.impregnatedBy ~= nil then
         --newAnimal.impregnatedBy = {
@@ -1732,6 +1925,13 @@ function Animal:showMonitorInfo(box)
 end
 
 
+function Animal:showDiseasesInfo(box)
+
+    for _, disease in pairs(self.diseases) do disease:showInfo(box) end
+
+end
+
+
 function Animal:getFillTypeTitle()
     return g_fillTypeManager:getFillTypeTitleByIndex(self:getSubType().fillTypeIndex)
 end
@@ -1872,10 +2072,27 @@ function Animal:onPeriodChanged()
     
     --if self.birthday ~= nil then self.birthday.needsAgeIncrease = true end
 
+    local totalTreatmentCost = 0
+
+    for i = #self.diseases, 1, -1 do
+
+        local died, treatmentCost = self.diseases[i]:onPeriodChanged(self)
+        totalTreatmentCost = totalTreatmentCost + treatmentCost
+        
+        if died then return totalTreatmentCost end
+
+    end
+
+    return totalTreatmentCost
+
 end
 
 
 function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPeriod, daysPerPeriod, isSaleAnimal)
+
+    g_diseaseManager:onDayChanged(self)
+
+    self:setRecentlyBoughtByAI(false)
     
     local birthday = self.birthday
 
@@ -1938,6 +2155,37 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 	    self:resetRiding()
 	    self:changeDirt(10)
     
+    end
+
+
+    local insemination = self.insemination
+
+    if insemination ~= nil and g_server ~= nil then
+
+        local fertility = self.genetics.fertility
+        local childNum = self:generateRandomOffspring()
+
+        if childNum > 0 and math.random() >= (2 - fertility) * 0.25 and math.random() <= insemination.success * (math.random(80, 120) / 100) then
+
+            self:addMessage("INSEMINATION_SUCCESS")
+
+            self:createPregnancy(childNum, month, year, {
+                ["uniqueId"] = string.format("%s %s %s", RealisticLivestock.AREA_CODES[insemination.country].code, insemination.farmId, insemination.uniqueId),
+                ["metabolism"] = insemination.genetics.metabolism,
+                ["quality"] = insemination.genetics.quality,
+                ["health"] = insemination.genetics.health,
+                ["fertility"] = insemination.genetics.fertility,
+                ["productivity"] = insemination.genetics.productivity
+            })
+
+        else
+
+            self:addMessage("INSEMINATION_FAIL")
+
+        end
+
+        self.insemination = nil
+
     end
 
 
@@ -2016,51 +2264,56 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 end
 
 
-function Animal:createPregnancy(childNum, month, year)
+function Animal:createPregnancy(childNum, month, year, father)
 
     local fertility = self.genetics.fertility
 
     self.isPregnant = true
 
-    local father = {
-        uniqueId = "-1",
-        metabolism = 1.0,
-        quality = 1.0,
-        health = 1.0,
-        fertility = 1.0,
-        productivity = 1.0
-    }
+    if father == nil then
+        
+        father = {
+            uniqueId = "-1",
+            metabolism = 1.0,
+            quality = 1.0,
+            health = 1.0,
+            fertility = 1.0,
+            productivity = 1.0
+        }
 
-    local fatherSubTypeIndex
+        local fatherSubTypeIndex
 
-    for _, animal in pairs(self.clusterSystem:getAnimals()) do
+        for _, animal in pairs(self.clusterSystem:getAnimals()) do
 
-        if animal.gender ~= "male" or animal.isCastrated or animal.genetics.fertility <= 0 then continue end
+            if animal.gender ~= "male" or animal.isCastrated or animal.genetics.fertility <= 0 or animal:getIdentifiers() == self.fatherId then continue end
 
-        if animal.subType == "BULL_WATERBUFFALO" and self.subType ~= "COW_WATERBUFFALO" then continue end
-        if animal.subType == "RAM_GOAT" and self.subType ~= "GOAT" then continue end
-        if self.subType == "COW_WATERBUFFALO" and animal.subType ~= "BULL_WATERBUFFALO" then continue end
-        if self.subType == "GOAT" and animal.subType ~= "RAM_GOAT" then continue end
+            if animal.subType == "BULL_WATERBUFFALO" and self.subType ~= "COW_WATERBUFFALO" then continue end
+            if animal.subType == "RAM_GOAT" and self.subType ~= "GOAT" then continue end
+            if self.subType == "COW_WATERBUFFALO" and animal.subType ~= "BULL_WATERBUFFALO" then continue end
+            if self.subType == "GOAT" and animal.subType ~= "RAM_GOAT" then continue end
 
-        local animalType = animal.animalTypeIndex
+            local animalType = animal.animalTypeIndex
 
 
-        local animalSubType = animal:getSubType()
-        local maxFertilityMonth = (animalType == AnimalType.COW and 132) or (animalType == AnimalType.SHEEP and 72) or (animalType == AnimalType.HORSE and 300) or (animalType == AnimalType.CHICKEN and 1000) or (animalType == AnimalType.PIG and 48) or 120
-        maxFertilityMonth = maxFertilityMonth * animal.genetics.fertility
+            local animalSubType = animal:getSubType()
+            local maxFertilityMonth = (animalType == AnimalType.COW and 132) or (animalType == AnimalType.SHEEP and 72) or (animalType == AnimalType.HORSE and 300) or (animalType == AnimalType.CHICKEN and 1000) or (animalType == AnimalType.PIG and 48) or 120
+            maxFertilityMonth = maxFertilityMonth * animal.genetics.fertility
 
-        if animalSubType.reproductionMinAgeMonth ~= nil and animal:getAge() >= animalSubType.reproductionMinAgeMonth and animal:getAge() < maxFertilityMonth then
+            if animalSubType.reproductionMinAgeMonth ~= nil and animal:getAge() >= animalSubType.reproductionMinAgeMonth and animal:getAge() < maxFertilityMonth then
 
-            fatherSubTypeIndex = animal.subTypeIndex
+                fatherSubTypeIndex = animal.subTypeIndex
 
-            father.uniqueId = animal.farmId .. " " .. animal.uniqueId
-            father.metabolism = animal.genetics.metabolism
-            father.quality = animal.genetics.quality
-            father.health = animal.genetics.health
-            father.fertility = animal.genetics.fertility
-            father.productivity = animal.genetics.productivity or nil
+                father.uniqueId = animal:getIdentifiers()
+                father.metabolism = animal.genetics.metabolism
+                father.quality = animal.genetics.quality
+                father.health = animal.genetics.health
+                father.fertility = animal.genetics.fertility
+                father.productivity = animal.genetics.productivity or nil
+                father.animal = animal
 
-            break
+                break
+
+            end
 
         end
 
@@ -2110,6 +2363,27 @@ function Animal:createPregnancy(childNum, month, year)
         if maxProductivity == minProductivity then maxProductivity = maxProductivity + 0.01 end
     end
 
+    local mDiseases, fDiseases = self.diseases, father.animal ~= nil and father.animal.diseases or {}
+
+    local diseases = {}
+
+    for _, disease in pairs(mDiseases) do table.insert(diseases, { ["parent"] = father.animal, ["disease"] = disease }) end
+
+    for _, disease in pairs(fDiseases) do
+        
+        local hasDisease = false
+
+        for _, mDisease in pairs(mDiseases) do
+            if mDisease.type.title == disease.type.title then
+                hasDisease = true
+                break
+            end
+        end
+
+        if not hasDisease then table.insert(diseases, { ["parent"] = self, ["disease"] = disease }) end
+
+    end
+
 
     local children = {}
     local hasMale, hasFemale = false, false
@@ -2132,7 +2406,7 @@ function Animal:createPregnancy(childNum, month, year)
         end
 
 
-        local child = Animal.new(-1, 100, 0, gender, subTypeIndex, 0, false, false, false, nil, nil, self.farmId .. " " .. self.uniqueId, father.uniqueId)
+        local child = Animal.new(-1, 100, 0, gender, subTypeIndex, 0, false, false, false, nil, nil, self:getIdentifiers(), father.uniqueId)
                         
         local metabolism = math.random(minMetabolism * 100, maxMetabolism * 100) / 100
         local quality = math.random(minMeat * 100, maxMeat * 100) / 100
@@ -2155,6 +2429,13 @@ function Animal:createPregnancy(childNum, month, year)
             ["fertility"] = fertility,
             ["productivity"] = productivity
         })
+        
+        
+        for _, disease in pairs(diseases) do
+
+            disease.disease:affectReproduction(child, disease.parent)
+
+        end
 
 
         table.insert(children, child)
@@ -2436,7 +2717,21 @@ function Animal:reproduce(spec, day, month, year, isSaleAnimal)
 
     g_server:broadcastEvent(AnimalBirthEvent.new(self.clusterSystem ~= nil and self.clusterSystem.owner or nil, self, pregnancies, parentDied))
 
-    if parentDied then self:die() end
+    if #pregnancies > 0 then
+
+        if #pregnancies == 1 then
+            self:addMessage("PREGNANCY_SINGLE")
+        else
+            self:addMessage("PREGNANCY_MULTIPLE", { #pregnancies })
+        end
+
+    end
+
+    if animalsToSell > 0 then self:addMessage("PREGNANCY_SOLD", { animalsToSell, g_i18n:formatMoney(totalAnimalPrice, 2, true, true) }) end
+
+    if #childrenToRemove > 0 then self:addMessage("PREGNANCY_DIED", { #childrenToRemove }) end
+
+    if parentDied then self:die("rl_death_pregnancy") end
 
 
     return childNum, parentDied, animalsToSell, totalAnimalPrice
@@ -2447,11 +2742,16 @@ end
 
 
 
-function Animal:die()
+function Animal:die(reason)
 
     self.numAnimals = 0
     self.isDead = true
+
     if self.sale ~= nil then g_currentMission.animalSystem:removeSaleAnimal(self.animalTypeIndex, self.birthday.country, self.farmId, self.uniqueId) end
+    if self.isAIAnimal then g_currentMission.animalSystem:removeAIAnimal(self.animalTypeIndex, self.birthday.country, self.farmId, self.uniqueId) end
+
+    self:addMessage("DEATH", { reason or "rl_ui_unknownCauses" })
+
     if self.clusterSystem ~= nil then self.clusterSystem:addPendingRemoveCluster(self) end
 
 end
@@ -2477,7 +2777,7 @@ function Animal:CalculateLowHealthMonthlyAnimalDeaths()
     deathChance = (0.5 * (2 - healthGenetics)) - (health / 100)
 
     if math.random() <= deathChance then
-        self:die()
+        self:die("rl_death_health")
         return 1
     end
 
@@ -2534,7 +2834,7 @@ function Animal:CalculateOldAgeMonthlyAnimalDeaths()
 
     deathChance = 0.7 - ((maxAge - age) / 100)
     if math.random() <= deathChance * (2 - healthGenetics) then
-        self:die()
+        self:die("rl_death_age")
         return 1
     end
 
@@ -2602,7 +2902,7 @@ function Animal:CalculateRandomMonthlyAnimalDeaths(spec)
         local animalPrice = 0
         if animalsCanBeSold then animalPrice = self:getSellPrice() * 0.33 end
 
-        self:die()
+        self:die("rl_death_accident")
         return 1, animalPrice
     end
 
@@ -2691,6 +2991,8 @@ function Animal:getSellPrice()
 
     if self.isCastrated then sellPrice = sellPrice + sellPrice * 0.15 end
 
+    for _, disease in pairs(self.diseases) do sellPrice = disease:modifyValue(sellPrice) end
+
     if self.animalTypeIndex == AnimalType.HORSE then
         return math.max(sellPrice * meatFactor * weightFactor * (0.3 + 0.5 * self:getHealthFactor() + 0.3 * self:getRidingFactor() + 0.2 * self:getFitnessFactor() - 0.2 * self:getDirtFactor()), sellPrice * 0.05)
     end
@@ -2714,7 +3016,7 @@ function Animal:getNumberOfImpregnatableFemalesForMale()
     if (subType.reproductionMinAgeMonth ~= nil and subType.reproductionMinAgeMonth > self.age) or ((animalType == AnimalType.COW and self.age >= 132) or (animalType == AnimalType.SHEEP and self.age >= 72) or (animalType == AnimalType.HORSE and self.age >= 300) or (animalType == AnimalType.PIG and self.age >= 48)) then return 0 end
 
     local i = 0
-    local id = self.farmId .. " " .. self.uniqueId
+    local id = self:getIdentifiers()
 
     for _, animal in ipairs(self.clusterSystem:getAnimals()) do
 
@@ -2869,6 +3171,7 @@ function Animal:updateOutput(temp)
 
         end
 
+        for _, disease in pairs(self.diseases) do litersPerDay = disease:modifyOutput(fillType, litersPerDay) end
 
         self.output[fillType] = litersPerDay / 24
 
@@ -2894,5 +3197,169 @@ end
 function Animal:getHasName()
 
     return self.name ~= nil and self.name ~= ""
+
+end
+
+
+function Animal:removeDisease(title)
+
+    for i, disease in pairs(self.diseases) do
+        if disease.type.title == title then
+            self:addMessage("DISEASE_CURED", { disease.type.name })
+            table.remove(self.diseases, i)
+            return
+        end
+    end
+
+end
+
+
+function Animal:addDisease(type, isCarrier, genes)
+
+    table.insert(self.diseases, Disease.new(type, isCarrier, genes))
+
+    self:addMessage("DISEASE_CONTRACTED", { type.name })
+
+end
+
+
+function Animal:getDisease(title)
+
+    for _, disease in pairs(self.diseases) do
+
+        if disease.type.title == title then return disease end
+
+    end
+
+    return nil
+
+end
+
+
+function Animal:addMessage(id, args)
+
+    if self.clusterSystem == nil or self.clusterSystem.owner == nil or self.clusterSystem.owner.addRLMessage == nil then return end
+
+    self.clusterSystem.owner:addRLMessage(id, self:getIdentifiers(), args)
+
+end
+
+
+function Animal:getIdentifiers()
+
+    return string.format("%s %s %s", RealisticLivestock.AREA_CODES[self.birthday.country].code, self.farmId, self.uniqueId)
+
+end
+
+
+function Animal:compareIdentifiers(identifiers)
+
+    return self:getIdentifiers() == identifiers
+
+end
+
+
+function Animal:setRecentlyBoughtByAI(value)
+
+    self.recentlyBoughtByAI = value
+
+end
+
+
+function Animal:getRecentlyBoughtByAI()
+
+    return self.recentlyBoughtByAI or false
+
+end
+
+
+function Animal:getMarked(key)
+
+    if key == nil then
+
+        for _, mark in pairs(self.marks) do
+            if mark.active then return true end
+        end
+
+        return false
+
+    end
+
+    return (self.marks[key].active) or false
+
+end
+
+
+function Animal:setMarked(key, active)
+
+    if key == nil then
+
+        for markKey, mark in pairs(self.marks) do self.marks[markKey].active = active end
+
+        return
+
+    end
+
+    self.marks[key].active = active
+
+end
+
+
+function Animal:getDefaultMarks()
+
+    return table.clone(RealisticLivestock.MARKS, 3)
+
+end
+
+
+function Animal:getHighestPriorityMark()
+
+    local highest
+
+    for key, mark in pairs(self.marks) do
+
+        if not mark.active then continue end
+
+        if highest == nil or highest.priority > mark.priority then highest = { ["key"] = key, ["priority"] = mark.priority } end
+
+    end
+
+    return highest.key
+
+end
+
+
+function Animal:getCanBeInseminatedByAnimal(animal)
+
+    if self.gender == "male" then return false, g_i18n:getText("rl_insemination_male") end
+
+    if self.pregnancy ~= nil or self.isPregnant then return false, g_i18n:getText("rl_insemination_pregnant") end
+
+    if self.animalTypeIndex ~= animal.typeIndex then return false, g_i18n:getText("rl_insemination_animalType") end
+
+    if self.insemination ~= nil then return false, g_i18n:getText("rl_insemination_inseminated") end
+
+    if self.monthsSinceLastBirth <= 2 then return false, g_i18n:getText("rl_insemination_recovering") end
+
+    if self.age < self:getSubType().reproductionMinAgeMonth then return false, g_i18n:getText("rl_insemination_young") end
+
+    if string.format("%s %s %s", RealisticLivestock.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId) == self.fatherId then return false, g_i18n:getText("rl_insemination_father") end
+
+    return true
+
+end
+
+
+function Animal:setInsemination(animal)
+
+    self.insemination = {
+        ["country"] = animal.country,
+        ["farmId"] = animal.farmId,
+        ["uniqueId"] = animal.uniqueId,
+        ["genetics"] = animal.genetics,
+        ["name"] = animal.name,
+        ["subTypeIndex"] = animal.subTypeIndex,
+        ["success"] = animal.success
+    }
 
 end

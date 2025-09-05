@@ -283,30 +283,30 @@ function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, 
 					sliderPosX = math.clamp(sliderPosX, 0, self.absSize[1] - sliderWidth - 2 * self.sliderOffset)
 					local state = MathUtil.round(sliderPosX / stepSize) + 1
 
+					--if state ~= self.leftState and (self.leftState ~= self.rightState or (self.leftState == self.rightState and state < self.leftState)) then
 					if state ~= self.leftState then
+						--print(string.format("left: %s, %s, %s", tostring(state ~= self.leftState), tostring(self.leftState == self.rightState), tostring(state < self.leftState)))
 
 						self.leftSliderMousePosX = self.leftSliderMousePosX + stepSize * (state - self.leftState)
 						self.leftState = state
 						self:setState(state, true)
 
-					end
+						slider:setAbsolutePosition(self.absPosition[1] + sliderPosX + self.sliderOffset, slider.absPosition[2])
 
-					slider:setAbsolutePosition(self.absPosition[1] + sliderPosX + self.sliderOffset, slider.absPosition[2])
+						if self.updateTextPosition then self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2]) end
 
-					if self.updateTextPosition then self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2]) end
-
-					if self.useFillingBar then 
+						if self.useFillingBar then 
 		
-						local lowestSlider = self:getLowestSlider()
+							local lowestSlider = self:getLowestSlider()
 
-						self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
-						self.fillingBarElement:setSize(math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset, nil)
+							self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
+							self.fillingBarElement:setSize(math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset, nil)
 					
+						end
+
 					end
 
-				end
-
-				if self.isRightSliderPressed then
+				elseif self.isRightSliderPressed then
 
 					local slider = self.rightSliderElement
 					local sliderWidth = slider.absSize[1]
@@ -319,24 +319,26 @@ function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, 
 					sliderPosX = math.clamp(sliderPosX, 0, self.absSize[1] - sliderWidth - 2 * self.sliderOffset)
 					local state = MathUtil.round(sliderPosX / stepSize) + 1
 
+					--if state ~= self.rightState and (self.leftState ~= self.rightState or (self.leftState == self.rightState and state > self.rightState)) then
 					if state ~= self.rightState then
+						--print(string.format("right: %s, %s, %s", tostring(state ~= self.rightState), tostring(self.leftState == self.rightState), tostring(state > self.rightState)))
 
 						self.rightSliderMousePosX = self.rightSliderMousePosX + stepSize * (state - self.rightState)
 						self.rightState = state
 						self:setState(state, true)
+					
+						slider:setAbsolutePosition(self.absPosition[1] + sliderPosX + self.sliderOffset, slider.absPosition[2])
 
-					end
+						if self.updateTextPosition then self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2]) end
 
-					slider:setAbsolutePosition(self.absPosition[1] + sliderPosX + self.sliderOffset, slider.absPosition[2])
-
-					if self.updateTextPosition then self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2]) end
-
-					if self.useFillingBar then
+						if self.useFillingBar then
 		
-						local lowestSlider = self:getLowestSlider()
+							local lowestSlider = self:getLowestSlider()
 
-						self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
-						self.fillingBarElement:setSize(math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset, nil)
+							self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
+							self.fillingBarElement:setSize(math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset, nil)
+
+						end
 
 					end
 

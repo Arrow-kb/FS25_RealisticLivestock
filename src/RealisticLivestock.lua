@@ -4,6 +4,39 @@ local modDirectory = g_currentModDirectory
 local hasLoaded = false
 
 
+RealisticLivestock.MARKS = {
+    ["AI_MANAGER_SELL"] = {
+        ["key"] = "AI_MANAGER_SELL",
+        ["active"] = false,
+        ["priority"] = 3,
+        ["text"] = "aiManager_sell"
+    },
+    ["AI_MANAGER_CASTRATE"] = {
+        ["key"] = "AI_MANAGER_CASTRATE",
+        ["active"] = false,
+        ["priority"] = 5,
+        ["text"] = "aiManager_castrate"
+    },
+    ["AI_MANAGER_DISEASE"] = {
+        ["key"] = "AI_MANAGER_DISEASE",
+        ["active"] = false,
+        ["priority"] = 2,
+        ["text"] = "aiManager_disease"
+    },
+    ["AI_MANAGER_INSEMINATE"] = {
+        ["key"] = "AI_MANAGER_INSEMINATE",
+        ["active"] = false,
+        ["priority"] = 4,
+        ["text"] = "aiManager_ai"
+    },
+    ["PLAYER"] = {
+        ["key"] = "PLAYER",
+        ["active"] = false,
+        ["priority"] = 1,
+        ["text"] = "player"
+    }
+}
+
 
 RealisticLivestock.MAP_TO_AREA_CODE = {
     ["Riverbend Springs"] = 2,
@@ -167,11 +200,32 @@ RealisticLivestock.START_YEAR = {
 
 
 
+
+table.insert(FinanceStats.statNames, "herdsmanWages")
+FinanceStats.statNameToIndex["herdsmanWages"] = #FinanceStats.statNames
+table.insert(FinanceStats.statNames, "semenPurchase")
+FinanceStats.statNameToIndex["semenPurchase"] = #FinanceStats.statNames
+table.insert(FinanceStats.statNames, "medicine")
+FinanceStats.statNameToIndex["medicine"] = #FinanceStats.statNames
+
+
+
 function RealisticLivestock.loadMap()
     
     RealisticLivestock.mapAreaCode = RealisticLivestock.MAP_TO_AREA_CODE[g_currentMission.missionInfo.mapTitle] or 1
 	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/helpicons.xml", "rlHelpIcons")
+    g_overlayManager:addTextureConfigFile(modDirectory .. "gui/icons.xml", "realistic_livestock")
     g_rlConsoleCommandManager = RLConsoleCommandManager.new()
+    g_diseaseManager = DiseaseManager.new()
+
+    MoneyType.HERDSMAN_WAGES = MoneyType.register("herdsmanWages", "rl_ui_herdsmanWages")
+    MoneyType.LAST_ID = MoneyType.LAST_ID + 1
+
+    MoneyType.SEMEN_PURCHASE = MoneyType.register("semenPurchase", "rl_ui_semenPurchase")
+    MoneyType.LAST_ID = MoneyType.LAST_ID + 1
+
+    MoneyType.MEDICINE = MoneyType.register("medicine", "rl_ui_medicine")
+    MoneyType.LAST_ID = MoneyType.LAST_ID + 1
 
 end
 
