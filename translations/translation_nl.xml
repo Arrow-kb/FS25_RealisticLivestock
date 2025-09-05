@@ -7,6 +7,8 @@
 		<text name="fillType_bull_holstein" text="Holstein Stier"/>
 		<text name="fillType_bull_angus" text="Angus Stier"/>
 		<text name="fillType_bull_limousin" text="Limousin Stier"/>
+		<text name="fillType_cow_hereford" text="Hereford"/>
+		<text name="fillType_bull_hereford" text="Hereford Stier"/>
 		<text name="animal_descriptionBullFeed" text="Stieren houden van gras, hooi and CGR."/>
 		<text name="animal_descriptionBullYoung" text="Dit is een mannelijk kalf."/>
 		<text name="animal_descriptionBullReproduction" text="Stieren die gezond zijn en ouder dan 12 maanden kunnen zich voortplanten."/>
@@ -21,7 +23,7 @@
 		<text name="fillType_boar_landrace" text="Duits landras Zwijn"/>
 		<text name="fillType_boar_black_pied" text="Bentheimer Zwijn"/>
 		<text name="fillType_boar_berkshire" text="Berkshire Zwijn"/>
-		<text name="animal_descriptionBoarReproduction" text="Stieren die gezond zijn en ouder dan 8 maanden kunnen zich voortplanten."/>
+		<text name="animal_descriptionBoarReproduction" text="Zwijnen die gezond zijn en ouder dan 8 maanden kunnen zich voortplanten."/>
 		<text name="animal_descriptionBoarFeed" text="Zwijnen eten bijna alles: maïs, tarwe, gerst, koolzaad, zonnebloemen, sojabonen, aardappelen en suikerbieten."/>
 		<text name="animal_descriptionBoarYoung" text="Dit is een mannelijk biggetje"/>
 
@@ -76,9 +78,9 @@
 		<text name="rl_ui_tooYoung" text="Te jong"/>
 		<text name="rl_ui_tooYoungBracketed" text="Nee (te jong)"/>
 		<text name="rl_ui_pregnant" text="Drachtig"/>
-		<text name="rl_ui_lactating" text="Borstvoeding geven"/>
+		<text name="rl_ui_lactating" text="Melkgevend"/>
 		<text name="rl_ui_canReproduce" text="Kan voortplanten"/>
-		<text name="rl_ui_impregnatedBy" text="Geïmpregneerd door"/>
+		<text name="rl_ui_impregnatedBy" text="Bevrucht door"/>
 		<text name="rl_ui_unknown" text="Onbekend"/>
 		<text name="rl_ui_yes" text="Ja"/>
 		<text name="rl_ui_no" text="Nee"/>
@@ -166,16 +168,16 @@
 		<text name="rl_ui_horse_multipleSold_birth" text="%s veulens werden bij de geboorte verkocht vanwege overbevolking" tag="format"/>
 		<text name="rl_ui_horse_singleSold_birth" text="1 veulen werd bij de geboorte verkocht vanwege overbevolking"/>
 
-		<text name="rl_ui_cow_multipleDeaths_health" text="%s koeien verwijderd door te slechte gezondheidh" tag="format"/>
+		<text name="rl_ui_cow_multipleDeaths_health" text="%s koeien verwijderd door te slechte gezondheid" tag="format"/>
 		<text name="rl_ui_cow_singleDeath_health" text="1 koe verwijderd door te slechte gezondheidh"/>
-		<text name="rl_ui_pig_multipleDeaths_health" text="%s varkens verwijderd door te slechte gezondheidh" tag="format"/>
+		<text name="rl_ui_pig_multipleDeaths_health" text="%s varkens verwijderd door te slechte gezondheid" tag="format"/>
 		<text name="rl_ui_pig_singleDeath_health" text="1 varken verwijderd door te slechte gezondheidh"/>
-		<text name="rl_ui_sheep_multipleDeaths_health" text="%s schapen verwijderd door te slechte gezondheidh" tag="format"/>
+		<text name="rl_ui_sheep_multipleDeaths_health" text="%s schapen verwijderd door te slechte gezondheid" tag="format"/>
 		<text name="rl_ui_sheep_singleDeath_health" text="1 schaap verwijderd door te slechte gezondheidh"/>
-		<text name="rl_ui_chicken_multipleDeaths_health" text="%s kippen verwijderd door te slechte gezondheidh" tag="format"/>
-		<text name="rl_ui_chicken_singleDeath_health" text="1 kippen verwijderd door te slechte gezondheidh"/>
-		<text name="rl_ui_horse_multipleDeaths_health" text="%s paarden verwijderd door te slechte gezondheidh" tag="format"/>
-		<text name="rl_ui_horse_singleDeath_health" text="1 paard verwijderd door te slechte gezondheidh"/>
+		<text name="rl_ui_chicken_multipleDeaths_health" text="%s kippen verwijderd door te slechte gezondheid" tag="format"/>
+		<text name="rl_ui_chicken_singleDeath_health" text="1 kippen verwijderd door te slechte gezondheid"/>
+		<text name="rl_ui_horse_multipleDeaths_health" text="%s paarden verwijderd door te slechte gezondheid" tag="format"/>
+		<text name="rl_ui_horse_singleDeath_health" text="1 paard verwijderd door te slechte gezondheid"/>
 
 		<text name="rl_ui_cow_multipleDeaths_age" text="%s koeien verwijderd door ouderdom" tag="format"/>
 		<text name="rl_ui_cow_singleDeath_age" text="1 koe verwijderd door ouderdom"/>
