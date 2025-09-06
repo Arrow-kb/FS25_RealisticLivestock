@@ -121,9 +121,7 @@ function SemenBuyEvent:run(connection)
 
     local dewar = Dewar.new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
     dewar:setOwnerFarmId(self.farmId)
-    dewar:register(self.position, self.rotation)
-    dewar:setAnimal(self.animal)
-    dewar:setStraws(self.quantity)
+    dewar:register(self.position, self.rotation, self.animal, self.quantity)
 
 	g_currentMission:addMoney(self.price, self.farmId, MoneyType.SEMEN_PURCHASE, true, true)
 	connection:sendEvent(SemenBuyEvent.newServerToClient(AnimalBuyEvent.BUY_SUCCESS))

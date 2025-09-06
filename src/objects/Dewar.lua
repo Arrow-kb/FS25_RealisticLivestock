@@ -44,7 +44,7 @@ function Dewar:delete()
 end
 
 
-function Dewar:register(position, rotation)
+function Dewar:register(position, rotation, animal, quantity)
 
 	self.position = self.position or position
 	self.rotation = self.rotation or rotation
@@ -70,6 +70,9 @@ function Dewar:register(position, rotation)
 		g_currentMission.itemSystem:addItem(self)
 		self.isAddedToItemSystem = true
 	end
+
+	if animal ~= nil then self:setAnimal(animal) end
+	if quantity ~= nil then self:setStraws(quantity) end
 
 	g_dewarManager:addDewar(self:getOwnerFarmId(), self)
 
