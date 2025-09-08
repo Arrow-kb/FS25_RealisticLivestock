@@ -1086,6 +1086,86 @@ function Animal.readStreamIdentifiers(streamId, connection)
 end
 
 
+function Animal:writeStreamUnborn(streamId, connection)
+
+    streamWriteUInt8(streamId, self.subTypeIndex)
+
+    streamWriteFloat32(streamId, self.health)
+    streamWriteString(streamId, self.gender)
+
+    streamWriteString(streamId, self.motherId or "-1")
+    streamWriteString(streamId, self.fatherId or "-1")
+    streamWriteFloat32(streamId, self.targetWeight)
+
+    local genetics, numGenetics = self.genetics, 0
+    
+    for trait, quality in pairs(genetics) do numGenetics = numGenetics + 1 end
+
+    streamWriteUInt8(streamId, numGenetics)
+
+    for trait, quality in pairs(genetics) do
+        streamWriteString(streamId, trait)
+        streamWriteFloat32(streamId, quality)
+    end
+
+    streamWriteUInt8(streamId, #self.diseases)
+
+    for i = 1, #self.diseases do
+
+        self.diseases[i]:writeStream(streamId, connection)
+
+    end
+
+    return true
+
+end
+
+
+
+function Animal:readStreamUnborn(streamId, connection)
+
+    self.subTypeIndex = streamReadUInt8(streamId)
+
+    self.subType = g_currentMission.animalSystem:getSubTypeByIndex(self.subTypeIndex).name
+    self.animalTypeIndex = g_currentMission.animalSystem:getTypeIndexBySubTypeIndex(self.subTypeIndex)
+
+    self.health = streamReadFloat32(streamId)
+    self.gender = streamReadString(streamId)
+
+    self.motherId = streamReadString(streamId)
+    self.fatherId = streamReadString(streamId)
+    self.targetWeight = streamReadFloat32(streamId)
+
+    self.genetics = {}
+    local numGenetics = streamReadUInt8(streamId)
+
+    for i = 1, numGenetics do
+        local trait = streamReadString(streamId)
+        local quality = streamReadFloat32(streamId)
+        self.genetics[trait] = quality
+    end
+
+    local numDiseases = streamReadUInt8(streamId)
+    local diseases = {}
+
+    for i = 1, numDiseases do
+
+        local diseaseType = g_diseaseManager:getDiseaseByTitle(streamReadString(streamId))
+        local disease = Disease.new(diseaseType)
+
+        disease:readStream(streamId, connection)
+
+        table.insert(diseases, disease)
+
+    end
+
+    self.diseases = diseases
+
+    return true
+
+end
+
+
 function Animal:clone()
 
     local impregnatedBy = self.impregnatedBy or nil
@@ -3339,9 +3419,9 @@ function Animal:getCanBeInseminatedByAnimal(animal)
 
     if self.insemination ~= nil then return false, g_i18n:getText("rl_insemination_inseminated") end
 
-    if self.monthsSinceLastBirth <= 2 then return false, g_i18n:getText("rl_insemination_recovering") end
-
     if self.age < self:getSubType().reproductionMinAgeMonth then return false, g_i18n:getText("rl_insemination_young") end
+
+    if self.monthsSinceLastBirth <= 2 then return false, g_i18n:getText("rl_insemination_recovering") end
 
     if string.format("%s %s %s", RealisticLivestock.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId) == self.fatherId then return false, g_i18n:getText("rl_insemination_father") end
 

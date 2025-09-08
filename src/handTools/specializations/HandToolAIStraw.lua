@@ -196,7 +196,7 @@ function HandToolAIStraw:updateStraw(dT)
 
 	end
 
-	local canBeInseminated, error = animal:getCanBeInseminatedByAnimal(self.animal)
+	local canBeInseminated, error = animal:getCanBeInseminatedByAnimal(spec.animal)
 
 	if spec.isEmpty or not canBeInseminated then
 
@@ -253,7 +253,7 @@ function HandToolAIStraw:onRegisterActionEvents()
 
 	if self:getIsActiveForInput(true) then
 
-		local _, eventId = self:addActionEvent(InputAction.ACTIVATE_HANDTOOL, self, HandToolAIStraw.onActionFired, true, true, false, true, nil)
+		local _, eventId = self:addActionEvent(InputAction.ACTIVATE_HANDTOOL, self, HandToolAIStraw.onActionFired, false, true, false, true, nil)
 		self[specName].activateActionEventId = eventId
 		g_inputBinding:setActionEventTextPriority(eventId, GS_PRIO_VERY_HIGH)
 		g_inputBinding:setActionEventText(eventId, "")

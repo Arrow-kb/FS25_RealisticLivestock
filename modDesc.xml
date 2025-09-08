@@ -1,6 +1,6 @@
 <modDesc descVersion="99">
     <author>Arrow</author>
-    <version>1.2.0.0</version>
+    <version>1.2.0.2</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -82,6 +82,13 @@ Enhanced Animal Dealer
 - Animals at the dealer have a chance to be pregnant and will all have unique genetic qualities which will impact their price and usefulness
 
 Changelog:
+
+1.2.0.2
+- Fixed MP errors (it is still not recommended to use this on MP as there will be sync issues from new 1.2.0.0 features)
+- Fixed insemination straw errors
+
+1.2.0.1
+- Fixed dewars not being purchasable
 
 1.2.0.0
 - Added diseases (STILL IN DEVELOPMENT!!!)

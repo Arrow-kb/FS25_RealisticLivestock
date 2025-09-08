@@ -42,7 +42,7 @@ function AnimalPregnancyEvent:readStream(streamId, connection)
     for i = 1, numChildren do
 
         local child = Animal.new()
-        child:readStream(streamId, connection)
+        child:readStreamUnborn(streamId, connection)
 
         if child ~= nil then table.insert(pregnancy.pregnancies, child) end
 
@@ -87,7 +87,7 @@ function AnimalPregnancyEvent:writeStream(streamId, connection)
 
     for _, child in pairs(pregnancy.pregnancies) do
 
-        child:writeStream(streamId, connection)
+        child:writeStreamUnborn(streamId, connection)
 
     end
 
