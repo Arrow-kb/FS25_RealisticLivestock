@@ -8,7 +8,7 @@
 		<text name="fillType_bull_angus" text="Angus Boğa"/>
 		<text name="fillType_bull_limousin" text="Limuzin Boğa"/>
 		<text name="fillType_cow_hereford" text="Hereford"/>
-		<text name="fillType_bull_hereford" text="Hereford Bull"/>
+		<text name="fillType_bull_hereford" text="Hereford Boğa"/>
 		<text name="animal_descriptionBullFeed" text="Boğalar çim, kuru ot ve TKT'yi sever."/>
 		<text name="animal_descriptionBullYoung" text="Bu bir erkek buzağı."/>
 		<text name="animal_descriptionBullReproduction" text="Sağlıklı ve 12 aydan büyük boğalar üreyebilir."/>
@@ -40,7 +40,7 @@
 
 		<!-- GOATS -->
 
-		<text name="fillType_ram_goat" text="Erkek Keçi"/>
+		<text name="fillType_ram_goat" text="Keçi Koç"/>
 		
 		<!-- HORSES -->
 		
@@ -121,7 +121,7 @@
 		<text name="rl_ui_health" text="Sağlık"/>
 		<text name="rl_ui_fertility" text="Doğurganlık"/>
 
-		<text name="rl_ui_genetics_infertile" text="Infertile"/>
+		<text name="rl_ui_genetics_infertile" text="Kısır"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Aşırı düşük"/>
 		<text name="rl_ui_genetics_veryLow" text="Çok düşük"/>
 		<text name="rl_ui_genetics_low" text="Düşük"/>
@@ -170,270 +170,270 @@
 		<text name="rl_ui_production" text="Ürünler"/>
 		<text name="rl_ui_applyAllMonitor" text="Tüm İzlenenlere Uygula"/>
 		<text name="rl_ui_removeAllMonitor" text="Tüm İzlenenleri Kaldır"/>
-		<text name="rl_ui_fee" text="Fee"/>
+		<text name="rl_ui_fee" text="Ücret"/>
 
-		<text name="rl_ui_leftEarTag" text="Left Ear Tag"/>
-		<text name="rl_ui_rightEarTag" text="Right Ear Tag"/>
-		<text name="rl_ui_backgroundColour" text="Background Colour"/>
-		<text name="rl_ui_backgroundHue" text="Background Hue"/>
-		<text name="rl_ui_backgroundRgb" text="Background RGB"/>
-		<text name="rl_ui_textColour" text="Text Colour"/>
-		<text name="rl_ui_textHue" text="Text Hue"/>
-		<text name="rl_ui_textRgb" text="Text RGB"/>
+		<text name="rl_ui_leftEarTag" text="Sol Kulak Küpesi"/>
+		<text name="rl_ui_rightEarTag" text="Sağ Kulak Küpesi"/>
+		<text name="rl_ui_backgroundColour" text="Arka Plan Rengi"/>
+		<text name="rl_ui_backgroundHue" text="Arka Plan Tonu"/>
+		<text name="rl_ui_backgroundRgb" text="Arka Plan RGB"/>
+		<text name="rl_ui_textColour" text="Metin Rengi"/>
+		<text name="rl_ui_textHue" text="Metin Tonu"/>
+		<text name="rl_ui_textRgb" text="Metin RGB"/>
 
-		<text name="rl_ui_formatMonths" text="%s months"/>
-		<text name="rl_ui_formatMonth" text="%s month"/>
-		<text name="rl_ui_notPregnant" text="Not Pregnant"/>
-		<text name="rl_ui_any" text="Any"/>
-		<text name="rl_ui_pregnancy" text="Pregnancy"/>
-		<text name="rl_ui_productivity" text="Productivity"/>
-		<text name="rl_ui_selectAll" text="Select All"/>
-		<text name="rl_ui_selectNone" text="Select None"/>
-		<text name="rl_ui_filters" text="Filters"/>
-		<text name="rl_ui_doesntHaveName" text="No Name"/>
-		<text name="rl_ui_doesHaveName" text="Has Name"/>
-
-
-
-		<text name="rl_ui_castrated" text="Castrated"/>
-		<text name="rl_ui_castrate" text="Castrate"/>
-		<text name="rl_ui_importance" text="Importance"/>
-		<text name="rl_ui_type" text="Type"/>
-		<text name="rl_ui_date" text="Date"/>
-		<text name="rl_ui_message" text="Message"/>
-		<text name="rl_ui_messages" text="Messages"/>
-		<text name="rl_ui_unknownCauses" text="unknown causes"/>
-		<text name="rl_ui_messageNumber" text="%s-%s of %s"/>
-		<text name="rl_ui_deleteMessage" text="Delete Message"/>
-		<text name="rl_ui_unreadMessages" text="Husbandry '%s' has unread messages!"/>
-		<text name="rl_ui_herdsman" text="Herdsman"/>
-		<text name="rl_ui_budget" text="Budget"/>
-		<text name="rl_ui_budgetType" text="Budget Type"/>
-		<text name="rl_ui_fixed" text="Fixed"/>
-		<text name="rl_ui_percentage" text="Percentage"/>
-		<text name="rl_ui_maxAnimals" text="Max Animals"/>
-		<text name="rl_ui_infinite" text="Infinite"/>
-		<text name="rl_ui_herdsmanRecentlyBought" text="Recent Herdsman Purchase"/>
-		<text name="rl_ui_previousWage" text="Previous Wage"/>
-		<text name="rl_ui_herdsmanWages" text="Herdsman Wages"/>
-		<text name="finance_herdsmanWages" text="Herdsman Wages"/>
-		<text name="rl_ui_medicine" text="Medicine"/>
-		<text name="finance_medicine" text="Medicine"/>
-		<text name="rl_ui_semenPurchase" text="Inseminant Purchase"/>
-		<text name="rl_ui_semenPurchase_github" text="Semen Purchase"/>
-		<text name="finance_semenPurchase" text="Inseminant Purchase"/>
-		<text name="finance_semenPurchase_github" text="Semen Purchase"/>
-		<text name="rl_ui_noDiseases" text="No Diseases"/>
-		<text name="rl_ui_onlyDiseases" text="Only Diseases"/>
-		<text name="rl_ui_naming" text="Naming"/>
-		<text name="rl_ui_alphabetical" text="Alphabetical"/>
-		<text name="rl_ui_breed" text="Breed"/>
-		<text name="rl_ui_dontMark" text="Don't Mark"/>
-		<text name="rl_ui_mark" text="Mark"/>
-		<text name="rl_ui_unmark" text="Unmark"/>
-		<text name="rl_ui_favourite" text="Favourite"/>
-		<text name="rl_ui_unFavourite" text="Unfavourite"/>
-		<text name="rl_ui_quantity" text="Quantity"/>
-		<text name="rl_ui_dewar" text="Dewar"/>
-		<text name="rl_ui_semenPurchase_successful" text="Artificial inseminant successfully purchased. You can pick it up at the store"/>
-		<text name="rl_ui_semenPurchase_successful_github" text="Semen successfully purchased. You can pick it up at the store"/>
-		<text name="rl_ui_semenPurchase_unsuccessful" text="Artificial inseminant could not be purchased"/>
-		<text name="rl_ui_semenPurchase_unsuccessful_github" text="Semen could not be purchased"/>
-		<text name="rl_ui_earTag" text="Ear Tag"/>
-		<text name="rl_ui_species" text="Species"/>
-		<text name="rl_ui_strawSingle" text="Straw"/>
-		<text name="rl_ui_strawMultiple" text="Straws"/>
-		<text name="rl_ui_artificialInsemination" text="Artificial Insemination"/>
-		<text name="rl_ui_semenPurchaseNoPermission" text="You don't have to permission to trade animals or purchase inseminant."/>
-		<text name="rl_ui_semenPurchaseNoPermission_github" text="You don't have to permission to trade animals or purchase semen."/>
-		<text name="rl_ui_semenPurchaseNoMoney" text="You don't have enough money to purchase this inseminant."/>
-		<text name="rl_ui_semenPurchaseNoMoney_github" text="You don't have enough money to purchase this semen."/>
-		<text name="rl_ui_takeStraw" text="Take Straw"/>
-		<text name="rl_ui_inseminateAnimal" text="Inseminate %s"/>
-		<text name="rl_ui_inseminate" text="Inseminate"/>
-		<text name="rl_ui_strawEmpty" text="This straw is empty"/>
-		<text name="rl_ui_averageSuccessColon" text="Average Success: "/>
-		<text name="rl_ui_averageSuccess" text="Average Success"/>
-		<text name="rl_ui_success" text="Success"/>
-		<text name="rl_ui_save" text="Save"/>
-		<text name="rl_ui_load" text="Load"/>
-		<text name="rl_ui_saveProfile" text="Save Profile"/>
-		<text name="rl_ui_loadProfile" text="Load Profile"/>
+		<text name="rl_ui_formatMonths" text="%s ay"/>
+		<text name="rl_ui_formatMonth" text="%s ay"/>
+		<text name="rl_ui_notPregnant" text="Hamile Değil"/>
+		<text name="rl_ui_any" text="Herhangi"/>
+		<text name="rl_ui_pregnancy" text="Hamilelik"/>
+		<text name="rl_ui_productivity" text="Verimlilik"/>
+		<text name="rl_ui_selectAll" text="Tümünü Seç"/>
+		<text name="rl_ui_selectNone" text="Hiçbirini Seçme"/>
+		<text name="rl_ui_filters" text="Filtreler"/>
+		<text name="rl_ui_doesntHaveName" text="İsimsiz"/>
+		<text name="rl_ui_doesHaveName" text="İsmi Var"/>
 
 
-		<text name="rl_insemination_male" text="Only females can be artificially inseminated"/>
-		<text name="rl_insemination_pregnant" text="This animal is already pregnant"/>
-		<text name="rl_insemination_animalType" text="Animal must be of the same species as the father"/>
-		<text name="rl_insemination_inseminated" text="This animal has already been artificially inseminated"/>
-		<text name="rl_insemination_recovering" text="This animal is still recovering from its previous pregnancy"/>
-		<text name="rl_insemination_father" text="Inbreeding is not permitted"/>
-		<text name="rl_insemination_young" text="This animal is too young to be artificially inseminated"/>
+
+		<text name="rl_ui_castrated" text="Kısırlaştırılmış"/>
+		<text name="rl_ui_castrate" text="Kısırlaştır"/>
+		<text name="rl_ui_importance" text="Önem"/>
+		<text name="rl_ui_type" text="Tür"/>
+		<text name="rl_ui_date" text="Tarih"/>
+		<text name="rl_ui_message" text="Mesaj"/>
+		<text name="rl_ui_messages" text="Mesajlar"/>
+		<text name="rl_ui_unknownCauses" text="bilinmeyen nedenler"/>
+		<text name="rl_ui_messageNumber" text="%s-%s / %s"/>
+		<text name="rl_ui_deleteMessage" text="Mesajı Sil"/>
+		<text name="rl_ui_unreadMessages" text="Ağıl '%s' okunmamış mesajlara sahip!"/>
+		<text name="rl_ui_herdsman" text="Çoban"/>
+		<text name="rl_ui_budget" text="Bütçe"/>
+		<text name="rl_ui_budgetType" text="Bütçe Türü"/>
+		<text name="rl_ui_fixed" text="Sabit"/>
+		<text name="rl_ui_percentage" text="Yüzde"/>
+		<text name="rl_ui_maxAnimals" text="Maksimum Hayvan"/>
+		<text name="rl_ui_infinite" text="Sonsuz"/>
+		<text name="rl_ui_herdsmanRecentlyBought" text="Son Çoban Satın Alımı"/>
+		<text name="rl_ui_previousWage" text="Önceki Ücret"/>
+		<text name="rl_ui_herdsmanWages" text="Çoban Ücretleri"/>
+		<text name="finance_herdsmanWages" text="Çoban Ücretleri"/>
+		<text name="rl_ui_medicine" text="İlaç"/>
+		<text name="finance_medicine" text="İlaç"/>
+		<text name="rl_ui_semenPurchase" text="Tohum Satın Alımı"/>
+		<text name="rl_ui_semenPurchase_github" text="Sperm Satın Alımı"/>
+		<text name="finance_semenPurchase" text="Tohum Satın Alımı"/>
+		<text name="finance_semenPurchase_github" text="Sperm Satın Alımı"/>
+		<text name="rl_ui_noDiseases" text="Hastalık Yok"/>
+		<text name="rl_ui_onlyDiseases" text="Sadece Hastalıklar"/>
+		<text name="rl_ui_naming" text="Adlandırma"/>
+		<text name="rl_ui_alphabetical" text="Alfabetik"/>
+		<text name="rl_ui_breed" text="Irk"/>
+		<text name="rl_ui_dontMark" text="İşaretleme"/>
+		<text name="rl_ui_mark" text="İşaretle"/>
+		<text name="rl_ui_unmark" text="İşareti Kaldır"/>
+		<text name="rl_ui_favourite" text="Favori"/>
+		<text name="rl_ui_unFavourite" text="Favori Kaldır"/>
+		<text name="rl_ui_quantity" text="Miktar"/>
+		<text name="rl_ui_dewar" text="termos"/>
+		<text name="rl_ui_semenPurchase_successful" text="Yapay tohum başarıyla satın alındı. Mağazadan alabilirsiniz."/>
+		<text name="rl_ui_semenPurchase_successful_github" text="Sperm başarıyla satın alındı. Mağazadan alabilirsiniz."/>
+		<text name="rl_ui_semenPurchase_unsuccessful" text="Yapay tohum satın alınamadı"/>
+		<text name="rl_ui_semenPurchase_unsuccessful_github" text="Sperm satın alınamadı"/>
+		<text name="rl_ui_earTag" text="Kulak Küpesi"/>
+		<text name="rl_ui_species" text="Tür"/>
+		<text name="rl_ui_strawSingle" text="Saman"/>
+		<text name="rl_ui_strawMultiple" text="Samanlar"/>
+		<text name="rl_ui_artificialInsemination" text="Yapay Tohumlama"/>
+		<text name="rl_ui_semenPurchaseNoPermission" text="Hayvan ticareti yapma veya tohum satın alma izniniz yok."/>
+		<text name="rl_ui_semenPurchaseNoPermission_github" text="Hayvan ticareti yapma veya sperm satın alma izniniz yok."/>
+		<text name="rl_ui_semenPurchaseNoMoney" text="Bu tohumu satın almak için yeterli paranız yok."/>
+		<text name="rl_ui_semenPurchaseNoMoney_github" text="Bu spermi satın almak için yeterli paranız yok."/>
+		<text name="rl_ui_takeStraw" text="Samanı Al"/>
+		<text name="rl_ui_inseminateAnimal" text="%s'ı tohumla"/>
+		<text name="rl_ui_inseminate" text="Tohumla"/>
+		<text name="rl_ui_strawEmpty" text="Bu saman boş"/>
+		<text name="rl_ui_averageSuccessColon" text="Ortalama Başarı: "/>
+		<text name="rl_ui_averageSuccess" text="Ortalama Başarı"/>
+		<text name="rl_ui_success" text="Başarı"/>
+		<text name="rl_ui_save" text="Kaydet"/>
+		<text name="rl_ui_load" text="Yükle"/>
+		<text name="rl_ui_saveProfile" text="Profili Kaydet"/>
+		<text name="rl_ui_loadProfile" text="Profili Yükle"/>
 
 
-		<text name="rl_mark_aiManager_sell" text="Herdsman marked for selling"/>
-		<text name="rl_mark_aiManager_castrate" text="Herdsman marked for castrating"/>
-		<text name="rl_mark_aiManager_disease" text="Herdsman marked for treating"/>
-		<text name="rl_mark_aiManager_ai" text="Herdsman marked for artificial insemination"/>
-		<text name="rl_mark_player" text="Marked by player"/>
+		<text name="rl_insemination_male" text="Yalnızca dişi hayvanlara yapay tohumlama uygulanabilir"/>
+		<text name="rl_insemination_pregnant" text="Bu hayvan zaten hamile"/>
+		<text name="rl_insemination_animalType" text="Hayvan baba ile aynı türe sahip olmalıdır"/>
+		<text name="rl_insemination_inseminated" text="Bu hayvana zaten yapay tohumlama yapılmış"/>
+		<text name="rl_insemination_recovering" text="Bu hayvan önceki gebeliğinden hâlâ iyileşiyor"/>
+		<text name="rl_insemination_father" text="Akraba çiftleşmesine izin verilmez"/>
+		<text name="rl_insemination_young" text="Bu hayvan yapay tohumlama için çok genç"/>
+
+
+		<text name="rl_mark_aiManager_sell" text="Çoban satış için işaretlendi"/>
+		<text name="rl_mark_aiManager_castrate" text="Çoban kısırlaştırma için işaretlendi"/>
+		<text name="rl_mark_aiManager_disease" text="Çoban tedavi için işaretlendi"/>
+		<text name="rl_mark_aiManager_ai" text="Çoban yapay tohumlama için işaretlendi"/>
+		<text name="rl_mark_player" text="Oyuncu tarafından işaretlendi"/>
 
 
 		<!-- AI - BUYING -->
 
 
-		<text name="rl_ui_herdsmanTooltip_buy_enabled_1" text="The herdsman will not purchase animals"/>
-		<text name="rl_ui_herdsmanTooltip_buy_enabled_2" text="The herdsman will purchase animals"/>
+		<text name="rl_ui_herdsmanTooltip_buy_enabled_1" text="Çoban hayvan satın almayacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_enabled_2" text="Çoban hayvan satın alacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_budget|type_1" text="Purchasing budget is a fixed amount"/>
-		<text name="rl_ui_herdsmanTooltip_buy_budget|type_2" text="Purchasing budget is a percentage of your farm's money"/>
+		<text name="rl_ui_herdsmanTooltip_buy_budget|type_1" text="Satın alma bütçesi sabit bir miktardır"/>
+		<text name="rl_ui_herdsmanTooltip_buy_budget|type_2" text="Satın alma bütçesi çiftliğinizin parasının bir yüzdesidir"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_budget|fixed" text="The herdsman will spend up to %s per day"/>
-		<text name="rl_ui_herdsmanTooltip_buy_budget|percentage" text="The herdsman will spend up to %s of your farm's money per day"/>
+		<text name="rl_ui_herdsmanTooltip_buy_budget|fixed" text="Çoban günde en fazla %s harcayacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_budget|percentage" text="Çoban çiftliğinizin parasının günde en fazla %s'sini harcayacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_maxAnimals" text="The herdsman will buy up to %s animals per day"/>
+		<text name="rl_ui_herdsmanTooltip_buy_maxAnimals" text="Çoban günde en fazla %s hayvan satın alacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_breed" text="The herdsman will only buy %s animals"/>
-		<text name="rl_ui_herdsmanTooltip_buy_breed_any" text="The herdsman will buy any breed"/>
+		<text name="rl_ui_herdsmanTooltip_buy_breed" text="Çoban yalnızca %s hayvan satın alacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_breed_any" text="Çoban herhangi bir ırkı satın alacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_diseases_1" text="The herdsman will only purchase animals without any diseases"/>
-		<text name="rl_ui_herdsmanTooltip_buy_diseases_2" text="The herdsman will purchase animals regardless of diseases"/>
+		<text name="rl_ui_herdsmanTooltip_buy_diseases_1" text="Çoban yalnızca hastalığı olmayan hayvanları satın alacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_diseases_2" text="Çoban hastalıklara bakılmaksızın hayvan satın alacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_gender_1" text="The herdsman will only purchase female animals"/>
-		<text name="rl_ui_herdsmanTooltip_buy_gender_2" text="The herdsman will purchase female and male animals"/>
-		<text name="rl_ui_herdsmanTooltip_buy_gender_3" text="The herdsman will only purchase male animals"/>
+		<text name="rl_ui_herdsmanTooltip_buy_gender_1" text="Çoban yalnızca dişi hayvanları satın alacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_gender_2" text="Çoban dişi ve erkek hayvanları satın alacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_gender_3" text="Çoban yalnızca erkek hayvanları satın alacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_age_equal" text="The herdsman will only purchase animals that are %s old"/>
-		<text name="rl_ui_herdsmanTooltip_buy_age_range" text="The herdsman will only purchase animals that are between %s and %s old"/>
+		<text name="rl_ui_herdsmanTooltip_buy_age_equal" text="Çoban yalnızca %s yaşındaki hayvanları satın alacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_age_range" text="Çoban yalnızca %s ile %s yaşları arasındaki hayvanları satın alacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_quality_equal" text="The herdsman will only purchase animals with %s quality"/>
-		<text name="rl_ui_herdsmanTooltip_buy_quality_range" text="The herdsman will only purchase animals with quality between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_buy_quality_equal" text="Çoban yalnızca %s kaliteye sahip hayvanları satın alacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_quality_range" text="Çoban yalnızca %s ile %s kalite aralığındaki hayvanları satın alacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_fertility_equal" text="The herdsman will only purchase animals with %s fertility"/>
-		<text name="rl_ui_herdsmanTooltip_buy_fertility_range" text="The herdsman will only purchase animals with fertility between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_buy_fertility_equal" text="Çoban yalnızca %s doğurganlığa sahip hayvanları satın alacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_fertility_range" text="Çoban yalnızca %s ile %s doğurganlık aralığındaki hayvanları satın alacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_health_equal" text="The herdsman will only purchase animals with %s health"/>
-		<text name="rl_ui_herdsmanTooltip_buy_health_range" text="The herdsman will only purchase animals with health between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_buy_health_equal" text="Çoban yalnızca %s sağlığa sahip hayvanları satın alacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_health_range" text="Çoban yalnızca %s ile %s sağlık aralığındaki hayvanları satın alacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_productivity_equal" text="The herdsman will only purchase animals with %s productivity"/>
-		<text name="rl_ui_herdsmanTooltip_buy_productivity_range" text="The herdsman will only purchase animals with productivity between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_buy_productivity_equal" text="Çoban yalnızca %s verimliliğe sahip hayvanları satın alacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_productivity_range" text="Çoban yalnızca %s ile %s verimlilik aralığındaki hayvanları satın alacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_metabolism_equal" text="The herdsman will only purchase animals with %s metabolism"/>
-		<text name="rl_ui_herdsmanTooltip_buy_metabolism_range" text="The herdsman will only purchase animals with metabolism between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_buy_metabolism_equal" text="Çoban yalnızca %s metabolizmaya sahip hayvanları satın alacak"/>
+		<text name="rl_ui_herdsmanTooltip_buy_metabolism_range" text="Çoban yalnızca %s ile %s metabolizma aralığındaki hayvanları satın alacak"/>
 
 
 		<!-- AI - SELLING -->
 
 
-		<text name="rl_ui_herdsmanTooltip_sell_enabled_1" text="The herdsman will not sell animals"/>
-		<text name="rl_ui_herdsmanTooltip_sell_enabled_2" text="The herdsman will sell animals"/>
+		<text name="rl_ui_herdsmanTooltip_sell_enabled_1" text="Çoban hayvan satmayacak"/>
+		<text name="rl_ui_herdsmanTooltip_sell_enabled_2" text="Çoban hayvan satacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_sell_maxAnimals" text="The herdsman will sell up to %s animals per day"/>
+		<text name="rl_ui_herdsmanTooltip_sell_maxAnimals" text="Çoban günde en fazla %s hayvan satacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_sell_mark_1" text="The herdsman will not mark animals to be sold"/>
-		<text name="rl_ui_herdsmanTooltip_sell_mark_2" text="The herdsman will mark animals to be sold"/>
+		<text name="rl_ui_herdsmanTooltip_sell_mark_1" text="Çoban satılacak hayvanları işaretlemeyecek"/>
+		<text name="rl_ui_herdsmanTooltip_sell_mark_2" text="Çoban satılacak hayvanları işaretleyecek"/>
 
-		<text name="rl_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="The herdsman will sell animals regardless of diseases"/>
-		<text name="rl_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="The herdsman will only sell animals with a disease"/>
+		<text name="rl_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Çoban hastalıklara bakılmaksızın hayvan satacak"/>
+		<text name="rl_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Çoban yalnızca hastalığı olan hayvanları satacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_sell_gender_1" text="The herdsman will only sell female animals"/>
-		<text name="rl_ui_herdsmanTooltip_sell_gender_2" text="The herdsman will sell female and male animals"/>
-		<text name="rl_ui_herdsmanTooltip_sell_gender_3" text="The herdsman will only sell male animals"/>
+		<text name="rl_ui_herdsmanTooltip_sell_gender_1" text="Çoban yalnızca dişi hayvanları satacak"/>
+		<text name="rl_ui_herdsmanTooltip_sell_gender_2" text="Çoban dişi ve erkek hayvanları satacak"/>
+		<text name="rl_ui_herdsmanTooltip_sell_gender_3" text="Çoban yalnızca erkek hayvanları satacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_sell_age_equal" text="The herdsman will only sell animals that are %s old"/>
-		<text name="rl_ui_herdsmanTooltip_sell_age_range" text="The herdsman will only sell animals that are between %s and %s old"/>
+		<text name="rl_ui_herdsmanTooltip_sell_age_equal" text="Çoban yalnızca %s yaşındaki hayvanları satacak"/>
+		<text name="rl_ui_herdsmanTooltip_sell_age_range" text="Çoban yalnızca %s ile %s yaşları arasındaki hayvanları satacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_sell_quality_equal" text="The herdsman will only sell animals with %s quality"/>
-		<text name="rl_ui_herdsmanTooltip_sell_quality_range" text="The herdsman will only sell animals with quality between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_sell_quality_equal" text="Çoban yalnızca %s kaliteye sahip hayvanları satacak"/>
+		<text name="rl_ui_herdsmanTooltip_sell_quality_range" text="Çoban yalnızca %s ile %s kalite aralığındaki hayvanları satacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_sell_fertility_equal" text="The herdsman will only sell animals with %s fertility"/>
-		<text name="rl_ui_herdsmanTooltip_sell_fertility_range" text="The herdsman will only sell animals with fertility between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_sell_fertility_equal" text="Çoban yalnızca %s doğurganlığa sahip hayvanları satacak"/>
+		<text name="rl_ui_herdsmanTooltip_sell_fertility_range" text="Çoban yalnızca %s ile %s doğurganlık aralığındaki hayvanları satacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_sell_health_equal" text="The herdsman will only sell animals with %s health"/>
-		<text name="rl_ui_herdsmanTooltip_sell_health_range" text="The herdsman will only sell animals with health between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_sell_health_equal" text="Çoban yalnızca %s sağlığa sahip hayvanları satacak"/>
+		<text name="rl_ui_herdsmanTooltip_sell_health_range" text="Çoban yalnızca %s ile %s sağlık aralığındaki hayvanları satacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_sell_productivity_equal" text="The herdsman will only sell animals with %s productivity"/>
-		<text name="rl_ui_herdsmanTooltip_sell_productivity_range" text="The herdsman will only sell animals with productivity between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_sell_productivity_equal" text="Çoban yalnızca %s verimliliğe sahip hayvanları satacak"/>
+		<text name="rl_ui_herdsmanTooltip_sell_productivity_range" text="Çoban yalnızca %s ile %s verimlilik aralığındaki hayvanları satacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_sell_metabolism_equal" text="The herdsman will only sell animals with %s metabolism"/>
-		<text name="rl_ui_herdsmanTooltip_sell_metabolism_range" text="The herdsman will only sell animals with metabolism between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_sell_metabolism_equal" text="Çoban yalnızca %s metabolizmaya sahip hayvanları satacak"/>
+		<text name="rl_ui_herdsmanTooltip_sell_metabolism_range" text="Çoban yalnızca %s ile %s metabolizma aralığındaki hayvanları satacak"/>
 
 
 		<!-- AI - CASTRATING -->
 
 
-		<text name="rl_ui_herdsmanTooltip_castrate_enabled_1" text="The herdsman will not castrate animals"/>
-		<text name="rl_ui_herdsmanTooltip_castrate_enabled_2" text="The herdsman will castrate animals"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_enabled_1" text="Çoban hayvanları kısırlaştırmayacak"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_enabled_2" text="Çoban hayvanları kısırlaştıracak"/>
 
-		<text name="rl_ui_herdsmanTooltip_castrate_mark_1" text="The herdsman will not mark animals for castration"/>
-		<text name="rl_ui_herdsmanTooltip_castrate_mark_2" text="The herdsman will mark animals for castration"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_mark_1" text="Çoban kısırlaştırma için hayvanları işaretlemeyecek"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_mark_2" text="Çoban kısırlaştırma için hayvanları işaretleyecek"/>
 
-		<text name="rl_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="The herdsman will castrate animals regardless of diseases"/>
-		<text name="rl_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="The herdsman will only castrate animals with a disease"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Çoban hastalıklara bakılmaksızın hayvanları kısırlaştıracak"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Çoban yalnızca hastalığı olan hayvanları kısırlaştıracak"/>
 
-		<text name="rl_ui_herdsmanTooltip_castrate_age_equal" text="The herdsman will only castrate animals that are %s old"/>
-		<text name="rl_ui_herdsmanTooltip_castrate_age_range" text="The herdsman will only castrate animals that are between %s and %s old"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_age_equal" text="Çoban yalnızca %s yaşındaki hayvanları kısırlaştıracak"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_age_range" text="Çoban yalnızca %s ile %s yaşları arasındaki hayvanları kısırlaştıracak"/>
 
-		<text name="rl_ui_herdsmanTooltip_castrate_quality_equal" text="The herdsman will only castrate animals with %s quality"/>
-		<text name="rl_ui_herdsmanTooltip_castrate_quality_range" text="The herdsman will only castrate animals with quality between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_quality_equal" text="Çoban yalnızca %s kaliteye sahip hayvanları kısırlaştıracak"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_quality_range" text="Çoban yalnızca %s ile %s kalite aralığındaki hayvanları kısırlaştıracak"/>
 
-		<text name="rl_ui_herdsmanTooltip_castrate_fertility_equal" text="The herdsman will only castrate animals with %s fertility"/>
-		<text name="rl_ui_herdsmanTooltip_castrate_fertility_range" text="The herdsman will only castrate animals with fertility between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_fertility_equal" text="Çoban yalnızca %s doğurganlığa sahip hayvanları kısırlaştıracak"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_fertility_range" text="Çoban yalnızca %s ile %s doğurganlık aralığındaki hayvanları kısırlaştıracak"/>
 
-		<text name="rl_ui_herdsmanTooltip_castrate_health_equal" text="The herdsman will only castrate animals with %s health"/>
-		<text name="rl_ui_herdsmanTooltip_castrate_health_range" text="The herdsman will only castrate animals with health between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_health_equal" text="Çoban yalnızca %s sağlığa sahip hayvanları kısırlaştıracak"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_health_range" text="Çoban yalnızca %s ile %s sağlık aralığındaki hayvanları kısırlaştıracak"/>
 
-		<text name="rl_ui_herdsmanTooltip_castrate_productivity_equal" text="The herdsman will only castrate animals with %s productivity"/>
-		<text name="rl_ui_herdsmanTooltip_castrate_productivity_range" text="The herdsman will only castrate animals with productivity between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_productivity_equal" text="Çoban yalnızca %s verimliliğe sahip hayvanları kısırlaştıracak"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_productivity_range" text="Çoban yalnızca %s ile %s verimlilik aralığındaki hayvanları kısırlaştıracak"/>
 
-		<text name="rl_ui_herdsmanTooltip_castrate_metabolism_equal" text="The herdsman will only castrate animals with %s metabolism"/>
-		<text name="rl_ui_herdsmanTooltip_castrate_metabolism_range" text="The herdsman will only castrate animals with metabolism between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_metabolism_equal" text="Çoban yalnızca %s metabolizmaya sahip hayvanları kısırlaştıracak"/>
+		<text name="rl_ui_herdsmanTooltip_castrate_metabolism_range" text="Çoban yalnızca %s ile %s metabolizma aralığındaki hayvanları kısırlaştıracak"/>
 
 
 		<!-- AI - NAMING -->
 
 
-		<text name="rl_ui_herdsmanTooltip_naming_enabled_1" text="The herdsman will not name animals"/>
-		<text name="rl_ui_herdsmanTooltip_naming_enabled_2" text="The herdsman will name animals"/>
+		<text name="rl_ui_herdsmanTooltip_naming_enabled_1" text="Çoban hayvanlara isim vermeyecek"/>
+		<text name="rl_ui_herdsmanTooltip_naming_enabled_2" text="Çoban hayvanlara isim verecek"/>
 
-		<text name="rl_ui_herdsmanTooltip_naming_convention_1" text="The herdsman will name animals randomly"/>
-		<text name="rl_ui_herdsmanTooltip_naming_convention_2" text="The herdsman will name animals alphabetically"/>
+		<text name="rl_ui_herdsmanTooltip_naming_convention_1" text="Çoban hayvanlara rastgele isim verecek"/>
+		<text name="rl_ui_herdsmanTooltip_naming_convention_2" text="Çoban hayvanlara alfabetik sırayla isim verecek"/>
 
 
 		<!-- AI - AI -->
 
 
-		<text name="rl_ui_herdsmanTooltip_ai_enabled_1" text="The herdsman will not AI animals"/>
-		<text name="rl_ui_herdsmanTooltip_ai_enabled_2" text="The herdsman will AI animals"/>
+		<text name="rl_ui_herdsmanTooltip_ai_enabled_1" text="Çoban hayvanlara yapay tohumlama uygulamayacak"/>
+		<text name="rl_ui_herdsmanTooltip_ai_enabled_2" text="Çoban hayvanlara yapay tohumlama uygulayacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_maxAnimals" text="The herdsman will AI up to %s animals per day"/>
+		<text name="rl_ui_herdsmanTooltip_ai_maxAnimals" text="Çoban günde en fazla %s hayvana yapay tohumlama uygulayacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_mark_1" text="The herdsman will not mark animals to be inseminated"/>
-		<text name="rl_ui_herdsmanTooltip_ai_mark_2" text="The herdsman will mark animals to be inseminated"/>
+		<text name="rl_ui_herdsmanTooltip_ai_mark_1" text="Çoban tohumlanacak hayvanları işaretlemeyecek"/>
+		<text name="rl_ui_herdsmanTooltip_ai_mark_2" text="Çoban tohumlanacak hayvanları işaretleyecek"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="The herdsman will AI animals regardless of diseases"/>
-		<text name="rl_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="The herdsman will only AI animals with a disease"/>
+		<text name="rl_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Çoban hastalıklara bakılmaksızın hayvanlara yapay tohumlama uygulayacak"/>
+		<text name="rl_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Çoban yalnızca hastalığı olan hayvanlara yapay tohumlama uygulayacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_semen" text="The herdsman will use inseminant from %s"/>
-		<text name="rl_ui_herdsmanTooltip_ai_semen_github" text="The herdsman will use semen from %s"/>
-		<text name="rl_ui_herdsmanTooltip_ai_semen_any" text="The herdsman will use any viable inseminant"/>
-		<text name="rl_ui_herdsmanTooltip_ai_semen_any_github" text="The herdsman will use any viable semen"/>
+		<text name="rl_ui_herdsmanTooltip_ai_semen" text="Çoban %s'den tohum kullanacak"/>
+		<text name="rl_ui_herdsmanTooltip_ai_semen_github" text="Çoban %s'den sperm kullanacak"/>
+		<text name="rl_ui_herdsmanTooltip_ai_semen_any" text="Çoban uygun herhangi bir tohum kullanacak"/>
+		<text name="rl_ui_herdsmanTooltip_ai_semen_any_github" text="Çoban uygun herhangi bir sperm kullanacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_age_equal" text="The herdsman will only AI animals that are %s old"/>
-		<text name="rl_ui_herdsmanTooltip_ai_age_range" text="The herdsman will only AI animals that are between %s and %s old"/>
+		<text name="rl_ui_herdsmanTooltip_ai_age_equal" text="Çoban yalnızca %s yaşındaki hayvanlara yapay tohumlama uygulayacak"/>
+		<text name="rl_ui_herdsmanTooltip_ai_age_range" text="Çoban yalnızca %s ile %s yaşları arasındaki hayvanlara yapay tohumlama uygulayacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_quality_equal" text="The herdsman will only AI animals with %s quality"/>
-		<text name="rl_ui_herdsmanTooltip_ai_quality_range" text="The herdsman will only AI animals with quality between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_ai_quality_equal" text="Çoban yalnızca %s kaliteye sahip hayvanlara yapay tohumlama uygulayacak"/>
+		<text name="rl_ui_herdsmanTooltip_ai_quality_range" text="Çoban yalnızca %s ile %s kalite aralığındaki hayvanlara yapay tohumlama uygulayacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_fertility_equal" text="The herdsman will only AI animals with %s fertility"/>
-		<text name="rl_ui_herdsmanTooltip_ai_fertility_range" text="The herdsman will only AI animals with fertility between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_ai_fertility_equal" text="Çoban yalnızca %s doğurganlığa sahip hayvanlara yapay tohumlama uygulayacak"/>
+		<text name="rl_ui_herdsmanTooltip_ai_fertility_range" text="Çoban yalnızca %s ile %s doğurganlık aralığındaki hayvanlara yapay tohumlama uygulayacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_health_equal" text="The herdsman will only AI animals with %s health"/>
-		<text name="rl_ui_herdsmanTooltip_ai_health_range" text="The herdsman will only AI animals with health between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_ai_health_equal" text="Çoban yalnızca %s sağlığa sahip hayvanlara yapay tohumlama uygulayacak"/>
+		<text name="rl_ui_herdsmanTooltip_ai_health_range" text="Çoban yalnızca %s ile %s sağlık aralığındaki hayvanlara yapay tohumlama uygulayacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_productivity_equal" text="The herdsman will only AI animals with %s productivity"/>
-		<text name="rl_ui_herdsmanTooltip_ai_productivity_range" text="The herdsman will only AI animals with productivity between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_ai_productivity_equal" text="Çoban yalnızca %s verimliliğe sahip hayvanlara yapay tohumlama uygulayacak"/>
+		<text name="rl_ui_herdsmanTooltip_ai_productivity_range" text="Çoban yalnızca %s ile %s verimlilik aralığındaki hayvanlara yapay tohumlama uygulayacak"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_metabolism_equal" text="The herdsman will only AI animals with %s metabolism"/>
-		<text name="rl_ui_herdsmanTooltip_ai_metabolism_range" text="The herdsman will only AI animals with metabolism between %s and %s"/>
+		<text name="rl_ui_herdsmanTooltip_ai_metabolism_equal" text="Çoban yalnızca %s metabolizmaya sahip hayvanlara yapay tohumlama uygulayacak"/>
+		<text name="rl_ui_herdsmanTooltip_ai_metabolism_range" text="Çoban yalnızca %s ile %s metabolizma aralığındaki hayvanlara yapay tohumlama uygulayacak"/>
 
 
 
@@ -462,15 +462,15 @@
 		<text name="rl_settings_resetDealer_tooltip" text="Satıcının tüm hayvanlarını çıkarın ve stoğu yeni hayvanlarla doldurun"/>
 		<text name="rl_settings_resetDealer_text" text="Hayvan Bayisini Sıfırla"/>
 
-		<text name="rl_settings_tagColour_label" text="Change Tag Colour"/>
-		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
-		<text name="rl_settings_tagColour_text" text="Change Tag Colour"/>
+		<text name="rl_settings_tagColour_label" text="Kulak Küpesi Rengini Değiştir"/>
+		<text name="rl_settings_tagColour_tooltip" text="Kulak küpesi rengini değiştirin"/>
+		<text name="rl_settings_tagColour_text" text="Kulak Küpesi Rengini Değiştir"/>
 
-		<text name="rl_settings_exportCSV_label" text="Export To CSV"/>
-		<text name="rl_settings_exportCSV_tooltip" text="Export stats to CSV"/>
-		<text name="rl_settings_exportCSV_text" text="Export To CSV"/>
+		<text name="rl_settings_exportCSV_label" text="CSV'ye Aktar"/>
+		<text name="rl_settings_exportCSV_tooltip" text="İstatistikleri CSV'ye aktar"/>
+		<text name="rl_settings_exportCSV_text" text="CSV'ye Aktar"/>
 
-		<text name="rl_settings_maxNumMessages_label" text="Maximum Amount of Messages"/>
+		<text name="rl_settings_maxNumMessages_label" text="Maksimum Mesaj Sayısı"/>
 		<text name="rl_settings_maxNumMessages_tooltip" text="A higher amount will result in your save folder taking up more space. After this limit is reached, the earliest messages will be deleted."/>
 		
 		
@@ -512,95 +512,95 @@
 		<!--  DISEASES  -->
 
 
-		<text name="rl_ui_immune" text="Immune"/>
-		<text name="rl_ui_startTreatment" text="Start Treatment"/>
-		<text name="rl_ui_resumeTreatment" text="Resume Treatment"/>
-		<text name="rl_ui_stopTreatment" text="Stop Treatment"/>
-		<text name="rl_ui_duration" text="Duration"/>
-		<text name="rl_ui_beingTreated" text="Being treated"/>
-		<text name="rl_ui_notTreated" text="Not treated"/>
-		<text name="rl_ui_carrier" text="Carrier"/>
+		<text name="rl_ui_immune" text="Bağışık"/>
+		<text name="rl_ui_startTreatment" text="Tedaviyi Başlat"/>
+		<text name="rl_ui_resumeTreatment" text="Tedaviye Devam Et"/>
+		<text name="rl_ui_stopTreatment" text="Tedaviyi Durdur"/>
+		<text name="rl_ui_duration" text="Süre"/>
+		<text name="rl_ui_beingTreated" text="Tedavi Ediliyor"/>
+		<text name="rl_ui_notTreated" text="Tedavi Edilmiyor"/>
+		<text name="rl_ui_carrier" text="Taşıyıcı"/>
 
-		<text name="rl_diseases" text="Diseases"/>
-		<text name="rl_disease" text="Disease"/>
+		<text name="rl_diseases" text="Hastalıklar"/>
+		<text name="rl_disease" text="Hastalık"/>
 
 		<text name="rl_disease_mastitis" text="Mastitis"/>
 
 		<text name="rl_disease_cvm" text="CVM"/>
 
-		<text name="rl_disease_footAndMouth" text="Foot and Mouth"/>
+		<text name="rl_disease_footAndMouth" text="Ağız ve Ayak Hastalığı"/>
 
-		<text name="rl_disease_ped" text="Porcine Epidemic Diarrhoea"/>
+		<text name="rl_disease_ped" text="Domuz Salgın İshali"/>
 
-		<text name="rl_disease_avianFlu" text="Avian Influenza"/>
+		<text name="rl_disease_avianFlu" text="Kuş Gribi"/>
 
 
 
 		<!--  MESSAGES  -->
 
 
-		<text name="rl_messageTitle_pregnancy" text="Pregnancy"/>
-		<text name="rl_messageTitle_death" text="Removal"/>
-		<text name="rl_messageTitle_death_github" text="Death"/>
-		<text name="rl_messageTitle_disease" text="Disease"/>
-		<text name="rl_messageTitle_name" text="Name"/>
-		<text name="rl_messageTitle_movement" text="Movement"/>
-		<text name="rl_messageTitle_aiManager" text="Herdsman"/>
-		<text name="rl_messageTitle_insemination" text="Artificial Insemination"/>
+		<text name="rl_messageTitle_pregnancy" text="Hamilelik"/>
+		<text name="rl_messageTitle_death" text="Kaldırma"/>
+		<text name="rl_messageTitle_death_github" text="Ölüm"/>
+		<text name="rl_messageTitle_disease" text="Hastalık"/>
+		<text name="rl_messageTitle_name" text="İsim"/>
+		<text name="rl_messageTitle_movement" text="Hareket"/>
+		<text name="rl_messageTitle_aiManager" text="Çoban"/>
+		<text name="rl_messageTitle_insemination" text="Yapay Tohumlama"/>
 
-		<text name="rl_message_pregnancySingle" text="Gave birth to 1 baby"/>
-		<text name="rl_message_pregnancyMultiple" text="Gave birth to %s babies"/>
-		<text name="rl_message_pregnancySold" text="%s babies were sold for %s due to overcrowding"/>
-		<text name="rl_message_pregnancyDied" text="%s babies were removed at birth"/>
-		<text name="rl_message_pregnancyDied_github" text="%s babies died at birth"/>
-		<text name="rl_message_death" text="Removed due to %s"/>
-		<text name="rl_message_death_github" text="Died due to %s"/>
-		<text name="rl_message_diseaseContracted" text="Contracted %s"/>
-		<text name="rl_message_diseaseCured" text="Cured from %s"/>
-		<text name="rl_message_diseaseTreatment_start" text="Started treatment for %s at %s"/>
-		<text name="rl_message_diseaseTreatment_resume" text="Resumed treatment for %s at %s"/>
-		<text name="rl_message_diseaseTreatment_stop" text="Stopped treatment for %s"/>
-		<text name="rl_message_nameChange" text="Name changed from '%s' to '%s'"/>
-		<text name="rl_message_nameAdded" text="Given name '%s'"/>
-		<text name="rl_message_nameDeleted" text="Name '%s' was removed"/>
-		<text name="rl_message_boughtAnimals_single" text="1 animal was bought for %s"/>
-		<text name="rl_message_boughtAnimals_multiple" text="%s animals were bought for %s"/>
-		<text name="rl_message_soldAnimals_single" text="1 animal was sold for %s"/>
-		<text name="rl_message_soldAnimals_multiple" text="%s animals were sold for %s"/>
-		<text name="rl_message_movedAnimalsTo_single" text="1 animals was moved to %s"/>
-		<text name="rl_message_movedAnimalsTo_multiple" text="%s animals were moved to %s"/>
-		<text name="rl_message_movedAnimalsFrom_single" text="1 animal was moved from %s"/>
-		<text name="rl_message_movedAnimalsFrom_multiple" text="%s animals were moved from %s"/>
-		<text name="rl_message_aiManager_boughtAnimals_single" text="Herdsman bought 1 animal for %s"/>
-		<text name="rl_message_aiManager_boughtAnimals_multiple" text="Herdsman bought %s animals for %s"/>
-		<text name="rl_message_aiManager_soldAnimals_single" text="Herdsman sold 1 animal for %s"/>
-		<text name="rl_message_aiManager_soldAnimals_multiple" text="Herdsman sold %s animals for %s"/>
-		<text name="rl_message_aiManager_castrated_single" text="Herdsman castrated 1 animal"/>
-		<text name="rl_message_aiManager_castrated_multiple" text="Herdsman castrated %s animals"/>
-		<text name="rl_message_aiManager_named_single" text="Herdsman named 1 animal"/>
-		<text name="rl_message_aiManager_named_multiple" text="Herdsman named %s animals"/>
-		<text name="rl_message_aiManager_mark_sell_single" text="Herdsman marked 1 animal for selling"/>
-		<text name="rl_message_aiManager_mark_sell_multiple" text="Herdsman marked %s animals for selling"/>
-		<text name="rl_message_aiManager_mark_castrate_single" text="Herdsman marked 1 animal for castrating"/>
-		<text name="rl_message_aiManager_mark_castrate_multiple" text="Herdsman marked %s animals for castrating"/>
-		<text name="rl_message_aiManager_mark_disease_single" text="Herdsman marked 1 animal for treatment"/>
-		<text name="rl_message_aiManager_mark_disease_multiple" text="Herdsman marked %s animals for treatment"/>
-		<text name="rl_message_insemination_success" text="Insemination was successful"/>
-		<text name="rl_message_insemination_fail" text="Insemination was unsuccessful"/>
-		<text name="rl_message_aiManager_mark_ai_single" text="Herdsman marked 1 animal for AI"/>
-		<text name="rl_message_aiManager_mark_ai_multiple" text="Herdsman marked %s animals for AI"/>
-		<text name="rl_message_aiManager_ai_single" text="Herdsman inseminated 1 animal"/>
-		<text name="rl_message_aiManager_ai_multiple" text="Herdsman inseminated %s animals"/>
+		<text name="rl_message_pregnancySingle" text="1 yavru doğdu"/>
+		<text name="rl_message_pregnancyMultiple" text="%s yavru doğdu"/>
+		<text name="rl_message_pregnancySold" text="Aşırı kalabalık nedeniyle %s yavru %s karşılığında satıldı"/>
+		<text name="rl_message_pregnancyDied" text="%s yavru doğumda kaldırıldı"/>
+		<text name="rl_message_pregnancyDied_github" text="%s yavru doğumda öldü"/>
+		<text name="rl_message_death" text="%s nedeniyle kaldırıldı"/>
+		<text name="rl_message_death_github" text="%s nedeniyle öldü"/>
+		<text name="rl_message_diseaseContracted" text="%s hastalığına yakalandı"/>
+		<text name="rl_message_diseaseCured" text="%s hastalığından iyileşti"/>
+		<text name="rl_message_diseaseTreatment_start" text="%s için %s adresinde tedaviye başlandı"/>
+		<text name="rl_message_diseaseTreatment_resume" text="%s için %s adresinde tedaviye devam edildi"/>
+		<text name="rl_message_diseaseTreatment_stop" text="%s için tedavi durduruldu"/>
+		<text name="rl_message_nameChange" text="İsim '%s' değerinden '%s' olarak değiştirildi"/>
+		<text name="rl_message_nameAdded" text="'%s' ismi verildi"/>
+		<text name="rl_message_nameDeleted" text="'%s' ismi kaldırıldı"/>
+		<text name="rl_message_boughtAnimals_single" text="1 hayvan %s karşılığında satın alındı"/>
+		<text name="rl_message_boughtAnimals_multiple" text="%s hayvan %s karşılığında satın alındı"/>
+		<text name="rl_message_soldAnimals_single" text="1 hayvan %s karşılığında satıldı"/>
+		<text name="rl_message_soldAnimals_multiple" text="%s hayvan %s karşılığında satıldı"/>
+		<text name="rl_message_movedAnimalsTo_single" text="1 hayvan %s adresine taşındı"/>
+		<text name="rl_message_movedAnimalsTo_multiple" text="%s hayvan %s adresine taşındı"/>
+		<text name="rl_message_movedAnimalsFrom_single" text="1 hayvan %s adresinden taşındı"/>
+		<text name="rl_message_movedAnimalsFrom_multiple" text="%s hayvan %s adresinden taşındı"/>
+		<text name="rl_message_aiManager_boughtAnimals_single" text="Çoban 1 hayvanı %s karşılığında satın aldı"/>
+		<text name="rl_message_aiManager_boughtAnimals_multiple" text="Çoban %s hayvanı %s karşılığında satın aldı"/>
+		<text name="rl_message_aiManager_soldAnimals_single" text="Çoban 1 hayvanı %s karşılığında sattı"/>
+		<text name="rl_message_aiManager_soldAnimals_multiple" text="Çoban %s hayvanı %s karşılığında sattı"/>
+		<text name="rl_message_aiManager_castrated_single" text="Çoban 1 hayvanı kısırlaştırdı"/>
+		<text name="rl_message_aiManager_castrated_multiple" text="Çoban %s hayvanı kısırlaştırdı"/>
+		<text name="rl_message_aiManager_named_single" text="Çoban 1 hayvana isim verdi"/>
+		<text name="rl_message_aiManager_named_multiple" text="Çoban %s hayvana isim verdi"/>
+		<text name="rl_message_aiManager_mark_sell_single" text="Çoban 1 hayvanı satış için işaretledi"/>
+		<text name="rl_message_aiManager_mark_sell_multiple" text="Çoban %s hayvanı satış için işaretledi"/>
+		<text name="rl_message_aiManager_mark_castrate_single" text="Çoban 1 hayvanı kısırlaştırma için işaretledi"/>
+		<text name="rl_message_aiManager_mark_castrate_multiple" text="Çoban %s hayvanı kısırlaştırma için işaretledi"/>
+		<text name="rl_message_aiManager_mark_disease_single" text="Çoban 1 hayvanı tedavi için işaretledi"/>
+		<text name="rl_message_aiManager_mark_disease_multiple" text="Çoban %s hayvanı tedavi için işaretledi"/>
+		<text name="rl_message_insemination_success" text="Tohumlama başarılı oldu"/>
+		<text name="rl_message_insemination_fail" text="Tohumlama başarısız oldu"/>
+		<text name="rl_message_aiManager_mark_ai_single" text="Çoban 1 hayvanı tohumlama için işaretledi"/>
+		<text name="rl_message_aiManager_mark_ai_multiple" text="Çoban %s hayvanı tohumlama için işaretledi"/>
+		<text name="rl_message_aiManager_ai_single" text="Çoban 1 hayvana tohum uyguladı"/>
+		<text name="rl_message_aiManager_ai_multiple" text="Çoban %s hayvana tohum uyguladı"/>
 
 
 
 		<!--  DEATHS  -->
 
 
-		<text name="rl_death_pregnancy" text="a bad pregnancy"/>
-		<text name="rl_death_health" text="low health"/>
-		<text name="rl_death_age" text="old age"/>
-		<text name="rl_death_accident" text="an accident"/>
+		<text name="rl_death_pregnancy" text="kötü bir gebelik"/>
+		<text name="rl_death_health" text="düşük sağlık"/>
+		<text name="rl_death_age" text="yaşlılık"/>
+		<text name="rl_death_accident" text="kaza"/>
 		
 	</texts>
 </l10n>
