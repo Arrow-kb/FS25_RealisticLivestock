@@ -1000,7 +1000,7 @@ function RealisticLivestock.hasMaleAnimalInPen(spec, subT, female)
     if spec == nil then return false end
 
     local clusterSystem = spec.clusterSystem or spec
-    if clusterSystem == nil or clusterSystem.getAnimals == nil or clusterSystem:getAnimals() == nil then return false end
+    if clusterSystem == nil or clusterSystem.getAnimals == nil or clusterSystem:getAnimals() == nil or female.genetics.fertility <= 0 then return false end
 
     local animals = clusterSystem:getAnimals()
     local animalSystem = g_currentMission.animalSystem
@@ -1008,10 +1008,13 @@ function RealisticLivestock.hasMaleAnimalInPen(spec, subT, female)
     local fatherId = (female ~= nil and female.fatherId ~= "-1") and female.fatherId or "-2"
 
     for _, animal in pairs(animals) do
+
+        if animal.isCastrated or animal.genetics.fertility <= 0 then continue end
+
         local s = animalSystem:getSubTypeByIndex(animal:getSubTypeIndex())
         if s.reproductionMinAgeMonth == nil or s.reproductionMinAgeMonth > animal.age then continue end
 
-        if animal.farmId .. " " .. animal.uniqueId == fatherId then continue end
+        if animal:getIdentifiers() == fatherId then continue end
 
         if subT == "COW_WATERBUFFALO" then
             if s.name == "BULL_WATERBUFFALO" and animal.age < 132 then return true end
