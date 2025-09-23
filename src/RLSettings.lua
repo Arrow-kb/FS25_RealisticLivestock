@@ -1,6 +1,16 @@
 RLSettings = {}
 local modDirectory = g_currentModDirectory
+local modName = g_currentModName
 local modSettingsDirectory = g_currentModSettingsDirectory
+
+local modDirectoryPath = string.split(modDirectory, "/")
+local baseDirectory = ""
+
+for i = 1, #modDirectoryPath - 2 do
+
+	baseDirectory = baseDirectory .. (i == 1 and "" or "/") .. modDirectoryPath[i]
+
+end
 
 g_gui:loadProfiles(modDirectory .. "gui/guiProfiles.xml")
 
@@ -53,6 +63,47 @@ function RLSettings.onClickExportCSV()
 	file:close()
 
 	InfoDialog.show(modSettingsDirectory .. "animals.csv")
+
+end
+
+
+local function getFilesRecursively(path, parent)
+
+	local files = Files.new(path).files
+
+	for _, file in pairs(files) do
+
+		if file.isDirectory then
+		
+			table.insert(parent.folders, { ["folders"] = {}, ["files"] = {}, ["name"] = file.filename, ["path"] = file.path })
+			getFilesRecursively(file.path, parent.folders[#parent.folders])
+			continue
+
+		end
+
+		local name = file.filename
+
+		if #name >= 4 and string.sub(name, #name - 3) == ".xml" then table.insert(parent.files, { ["name"] = name, ["valid"] = true }) end
+
+	end
+
+end
+
+
+function RLSettings.onClickChangeAnimalsXML()
+
+	local files = { { ["folders"] = {}, ["files"] = {}, ["name"] = baseDirectory, ["path"] = baseDirectory } }
+
+	getFilesRecursively(baseDirectory, files[1])
+
+	FileExplorerDialog.show(files, baseDirectory, RLSettings.onFileExplorerCallback)
+
+end
+
+
+function RLSettings.onFileExplorerCallback(path)
+
+	RLSettings.animalsXMLPath = path
 
 end
 
@@ -128,6 +179,27 @@ RLSettings.SETTINGS = {
 		["valueType"] = "int",
 		["values"] = { 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3500, 4000, 4500, 5000 },
 		["callback"] = RealisticLivestock_PlaceableHusbandryAnimals.onSettingChanged
+	},
+
+	["useCustomAnimals"] = {
+		["index"] = 8,
+		["type"] = "BinaryOption",
+		["dynamicTooltip"] = true,
+		["default"] = 1,
+		["binaryType"] = "offOn",
+		["values"] = { false, true },
+		["callback"] = RLSettings.onSettingChanged
+	},
+
+	["animalsXML"] = {
+		["index"] = 9,
+		["type"] = "Button",
+		["ignore"] = true,
+		["callback"] = RLSettings.onClickChangeAnimalsXML,
+		["dependancy"] = {
+			["name"] = "useCustomAnimals",
+			["state"] = 2
+		}
 	}
 
 }
@@ -157,6 +229,8 @@ function RLSettings.loadFromXMLFile()
 
 			if setting.state > #setting.values then setting.state = #setting.values end
 
+			if name == "useCustomAnimals" and setting.state == 2 then RLSettings.animalsXMLPath = xmlFile:getString("settings.useCustomAnimals#path") end
+
 		end
 
 		xmlFile:delete()
@@ -175,18 +249,17 @@ function RLSettings.saveToXMLFile(name, state)
 		RLSettings.isSaving = true
 
 		local path = g_currentMission.missionInfo.savegameDirectory .. "/rlSettings.xml"
-		--local xmlFile = XMLFile.loadIfExists("rlSettings", path)
 		local xmlFile = XMLFile.create("rlSettings", path, "settings")
-
-		--if xmlFile == nil then xmlFile = XMLFile.create("rlSettings", path, "settings") end
 
 		if xmlFile ~= nil then
 
-			--xmlFile:setInt("settings." .. name .. "#value", state)
-
 			for settingName, setting in pairs(RLSettings.SETTINGS) do
+
 				if setting.ignore then continue end
 				xmlFile:setInt("settings." .. settingName .. "#value", setting.state or setting.default)
+
+				if settingName == "useCustomAnimals" and setting.state == 2 and RLSettings.animalsXMLPath ~= nil then xmlFile:setString("settings.useCustomAnimals#path", RLSettings.animalsXMLPath) end
+
 			end
 
 			local saved = xmlFile:save(false, true)
@@ -389,4 +462,125 @@ function RLSettings.applyDefaultSettings()
 		end
 
 	end
+end
+
+
+function RLSettings.getAnimalsXMLPath()
+	
+	if RLSettings.customAnimals == nil then return nil end
+
+	return RLSettings.customAnimals.basePath .. RLSettings.customAnimals.animals
+
+end
+
+
+function RLSettings.getFillTypesXMLPath()
+	
+	if RLSettings.customAnimals == nil then return nil end
+
+	return RLSettings.customAnimals.basePath .. RLSettings.customAnimals.fillTypes
+
+end
+
+
+function RLSettings.getTranslationsFolderPath()
+	
+	if RLSettings.customAnimals == nil then return nil end
+
+	return RLSettings.customAnimals.basePath .. RLSettings.customAnimals.translations
+
+end
+
+
+function RLSettings.getAnimalsBasePath()
+	
+	if RLSettings.customAnimals == nil then return nil end
+
+	return RLSettings.customAnimals.basePath
+
+end
+
+
+function RLSettings.getOverrideVanillaAnimals()
+
+	if RLSettings.customAnimals == nil then return false end
+
+	return RLSettings.customAnimals.override
+
+end
+
+
+function RLSettings.validateCustomAnimalsConfiguration()
+
+	if RLSettings.SETTINGS.useCustomAnimals.state == 1 or RLSettings.animalsXMLPath == nil then return end
+
+	local xmlFile = XMLFile.loadIfExists("customAnimalsConfig", RLSettings.animalsXMLPath)
+
+	if xmlFile == nil then return end
+
+	local basePath
+	local splitPath = string.split(RLSettings.animalsXMLPath, "/")
+
+	for i = #splitPath, 1, -1 do
+
+		local path = table.concat(splitPath, "/", 1, i)
+
+		if path == baseDirectory then
+			basePath = table.concat(splitPath, "/", 1, i + 1) .. "/"
+			break
+		end
+
+	end
+
+	if basePath == nil then return end
+
+	RLSettings.customAnimals = {
+		["basePath"] = basePath,
+		["animals"] = xmlFile:getString("RealisticLivestock#animals", "animals.xml"),
+		["fillTypes"] = xmlFile:getString("RealisticLivestock#fillTypes", "fillTypes.xml"),
+		["translations"] = xmlFile:getString("RealisticLivestock#translations", "l10n/"),
+		["override"] = xmlFile:getBool("RealisticLivestock#override", false)
+	}
+
+	xmlFile:delete()
+
+	local l10nNames = {
+		g_languageShort,
+		"en",
+		"de"
+	}
+
+	local l10nXML
+	
+	for _, l10nName in pairs(l10nNames) do
+		l10nXML = XMLFile.loadIfExists("l10n", basePath .. RLSettings.customAnimals.translations .. "_" .. l10nName .. ".xml")
+		if l10nXML ~= nil then break end
+	end
+
+	if l10nXML ~= nil then
+
+		l10nXML:iterate("l10n.texts.text", function(_, key)
+		
+			local name = l10nXML:getString(key .. "#name")
+			local text = l10nXML:getString(key .. "#text")
+
+			if name ~= nil and text ~= nil then
+				
+				if g_i18n:hasModText(name) then
+					printWarning("Warning: Duplicate l10n entry \'" .. name .. "\'. Ignoring this definition.")
+				else
+					g_i18n:setText(name, text:gsub("\r\n", "\n"))
+				end
+			
+			end
+		
+		end)
+
+		l10nXML:delete()
+
+	end
+
+	local fillTypesXML = loadXMLFile("fillTypes", basePath .. RLSettings.customAnimals.fillTypes)
+	g_fillTypeManager:loadFillTypes(fillTypesXML, basePath, false, modName)
+
 end

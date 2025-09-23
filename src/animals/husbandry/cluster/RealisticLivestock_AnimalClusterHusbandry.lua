@@ -260,9 +260,9 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
             local visualData = self.animalSystem:getVisualByAge(subTypeIndex, age)
             local variations = visualData.visualAnimal.variations
 
-            if #variations > 1 then
+            if #variations >= 1 then
                 local variationIndex = animal.variation
-                if variationIndex == nil then
+                if variationIndex == nil or variationIndex > #variations then
                     variationIndex = math.random(1, #variations)
                     animal.variation = variationIndex
                 end

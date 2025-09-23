@@ -49,6 +49,7 @@ AnimalSystem.BREED_TO_MARKER_COLOUR = {
 function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDirectory)
 
     RLSettings.initialize()
+    RLSettings.validateCustomAnimalsConfiguration()
 
     self.customEnvironment = modName
 
@@ -59,12 +60,19 @@ function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDir
         ["earTagRight_text"] = { 0, 0, 0 }
     }
 
-    local path = modDirectory .. "xml/animals.xml"
+    local path = RLSettings.getAnimalsXMLPath() or (modDirectory .. "xml/animals.xml")
+
+    print(string.format("RealisticLivestock - using animals XML path \'%s\'", path))
+
     local xmlFile = XMLFile.load("animals", path)
 
     if xmlFile ~= nil then
 
-        self:loadAnimals(xmlFile, modDirectory)
+        local basePath = RLSettings.getAnimalsBasePath() or modDirectory
+
+        print(string.format("RealisticLivestock - using animals base path \'%s\'", basePath))
+
+        self:loadAnimals(xmlFile, basePath)
         xmlFile:delete()
 
     end
@@ -77,7 +85,7 @@ function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDir
 
 		Logging.xmlInfo(mapXml, "No animals xml given at \'map.animals#filename\'")
 
-    else
+    elseif #self.types == 0 or not RLSettings.getOverrideVanillaAnimals()
 
 	    local baseXmlFile = XMLFile.load("animals", Utils.getFilename(baseFilename, baseDirectory))
 
@@ -208,6 +216,26 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 
             local fertility = self:loadAnimCurve(xmlFile, key .. ".fertility")
 
+            if fertility == nil then
+
+                fertility = AnimCurve.new(linearInterpolator1)
+
+                for i = 0, 120, 6 do
+
+                    fertility:addKeyframe({
+                        i <= 12 and 0 or (i <= 30 and (900 + i)) or (900 - i * 3),
+                        ["time"] = i
+                    })
+
+                end
+
+                fertility:addKeyframe({
+                    0,
+                    ["time"] = 121
+                })
+
+            end
+
 		    animalType = {
 			    ["name"] = name,
 			    ["groupTitle"] = title,
@@ -275,13 +303,15 @@ function RealisticLivestock_AnimalSystem:loadAnimalConfig(_, animalType, directo
 	for _, key in xmlFile:iterator("animalHusbandry.animals.animal") do
 
         local filename = xmlFile:getString(key .. ".assets#filename")
+        local filenamePosed = xmlFile:getString(key .. ".assets#filenamePosed")
 
 		local animal = {
 			["filename"] = Utils.getFilename(filename, directory),
-			["filenamePosed"] = Utils.getFilename(xmlFile:getString(key .. ".assets#filenamePosed"), directory)
+			["filenamePosed"] = Utils.getFilename(filenamePosed, directory)
 		}
 
-        if directory ~= modDirectory and string.contains(filename, "$dataS") then continue end
+        if not fileExists(animal.filename) and string.contains(filename, "dataS") then animal.filename = filename end
+        if not fileExists(animal.filenamePosed) and string.contains(filenamePosed, "dataS") then animal.filenamePosed = filenamePosed end
 
 		if animal.filenamePosed == nil then
 			Logging.xmlError(xmlFile, "Missing \'filenamePosed\' for animal \'%s\'", key)
@@ -366,7 +396,7 @@ function RealisticLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, ke
 			self.nameToSubTypeIndex[name] = subType.subTypeIndex
 			self.fillTypeIndexToSubType[fillTypeIndex] = subType
 
-            local breed = xmlFile:getString(subTypeKey .. "#breed", "OTHER")
+            local breed = xmlFile:getString(subTypeKey .. "#breed", name)
             subType.breed = breed
 
             if animalType.breeds[breed] == nil then animalType.breeds[breed] = {} end
@@ -392,11 +422,24 @@ function RealisticLivestock_AnimalSystem:loadSubType(superFunc, animalType, subT
 
     subType.gender = xmlFile:getString(key .. "#gender", "female")
 
-    if directory ~= modDirectory and subType.gender == "female" then subType.gender = string.contains(subType.name, "_MALE") and "male" or "female" end
+    if directory ~= modDirectory and subType.gender == "female" then subType.gender = (string.contains(subType.name, "_MALE") or string.contains(subType.name, "BULL_") or string.contains(subType.name, "BOAR_") or string.contains(subType.name, "RAM_") or string.contains(subType.name, "BUCK_") or string.contains(subType.name, "STALLION_") or string.contains(subType.name, "ROOSTER_")) and "male" or "female" end
 
     subType.maxWeight = xmlFile:getFloat(key .. "#maxWeight", height * radius * 750)
     subType.targetWeight = xmlFile:getFloat(key .. "#targetWeight", height * radius * 300)
     subType.minWeight = xmlFile:getFloat(key .. "#minWeight", height * radius * 50)
+
+    for _, visual in pairs(subType.visuals) do
+
+        if visual.textureIndexes == nil then continue end
+
+        local visualAnimal = table.clone(visual.visualAnimal, 10)
+        visualAnimal.variations = {}
+
+        for _, textureIndex in pairs(visual.textureIndexes) do table.insert(visualAnimal.variations, visual.visualAnimal.variations[textureIndex]) end
+
+        if #visualAnimal.variations > 0 then visual.visualAnimal = visualAnimal end
+
+    end
 
     return returnValue
 
@@ -424,6 +467,18 @@ function RealisticLivestock_AnimalSystem:loadVisualData(superFunc, animalType, x
     if bumId ~= nil then visualData.bumId = bumId end
     if monitor ~= nil then visualData.monitor = monitor end
     if marker ~= nil then visualData.marker = marker end
+
+    if xmlFile:hasProperty(key .. ".textureIndexes") then
+
+        visualData.textureIndexes = {}
+
+        xmlFile:iterate(key .. ".textureIndexes.value", function(_, textureKey)
+
+            table.insert(visualData.textureIndexes, xmlFile:getInt(textureKey, 1))
+
+        end)
+
+    end
 
     return visualData
 
