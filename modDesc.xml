@@ -1,6 +1,6 @@
 <modDesc descVersion="99">
     <author>Arrow</author>
-    <version>1.2.0.3</version>
+    <version>1.2.0.4</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -82,6 +82,9 @@ Enhanced Animal Dealer
 - Animals at the dealer have a chance to be pregnant and will all have unique genetic qualities which will impact their price and usefulness
 
 Changelog:
+
+1.2.0.4
+- Added setting for using custom animal models - view github for instructions
 
 1.2.0.3
 - Fixed females getting pregnant even when all males are castrated
@@ -334,6 +337,7 @@ Marchand d'animaux amélioré
         <sourceFile filename="src/gui/AnimalInfoDialog.lua"/>
         <sourceFile filename="src/gui/DiseaseDialog.lua"/>
         <sourceFile filename="src/gui/EarTagColourPickerDialog.lua"/>
+		<sourceFile filename="src/gui/FileExplorerDialog.lua"/>
 		<sourceFile filename="src/gui/InGameMenuSettingsFrame.lua"/>
 		<sourceFile filename="src/gui/ProfileDialog.lua"/>
         <sourceFile filename="src/gui/RL_InfoDisplayKeyValueBox.lua"/>

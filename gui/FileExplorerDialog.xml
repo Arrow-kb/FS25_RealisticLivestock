@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+	<GuiElement profile="newLayer"/>
+	<Bitmap profile="dialogFullscreenBg" id="dialogBg"/>
+	<GuiElement profile="infoDialogBg" id="dialogElement" height="800px">
+		<ThreePartBitmap profile="fs25_dialogBgMiddleSmall"/>
+		<ThreePartBitmap profile="fs25_dialogBgTopSmall"/>
+		<ThreePartBitmap profile="fs25_dialogBgBottom"/>
+
+		<Bitmap profile="cl_fileExplorerTop" id="topPanel">
+			<Button profile="cl_fileExplorerCloseButton" onClick="onClickCancel"/>
+			<Button profile="cl_fileExplorerResizeButton" onClick="onClickResize"/>
+			<Button profile="cl_fileExplorerUpButton" id="upButton" onClick="onClickPathUp"/>
+			<Text profile="cl_fileExplorerPathText" id="pathText"/>
+		</Bitmap>
+		
+		<GuiElement profile="fs25_dialogContentContainer">
+			
+			<SmoothList profile="cl_fileExplorerList" id="fileList">
+				<ListItem profile="cl_fileExplorerListItem">
+					<Bitmap profile="cl_fileExplorerListItemIcon" name="icon"/>
+					<Text profile="cl_fileExplorerListItemName" name="name"/>
+				</ListItem>
+			</SmoothList>
+			
+			<ThreePartBitmap profile="fs25_subCategoryListSliderBox">
+				<Slider profile="fs25_listSlider" dataElementId="fileList" id="fileListSlider"/>
+			</ThreePartBitmap>
+
+		</GuiElement>
+		
+		<BoxLayout profile="fs25_dialogButtonBox">
+			<Button profile="buttonOK" text="$l10n_button_ok" onClick="onClickOk"/>
+		</BoxLayout>
+	</GuiElement>
+
+	<GUIProfiles>
+
+		<Profile name="cl_fileExplorerTop" extends="baseReference" with="anchorTopStretchingX">
+			<size value="97% 40px"/>
+			<imageColor value="$preset_colorLightGrey"/>
+			<position value="-6px 0px"/>
+		</Profile>
+		
+		<Profile name="cl_fileExplorerCloseButton" extends="baseReference" with="anchorMiddleRight">
+			<size value="15px 15px"/>
+			<position value="-10px 0px"/>
+			<iconColor value="$preset_fs25_colorMainLight"/>
+			<iconHighlightedColor value="$preset_fs25_colorMainHighlight"/>
+			<iconSize value="15px 15px"/>
+			<iconSliceId value="gui.crossSmall"/>
+			<imageColor value="$preset_colorTransparent"/>
+			<imageFocusedColor value="$preset_colorTransparent"/>
+			<imageSelectedColor value="$preset_colorTransparent"/>
+			<imageSliceId value="gui.colorPreset"/>
+		</Profile>
+		
+		<Profile name="cl_fileExplorerResizeButton" extends="baseReference" with="anchorMiddleRight">
+			<size value="15px 15px"/>
+			<position value="-40px 0px"/>
+			<iconColor value="$preset_fs25_colorMainLight"/>
+			<iconHighlightedColor value="$preset_fs25_colorMainHighlight"/>
+			<iconSize value="15px 15px"/>
+			<iconSliceId value="gui.storeAttribute_workingWidth"/>
+			<imageColor value="$preset_colorTransparent"/>
+			<imageFocusedColor value="$preset_colorTransparent"/>
+			<imageSelectedColor value="$preset_colorTransparent"/>
+			<imageSliceId value="gui.colorPreset"/>
+		</Profile>
+		
+		<Profile name="cl_fileExplorerUpButton" extends="baseReference" with="anchorMiddleRight">
+			<size value="15px 15px"/>
+			<position value="-70px 0px"/>
+			<iconColor value="$preset_fs25_colorMainLight"/>
+			<iconRotation value="180"/>
+			<iconHighlightedColor value="$preset_fs25_colorMainHighlight"/>
+			<iconSize value="15px 15px"/>
+			<iconSliceId value="gui.HelperDirection"/>
+			<imageColor value="$preset_colorTransparent"/>
+			<imageFocusedColor value="$preset_colorTransparent"/>
+			<imageSelectedColor value="$preset_colorTransparent"/>
+			<imageSliceId value="gui.colorPreset"/>
+		</Profile>
+
+		<Profile name="cl_fileExplorerListItem" extends="baseReference" with="anchorTopStretchingX alternating">
+			<height value="32px"/>
+			<imageColor value="$preset_fs25_colorGrey"/>
+			<imageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+			<alternateBackgroundColor value="$preset_fs25_colorGreyDark_50"/>
+		</Profile>
+
+		<Profile name="cl_fileExplorerList" extends="emptyPanel" with="anchorStretchingYLeft pivotTopLeft">
+			<position value="0px -60px"/>
+			<height value="90%"/>
+		</Profile>
+
+		<Profile name="cl_fileExplorerListItemName" extends="baseReference" with="anchorMiddleLeft">
+			<size value="90% 100%"/>
+			<position value="50px 0px"/>
+			<textBold value="false"/>
+			<textSize value="16px"/>
+			<textAlignment value="left"/>
+			<textColor value="$preset_fs25_colorMainLight"/>
+			<textSelectedColor value="$preset_fs25_colorMainDark"/>
+			<textDisabledColor value="$preset_colorDisabled"/>
+		</Profile>
+
+		<Profile name="cl_fileExplorerListItemIcon" extends="baseReference" with="anchorMiddleLeft">
+			<size value="35px 28px"/>
+			<position value="5px 0px"/>
+			<imageSliceId value="fileTypeIcons.png"/>
+		</Profile>
+
+		<Profile name="cl_fileExplorerPathText" extends="baseReference" with="anchorMiddleCenter">
+			<size value="75% 100%"/>
+			<position value="0px 0px"/>
+			<textBold value="true"/>
+			<textSize value="20px"/>
+			<textColor value="$preset_fs25_colorMainLight"/>
+		</Profile>
+		
+	</GUIProfiles>
+
+</GUI>

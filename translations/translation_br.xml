@@ -472,6 +472,14 @@
 		<text name="rl_settings_maxNumMessages_label" text="Maximum Amount of Messages"/>
 		<text name="rl_settings_maxNumMessages_tooltip" text="A higher amount will result in your save folder taking up more space. After this limit is reached, the earliest messages will be deleted."/>
 
+		<text name="rl_settings_useCustomAnimals_label" text="Use Custom Animals"/>
+		<text name="rl_settings_useCustomAnimals_tooltip_1" text="Use RealisticLivestock animal models (requires restart)"/>
+		<text name="rl_settings_useCustomAnimals_tooltip_2" text="Use custom animal models (experimental, requires restart, must be unzipped)"/>
+
+		<text name="rl_settings_animalsXML_label" text="Set Animals XML Path"/>
+		<text name="rl_settings_animalsXML_tooltip" text="Set path to a custom animals XML file"/>
+		<text name="rl_settings_animalsXML_text" text="Set Animals XML Path"/>
+
 
 
 		<!--  HELP  -->
