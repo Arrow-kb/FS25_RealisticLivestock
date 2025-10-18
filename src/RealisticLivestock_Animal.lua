@@ -3280,6 +3280,9 @@ function Animal:getHasName()
 
 end
 
+function Animal:hasDisease()
+	return #self.diseases > 0
+end
 
 function Animal:removeDisease(title)
 
