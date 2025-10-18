@@ -152,6 +152,11 @@ function AIAnimalManager.new(husbandry, isServer)
 				["min"] = 25,
 				["max"] = 175
 			}
+		},
+		["stableboy"] = {
+			["enabled"] = false,
+			["ride"] = true,
+			["brush"] = true
 		}
 	}
 
@@ -265,6 +270,10 @@ function AIAnimalManager:saveToXMLFile(xmlFile, baseKey)
 	xmlFile:setInt(key .. ".ai.metabolism#min", settings.ai.metabolism.min)
 	xmlFile:setInt(key .. ".ai.metabolism#max", settings.ai.metabolism.max)
 
+	-- STABLEBOY SETTINGS
+	xmlFile:setBool(key .. ".stableboy#enabled", settings.stableboy.enabled)
+	xmlFile:setBool(key .. ".stableboy#ride", settings.stableboy.ride)
+	xmlFile:setBool(key .. ".stableboy#brush", settings.stableboy.brush)
 end
 
 
@@ -373,6 +382,10 @@ function AIAnimalManager:loadFromXMLFile(xmlFile, baseKey)
 	settings.ai.metabolism.min = xmlFile:getInt(key .. ".ai.metabolism#min", settings.ai.metabolism.min)
 	settings.ai.metabolism.max = xmlFile:getInt(key .. ".ai.metabolism#max", settings.ai.metabolism.max)
 
+	-- STABLEBOY SETTINGS
+	settings.stableboy.enabled = xmlFile:getBool(key .. ".stableboy#enabled", settings.stableboy.enabled)
+	settings.stableboy.ride = xmlFile:getBool(key .. ".stableboy#ride", settings.stableboy.ride)
+	settings.stableboy.brush = xmlFile:getBool(key .. ".stableboy#brush", settings.stableboy.brush)
 end
 
 
@@ -398,11 +411,14 @@ function AIAnimalManager:onDayChanged()
 
 	if not self.isServer then return end
 
-	local buy, sell, castrate, naming, ai = self.settings.buy, self.settings.sell, self.settings.castrate, self.settings.naming, self.settings.ai
+	local buy, sell, castrate, naming, ai, stableboy = self.settings.buy, self.settings.sell, self.settings.castrate,
+		self.settings.naming, self.settings.ai, self.settings.stableboy
 
 	self.wage = 0
 
-	if not buy.enabled and not sell.enabled and not castrate.enabled and not naming.enabled and not ai.enabled then return end
+	if not buy.enabled and not sell.enabled and not castrate.enabled and not naming.enabled and not ai.enabled and not stableboy.enabled then
+		return
+	end
 
 	local farmId = self.husbandry:getOwnerFarmId()
 	local farm = g_farmManager:getFarmById(farmId)
@@ -832,11 +848,81 @@ function AIAnimalManager:onDayChanged()
 
 	end
 
+	-- ####################### STABLEBOY #######################
+	if stableboy.enabled then
+		local shortlist = {}
+
+		-- AIJobFieldWork:getPricePerMs
+		local wagePerMs = 0.0005 * EconomyManager.getCostMultiplier()
+
+		local animals = self.husbandry:getClusters()
+
+		for _, animal in pairs(animals) do
+			if animal.animalTypeIndex ~= AnimalType.HORSE then
+				continue
+			end
+
+			local actualRiding, ridingCost, brushCost = 0, 0, 0
+			if stableboy.ride then
+				local ridingTarget
+				if animal.fitness < 100 then
+					ridingTarget = 100
+				else
+					-- TODO(malmi): Get ridingThresholdFactor from g_currentMission.animalSystem:getSubTypeByName(animal.subType).ridingThresholdFactor
+					-- ridingTarget = math.clamp(math.floor(100 * ridingThresholdFactor), 0, 100)
+					ridingTarget = 40
+				end
+
+				if animal.riding < ridingTarget then
+					actualRiding = ridingTarget - animal.riding
+
+					-- 1% takes 1 second to add 1 riding
+					ridingCost = actualRiding * wagePerMs * 1000
+					animal.riding = ridingTarget
+				end
+			end
+
+			if stableboy.brush then
+				local actualBrush = math.clamp(animal.dirt + actualRiding, 0, 100)
+
+				-- It takes 10s to brush a horse from 100% dirt to 0% dirt
+				brushCost = (actualBrush / 10) * wagePerMs * 1000
+				animal.dirt = 0
+			end
+
+			local price = math.ceil(ridingCost + brushCost)
+			if price <= 0 then
+				continue
+			end
+
+			table.insert(shortlist, {
+				["animal"] = animal,
+				["price"] = price
+			})
+		end
+
+		if #shortlist > 0 then
+			g_server:broadcastEvent(AIAnimalStableboyEvent.new(self.husbandry, shortlist), true)
+
+			local amountSpent = 0
+			for _, item in pairs(shortlist) do
+				amountSpent = amountSpent + item.price
+			end
+
+			if amountSpent > 0 then
+				self.husbandry:addRLMessage(
+					"AI_MANAGER_STABLEBOY",
+					nil,
+					{ #shortlist, g_i18n:formatMoney(amountSpent, 2, true, true) }
+				)
+
+				self.wage = self.wage + amountSpent
+			end
+		end
+	end
 end
 
-
 function AIAnimalManager:createProfile()
-
 	local profile = AIAnimalManager.new(self.isServer)
 
 	profile.settings = table.clone(self.settings, 10)

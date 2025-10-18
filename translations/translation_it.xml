@@ -228,6 +228,10 @@
 	<text name="rl_ui_dontMark" text="Don't Mark"/>
 	<text name="rl_ui_mark" text="Mark"/>
 	<text name="rl_ui_unmark" text="Unmark"/>
+		<text name="rl_ui_dontRide" text="Don't Ride"/>
+		<text name="rl_ui_ride" text="Ride"/>
+		<text name="rl_ui_dontBrush" text="Don't Brush"/>
+		<text name="rl_ui_brush" text="Brush"/>
 	<text name="rl_ui_favourite" text="Favourite"/>
 	<text name="rl_ui_unFavourite" text="Unfavourite"/>
 	<text name="rl_ui_quantity" text="Quantity"/>
@@ -257,6 +261,8 @@
 	<text name="rl_ui_saveProfile" text="Save Profile"/>
 	<text name="rl_ui_loadProfile" text="Load Profile"/>
 
+		<text name="rl_ui_stableBoy" text="Stableboy"/>
+		<text name="rl_ui_stableBoyIntro" text="The stableboy helps you to take care of all the horses"/>
 
 	<text name="rl_insemination_male" text="Only females can be artificially inseminated"/>
 	<text name="rl_insemination_pregnant" text="This animal is already pregnant"/>
@@ -432,6 +438,14 @@
 	<text name="rl_ui_herdsmanTooltip_ai_metabolism_equal" text="The herdsman will only AI animals with %s metabolism"/>
 	<text name="rl_ui_herdsmanTooltip_ai_metabolism_range" text="The herdsman will only AI animals with metabolism between %s and %s"/>
 
+		<!-- AI - STABLEBOY -->
+		<text name="rl_ui_herdsmanTooltip_stableboy_enabled_1" text="The herdsman will not care about horses"/>
+		<text name="rl_ui_herdsmanTooltip_stableboy_enabled_2" text="The herdsman will manage horses"/>
+		<text name="rl_ui_herdsmanTooltip_stableboy_ride_1" text="The herdsman will not ride all horses, at the start of the day"/>
+		<text name="rl_ui_herdsmanTooltip_stableboy_ride_2" text="The herdsman will ride all horses, if the player doesn't"/>
+		<text name="rl_ui_herdsmanTooltip_stableboy_brush_1" text="The herdsman will not brush all horses clean, at the start of the day"/>
+		<text name="rl_ui_herdsmanTooltip_stableboy_brush_2" text="The herdsman will brush all horses clean, at the start of the day"/>
+
 
 
 
@@ -593,6 +607,7 @@
 		<text name="rl_message_aiManager_mark_ai_multiple" text="Herdsman marked %s animals for AI"/>
 		<text name="rl_message_aiManager_ai_single" text="Herdsman inseminated 1 animal"/>
 		<text name="rl_message_aiManager_ai_multiple" text="Herdsman inseminated %s animals"/>
+		<text name="rl_message_aiManager_stableboy" text="The stableboy worked with %s horses for %s"/>
 
 
 

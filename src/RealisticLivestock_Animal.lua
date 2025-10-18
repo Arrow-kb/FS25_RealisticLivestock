@@ -41,16 +41,16 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
 
     self.animalTypeIndex = g_currentMission.animalSystem:getTypeIndexBySubTypeIndex(self.subTypeIndex)
     local subType = g_currentMission.animalSystem:getSubTypeByIndex(self.subTypeIndex)
-    local targetWeight = subType.targetWeight
+    local targetWeight = subType.targetWeight or 0  -- should never be 0
 
     self.breed = subType.breed or "UNKNOWN"
 
     if genetics == nil then
-    
         self.genetics = {}
+    end
 
+    if self.genetics.health == nil then
         local healthChance = math.random()
-
         if healthChance < 0.05 then
             self.genetics.health = math.random(25, 35) / 100
         elseif healthChance < 0.25 then
@@ -62,10 +62,10 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
         else
             self.genetics.health = math.random(90, 110) / 100
         end
+    end
 
-
+    if self.genetics.fertility == nil then
         local fertilityChance = math.random()
-
         if fertilityChance < 0.001 then
             self.genetics.fertility = 0
         elseif fertilityChance < 0.05 then
@@ -79,12 +79,11 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
         else
             self.genetics.fertility = math.random(90, 110) / 100
         end
+    end
 
-
-        if self.animalTypeIndex == AnimalType.COW or self.animalTypeIndex == AnimalType.SHEEP or self.animalTypeIndex == AnimalType.CHICKEN then
-
+    if self.animalTypeIndex == AnimalType.COW or self.animalTypeIndex == AnimalType.SHEEP or self.animalTypeIndex == AnimalType.CHICKEN then
+        if self.genetics.productivity == nil then
             local productivityChance = math.random()
-
             if productivityChance < 0.05 then
                 self.genetics.productivity = math.random(25, 35) / 100
             elseif productivityChance < 0.25 then
@@ -96,12 +95,12 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
             else
                 self.genetics.productivity = math.random(90, 110) / 100
             end
-
         end
+    end
 
 
+    if self.genetics.quality == nil then
         local meatQualityChance = math.random()
-
         if meatQualityChance < 0.05 then
             self.genetics.quality = math.random(25, 35) / 100
         elseif meatQualityChance < 0.25 then
@@ -113,10 +112,10 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
         else
             self.genetics.quality = math.random(90, 110) / 100
         end
-        
+    end
 
+    if self.genetics.metabolism == nil then
         local metabolismChance = math.random()
-
         if metabolismChance < 0.05 then
             self.genetics.metabolism = math.random(25, 35) / 100
         elseif metabolismChance < 0.25 then
@@ -128,20 +127,15 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
         else
             self.genetics.metabolism = math.random(90, 110) / 100
         end
-
     end
 
-
     if self.weight == nil then
-
         local minWeight = subType.minWeight
         local maxWeight = subType.maxWeight
 
         local weightPerMonth = (targetWeight - minWeight) / (subType.reproductionMinAgeMonth * 1.5)
         self.weight = math.clamp((minWeight + (weightPerMonth * math.clamp(self.age, 0, 20))) * (math.random(85, 115) / 100), minWeight, maxWeight)
-
     end
-
 
     self.targetWeight = targetWeight + (((targetWeight * self.genetics.metabolism) - targetWeight) / 2.5)
 

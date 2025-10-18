@@ -122,6 +122,8 @@ function RealisticLivestock_AnimalScreen:onGuiSetupFinished()
         ["breed"] = { ["target"] = "breed", ["type"] = "multi", ["ignoreTexts"] = true },
         ["semen"] = { ["target"] = "semen", ["type"] = "multi", ["ignoreTexts"] = true },
         ["mark"] = { ["target"] = "mark", ["type"] = "binary", ["values"] = { false, true }, ["texts"] = { getText("rl_ui_dontMark"), getText("rl_ui_mark") } },
+        ["ride"] = { ["target"] = "ride", ["type"] = "binary", ["values"] = { false, true }, ["texts"] = { getText("rl_ui_dontRide"), getText("rl_ui_ride") } },
+        ["brush"] = { ["target"] = "brush", ["type"] = "binary", ["values"] = { false, true }, ["texts"] = { getText("rl_ui_dontBrush"), getText("rl_ui_brush") } },
         ["diseases"] = { ["target"] = "diseases", ["type"] = "binary", ["values"] = { false, true }, ["texts"] = { getText("rl_ui_noDiseases"), getText("rl_ui_any") } },
         ["diseasesSecondary"] = { ["target"] = "diseases", ["type"] = "binary", ["values"] = { false, true }, ["texts"] = { getText("rl_ui_any"), getText("rl_ui_onlyDiseases") } },
         ["gender"] = { ["target"] = "gender", ["type"] = "tripleOption", ["values"] = { "female", "any", "male" }, ["texts"] = { getText("rl_ui_female"), getText("rl_ui_any"), getText("rl_ui_male") } },
@@ -186,7 +188,8 @@ function RealisticLivestock_AnimalScreen:onGuiSetupFinished()
         ["sell"] = self.herdsmanPageSellScrollingLayout,
         ["castrate"] = self.herdsmanPageCastrateScrollingLayout,
         ["naming"] = self.herdsmanPageNamingScrollingLayout,
-        ["ai"] = self.herdsmanPageAIScrollingLayout
+        ["ai"] = self.herdsmanPageAIScrollingLayout,
+        ["stableboy"] = self.herdsmanPageStableboyScrollingLayout
     }
 
 
@@ -809,12 +812,14 @@ function AnimalScreen:onClickHerdsmanPageBuy()
     self.herdsmanPageCastrate:setVisible(false)
     self.herdsmanPageNaming:setVisible(false)
     self.herdsmanPageAI:setVisible(false)
+    self.herdsmanPageStableboy:setVisible(false)
 
     self.herdsmanPageBuyButtonBg:setSelected(true)
     self.herdsmanPageSellButtonBg:setSelected(false)
     self.herdsmanPageCastrateButtonBg:setSelected(false)
     self.herdsmanPageNamingButtonBg:setSelected(false)
     self.herdsmanPageAIButtonBg:setSelected(false)
+    self.herdsmanPageStableboyButtonBg:setSelected(false)
 
     self.currentHerdsmanPage = "buy"
     self:setDefaultHerdsmanOptions()
@@ -831,12 +836,14 @@ function AnimalScreen:onClickHerdsmanPageSell()
     self.herdsmanPageCastrate:setVisible(false)
     self.herdsmanPageNaming:setVisible(false)
     self.herdsmanPageAI:setVisible(false)
+    self.herdsmanPageStableboy:setVisible(false)
 
     self.herdsmanPageBuyButtonBg:setSelected(false)
     self.herdsmanPageSellButtonBg:setSelected(true)
     self.herdsmanPageCastrateButtonBg:setSelected(false)
     self.herdsmanPageNamingButtonBg:setSelected(false)
     self.herdsmanPageAIButtonBg:setSelected(false)
+    self.herdsmanPageStableboyButtonBg:setSelected(false)
 
     self.currentHerdsmanPage = "sell"
     self:setDefaultHerdsmanOptions()
@@ -853,12 +860,14 @@ function AnimalScreen:onClickHerdsmanPageCastrate()
     self.herdsmanPageCastrate:setVisible(true)
     self.herdsmanPageNaming:setVisible(false)
     self.herdsmanPageAI:setVisible(false)
+    self.herdsmanPageStableboy:setVisible(false)
 
     self.herdsmanPageBuyButtonBg:setSelected(false)
     self.herdsmanPageSellButtonBg:setSelected(false)
     self.herdsmanPageCastrateButtonBg:setSelected(true)
     self.herdsmanPageNamingButtonBg:setSelected(false)
     self.herdsmanPageAIButtonBg:setSelected(false)
+    self.herdsmanPageStableboyButtonBg:setSelected(false)
 
     self.currentHerdsmanPage = "castrate"
     self:setDefaultHerdsmanOptions()
@@ -875,12 +884,14 @@ function AnimalScreen:onClickHerdsmanPageNaming()
     self.herdsmanPageCastrate:setVisible(false)
     self.herdsmanPageNaming:setVisible(true)
     self.herdsmanPageAI:setVisible(false)
+    self.herdsmanPageStableboy:setVisible(false)
 
     self.herdsmanPageBuyButtonBg:setSelected(false)
     self.herdsmanPageSellButtonBg:setSelected(false)
     self.herdsmanPageCastrateButtonBg:setSelected(false)
     self.herdsmanPageNamingButtonBg:setSelected(true)
     self.herdsmanPageAIButtonBg:setSelected(false)
+    self.herdsmanPageStableboyButtonBg:setSelected(false)
 
     self.currentHerdsmanPage = "naming"
     self:setDefaultHerdsmanOptions()
@@ -897,18 +908,40 @@ function AnimalScreen:onClickHerdsmanPageAI()
     self.herdsmanPageCastrate:setVisible(false)
     self.herdsmanPageNaming:setVisible(false)
     self.herdsmanPageAI:setVisible(true)
+    self.herdsmanPageStableboy:setVisible(false)
 
     self.herdsmanPageBuyButtonBg:setSelected(false)
     self.herdsmanPageSellButtonBg:setSelected(false)
     self.herdsmanPageCastrateButtonBg:setSelected(false)
     self.herdsmanPageNamingButtonBg:setSelected(false)
     self.herdsmanPageAIButtonBg:setSelected(true)
+    self.herdsmanPageStableboyButtonBg:setSelected(false)
 
     self.currentHerdsmanPage = "ai"
     self:setDefaultHerdsmanOptions()
 
 end
 
+function AnimalScreen:onClickHerdsmanPageStableboy()
+    if self.currentHerdsmanPage == "stableboy" then return end
+
+    self.herdsmanPageBuy:setVisible(false)
+    self.herdsmanPageSell:setVisible(false)
+    self.herdsmanPageCastrate:setVisible(false)
+    self.herdsmanPageNaming:setVisible(false)
+    self.herdsmanPageAI:setVisible(false)
+    self.herdsmanPageStableboy:setVisible(true)
+
+    self.herdsmanPageBuyButtonBg:setSelected(false)
+    self.herdsmanPageSellButtonBg:setSelected(false)
+    self.herdsmanPageCastrateButtonBg:setSelected(false)
+    self.herdsmanPageNamingButtonBg:setSelected(false)
+    self.herdsmanPageAIButtonBg:setSelected(false)
+    self.herdsmanPageStableboyButtonBg:setSelected(true)
+
+    self.currentHerdsmanPage = "stableboy"
+    self:setDefaultHerdsmanOptions()
+end
 
 function AnimalScreen:onClickHerdsmanSaveProfile()
 
