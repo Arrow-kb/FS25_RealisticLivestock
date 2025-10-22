@@ -1,6 +1,6 @@
 <diseases>
 
-	<disease title="mastitis" animals="COW SHEEP" value="0.85" transmission="0.2" immunity="12" recovery="3">
+	<disease title="mastitis" animals="COW SHEEP" value="0.85" transmission="0.05" immunity="12" recovery="3">
 		<prerequisites>
 			<prerequisite path="isLactating" value="true" valueType="Bool"/>
 		</prerequisites>
@@ -34,7 +34,7 @@
 		<genetic recessive="true" saleChance="0.005"/>
 	</disease>
 	
-	<disease title="footAndMouth" animals="COW SHEEP PIG" value="0.5" transmission="0.75" immunity="24">
+	<disease title="footAndMouth" animals="COW SHEEP PIG" value="0.5" transmission="0.1" immunity="24">
 		<probability>
 			<key age="0" value="0"/>
 			<key age="6" value="0.00075"/>
@@ -51,7 +51,7 @@
 		<treatment cost="250" duration="3"/>
 	</disease>
 	
-	<disease title="ped" animals="PIG" value="0.65" transmission="0.15" immunity="12" recovery="3">
+	<disease title="ped" animals="PIG" value="0.65" transmission="0.075" immunity="12" recovery="3">
 		<probability>
 			<key age="0" value="0.125"/>
 			<key age="6" value="0.05"/>
@@ -70,7 +70,7 @@
 		<treatment cost="150" duration="1"/>
 	</disease>
 	
-	<disease title="avianFlu" animals="CHICKEN" value="0.25" transmission="0.5" immunity="24" recovery="1">
+	<disease title="avianFlu" animals="CHICKEN" value="0.25" transmission="0.2" immunity="24" recovery="1">
 		<probability>
 			<key age="0" value="0.005"/>
 		</probability>

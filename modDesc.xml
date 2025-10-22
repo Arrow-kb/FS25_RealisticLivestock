@@ -1,6 +1,6 @@
-<modDesc descVersion="99">
+<modDesc descVersion="103">
     <author>Arrow</author>
-    <version>1.2.0.4</version>
+    <version>1.2.0.5</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -82,6 +82,14 @@ Enhanced Animal Dealer
 - Animals at the dealer have a chance to be pregnant and will all have unique genetic qualities which will impact their price and usefulness
 
 Changelog:
+
+1.2.0.5
+- Multiplayer support for 1.1.0.0 features onwards (dewars cant be picked up in MP for some reason)
+- Fixed animals dying from diseases when deaths are disabled
+- Reduced herd transmission rates of diseases
+- Added settings options:
+- Enable/disable diseases
+- Change disease chances
 
 1.2.0.4
 - Added setting for using custom animal models - view github for instructions
@@ -315,13 +323,19 @@ Marchand d'animaux amélioré
         <sourceFile filename="src/animals/shop/controllers/AnimalScreenTrailerFarm.lua"/>
         <sourceFile filename="src/animals/shop/events/AIAnimalBuyEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AIAnimalInseminationEvent.lua"/>
-        <sourceFile filename="src/animals/shop/events/AIAnimalSellEvent.lua"/>
+		<sourceFile filename="src/animals/shop/events/AIAnimalSellEvent.lua"/>
+		<sourceFile filename="src/animals/shop/events/AIBulkMessageEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalBuyEvent.lua"/>
+		<sourceFile filename="src/animals/shop/events/AnimalInseminationEvent.lua"/>
+		<sourceFile filename="src/animals/shop/events/AnimalInseminationResultEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalMoveEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalSellEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/SemenBuyEvent.lua"/>
         <sourceFile filename="src/animals/shop/AnimalItemNew.lua"/>
         <sourceFile filename="src/animals/shop/RealisticLivestock_AnimalItemStock.lua"/>
+        <sourceFile filename="src/events/DewarManagerStateEvent.lua"/>
+        <sourceFile filename="src/events/HusbandryMessageStateEvent.lua"/>
+        <sourceFile filename="src/events/ReturnStrawEvent.lua"/>
         <sourceFile filename="src/farms/FarmManager.lua"/>
         <sourceFile filename="src/farms/RealisticLivestock_FarmStats.lua"/>
         <sourceFile filename="src/fillTypes/RealisticLivestock_FillTypeManager.lua"/>

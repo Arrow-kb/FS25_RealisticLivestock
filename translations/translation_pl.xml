@@ -120,9 +120,6 @@
 		<text name="rl_ui_meat" text="Jakość"/>
 		<text name="rl_ui_health" text="Zdrowie"/>
 		<text name="rl_ui_fertility" text="Płodność"/>
-		<text name="rl_ui_disease" text="Disease"/>
-		<text name="rl_ui_disease_healthy" text="Healthy"/>
-		<text name="rl_ui_disease_infected" text="Infected"/>
 
 		<text name="rl_ui_genetics_infertile" text="Infertile"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Niezwykle niski"/>
@@ -262,6 +259,9 @@
 		<text name="rl_ui_load" text="Load"/>
 		<text name="rl_ui_saveProfile" text="Save Profile"/>
 		<text name="rl_ui_loadProfile" text="Load Profile"/>
+
+		<text name="rl_ui_healthy" text="Healthy"/>
+		<text name="rl_ui_hasDisease" text="Has Disease"/>
 
 
 		<text name="rl_insemination_male" text="Only females can be artificially inseminated"/>
@@ -472,6 +472,13 @@
 
 		<text name="rl_settings_maxNumMessages_label" text="Maximum Amount of Messages"/>
 		<text name="rl_settings_maxNumMessages_tooltip" text="A higher amount will result in your save folder taking up more space. After this limit is reached, the earliest messages will be deleted."/>
+
+		<text name="rl_settings_diseasesEnabled_label" text="Diseases Enabled"/>
+		<text name="rl_settings_diseasesEnabled_tooltip_1" text="Animals cannot catch or inherit diseases"/>
+		<text name="rl_settings_diseasesEnabled_tooltip_2" text="Animals can catch or inherit diseases"/>
+
+		<text name="rl_settings_diseasesChance_label" text="Disease Chance"/>
+		<text name="rl_settings_diseasesChance_tooltip" text="Change the likelihood of animals contracting diseases"/>
 
 		<text name="rl_settings_useCustomAnimals_label" text="Use Custom Animals"/>
 		<text name="rl_settings_useCustomAnimals_tooltip_1" text="Use RealisticLivestock animal models (requires restart)"/>
