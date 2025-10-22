@@ -123,6 +123,9 @@
 		<text name="rl_ui_quality_github" text="Meat Quality"/>
 		<text name="rl_ui_health" text="Health"/>
 		<text name="rl_ui_fertility" text="Fertility"/>
+		<text name="rl_ui_disease" text="Disease"/>
+		<text name="rl_ui_disease_healthy" text="Healthy"/>
+		<text name="rl_ui_disease_infected" text="Infected"/>
 
 		<text name="rl_ui_genetics_infertile" text="Infertile"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Extremely low"/>

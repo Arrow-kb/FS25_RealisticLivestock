@@ -110,6 +110,10 @@
 		<text name="rl_ui_meat" text="Якість м’яса"/>
 		<text name="rl_ui_health" text="Здоров’я"/>
 		<text name="rl_ui_fertility" text="Фертильність"/>
+		<text name="rl_ui_disease" text="Disease"/>
+		<text name="rl_ui_disease_healthy" text="Healthy"/>
+		<text name="rl_ui_disease_infected" text="Infected"/>
+		
 		<text name="rl_ui_genetics_infertile" text="Infertile"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Крайній низький рівень"/>
 		<text name="rl_ui_genetics_veryLow" text="Дуже низький рівень"/>

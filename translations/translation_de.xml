@@ -120,6 +120,9 @@
 		<text name="rl_ui_meat" text="Qualität"/>
 		<text name="rl_ui_health" text="Gesundheit"/>
 		<text name="rl_ui_fertility" text="Fruchtbarkeit"/>
+		<text name="rl_ui_disease" text="Krankheit"/>
+		<text name="rl_ui_disease_healthy" text="Gesund"/>
+		<text name="rl_ui_disease_infected" text="Infiziert"/>
 
 		<text name="rl_ui_genetics_infertile" text="Unfruchtbar"/>
 		<text name="rl_ui_genetics_extremelyLow" text="Extrem niedrig"/>
