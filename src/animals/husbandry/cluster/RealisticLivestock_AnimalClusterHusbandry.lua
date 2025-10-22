@@ -157,6 +157,8 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
     local animalType = animalSystem.types[self.placeable:getAnimalTypeIndex()]
 
     local colours = animalType.colours or animalSystem.baseColours
+
+    if colours.earTagLeft == nil or colours.earTagLeft_text or colours.earTagRight == nil or colours.earTagRight_text == nil then colours = animalSystem.baseColours end
     
     local earTagLeftR, earTagLeftG, earTagLeftB = colours.earTagLeft[1], colours.earTagLeft[2], colours.earTagLeft[3]
     local earTagLeftTextR, earTagLeftTextG, earTagLeftTextB = colours.earTagLeft_text[1], colours.earTagLeft_text[2], colours.earTagLeft_text[3]

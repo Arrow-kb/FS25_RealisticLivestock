@@ -85,7 +85,7 @@ function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDir
 
 		Logging.xmlInfo(mapXml, "No animals xml given at \'map.animals#filename\'")
 
-    elseif #self.types == 0 or not RLSettings.getOverrideVanillaAnimals()
+    elseif #self.types == 0 or not RLSettings.getOverrideVanillaAnimals() then
 
 	    local baseXmlFile = XMLFile.load("animals", Utils.getFilename(baseFilename, baseDirectory))
 
@@ -1471,7 +1471,7 @@ function AnimalSystem:onHourChanged()
     
     end
 
-    if hasChanges then g_server:broadcastEvent(AnimalSystemStateEvent.new(self.countries, self.animals)) end
+    if hasChanges then g_server:broadcastEvent(AnimalSystemStateEvent.new(self.countries, self.animals, self.aiAnimals)) end
 
 end
 

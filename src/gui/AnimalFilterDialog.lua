@@ -68,6 +68,7 @@ function AnimalFilterDialog:onOpen()
     local geneticsText = g_i18n:getText("rl_ui_genetics") .. ": "
 
     local filters = {
+
         {
             ["target"] = "age",
             ["name"] = g_i18n:getText("infohud_age"),
@@ -79,6 +80,7 @@ function AnimalFilterDialog:onOpen()
             ["min"] = 0,
             ["max"] = 1
         },
+
         {
             ["target"] = "health",
             ["name"] = g_i18n:getText("infohud_health"),
@@ -91,6 +93,7 @@ function AnimalFilterDialog:onOpen()
             ["min"] = 0,
             ["max"] = 1
         },
+
         {
             ["target"] = "weight",
             ["name"] = g_i18n:getText("rl_ui_weight"),
@@ -103,6 +106,7 @@ function AnimalFilterDialog:onOpen()
             ["min"] = 0,
             ["max"] = 1
         },
+
         {
             ["target"] = "isPregnant",
             ["name"] = g_i18n:getText("rl_ui_pregnancy"),
@@ -123,6 +127,7 @@ function AnimalFilterDialog:onOpen()
             },
             ["default"] = 2
         },
+
         {
             ["target"] = "gender",
             ["name"] = g_i18n:getText("rl_ui_gender"),
@@ -143,27 +148,29 @@ function AnimalFilterDialog:onOpen()
             },
             ["default"] = 2
         },
+
         {
             ["isFunction"] = true,
-            ["target"] = "hasDisease",
-            ["name"] = g_i18n:getText("rl_ui_disease"),
+            ["target"] = "getHasAnyDisease",
+            ["name"] = g_i18n:getText("rl_disease"),
             ["template"] = "binaryOptionTemplate",
             ["text"] = {
                 {
-                    ["text"] = g_i18n:getText("rl_ui_disease_infected"),
-                    ["value"] = true
+                    ["text"] = g_i18n:getText("rl_ui_healthy"),
+                    ["value"] = false
                 },
                 {
                     ["text"] = anyText,
                     ["value"] = "ignore"
                 },
                 {
-                    ["text"] = g_i18n:getText("rl_ui_disease_healthy"),
-                    ["value"] = false
+                    ["text"] = g_i18n:getText("rl_ui_hasDisease"),
+                    ["value"] = true
                 }
             },
-            ["default"] = 2
+            ["default"] = 1
         },
+
         {
             ["isFunction"] = true,
             ["target"] = "getHasName",
@@ -185,6 +192,7 @@ function AnimalFilterDialog:onOpen()
             },
             ["default"] = 2
         },
+
         {
             ["isFunction"] = true,
             ["target"] = "getSellPrice",
@@ -204,6 +212,7 @@ function AnimalFilterDialog:onOpen()
             ["max"] = 1,
             ["multiplier"] = self.isBuyMode and 1.075 or 1
         },
+
         {
             ["isLayered"] = true,
             ["target"] = {
@@ -223,6 +232,7 @@ function AnimalFilterDialog:onOpen()
             ["max"] = 1,
             ["multiplier"] = 100
         },
+
         {
             ["isLayered"] = true,
             ["target"] = {
@@ -242,6 +252,7 @@ function AnimalFilterDialog:onOpen()
             ["max"] = 1,
             ["multiplier"] = 100
         },
+
         {
             ["isLayered"] = true,
             ["target"] = {
@@ -261,6 +272,7 @@ function AnimalFilterDialog:onOpen()
             ["max"] = 1,
             ["multiplier"] = 100
         },
+
         {
             ["isLayered"] = true,
             ["target"] = {
@@ -280,6 +292,7 @@ function AnimalFilterDialog:onOpen()
             ["max"] = 1,
             ["multiplier"] = 100
         }
+
     }
 
     if self.animalTypeIndex == AnimalType.COW or self.animalTypeIndex == AnimalType.SHEEP or self.animalTypeIndex == AnimalType.CHICKEN then
@@ -511,14 +524,14 @@ end
 
 function AnimalFilterDialog:getNumberOfSections()
 
-    return 1
+	return 1
 
 end
 
 
 function AnimalFilterDialog:getNumberOfItemsInSection(list, section)
 
-    return #self.filters
+	return #self.filters
 
 end
 
@@ -532,7 +545,7 @@ end
 
 function AnimalFilterDialog:populateCellForItemInSection(list, section, index, cell)
 
-    local filter = self.filters[index]
+	local filter = self.filters[index]
 
     cell:findAllAttributes()
 

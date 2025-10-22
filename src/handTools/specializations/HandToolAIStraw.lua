@@ -30,6 +30,8 @@ function HandToolAIStraw.registerEventListeners(handTool)
 	SpecializationUtil.registerEventListener(handTool, "onHeldStart", HandToolAIStraw)
 	SpecializationUtil.registerEventListener(handTool, "onHeldEnd", HandToolAIStraw)
 	SpecializationUtil.registerEventListener(handTool, "onRegisterActionEvents", HandToolAIStraw)
+	SpecializationUtil.registerEventListener(handTool, "onReadStream", HandToolAIStraw)
+	SpecializationUtil.registerEventListener(handTool, "onWriteStream", HandToolAIStraw)
 end
 
 
@@ -125,6 +127,75 @@ function HandToolAIStraw:saveToXMLFile(xmlFile, key)
 		for type, value in pairs(animal.genetics) do
 			xmlFile:setFloat(key .. ".animal.genetics#" .. type, value)
 		end
+
+	end
+
+end
+
+
+function HandToolAIStraw:onReadStream(streamId, connection)
+
+	local spec = self[specName]
+
+	spec.isEmpty = streamReadBool(streamId)
+	spec.dewarUniqueId = streamReadString(streamId)
+
+	local hasAnimal = streamReadBool(streamId)
+	local animal
+
+	if hasAnimal then
+
+		local animal = { ["genetics"] = {} }
+
+		animal.country = streamReadUInt8(streamId)
+		animal.farmId = streamReadString(streamId)
+		animal.uniqueId = streamReadString(streamId)
+		animal.name = streamReadString(streamId)
+		animal.typeIndex = streamReadUInt8(streamId)
+		animal.subTypeIndex = streamReadUInt8(streamId)
+		animal.success = streamReadFloat32(streamId)
+
+		animal.genetics.metabolism = streamReadFloat32(streamId)
+		animal.genetics.fertility = streamReadFloat32(streamId)
+		animal.genetics.health = streamReadFloat32(streamId)
+		animal.genetics.quality = streamReadFloat32(streamId)
+		animal.genetics.productivity = streamReadFloat32(streamId)
+
+		if animal.genetics.productivity < 0 then animal.genetics.productivity = nil end
+
+	end
+
+	spec.animal = animal
+
+end
+
+
+function HandToolAIStraw:onWriteStream(streamId, connection)
+
+	local spec = self[specName]
+
+	streamWriteBool(streamId, spec.isEmpty or false)
+	streamWriteString(streamId, spec.dewarUniqueId or "")
+
+	streamWriteBool(streamId, spec.animal ~= nil)
+
+	if spec.animal ~= nil then
+
+		local animal = spec.animal
+
+		streamWriteUInt8(streamId, animal.country)
+		streamWriteString(streamId, animal.farmId)
+		streamWriteString(streamId, animal.uniqueId)
+		streamWriteString(streamId, animal.name or "")
+		streamWriteUInt8(streamId, animal.typeIndex)
+		streamWriteUInt8(streamId, animal.subTypeIndex)
+		streamWriteFloat32(streamId, animal.success)
+
+		streamWriteFloat32(streamId, animal.genetics.metabolism)
+		streamWriteFloat32(streamId, animal.genetics.fertility)
+		streamWriteFloat32(streamId, animal.genetics.health)
+		streamWriteFloat32(streamId, animal.genetics.quality)
+		streamWriteFloat32(streamId, animal.genetics.productivity or -1)
 
 	end
 
@@ -366,6 +437,13 @@ function HandToolAIStraw:onInseminate()
 	local husbandry, animal = spec.targetedPlaceable, spec.targetedAnimal
 
 	animal:setInsemination(spec.animal)
+
+	if g_server ~= nil then
+		g_server:broadcastEvent(AnimalInseminationEvent.new(husbandry, animal, spec.animal))
+	elseif g_client ~= nil then
+		g_client:getServerConnection():sendEvent(AnimalInseminationEvent.new(husbandry, animal, spec.animal))
+	end
+
 	spec.isEmpty = true
 	g_inputBinding:setActionEventActive(spec.activateActionEventId, false)
 
@@ -379,6 +457,12 @@ function HandToolAIStraw:onReturnToDewar()
 	local spec = self[specName]
 
 	local dewar = spec.targetedDewar
+
+	if g_server ~= nil then
+		g_server:broadcastEvent(ReturnStrawEvent.new(dewar))
+	elseif g_client ~= nil then
+		g_client:getServerConnection():sendEvent(ReturnStrawEvent.new(dewar))
+	end
 
 	dewar:changeStraws(1)
 	spec.isEmpty = true

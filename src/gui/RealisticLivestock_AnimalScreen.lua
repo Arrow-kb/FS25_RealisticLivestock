@@ -432,16 +432,24 @@ function AnimalScreen:onClickBuyAI()
     local price = g_currentMission.animalSystem:getFarmSemenPrice(animal.birthday.country, animal.farmId) * quantity * Dewar.PRICE_PER_STRAW * animal.success * 2.25
 
     for _, value in pairs(animal.genetics) do price = price * value end
-    
-    g_messageCenter:subscribe(SemenBuyEvent, self.onSemenBought, self)
-    g_client:getServerConnection():sendEvent(SemenBuyEvent.new(animal, quantity, -price, farmId, { x, y, z }, { 0, 0, 0 }))
+
+    local errorCode
+
+    if not g_currentMission:getHasPlayerPermission("tradeAnimals") then
+        errorCode = AnimalBuyEvent.BUY_ERROR_NO_PERMISSION
+    elseif g_currentMission:getMoney(farmId) + price < 0 then
+        errorCode = AnimalBuyEvent.BUY_ERROR_NOT_ENOUGH_MONEY
+    else
+        errorCode = AnimalBuyEvent.BUY_SUCCESS
+        g_client:getServerConnection():sendEvent(SemenBuyEvent.new(animal, quantity, -price, farmId, { x, y, z }, { 0, 0, 0 }), true)
+    end
+
+    self:onSemenBought(errorCode)
 
 end
 
 
 function AnimalScreen:onSemenBought(errorCode)
-
-    g_messageCenter:unsubscribe(SemenBuyEvent, self)
 
     local dialogType = DialogElement.TYPE_INFO
     local text = "rl_ui_semenPurchase_successful"

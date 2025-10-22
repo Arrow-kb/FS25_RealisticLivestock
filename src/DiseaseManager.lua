@@ -8,6 +8,8 @@ function DiseaseManager.new()
     local self = setmetatable({}, diseaseManager_mt)
 
 	self.diseases = {}
+	self.diseasesEnabled = true
+	self.diseasesChance = 1
 
 	self:loadDiseases()
 
@@ -159,6 +161,8 @@ end
 
 function DiseaseManager:onDayChanged(animal)
 
+	if not self.diseasesEnabled then return end
+
 	for _, disease in pairs(self.diseases) do
 
 		if not disease.animals[animal.animalTypeIndex] then continue end
@@ -206,7 +210,7 @@ function DiseaseManager:onDayChanged(animal)
 
 		end
 
-		if math.random() >= probability then continue end
+		if math.random() >= probability * self.diseasesChance then continue end
 
 		animal:addDisease(disease)
 
@@ -250,6 +254,8 @@ end
 
 
 function DiseaseManager:calculateTransmission(animals)
+
+	if not self.diseasesEnabled then return end
 
 	local diseases = {}
 	local hasDiseases = false
@@ -321,5 +327,12 @@ function DiseaseManager:calculateTransmission(animals)
 
 	end
 
+
+end
+
+
+function DiseaseManager.onSettingChanged(name, state)
+
+	if g_diseaseManager ~= nil then g_diseaseManager[name] = state end
 
 end

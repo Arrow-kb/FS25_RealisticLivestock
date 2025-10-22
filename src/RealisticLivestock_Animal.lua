@@ -2033,7 +2033,7 @@ end
 function Animal:changeReproduction(delta)
 
     local old = self.reproduction
-    self.reproduction = math.clamp(math.floor(self.reproduction + delta), 0, 100)
+    self.reproduction = math.clamp(math.floor(self.reproduction + math.max(delta, 1)), 0, 100)
 
     if math.abs(self.reproduction - old) > 0 then
         --self:setDirty()
@@ -2149,14 +2149,12 @@ end
 function Animal:onPeriodChanged()
 
     self.monthsSinceLastBirth = self.monthsSinceLastBirth + 1
-    
-    --if self.birthday ~= nil then self.birthday.needsAgeIncrease = true end
 
     local totalTreatmentCost = 0
 
     for i = #self.diseases, 1, -1 do
 
-        local died, treatmentCost = self.diseases[i]:onPeriodChanged(self)
+        local died, treatmentCost = self.diseases[i]:onPeriodChanged(self, self.deathEnabled)
         totalTreatmentCost = totalTreatmentCost + treatmentCost
         
         if died then return totalTreatmentCost end
@@ -2170,17 +2168,11 @@ end
 
 function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPeriod, daysPerPeriod, isSaleAnimal)
 
-    g_diseaseManager:onDayChanged(self)
+    if g_server ~= nil then g_diseaseManager:onDayChanged(self) end
 
     self:setRecentlyBoughtByAI(false)
     
     local birthday = self.birthday
-
-    --if self.uniqueId == "610017" and self.farmId == "988324" then
-
-        --print(birthday.needsAgeIncrease, self.age)
-
-    --end
 
     if day == nil then
 
@@ -2248,6 +2240,7 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
         if childNum > 0 and math.random() >= (2 - fertility) * 0.25 and math.random() <= insemination.success * (math.random(80, 120) / 100) then
 
             self:addMessage("INSEMINATION_SUCCESS")
+            g_server:broadcastEvent(AnimalInseminationResultEvent.new(self.clusterSystem.owner, self, true))
 
             self:createPregnancy(childNum, month, year, {
                 ["uniqueId"] = string.format("%s %s %s", RealisticLivestock.AREA_CODES[insemination.country].code, insemination.farmId, insemination.uniqueId),
@@ -2261,12 +2254,13 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
         else
 
             self:addMessage("INSEMINATION_FAIL")
+            g_server:broadcastEvent(AnimalInseminationResultEvent.new(self.clusterSystem.owner, self, true))
 
         end
 
-        self.insemination = nil
-
     end
+
+    self.insemination = nil
 
 
     if isSaleAnimal or self.clusterSystem ~= nil then
@@ -2544,12 +2538,12 @@ function Animal:createPregnancy(childNum, month, year, father)
     if math.random() >= 0.99 then
 
         if math.random() >= 0.95 then
-            reproductionDuration = reproductionDuration + math.random() >= 0.75 and -2 or 2
+            reproductionDuration = reproductionDuration + (math.random() >= 0.75 and -2 or 2)
         else
-            reproductionDuration = reproductionDuration + math.random() >= 0.85 and -1 or 1
+            reproductionDuration = reproductionDuration + (math.random() >= 0.85 and -1 or 1)
         end
 
-        reproductionDuration = math.max(reproductionDuration, 2)
+        reproductionDuration = math.clamp(reproductionDuration, 2, 12)
 
     end
 
@@ -2663,7 +2657,7 @@ function Animal:reproduce(spec, day, month, year, isSaleAnimal)
 
             local animals = clusterSystem:getAnimals()
             for _, animal in ipairs(animals) do
-                if animal.farmId .. " " .. animal.uniqueId ~= self.impregnatedBy.uniqueId then continue end
+                if animal:getIdentifiers() ~= self.impregnatedBy.uniqueId then continue end
 
                 fatherFull = animal
                 break
@@ -3280,9 +3274,6 @@ function Animal:getHasName()
 
 end
 
-function Animal:hasDisease()
-	return #self.diseases > 0
-end
 
 function Animal:removeDisease(title)
 
@@ -3444,5 +3435,12 @@ function Animal:setInsemination(animal)
         ["subTypeIndex"] = animal.subTypeIndex,
         ["success"] = animal.success
     }
+
+end
+
+
+function Animal:getHasAnyDisease()
+
+	return g_diseaseManager.diseasesEnabled and #self.diseases > 0
 
 end

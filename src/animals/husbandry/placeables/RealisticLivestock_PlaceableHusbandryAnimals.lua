@@ -8,6 +8,7 @@ function RealisticLivestock_PlaceableHusbandryAnimals.registerFunctions(placeabl
 	SpecializationUtil.registerFunction(placeable, "addRLMessage", PlaceableHusbandryAnimals.addRLMessage)
 	SpecializationUtil.registerFunction(placeable, "deleteRLMessage", PlaceableHusbandryAnimals.deleteRLMessage)
 	SpecializationUtil.registerFunction(placeable, "getNextRLMessageUniqueId", PlaceableHusbandryAnimals.getNextRLMessageUniqueId)
+	SpecializationUtil.registerFunction(placeable, "setNextRLMessageUniqueId", PlaceableHusbandryAnimals.setNextRLMessageUniqueId)
 	SpecializationUtil.registerFunction(placeable, "getAIManager", PlaceableHusbandryAnimals.getAIManager)
 end
 
@@ -86,6 +87,13 @@ function PlaceableHusbandryAnimals:deleteRLMessage(uniqueId)
         end
 
     end
+
+end
+
+
+function PlaceableHusbandryAnimals:setNextRLMessageUniqueId(nextUniqueId)
+
+    self.spec_husbandryAnimals.rlMessageUniqueId = nextUniqueId or 0
 
 end
 

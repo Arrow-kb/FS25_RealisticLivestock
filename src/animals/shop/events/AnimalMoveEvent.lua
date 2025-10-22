@@ -1,10 +1,11 @@
-function AnimalMoveEvent.new(sourceObject, targetObject, animals)
+function AnimalMoveEvent.new(sourceObject, targetObject, animals, moveType)
 
 	local event = AnimalMoveEvent.emptyNew()
 
 	event.sourceObject = sourceObject
 	event.targetObject = targetObject
 	event.animals = animals
+	event.moveType = moveType
 
 	return event
 
@@ -18,6 +19,8 @@ function AnimalMoveEvent:readStream(streamId, connection)
 		self.errorCode = streamReadUIntN(streamId, 3)
 
 	else
+
+		self.moveType = streamReadString(streamId)
 
 		self.sourceObject = NetworkUtil.readNodeObject(streamId)
 		self.targetObject = NetworkUtil.readNodeObject(streamId)
@@ -47,6 +50,8 @@ function AnimalMoveEvent:writeStream(streamId, connection)
 		streamWriteUIntN(streamId, self.errorCode, 3)
 		return
 	end
+
+	streamWriteString(streamId, self.moveType)
 
 	NetworkUtil.writeNodeObject(streamId, self.sourceObject)
 	NetworkUtil.writeNodeObject(streamId, self.targetObject)
@@ -93,6 +98,22 @@ function AnimalMoveEvent:run(connection)
 	end
 
 	connection:sendEvent(AnimalMoveEvent.newServerToClient(AnimalMoveEvent.MOVE_SUCCESS))
+
+	if g_server ~= nil and not g_server.netIsRunning then return end
+
+	local husbandry, trailer
+	
+	if self.moveType == "SOURCE" then 
+		husbandry, trailer = self.sourceObject, self.targetObject
+	else
+		husbandry, trailer = self.targetObject, self.sourceObject
+	end
+
+	if #self.animals == 1 then
+        husbandry:addRLMessage(string.format("MOVE_ANIMALS_%s_SINLGE", self.moveType), nil, { trailer:getName() })
+    elseif #self.animals > 0 then
+        husbandry:addRLMessage(string.format("MOVE_ANIMALS_%s_MULTIPLE", self.moveType), nil, { #self.animals, trailer:getName() })
+    end
 
 end
 

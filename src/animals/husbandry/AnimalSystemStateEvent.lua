@@ -10,11 +10,11 @@ function AnimalSystemStateEvent.emptyNew()
 end
 
 
-function AnimalSystemStateEvent.new(countries, animals)
+function AnimalSystemStateEvent.new(countries, animals, aiAnimals)
 
     local self = AnimalSystemStateEvent.emptyNew()
 
-    self.countries, self.animals = countries, animals
+    self.countries, self.animals, self.aiAnimals = countries, animals, aiAnimals
 
     return self
 
@@ -33,6 +33,7 @@ function AnimalSystemStateEvent:readStream(streamId, connection)
 
         for j = 1, numFarms do
 
+            local semenPrice = streamReadFloat32(streamId)
             local quality = streamReadFloat32(streamId)
             local id = streamReadUInt32(streamId)
             local numIds = streamReadUInt8(streamId)
@@ -45,6 +46,7 @@ function AnimalSystemStateEvent:readStream(streamId, connection)
             end
 
             table.insert(farms, {
+                ["semenPrice"] = semenPrice,
                 ["quality"] = quality,
                 ["id"] = id,
                 ["ids"] = ids
@@ -87,6 +89,43 @@ function AnimalSystemStateEvent:readStream(streamId, connection)
 
     end
 
+
+    self.aiAnimals = {}
+    local numAIAnimals = streamReadUInt8(streamId)
+
+    for i = 1, numAIAnimals do
+
+        local animals = {}
+        local num = streamReadUInt16(streamId)
+
+        for j = 1, num do
+
+            local animal = Animal.new()
+            local success = animal:readStream(streamId, connection)
+
+            animal.isAIAnimal = true
+            animal.success = streamReadFloat32(streamId) or 0.65
+            animal.favouritedBy = {}
+
+            local numUsers = streamReadUInt8(streamId)
+
+            for k = 1, numUsers do
+
+                local userId = streamReadString(streamId)
+                local favourite = streamReadBool(streamId)
+
+                animal.favouritedBy[userId] = favourite
+
+            end
+
+            table.insert(animals, animal)
+
+        end
+
+        self.aiAnimals[i] = animals
+
+    end
+
     self:run(connection)
 
 end
@@ -105,6 +144,7 @@ function AnimalSystemStateEvent:writeStream(streamId, connection)
 
         for _, farm in pairs(farms) do
 
+            streamWriteFloat32(streamId, farm.semenPrice)
             streamWriteFloat32(streamId, farm.quality)
             streamWriteUInt32(streamId, farm.id)
 
@@ -142,6 +182,38 @@ function AnimalSystemStateEvent:writeStream(streamId, connection)
     end
 
 
+    streamWriteUInt8(streamId, #self.aiAnimals)
+
+    for i = 1, #self.aiAnimals do
+
+        local animals = self.aiAnimals[i] or {}
+
+        streamWriteUInt16(streamId, #animals)
+
+        for _, animal in pairs(animals) do
+
+            local success = animal:writeStream(streamId, connection)
+
+            streamWriteFloat32(streamId, animal.success or 0.65)
+
+            local numUsers = 0
+
+            for userId, _ in pairs(animal.favouritedBy) do numUsers = numUsers + 1 end
+
+            streamWriteUInt8(streamId, numUsers)
+
+            for userId, favourite in pairs(animal.favouritedBy) do
+
+                streamWriteString(streamId, userId)
+                streamWriteBool(streamId, favourite)
+
+            end
+
+        end
+
+    end
+
+
 end
 
 
@@ -151,5 +223,6 @@ function AnimalSystemStateEvent:run(connection)
 
     animalSystem.countries = self.countries
     animalSystem.animals = self.animals
+    animalSystem.aiAnimals = self.aiAnimals
 
 end

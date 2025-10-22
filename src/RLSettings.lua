@@ -181,8 +181,31 @@ RLSettings.SETTINGS = {
 		["callback"] = RealisticLivestock_PlaceableHusbandryAnimals.onSettingChanged
 	},
 
-	["useCustomAnimals"] = {
+	["diseasesEnabled"] = {
 		["index"] = 8,
+		["type"] = "BinaryOption",
+		["dynamicTooltip"] = true,
+		["default"] = 2,
+		["binaryType"] = "offOn",
+		["values"] = { false, true },
+		["callback"] = DiseaseManager.onSettingChanged
+	},
+
+	["diseasesChance"] = {
+		["index"] = 9,
+		["type"] = "MultiTextOption",
+		["default"] = 4,
+		["valueType"] = "float",
+		["values"] = { 0.25, 0.5, 0.75, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5 },
+		["callback"] = DiseaseManager.onSettingChanged,
+		["dependancy"] = {
+			["name"] = "diseasesEnabled",
+			["state"] = 2
+		}
+	},
+
+	["useCustomAnimals"] = {
+		["index"] = 10,
 		["type"] = "BinaryOption",
 		["dynamicTooltip"] = true,
 		["default"] = 1,
@@ -192,7 +215,7 @@ RLSettings.SETTINGS = {
 	},
 
 	["animalsXML"] = {
-		["index"] = 9,
+		["index"] = 10,
 		["type"] = "Button",
 		["ignore"] = true,
 		["callback"] = RLSettings.onClickChangeAnimalsXML,
@@ -512,7 +535,7 @@ end
 
 function RLSettings.validateCustomAnimalsConfiguration()
 
-	if RLSettings.SETTINGS.useCustomAnimals.state == 1 or RLSettings.animalsXMLPath == nil then return end
+	if RLSettings.SETTINGS.useCustomAnimals.state == 1 or RLSettings.animalsXMLPath == nil or g_currentMission.missionDynamicInfo.isMultiplayer then return end
 
 	local xmlFile = XMLFile.loadIfExists("customAnimalsConfig", RLSettings.animalsXMLPath)
 

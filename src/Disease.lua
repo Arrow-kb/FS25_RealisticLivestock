@@ -79,7 +79,9 @@ function Disease:readStream(streamId, connection)
 end
 
 
-function Disease:onPeriodChanged(animal)
+function Disease:onPeriodChanged(animal, deathEnabled)
+
+	if not g_diseaseManager.diseasesEnabled then return false, 0 end
 
 	self.time = self.time + 1
 	local treatmentCost = 0
@@ -121,7 +123,7 @@ function Disease:onPeriodChanged(animal)
 
 	end
 
-	if not self.isCarrier then
+	if not self.isCarrier and deathEnabled then
 
 		local fatality = self.type.fatality
 		local fatalityChance = 0
@@ -150,6 +152,8 @@ end
 
 
 function Disease:affectReproduction(child, otherParent)
+
+	if not g_diseaseManager.diseasesEnabled then return end
 
 	local genetic = self.type.genetic
 
@@ -204,7 +208,7 @@ end
 
 function Disease:modifyOutput(type, value)
 
-	if self.cured then return value end
+	if self.cured or not g_diseaseManager.diseasesEnabled then return value end
 
 	if self.isCarrier and self.type.carrier ~= nil and self.type.carrier.output ~= nil then return value * (self.type.carrier.output[type] or 1) end
 

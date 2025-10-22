@@ -19,7 +19,7 @@ function Dewar.new(isServer, isClient)
 	self.position = nil
 	self.rotation = nil
 	self.sharedRequestId = nil
-	self.mass = nil
+	self.mass = 0.1
 	self.isAddedToItemSystem = false
 	self.straws = 0
 
@@ -46,11 +46,15 @@ end
 
 function Dewar:register(position, rotation, animal, quantity)
 
+	--if self.isServer then Dewar:superClass().register(self, true) end
+
+	print(self.uniqueId .. " = " .. self.id)
+
 	self.position = self.position or position
 	self.rotation = self.rotation or rotation
 	self.mass = 0.1
 
-	self:createNode(modDirectory .. "objects/dewar/dewar.i3d")
+	if self.nodeId == nil or self.nodeId == 0 then self:createNode(modDirectory .. "objects/dewar/dewar.i3d") end
 
 	local x, y, z = unpack(self.position)
 	local rx, ry, rz = unpack(self.rotation)
@@ -78,6 +82,12 @@ function Dewar:register(position, rotation, animal, quantity)
 
 	self:updateStrawVisuals()
 	self:updateAnimalVisuals()
+
+	--if g_server ~= nil then
+		--g_server:addObject(self, string.format("dewar_%s", self.uniqueId))
+	--elseif g_client ~= nil then
+		--g_client:addObject(self, string.format("dewar_%s", self.uniqueId))
+	--end
 
 end
 
@@ -151,6 +161,99 @@ function Dewar:loadFromXMLFile(xmlFile, key)
 	self.isAddedToItemSystem = true
 
 	return true
+
+end
+
+
+function Dewar:readStream(streamId, connection)
+
+	self.uniqueId = streamReadString(streamId)
+
+	self.position = {
+		streamReadFloat32(streamId),
+		streamReadFloat32(streamId),
+		streamReadFloat32(streamId)
+	}
+
+	self.rotation = {
+		streamReadFloat32(streamId),
+		streamReadFloat32(streamId),
+		streamReadFloat32(streamId)
+	}
+
+	self:setOwnerFarmId(streamReadUInt8(streamId))
+	self.straws = streamReadUInt16(streamId)
+
+	local hasAnimal = streamReadBool(streamId)
+	local animal
+	
+	if hasAnimal then
+
+		animal = { ["genetics"] = {} }
+
+		animal.country = streamReadUInt8(streamId)
+		animal.farmId = streamReadString(streamId)
+		animal.uniqueId = streamReadString(streamId)
+		animal.name = streamReadString(streamId)
+		animal.typeIndex = streamReadUInt8(streamId)
+		animal.subTypeIndex = streamReadUInt8(streamId)
+		animal.success = streamReadFloat32(streamId)
+
+		animal.genetics.metabolism = streamReadFloat32(streamId)
+		animal.genetics.fertility = streamReadFloat32(streamId)
+		animal.genetics.health = streamReadFloat32(streamId)
+		animal.genetics.quality = streamReadFloat32(streamId)
+		animal.genetics.productivity = streamReadFloat32(streamId)
+
+		if animal.genetics.productivity < 0 then animal.genetics.productivity = nil end
+
+	end
+
+	self.animal = animal
+
+	Dewar:superClass().readStream(self, streamId, connection)
+
+end
+
+
+function Dewar:writeStream(streamId, connection)
+
+	streamWriteString(streamId, self.uniqueId)
+	
+	streamWriteFloat32(streamId, self.position[1])
+	streamWriteFloat32(streamId, self.position[2])
+	streamWriteFloat32(streamId, self.position[3])
+	
+	streamWriteFloat32(streamId, self.rotation[1])
+	streamWriteFloat32(streamId, self.rotation[2])
+	streamWriteFloat32(streamId, self.rotation[3])
+
+	streamWriteUInt8(streamId, self:getOwnerFarmId())
+	streamWriteUInt16(streamId, self.straws)
+
+	streamWriteBool(streamId, self.animal ~= nil)
+
+	if self.animal ~= nil then
+
+		local animal = self.animal
+
+		streamWriteUInt8(streamId, animal.country)
+		streamWriteString(streamId, animal.farmId)
+		streamWriteString(streamId, animal.uniqueId)
+		streamWriteString(streamId, animal.name or "")
+		streamWriteUInt8(streamId, animal.typeIndex)
+		streamWriteUInt8(streamId, animal.subTypeIndex)
+		streamWriteFloat32(streamId, animal.success)
+
+		streamWriteFloat32(streamId, animal.genetics.metabolism)
+		streamWriteFloat32(streamId, animal.genetics.fertility)
+		streamWriteFloat32(streamId, animal.genetics.health)
+		streamWriteFloat32(streamId, animal.genetics.quality)
+		streamWriteFloat32(streamId, animal.genetics.productivity or -1)
+
+	end
+
+	Dewar:superClass().writeStream(self, streamId, connection)
 
 end
 
