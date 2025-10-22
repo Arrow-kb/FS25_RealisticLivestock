@@ -49,7 +49,6 @@
 	</GuiElement>
 
 	<GuiElement id="herdsmanContainer" profile="fs25_menuContainer" visible="false">
-
 		<GuiElement profile="fs25_menuHeaderPanel" position="63px 74px">
 			<Bitmap profile="fs25_menuHeaderIconBg">
 				<Bitmap profile="fs25_menuHeaderIcon" imageSliceId="gui.icon_ingameMenu_animals"/>
@@ -81,14 +80,15 @@
 			<Button profile="fs25_subCategorySelectorTabbedTab" text="$l10n_rl_ui_artificialInsemination" onClick="onClickHerdsmanPageAI">
 				<ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" id="herdsmanPageAIButtonBg" name="background"/>
 			</Button>
+			<Button profile="fs25_subCategorySelectorTabbedTab" text="$l10n_rl_ui_stableboy" onClick="onClickHerdsmanPageStableboy">
+				<ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" id="herdsmanPageStableboyButtonBg" name="background"/>
+			</Button>
 		</BoxLayout>
 
 		<ThreePartBitmap profile="fs25_lineSeparatorTopHighlighted" absoluteSizeOffset="60px 0px" position="0px -77px"/>
 
 		<GuiElement id="herdsmanPageBuy" visible="false">
-
 			<ScrollingLayout profile="rl_scrollingLayout" id="herdsmanPageBuyScrollingLayout">
-
 				<BinaryOption profile="rl_aiBinaryOption" name="enabled" position="-12px -110px" onClick="onClickEnableHerdsman">
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</BinaryOption>
@@ -106,7 +106,7 @@
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</TextInput>
 
-				<MultiTextOption profile="rl_aiMultiOption" name="budget|percentage" position="-24px -110px"  visible="false">
+				<MultiTextOption profile="rl_aiMultiOption" name="budget|percentage" position="-24px -110px" visible="false">
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</MultiTextOption>
 
@@ -161,19 +161,15 @@
 				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="metabolism" position="-12px -610px">
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</DoubleOptionSlider>
-
 			</ScrollingLayout>
 
 			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
 				<Slider profile="fs25_listSlider" dataElementId="herdsmanPageBuyScrollingLayout"/>
 			</ThreePartBitmap>
-
 		</GuiElement>
 
 		<GuiElement id="herdsmanPageSell" visible="false">
-
 			<ScrollingLayout profile="rl_scrollingLayout" id="herdsmanPageSellScrollingLayout">
-
 				<BinaryOption profile="rl_aiBinaryOption" name="enabled" position="-12px -110px" onClick="onClickEnableHerdsman">
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</BinaryOption>
@@ -234,13 +230,10 @@
 			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
 				<Slider profile="fs25_listSlider" dataElementId="herdsmanPageSellScrollingLayout"/>
 			</ThreePartBitmap>
-
 		</GuiElement>
 
 		<GuiElement id="herdsmanPageCastrate" visible="false">
-
 			<ScrollingLayout profile="rl_scrollingLayout" id="herdsmanPageCastrateScrollingLayout">
-
 				<BinaryOption profile="rl_aiBinaryOption" name="enabled" position="-12px -110px" onClick="onClickEnableHerdsman">
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</BinaryOption>
@@ -282,19 +275,15 @@
 				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="metabolism" position="-12px -610px">
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</DoubleOptionSlider>
-
 			</ScrollingLayout>
 
 			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
 				<Slider profile="fs25_listSlider" dataElementId="herdsmanPageCastrateScrollingLayout"/>
 			</ThreePartBitmap>
-
 		</GuiElement>
 
 		<GuiElement id="herdsmanPageNaming" visible="false">
-
 			<ScrollingLayout profile="rl_scrollingLayout" id="herdsmanPageNamingScrollingLayout">
-
 				<BinaryOption profile="rl_aiBinaryOption" name="enabled" position="-12px -110px" onClick="onClickEnableHerdsman">
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</BinaryOption>
@@ -308,13 +297,10 @@
 			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
 				<Slider profile="fs25_listSlider" dataElementId="herdsmanPageNamingScrollingLayout"/>
 			</ThreePartBitmap>
-
 		</GuiElement>
 
 		<GuiElement id="herdsmanPageAI" visible="false">
-
 			<ScrollingLayout profile="rl_scrollingLayout" id="herdsmanPageAIScrollingLayout">
-
 				<BinaryOption profile="rl_aiBinaryOption" name="enabled" position="-12px -110px" onClick="onClickEnableHerdsman">
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</BinaryOption>
@@ -335,7 +321,7 @@
 				<BinaryOption profile="rl_aiBinaryOption" name="diseasesSecondary" position="-12px -110px">
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</BinaryOption>
-				
+
 				<MultiTextOption profile="rl_aiMultiOption" name="semen" position="-24px -110px">
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</MultiTextOption>
@@ -369,19 +355,37 @@
 				<DoubleOptionSlider profile="rl_aiDoubleSlider" name="metabolism" position="-12px -610px">
 					<Text profile="rl_aiTooltip" name="tooltip"/>
 				</DoubleOptionSlider>
-
 			</ScrollingLayout>
 
 			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
 				<Slider profile="fs25_listSlider" dataElementId="herdsmanPageAIScrollingLayout"/>
 			</ThreePartBitmap>
-
 		</GuiElement>
-		
+
+		<GuiElement id="herdsmanPageStableboy" visible="false">
+			<ScrollingLayout profile="rl_scrollingLayout" id="herdsmanPageStableboyScrollingLayout">
+				<Text profile="rl_animalFilterListItemName" name="ignore" text="$l10n_rl_ui_stableBoyIntro" position="-12px -110px"/>
+
+				<BinaryOption profile="rl_aiBinaryOption" name="enabled" position="-12px -110px" onClick="onClickEnableHerdsman">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<BinaryOption profile="rl_aiBinaryOption" name="ride" position="-12px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+
+				<BinaryOption profile="rl_aiBinaryOption" name="brush" position="-12px -110px">
+					<Text profile="rl_aiTooltip" name="tooltip"/>
+				</BinaryOption>
+			</ScrollingLayout>
+
+			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
+				<Slider profile="fs25_listSlider" dataElementId="herdsmanPageStableboyScrollingLayout"/>
+			</ThreePartBitmap>
+		</GuiElement>
 	</GuiElement>
 
 	<GuiElement id="aiContainer" profile="fs25_menuContainer" visible="false">
-
 		<GuiElement profile="fs25_menuHeaderPanel" position="63px 74px">
 			<Bitmap profile="fs25_menuHeaderIconBg">
 				<Bitmap profile="fs25_menuHeaderIcon" imageSliceId="gui.icon_ingameMenu_animals"/>
@@ -468,11 +472,11 @@
 			<ThreePartBitmap profile="fs25_listSliderBox" position="46px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
 				<Slider profile="fs25_listSlider" dataElementId="aiInfoSlider"/>
 			</ThreePartBitmap>
-			
+
 		</GuiElement>
-		
+
 	</GuiElement>
-	
+
 	<ThreePartBitmap profile="fs25_primaryMenuContainerBg" id="sourceBoxBg" position="125px 0px">
 		<Bitmap profile="fs25_menuContainerArrow" id="sourceBoxArrow"/>
 		<GuiElement profile="fs25_subCategoryContainer">
@@ -533,7 +537,7 @@
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabAI">
-			<Button profile="rl_animalTabListItemButtonMessages" onClick="onClickAIMode" iconSliceId="gui.icon_ingameMenu_animals" id="tabLogButton"/>
+			<Button profile="rl_animalTabListItemButtonMessages" onClick="onClickAIMode" iconSliceId="gui.icon_ingameMenu_animals" id="tabAIButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
@@ -551,7 +555,8 @@
 	<GuiElement profile="fs25_menuContentContainer" id="mainContentContainer">
 		<GuiElement profile="fs25_menuHeaderPanel" position="63px 74px">
 			<Bitmap profile="fs25_menuHeaderIconBg">
-				<Bitmap profile="fs25_menuHeaderIcon" imageSliceId="gui.icon_ingameMenu_animals"/></Bitmap>
+				<Bitmap profile="fs25_menuHeaderIcon" imageSliceId="gui.icon_ingameMenu_animals"/>
+			</Bitmap>
 			<Text profile="fs25_menuHeaderTitle" text="$l10n_ui_ingameMenuAnimals"/>
 			<RoundCorner profile="fs25_shopMoneyBoxBg" id="shopMoneyBoxBg"/>
 			<BoxLayout profile="fs25_shopMoneyBox" id="shopMoneyBox">
@@ -579,7 +584,8 @@
 							<Text profile="fs25_animalRequirementsValue" id="conditionValue[1]"/>
 						</GuiElement>
 						<ThreePartBitmap profile="fs25_animalSmallStatusBarBackground">
-							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="conditionStatusBar[1]"/></ThreePartBitmap>
+							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="conditionStatusBar[1]"/>
+						</ThreePartBitmap>
 					</GuiElement>
 					<GuiElement profile="fs25_animalRequirementsRow" id="conditionRow[2]">
 						<GuiElement profile="fs25_animalRequirementsRowTextPanel">
@@ -587,7 +593,8 @@
 							<Text profile="fs25_animalRequirementsValue" id="conditionValue[2]"/>
 						</GuiElement>
 						<ThreePartBitmap profile="fs25_animalSmallStatusBarBackground">
-							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="conditionStatusBar[2]"/></ThreePartBitmap>
+							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="conditionStatusBar[2]"/>
+						</ThreePartBitmap>
 					</GuiElement>
 					<GuiElement profile="fs25_animalRequirementsRow" id="conditionRow[3]">
 						<GuiElement profile="fs25_animalRequirementsRowTextPanel">
@@ -595,7 +602,8 @@
 							<Text profile="fs25_animalRequirementsValue" id="conditionValue[3]"/>
 						</GuiElement>
 						<ThreePartBitmap profile="fs25_animalSmallStatusBarBackground">
-							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="conditionStatusBar[3]"/></ThreePartBitmap>
+							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="conditionStatusBar[3]"/>
+						</ThreePartBitmap>
 					</GuiElement>
 					<GuiElement profile="fs25_animalRequirementsRow" id="conditionRow[4]">
 						<GuiElement profile="fs25_animalRequirementsRowTextPanel">
@@ -603,7 +611,8 @@
 							<Text profile="fs25_animalRequirementsValue" id="conditionValue[4]"/>
 						</GuiElement>
 						<ThreePartBitmap profile="fs25_animalSmallStatusBarBackground">
-							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="conditionStatusBar[4]"/></ThreePartBitmap>
+							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="conditionStatusBar[4]"/>
+						</ThreePartBitmap>
 					</GuiElement>
 					<Text profile="fs25_animalRequirementsHeader" id="conditionsHeader" text="$l10n_ui_animalFood"/>
 					<GuiElement profile="fs25_animalRequirementsRow" id="foodRowTotal">
@@ -612,7 +621,8 @@
 							<Text profile="fs25_animalRequirementsValue" id="foodRowTotalValue"/>
 						</GuiElement>
 						<ThreePartBitmap profile="fs25_animalSmallStatusBarBackground">
-							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="foodRowTotalStatusBar"/></ThreePartBitmap>
+							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="foodRowTotalStatusBar"/>
+						</ThreePartBitmap>
 					</GuiElement>
 					<GuiElement profile="fs25_animalRequirementsRow" id="foodRow[1]">
 						<GuiElement profile="fs25_animalRequirementsRowTextPanel">
@@ -620,7 +630,8 @@
 							<Text profile="fs25_animalRequirementsValue" id="foodValue[1]"/>
 						</GuiElement>
 						<ThreePartBitmap profile="fs25_animalSmallStatusBarBackground">
-							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="foodStatusBar[1]"/></ThreePartBitmap>
+							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="foodStatusBar[1]"/>
+						</ThreePartBitmap>
 					</GuiElement>
 					<GuiElement profile="fs25_animalRequirementsRow" id="foodRow[2]">
 						<GuiElement profile="fs25_animalRequirementsRowTextPanel">
@@ -628,7 +639,8 @@
 							<Text profile="fs25_animalRequirementsValue" id="foodValue[2]"/>
 						</GuiElement>
 						<ThreePartBitmap profile="fs25_animalSmallStatusBarBackground">
-							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="foodStatusBar[2]"/></ThreePartBitmap>
+							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="foodStatusBar[2]"/>
+						</ThreePartBitmap>
 					</GuiElement>
 					<GuiElement profile="fs25_animalRequirementsRow" id="foodRow[3]">
 						<GuiElement profile="fs25_animalRequirementsRowTextPanel">
@@ -636,7 +648,8 @@
 							<Text profile="fs25_animalRequirementsValue" id="foodValue[3]"/>
 						</GuiElement>
 						<ThreePartBitmap profile="fs25_animalSmallStatusBarBackground">
-							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="foodStatusBar[3]"/></ThreePartBitmap>
+							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="foodStatusBar[3]"/>
+						</ThreePartBitmap>
 					</GuiElement>
 					<GuiElement profile="fs25_animalRequirementsRow" id="foodRow[4]">
 						<GuiElement profile="fs25_animalRequirementsRowTextPanel">
@@ -644,7 +657,8 @@
 							<Text profile="fs25_animalRequirementsValue" id="foodValue[4]"/>
 						</GuiElement>
 						<ThreePartBitmap profile="fs25_animalSmallStatusBarBackground">
-							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="foodStatusBar[4]"/></ThreePartBitmap>
+							<ThreePartBitmap profile="fs25_animalSmallStatusBar" id="foodStatusBar[4]"/>
+						</ThreePartBitmap>
 					</GuiElement>
 				</BoxLayout>
 			</GuiElement>
@@ -667,11 +681,8 @@
 		</GuiElement>
 
 		<GuiElement profile="fs25_animalDetailsContainer" id="detailsContainer">
-
 			<ScrollingLayout profile="rl_animalScreenScrollingLayout" id="scrollingLayout" onScroll="onScrollLayoutScroll">
-
 				<GuiElement profile="rl_animalScreenScrollingLayoutBox" id="scrollingLayoutBox">
-				
 					<Bitmap profile="fs25_animalIconGradient"/>
 					<Bitmap profile="rl_animalScreenAnimalIcon" id="infoIcon"/>
 					<Text profile="fs25_animalIconTitle" text="Holstein" id="infoName"/>
@@ -719,7 +730,6 @@
 					</GuiElement>
 
 					<!--
-			
 					<GuiElement profile="fs25_animalParentTabListBox" id="parentBox">
 						<Bitmap profile="fs25_animalMoneyBg" position="0px 154px" onClick="onClickAnimalInfo"/>
 						<Text profile="fs25_animalMoneyTitle" position="10px 160px" text="$l10n_rl_ui_mother"/>
@@ -727,7 +737,6 @@
 						<Text profile="fs25_animalMoneyTitle" position="10px 120px" text="$l10n_rl_ui_father"/>
 						<Text profile="fs25_animalMoneyValue" id="parentBoxFather" position="-10px 130px" text="id"/>
 					</GuiElement>
-			
 					<-->
 
 					<GuiElement profile="rl_geneticsBox" id="geneticsBox">
@@ -793,19 +802,13 @@
 					</GuiElement>
 
 					<Bitmap profile="rl_infoPrompt" visible="false" position="0px 0px" id="infoPrompt">
-						
 					</Bitmap>
-
 				</GuiElement>
-
 			</ScrollingLayout>
-
 
 			<ThreePartBitmap profile="fs25_listSliderBox" position="46px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
 				<Slider profile="fs25_listSlider" dataElementId="scrollingLayout" id="configSlider"/>
 			</ThreePartBitmap>
-		
-			
 		</GuiElement>
 	</GuiElement>
 	<MultiTextOption profile="fs25_multiTextOption" id="pageSelector" visible="false" handleFocus="false" position="-10 -10"/>
@@ -957,26 +960,26 @@
 			<imageRotation value="0"/>
 			<position value="-35px 0px"/>
 		</Profile>
-		
+
 		<Profile name="rl_husbandryListPageLast" extends="buttonBase" with="anchorMiddleRight">
 			<size value="32px 32px"/>
 			<imageSliceId value="realistic_livestock.page_last"/>
 			<position value="0px 0px"/>
 			<imageDisabledColor value="$preset_fs25_colorGreyMTODisabled"/>
 		</Profile>
-		
+
 		<Profile name="rl_herdsmanSaveButton" extends="buttonBase" with="anchorMiddleCenter">
 			<size value="32px 32px"/>
 			<imageSliceId value="realistic_livestock.upload"/>
 			<imageDisabledColor value="$preset_fs25_colorGreyMTODisabled"/>
 		</Profile>
-		
+
 		<Profile name="rl_herdsmanLoadButton" extends="rl_herdsmanSaveButton">
 			<imageSliceId value="realistic_livestock.download"/>
 		</Profile>
 
 		<Profile name="rl_husbandryListPageFirst" extends="rl_husbandryListPageLast" with="anchorMiddleLeft">
-			<imageRotation  value="180"/>
+			<imageRotation value="180"/>
 		</Profile>
 
 		<Profile name="rl_husbandryListPageText" extends="fs25_textDefault" with="anchorMiddleCenter">
@@ -1004,11 +1007,11 @@
 		<Profile name="rl_aiBinaryOption" extends="fs25_settingsBinaryOption" with="anchorTopCenter"/>
 
 		<Profile name="rl_aiDoubleSlider" extends="rl_animalFilterListItemSlider" with="anchorTopCenter"/>
-		
+
 		<Profile name="rl_aiTripleOption" extends="rl_animalFilterListItemBinaryOption" with="anchorTopCenter"/>
-		
+
 		<Profile name="rl_aiTextInput" extends="fs25_settingsTextInput" with="anchorTopCenter"/>
-		
+
 		<Profile name="rl_aiMultiOption" extends="fs25_settingsMultiTextOption" with="anchorTopCenter"/>
 
 		<Profile name="rl_aiTooltip" extends="fs25_multiTextOptionTooltip" with="anchorMiddleRight">
@@ -1023,7 +1026,7 @@
 		</Profile>
 
 		<Profile name="rl_animalListItem" extends="fs25_subCategoryListItem">
-			
+
 		</Profile>
 
 		<Profile name="rl_aiSuccessValue" extends="fs25_animalMoneyValue" with="anchorMiddleCenter">

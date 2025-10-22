@@ -203,5 +203,10 @@ RLMessage = {
 		["text"] = "aiManager_mark_ai_multiple",
 		["title"] = "aiManager",
 		["importance"] = 3
+	},
+	["AI_MANAGER_STABLEBOY"] = {
+		["text"] = "aiManager_stableboy",
+		["title"] = "aiManager",
+		["importance"] = 3
 	}
 }

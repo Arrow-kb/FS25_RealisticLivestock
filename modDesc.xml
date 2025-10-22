@@ -1,6 +1,6 @@
-<modDesc descVersion="99">
+<modDesc descVersion="103">
     <author>Arrow</author>
-    <version>1.2.0.4</version>
+    <version>1.3.0.0</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -82,6 +82,9 @@ Enhanced Animal Dealer
 - Animals at the dealer have a chance to be pregnant and will all have unique genetic qualities which will impact their price and usefulness
 
 Changelog:
+
+1.3.0.0
+- Added herdsman functionality to take care of your horses
 
 1.2.0.4
 - Added setting for using custom animal models - view github for instructions
@@ -316,6 +319,7 @@ Marchand d'animaux amélioré
         <sourceFile filename="src/animals/shop/events/AIAnimalBuyEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AIAnimalInseminationEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AIAnimalSellEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AIAnimalStableboyEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalBuyEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalMoveEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalSellEvent.lua"/>
