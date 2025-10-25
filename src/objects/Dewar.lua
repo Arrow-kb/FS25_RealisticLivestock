@@ -48,8 +48,6 @@ function Dewar:register(position, rotation, animal, quantity)
 
 	--if self.isServer then Dewar:superClass().register(self, true) end
 
-	print(self.uniqueId .. " = " .. self.id)
-
 	self.position = self.position or position
 	self.rotation = self.rotation or rotation
 	self.mass = 0.1
