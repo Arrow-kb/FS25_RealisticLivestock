@@ -1,6 +1,6 @@
 <modDesc descVersion="103">
     <author>Arrow</author>
-    <version>1.2.0.5</version>
+    <version>1.2.1.0</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -14,6 +14,18 @@
 https://github.com/Arrow-kb/FS25_RealisticLivestock
 
 Features:
+
+Artificial Insemination & Dewars
+
+- Buy dewars filled with varying amounts of inseminant from pedigree males around the world
+- New object and handtool
+- Manually inseminate females or do it in the menu
+- Offspring will be very good, but insemination has a risk of failure
+
+Herdsman
+
+- Automatically buy, sell, name, castrate and inseminate animals with a wide range of options and filters
+- Pay the herdsman a monthly wage based on his services
 
 Male Animals
 
@@ -83,70 +95,33 @@ Enhanced Animal Dealer
 
 Changelog:
 
-1.2.0.5
-- Multiplayer support for 1.1.0.0 features onwards (dewars cant be picked up in MP for some reason)
-- Fixed animals dying from diseases when deaths are disabled
-- Reduced herd transmission rates of diseases
-- Added settings options:
-- Enable/disable diseases
-- Change disease chances
+1.2.1.0
 
-1.2.0.4
-- Added setting for using custom animal models - view github for instructions
-
-1.2.0.3
-- Fixed females getting pregnant even when all males are castrated
-
-1.2.0.2
-- Fixed MP errors (it is still not recommended to use this on MP as there will be sync issues from new 1.2.0.0 features)
-- Fixed insemination straw errors
-
-1.2.0.1
-- Fixed dewars not being purchasable
+- Font Library integration
 
 1.2.0.0
-- Added diseases (STILL IN DEVELOPMENT!!!)
-- Added artificial insemination
-- Added message tab
-- Added herdsman tab for automatic animal management
-- Added ability to mark animals (visually: temporarily only for cattle)
-- Added github specific translations
+
+- Multiplayer support
+- Added detailed artificial insemination system with new object and handtool
+- Added animal diseases with in-herd transmission, affects on output, and removal chance for severe diseases
+- Added messages tab
+- Added herdsman tab for automatic animal management (buying, selling, castrating, naming, insemination)
+- Added ability to mark animals
+- Added ability to castrate male animals
+- Added straw and manure to chickens and sheep
+- Added setting for using custom animal models such as Vanilla Animal Package - view github for instructions
+- Added genetics information to buy/sell pages
+- Added more variation in genetics for dealer animals
+- Added settings options:
+--- Enable/disable diseases
+--- Change disease chances
 - Fixed time, animal age and crops not progressing after buying an animal from the main dealer
 - Fixed husbandries cant be found in the main dealer
 - Fixed "Max Dealer Animals" setting
-- Fixed blank filter window
-- Fixed double sliders getting stuck together when at an equal value
-
-1.1.0.3
-- Added ability to castrate male animals
-- Added straw and manure to chickens and sheep
-- Added genetics information to buy/sell pages
-- Fixed animals cant be loaded into trailers
-- Fixed animals cant be sold from trailers
-- Fixed error: RealisticLivestock_AnimalSystem.lua:609: attempt to concatenate nil with string
-- Fixed error: RealisticLivestock_AnimalClusterHusbandry.lua:157: attempt to index nil with 'colours' (temporary workaround)
-- Fixed error: RealisticLivestock_AnimalSystem.lua:769: attempt to index nil with 'subTypes' (temporary workaround)
-- Fixed inconsistent filter behaviour
-- Fixed animals having negative value
+- Fixed settings being reverted
 - Fixed horses not loading properly when not in a pen
-- Fixed save rarely not loading after 89%
-
-1.1.0.2
-- Fixed dealer reset button on SP
-- Fixed animals cant be sold on SP
-- Fixed animals cant be loaded into/out of trailers
-
-1.1.0.1
-- Fixed settings not loading
-
-1.1.0.0
-- Added multiplayer support
-- More variation in genetics for dealer animals
-- Fixed RealisticLivestock_AnimalScreen.lua:1007: attempt to index nil with ['originalIndex'
-
-1.0.2.0
-- Gave Herefords a white head
-- Fixed settings being reverted]]>
+- Fixed inconsistent filter behaviour
+- Many more fixes ]]>
 </en>
 <de>
     <![CDATA[ Dies ist eine komplette Überarbeitung des Tiersystems.
@@ -155,6 +130,18 @@ Changelog:
 https://github.com/Arrow-kb/FS25_RealisticLivestock
 
 Merkmale:
+
+Künstliche Befruchtung & Dewars
+
+- Kaufe Dewars, die mit unterschiedlichen Mengen an Sperma von reinrassigen Männchen aus aller Welt gefüllt sind.
+- Neues Objekt und Handwerkzeug.
+- Befruchte Weibchen manuell oder über das Menü.
+- Die Nachkommen werden sehr gut sein, aber die Befruchtung birgt ein Risiko des Scheiterns.
+
+Hirte
+
+- Kaufen, verkaufen, benennen, kastrieren und besamen Sie Tiere automatisch mit einer Vielzahl von Optionen und Filtern.
+- Bezahlen Sie dem Hirten einen monatlichen Lohn für seine Dienste.
 
 Männliche Tiere
 
@@ -220,7 +207,33 @@ Verbesserter Tierhändler
 - Jedes Tier ist einzigartig und keine Vorlage mehr, sondern wird auf der Grundlage der Qualität der Farm, von der es stammt, erzeugt.
 - Jedes Tier, das zum Händler geschickt wird, verschwindet irgendwann und kann nicht mehr gekauft werden, sondern wird durch neue Tiere ersetzt.
 - Die meisten Tiere stammen aus deinem Land, aber einige werden aus dem Ausland importiert.
-- Die Tiere beim Händler haben die Chance, trächtig zu werden, und weisen alle einzigartige genetische Eigenschaften auf, die sich auf ihren Preis und ihren Nutzen auswirken werden.]]>
+- Die Tiere beim Händler haben die Chance, trächtig zu werden, und weisen alle einzigartige genetische Eigenschaften auf, die sich auf ihren Preis und ihren Nutzen auswirken werden.
+
+Änderungsprotokoll:
+
+1.2.0.0
+
+- Multiplayer-Unterstützung
+- Detailliertes System zur künstlichen Befruchtung mit neuem Objekt und Handwerkzeug hinzugefügt
+- Tierkrankheiten mit Übertragung innerhalb der Herde, Auswirkungen auf die Produktion und Entfernungschance für schwere Krankheiten hinzugefügt
+- Registerkarte „Meldungen” hinzugefügt
+- Registerkarte „Hirte” für automatische Tierverwaltung (Kauf, Verkauf, Kastration, Benennung, Befruchtung) hinzugefügt
+- Möglichkeit zum Markieren von Tieren hinzugefügt
+- Möglichkeit zum Kastrieren männlicher Tiere hinzugefügt
+- Stroh und Mist für Hühner und Schafe hinzugefügt
+- Einstellung für die Verwendung benutzerdefinierter Tiermodelle wie Vanilla Animal Package hinzugefügt – Anweisungen siehe GitHub
+- Genetische Informationen zu Kauf-/Verkaufsseiten hinzugefügt
+- Mehr Variation in der Genetik für Tiere von Händlern hinzugefügt
+- Einstellungsoptionen hinzugefügt:
+--- Krankheiten aktivieren/deaktivieren
+--- Krankheitswahrscheinlichkeit ändern
+- Zeit, Tieralter und Erntefortschritt werden nach dem Kauf eines Tieres beim Haupthändler nun korrekt angezeigt
+- Tiere können nun beim Haupthändler gefunden werden
+- Einstellung „Maximale Anzahl Tiere beim Händler” korrigiert
+- Zurücksetzen der Einstellungen korrigiert
+- Pferde werden nun korrekt geladen, wenn sie sich nicht in einem Pferch befinden
+- Inkonsistentes Filterverhalten korrigiert
+- Viele weitere Korrekturen]]>
 </de>
 <fr>
     <![CDATA[ Il s'agit d'une révision complète du système animalier.
@@ -229,6 +242,18 @@ Verbesserter Tierhändler
 https://github.com/Arrow-kb/FS25_RealisticLivestock
 
 Caractéristiques :
+
+Insémination artificielle et Dewars
+
+- Achetez des Dewars remplis de différentes quantités de sperme provenant de mâles de race pure du monde entier
+- Nouvel objet et nouvel outil manuel
+- Inséminer manuellement les femelles ou le faire dans le menu
+- La progéniture sera de très bonne qualité, mais l'insémination comporte un risque d'échec
+
+Berger
+
+- Achetez, vendez, nommez, castrez et inséminez automatiquement les animaux grâce à un large éventail d'options et de filtres
+- Versez au berger un salaire mensuel en fonction de ses services
 
 Animaux mâles
 
@@ -294,15 +319,47 @@ Marchand d'animaux amélioré
 - Chaque animal est unique et n'est plus un modèle. Ils sont générés en fonction de la qualité de la ferme d'où ils proviennent.
 - Chaque animal envoyé au marchand d'animaux finira par disparaître et ne pourra plus être acheté, mais sera remplacé par de nouveaux animaux.
 - La plupart des animaux sont originaires de votre pays, mais certains sont importés de l'étranger.
-- Les animaux qui se trouvent chez le négociant ont une chance d'être gestants et ont tous des qualités génétiques uniques qui ont une incidence sur leur prix et leur utilité.]]>
+- Les animaux qui se trouvent chez le négociant ont une chance d'être gestants et ont tous des qualités génétiques uniques qui ont une incidence sur leur prix et leur utilité.
+
+Journal des modifications:
+
+1.2.0.0
+
+- Prise en charge multijoueur
+- Ajout d'un système d'insémination artificielle détaillé avec un nouvel objet et un nouvel outil manuel
+- Ajout de maladies animales transmissibles au sein du troupeau, ayant un impact sur la production et pouvant entraîner l'élimination des animaux atteints de maladies graves
+- Ajout d'un onglet « Messages »
+- Ajout d'un onglet « Berger » pour la gestion automatique des animaux (achat, vente, castration, attribution de noms, insémination)
+- Ajout de la possibilité de marquer les animaux
+- Ajout de la possibilité de castrer les animaux mâles
+- Ajout de la paille et du fumier pour les poulets et les moutons
+- Ajout d'un paramètre pour utiliser des modèles d'animaux personnalisés tels que Vanilla Animal Package - voir github pour les instructions
+- Ajout d'informations génétiques aux pages d'achat/vente
+- Ajout de plus de variations génétiques pour les animaux des marchands
+- Ajout d'options de paramétrage :
+--- Activer/désactiver les maladies
+--- Modifier les chances de maladie
+- Correction du temps, de l'âge des animaux et des cultures qui ne progressaient pas après l'achat d'un animal chez le revendeur principal
+- Correction de l'impossibilité de trouver des élevages chez le revendeur principal
+- Correction du paramètre « Max Dealer Animals »
+- Correction de la réinitialisation des paramètres
+- Correction du chargement incorrect des chevaux lorsqu'ils ne se trouvaient pas dans un enclos
+- Correction du comportement incohérent du filtre
+- Nombreuses autres corrections
+
+]]>
 </fr>
     </description>
     <iconFilename>icon_RealisticLivestock.dds</iconFilename>
     <multiplayer supported="true"/>
+	<dependencies>
+		<dependency>FS25_FontLibrary</dependency>
+	</dependencies>
     <extraSourceFiles>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalCluster.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalClusterHusbandry.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalClusterSystem.lua"/>
+        <sourceFile filename="src/animals/husbandry/cluster/VisualAnimal.lua"/>
         <sourceFile filename="src/animals/husbandry/placeables/PlaceableHusbandry.lua"/>
         <sourceFile filename="src/animals/husbandry/placeables/PlaceableHusbandryLiquidManure.lua"/>
         <sourceFile filename="src/animals/husbandry/placeables/PlaceableHusbandryStraw.lua"/>
