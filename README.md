@@ -2,6 +2,8 @@
 
 [![Github All Releases](https://img.shields.io/github/downloads/Arrow-kb/FS25_RealisticLivestock/total.svg)]()
 
+[Requires FS25_FontLibrary](https://github.com/Arrow-kb/FS25_FontLibrary)
+
 Realistic Livestock mod for FS25.
 
 # Features:
