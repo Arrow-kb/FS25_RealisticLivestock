@@ -1261,37 +1261,6 @@ function AnimalScreen:onClickMark()
         animal:setMarked(nil, false)
     end
 
-    local visualData = g_currentMission.animalSystem:getVisualByAge(animal.subTypeIndex, animal.age)
-
-    if visualData.marker ~= nil and animal.idFull ~= nil and animal.idFull ~= "1-1" then
-
-        local sep = string.find(animal.idFull, "-")
-        local husbandry = tonumber(string.sub(animal.idFull, 1, sep - 1))
-        local animalId = tonumber(string.sub(animal.idFull, sep + 1))
-
-        if husbandry ~= 0 and animalId ~= 0 then
-
-            local rootNode = getAnimalRootNode(husbandry, animalId)
-
-            if rootNode ~= 0 then
-
-                local markerNode = I3DUtil.indexToObject(rootNode, visualData.marker)
-
-                if markerNode ~= nil and markerNode ~= 0 then
-
-                    local markerColour = AnimalSystem.BREED_TO_MARKER_COLOUR[animal.breed]
-
-                    setVisibility(markerNode, isMarked)
-                    if isMarked then setShaderParameter(markerNode, "colorScale", markerColour[1], markerColour[2], markerColour[3], nil, false) end
-
-                end
-
-            end
-
-        end
-
-    end
-
     self.sourceList:reloadData()
 
 end
@@ -1339,141 +1308,9 @@ function RealisticLivestock_AnimalScreen:changeName(text, clickOk)
             end
 
             animal.name = text
+            animal:updateVisualRightEarTag()
 
             AnimalNameChangeEvent.sendEvent(animal.clusterSystem.owner, animal, text)
-
-            local visualData = g_currentMission.animalSystem:getVisualByAge(animal.subTypeIndex, animal.age)
-
-            if visualData.earTagRight ~= nil and animal.idFull ~= nil and animal.idFull ~= "1-1" then
-
-                local sep = string.find(animal.idFull, "-")
-                local husbandry = tonumber(string.sub(animal.idFull, 1, sep - 1))
-                local animalId = tonumber(string.sub(animal.idFull, sep + 1))
-
-                if husbandry ~= 0 and animalId ~= 0 then
-
-                    local rootNode = getAnimalRootNode(husbandry, animalId)
-
-                    if rootNode ~= 0 then
-
-                        local earTagNode = I3DUtil.indexToObject(rootNode, visualData.earTagRight)
-                        local numCharacters = RealisticLivestock.NUM_CHARACTERS
-
-                        if earTagNode ~= nil and earTagNode ~= 0 then
-
-                            local numExistingCharacters = getNumOfChildren(earTagNode) - 18
-
-                            local templateNodeFront = getChild(earTagNode, "animalNameFront")
-                            local templateNodeBack = getChild(earTagNode, "animalNameBack")
-
-                            setTranslation(templateNodeFront, 0, 0.028, 0)
-                            setTranslation(templateNodeBack, 0, 0.028, 0)
-                            setScale(templateNodeFront, 1, 1, 1)
-                            setScale(templateNodeBack, 1, 1, 1)
-
-                            for i = 1, numExistingCharacters / 2 do
-
-                                local fnode = getChild(earTagNode, "animalNameFront_" .. i)
-                                local bnode = getChild(earTagNode, "animalNameBack_" .. i)
-
-                                delete(fnode)
-                                delete(bnode)
-
-                            end
-
-
-                            if text == nil then
-
-                                setVisibility(templateNodeFront, false)
-                                setVisibility(templateNodeBack, false)
-
-                            else
-
-                                local animalNameLength = string.len(text)
-
-                                local fnx, fny, fnz = getTranslation(templateNodeFront)
-                                local bnx, bny, bnz = getTranslation(templateNodeBack)
-
-                                local sx, sy, sz
-
-                                local words = string.split(text, " ")
-                                local currentWord = 1
-
-                                if #words == 1 then
-                                    fny = fny - 0.012
-                                    bny = bny - 0.012
-                                end
-
-                                local nodeNameCharacterIndex = 1
-
-                                for wordIndex = 1, #words do
-
-                                    local word = words[wordIndex]
-                                    local characterOffset = 0.054 / #word
-                                    local characterScale = 0
-
-                                    if #word > 6 then
-
-                                        sx, sy, sz = getScale(templateNodeFront)
-                                        characterScale = math.min((#word - 6) * 0.02, 0.2)
-
-                                    end
-
-                                    for earTagIndex = 1, #word do
-
-                                        local character = string.sub(word, earTagIndex, earTagIndex)
-                                        local characterIndex = RealisticLivestock.ALPHABET[character:upper()]
-
-                                        if wordIndex == 1 and earTagIndex == 1 then
-
-                                            setTranslation(templateNodeFront, fnx, fny, fnz - characterScale * 0.05 + characterOffset)
-                                            setTranslation(templateNodeBack, bnx, bny, bnz + characterScale * 0.05 - characterOffset)
-                                            setShaderParameter(templateNodeFront, "playScale", characterIndex, 0, numCharacters, 1, false)
-                                            setShaderParameter(templateNodeBack, "playScale", characterIndex, 0, numCharacters, 1, false)
-
-                                            if characterScale > 0 then setScale(templateNodeFront, sx, sy - characterScale, sz - characterScale) end
-                                            if characterScale > 0 then setScale(templateNodeBack, sx, sy - characterScale, sz - characterScale) end
-
-                                        else
-
-                                            local fnode = clone(templateNodeFront, true, false, false)
-                                            local bnode = clone(templateNodeBack, true, false, false)
-
-                                            setName(fnode, "animalNameFront_" .. nodeNameCharacterIndex)
-                                            setName(bnode, "animalNameBack_" .. nodeNameCharacterIndex)
-
-                                            nodeNameCharacterIndex = nodeNameCharacterIndex + 1
-
-                                            if earTagIndex == 1 then
-                                                templateNodeFront = fnode
-                                                templateNodeBack = bnode
-                                            end
-
-                                            setTranslation(fnode, fnx, fny - (wordIndex > 1 and (characterScale * 0.05) or 0) - (wordIndex - 1) * 0.032, fnz + characterScale * 0.1 + characterOffset + (earTagIndex - 1) * 0.024)
-                                            setTranslation(bnode, bnx, bny - (wordIndex > 1 and (characterScale * 0.05) or 0) - (wordIndex - 1) * 0.032, bnz - characterScale * 0.1 - characterOffset - (earTagIndex - 1) * 0.024)
-
-                                            if characterScale > 0 then setScale(fnode, sx, sy - characterScale, sz - characterScale) end
-                                            if characterScale > 0 then setScale(bnode, sx, sy - characterScale, sz - characterScale) end
-
-                                            setShaderParameter(fnode, "playScale", characterIndex, 0, numCharacters, 1, false)
-                                            setShaderParameter(bnode, "playScale", characterIndex, 0, numCharacters, 1, false)
-
-                                        end
-
-                                    end
-
-                                end
-
-                            end
-
-
-                        end
-
-                    end
-
-                end
-
-            end
 
         end
 
@@ -1608,35 +1445,12 @@ function AnimalScreen:onClickMonitor()
 
     monitor.active = not monitor.active
     monitor.removed = not monitor.active
+    animal:updateVisualMonitor()
 
     AnimalMonitorEvent.sendEvent(animal.clusterSystem.owner, animal, monitor.active, monitor.removed)
 
     self.buttonMonitor:setText(g_i18n:getText("rl_ui_" .. (monitor.active and "remove" or "apply") .. "Monitor"))
     self.buttonMonitor:setDisabled(monitor.removed)
-
-    local visualData = g_currentMission.animalSystem:getVisualByAge(animal.subTypeIndex, animal.age)
-
-    if not monitor.removed and visualData.monitor ~= nil and animal.idFull ~= nil and animal.idFull ~= "1-1" then
-
-        local sep = string.find(animal.idFull, "-")
-        local husbandry = tonumber(string.sub(animal.idFull, 1, sep - 1))
-        local animalId = tonumber(string.sub(animal.idFull, sep + 1))
-
-        if husbandry ~= 0 and animalId ~= 0 then
-
-            local rootNode = getAnimalRootNode(husbandry, animalId)
-
-            if rootNode ~= 0 then
-
-                local monitorNode = I3DUtil.indexToObject(rootNode, visualData.monitor)
-
-                if monitorNode ~= nil and monitorNode ~= 0 then setVisibility(monitorNode, monitor.active) end
-
-            end
-
-        end
-
-    end
 
     self:updateInfoBox()
 

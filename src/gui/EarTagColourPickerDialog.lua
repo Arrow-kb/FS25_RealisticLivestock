@@ -32,6 +32,10 @@ function EarTagColourPickerDialog.new(target, customMt)
     local self = MessageDialog.new(target, customMt or earTagColourPickerDialog_mt)
 
     self.animalTypes = g_currentMission.animalSystem:getTypes()
+    self.texts = {
+        ["earTagLeft"] = {},
+        ["earTagRight"] = {}
+    }
 
     return self
 
@@ -296,54 +300,20 @@ function EarTagColourPickerDialog:onClickOk()
     type.colours[self.context] = { baseR, baseG, baseB }
     type.colours[self.context .. "_text"] = { textR, textG, textB }
 
+
+    local leftTag, leftText, rightTag, rightText
+
+    if self.context == "earTagLeft" then leftTag, leftText = { baseR, baseG, baseB }, { textR, textG, textB } end
+    if self.context == "earTagRight" then rightTag, rightText = { baseR, baseG, baseB }, { textR, textG, textB } end
+
+
     for _, placeable in pairs(g_currentMission.husbandrySystem.placeables) do
 
         if placeable:getAnimalTypeIndex() ~= typeIndex then continue end
 
         local animals = placeable:getClusters()
 
-        for _, animal in pairs(animals) do
-
-            if animal.idFull ~= nil and animal.idFull ~= "1-1" then
-
-                local sep = string.find(animal.idFull, "-")
-                local husbandry = tonumber(string.sub(animal.idFull, 1, sep - 1))
-                local animalId = tonumber(string.sub(animal.idFull, sep + 1))
-
-                if husbandry ~= 0 and animalId ~= 0 then
-
-                    local rootNode = getAnimalRootNode(husbandry, animalId)
-
-                    if rootNode ~= 0 then
-
-                        local visualData = g_currentMission.animalSystem:getVisualByAge(animal.subTypeIndex, animal.age)
-
-                        if visualData[self.context] ~= nil then
-
-                            local node = I3DUtil.indexToObject(rootNode, visualData[self.context])
-
-                            if node ~= nil and node ~= 0 then
-
-                                setShaderParameter(node, "colorScale", baseR, baseG, baseB, nil, false)
-
-                                for i = 0, getNumOfChildren(node) - 1 do
-
-                                    local child = getChildAt(node, i)
-                                    setShaderParameter(child, "colorScale", textR, textG, textB, nil, false)
-
-                                end
-
-                            end
-
-                        end
-
-                    end
-
-                end
-
-            end
-
-        end
+        for _, animal in pairs(animals) do animal:setVisualEarTagColours(leftTag, leftText, rightTag, rightText) end
 
     end
 
@@ -356,6 +326,9 @@ function EarTagColourPickerDialog:onClickEarTagLeft()
     self.animalTypePicker:setState(1)
     self:setColourFromType(1)
 
+    for _, node in pairs(self.texts.earTagLeft) do setVisibility(node, true) end
+    for _, node in pairs(self.texts.earTagRight) do setVisibility(node, false) end
+
 end
 
 
@@ -364,6 +337,9 @@ function EarTagColourPickerDialog:onClickEarTagRight()
     self.context = "earTagRight"
     self.animalTypePicker:setState(1)
     self:setColourFromType(1)
+
+    for _, node in pairs(self.texts.earTagLeft) do setVisibility(node, false) end
+    for _, node in pairs(self.texts.earTagRight) do setVisibility(node, true) end
 
 end
 
@@ -382,21 +358,64 @@ function EarTagColourPickerDialog:update(dT)
         local textG = (self.textRgbGreen:getState() - 1) / 255
         local textB = (self.textRgbBlue:getState() - 1) / 255
 
-        if self.renderNode == nil then self.renderNode = getChildAt(getChildAt(self.colorRender.scene, 0), 0) end
+        if self.renderNode == nil then self:setupScene() end
 
         setShaderParameter(self.renderNode, "colorScale", baseR, baseG, baseB)
 
-        for i = 0, getNumOfChildren(self.renderNode) - 1 do
-
-            local child = getChildAt(self.renderNode, i)
-            setShaderParameter(child, "colorScale", textR, textG, textB)
-
-        end
+        for _, node in pairs(self.texts[self.context]) do change3DLinkedTextColour(node, textR, textG, textB, 1) end
 
         self.colorRender:setRenderDirty()
         self.pendingRenderUpdate = false
 
     end
+
+end
+
+
+function EarTagColourPickerDialog:setupScene()
+
+    self.renderNode = getChildAt(getChildAt(self.colorRender.scene, 0), 0)
+
+    local node = getChild(self.renderNode, "front")
+
+    local uniqueId, farmId, countryCode, name, birthday = "405070", "109824", "UK", "Little Megan", "05/11/22"
+
+	set3DTextAutoScale(true)
+	set3DTextRemoveSpaces(true)
+	setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_MIDDLE)
+	setTextAlignment(RenderText.ALIGN_CENTER)
+	setTextColor(0, 0, 0, 1)
+	setTextFont(RealisticLivestock.FONTS.dejavu_sans)
+
+    self.texts.earTagLeft = {
+		["uniqueId"] = create3DLinkedText(node, 0, -0.006, -0.015, 0, 0, 0, 0.035, uniqueId),
+		["farmId"] = create3DLinkedText(node, 0, -0.041, -0.02, 0, 0, 0, 0.05, farmId),
+		["country"] = create3DLinkedText(node, 0, 0.021, -0.015, 0, 0, 0, 0.03, countryCode)
+	}
+
+    self.texts.earTagRight = {
+        ["birthday"] = create3DLinkedText(node, 0, 0.018, -0.015, 0, 0, 0, 0.02, birthday)
+	}
+
+	setTextFont(RealisticLivestock.FONTS.toms_handwritten)
+	set3DTextWrapWidth(0.14)
+	set3DTextWordsPerLine(1)
+	setTextLineHeightScale(0.75)
+	
+	self.texts.earTagRight.name = create3DLinkedText(node, 0, -0.01, -0.015, 0, 0, 0, 0.035, name)
+
+	setTextLineHeightScale(1.1)
+	set3DTextWordsPerLine(0)
+	set3DTextAutoScale(false)
+	set3DTextRemoveSpaces(false)
+	setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_BASELINE)
+	setTextAlignment(RenderText.ALIGN_LEFT)
+	setTextColor(1, 1, 1, 1)
+	set3DTextWrapWidth(0)
+	setTextFont()
+
+    setVisibility(self.texts.earTagRight.birthday, false)
+    setVisibility(self.texts.earTagRight.name, false)
 
 end
 

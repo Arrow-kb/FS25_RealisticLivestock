@@ -3375,6 +3375,7 @@ function Animal:setMarked(key, active)
     end
 
     self.marks[key].active = active
+    self:updateVisualMarker()
 
 end
 
@@ -3442,5 +3443,57 @@ end
 function Animal:getHasAnyDisease()
 
 	return g_diseaseManager.diseasesEnabled and #self.diseases > 0
+
+end
+
+
+function Animal:createVisual(husbandryId, animalId)
+
+    self.visualAnimal = VisualAnimal.new(self, husbandryId, animalId)
+    self.visualAnimal:load()
+
+end
+
+
+function Animal:deleteVisual()
+
+    if self.visualAnimal ~= nil then self.visualAnimal:delete() end
+
+    self.visualAnimal = nil
+
+end
+
+
+function Animal:setVisualEarTagColours(leftTag, leftText, rightTag, rightText)
+
+    if self.visualAnimal ~= nil then self.visualAnimal:setEarTagColours(leftTag, leftText, rightTag, rightText) end
+
+end
+
+
+function Animal:updateVisualRightEarTag()
+
+    if self.visualAnimal ~= nil then self.visualAnimal:setRightEarTag() end
+
+end
+
+
+function Animal:updateVisualLeftEarTag()
+
+    if self.visualAnimal ~= nil then self.visualAnimal:setLeftEarTag() end
+
+end
+
+
+function Animal:updateVisualMonitor()
+
+    if self.visualAnimal ~= nil then self.visualAnimal:setMonitor() end
+
+end
+
+
+function Animal:updateVisualMarker()
+
+    if self.visualAnimal ~= nil then self.visualAnimal:setMarker() end
 
 end

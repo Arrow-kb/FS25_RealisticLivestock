@@ -56,6 +56,7 @@ function RealisticLivestock_AnimalClusterHusbandry:deleteHusbandry(superFunc)
             for animalId, animal in pairs(animalIds) do
 
                 removeHusbandryAnimal(self.husbandryIds[husbandryId], animalId)
+                animal:deleteVisual()
 
             end
 
@@ -127,6 +128,7 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
                 if animal ~= nil then
                     animal.id = nil
                     animal.idFull = nil
+                    animal:deleteVisual()
                 end
 
                 table.insert(idsToRemove, animalId)
@@ -158,7 +160,7 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
 
     local colours = animalType.colours or animalSystem.baseColours
 
-    if colours.earTagLeft == nil or colours.earTagLeft_text or colours.earTagRight == nil or colours.earTagRight_text == nil then colours = animalSystem.baseColours end
+    if colours.earTagLeft == nil or colours.earTagLeft_text == nil or colours.earTagRight == nil or colours.earTagRight_text == nil then colours = animalSystem.baseColours end
     
     local earTagLeftR, earTagLeftG, earTagLeftB = colours.earTagLeft[1], colours.earTagLeft[2], colours.earTagLeft[3]
     local earTagLeftTextR, earTagLeftTextG, earTagLeftTextB = colours.earTagLeft_text[1], colours.earTagLeft_text[2], colours.earTagLeft_text[3]
@@ -186,6 +188,7 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
                 local tempAnimalId = tonumber(string.sub(animal.id, 3))
 
                 removeHusbandryAnimal(self.husbandryIds[tempHusbandryId], tempAnimalId)
+                animal:deleteVisual()
                 animalId = addHusbandryAnimal(self.husbandryIds[tempHusbandryId], newVisualAnimalIndex - 1)
 
                 self.visualAnimalCount = math.max(self.visualAnimalCount - 1, 0)
@@ -285,314 +288,8 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
 
             local animalRootNode = getAnimalRootNode(self.husbandryIds[useTempId and tempHusbandryId or i], animalId)
 
-            if animalRootNode ~= 0 then
-
-                if visualData.monitor ~= nil and not animal.monitor.active and not animal.monitor.removed then
-
-                    local monitorNode = I3DUtil.indexToObject(animalRootNode, visualData.monitor)
-                    setVisibility(monitorNode, false)
-
-                end
-
-
-                local numCharacters = RealisticLivestock.NUM_CHARACTERS
-
-
-                if visualData.noseRing ~= nil and animal.gender == "female" then
-                    
-                    local noseRingNode = I3DUtil.indexToObject(animalRootNode, visualData.noseRing)
-                    setVisibility(noseRingNode, false)
-
-                end
-
-                if visualData.bumId ~= nil then
-
-                    local bumIdNode = I3DUtil.indexToObject(animalRootNode, visualData.bumId)
-
-                    if bumIdNode ~= 0 then
-
-                        local animalUniqueId = animal.uniqueId
-                        
-                        -- partial animal id
-                
-                        for bumIdIndex = 1, 4 do
-
-                            local characterIndex = tonumber(string.sub(animalUniqueId, bumIdIndex + 2, bumIdIndex + 2))
-
-                            local node = getChild(bumIdNode, "bumId" .. bumIdIndex)
-
-                            setShaderParameter(node, "playScale", characterIndex, 0, numCharacters, 1, false)
-
-                        end
-
-                    end
-
-                end
-
-                if visualData.marker ~= nil then
-
-                    local markerNode = I3DUtil.indexToObject(animalRootNode, visualData.marker)
-
-                    if markerNode ~= 0 then
-
-                        local markerColour = AnimalSystem.BREED_TO_MARKER_COLOUR[animal.breed]
-                        local isMarked = animal:getMarked()
-
-                        setVisibility(markerNode, isMarked)
-                        if isMarked then setShaderParameter(markerNode, "colorScale", markerColour[1], markerColour[2], markerColour[3], nil, false) end
-
-                    end
-
-                end
-
-
-                if visualData.earTagLeft ~= nil then
-
-                    local earTagNode = I3DUtil.indexToObject(animalRootNode, visualData.earTagLeft)
-
-                    if earTagNode ~= 0 then
-
-                        setShaderParameter(earTagNode, "colorScale", earTagLeftR, earTagLeftG, earTagLeftB, nil, false)
-
-                        for colourI = 0, getNumOfChildren(earTagNode) - 1 do
-
-                            local colourChild = getChildAt(earTagNode, colourI)
-                            setShaderParameter(colourChild, "colorScale", earTagLeftTextR, earTagLeftTextG, earTagLeftTextB, nil, false)
-
-                        end
-
-                        local animalUniqueId = animal.uniqueId
-                        local farmUniqueId = animal.farmId
-                        local animalBirthday = animal:getBirthday()
-
-                        local countryCode
-
-                        if animalBirthday ~= nil and animalBirthday.country ~= nil and RealisticLivestock.AREA_CODES[animalBirthday.country] ~= nil then
-
-                            countryCode = RealisticLivestock.AREA_CODES[animalBirthday.country].code
-
-                        end
-
-                        countryCode = countryCode or areaCode
-                        
-                        -- animal id
-                
-                        for earTagIndex = 1, 6 do
-
-                            local characterIndex = tonumber(string.sub(animalUniqueId, earTagIndex, earTagIndex))
-
-                            local nodeFront = getChild(earTagNode, "animalIdFront_" .. earTagIndex)
-                            local nodeBack = getChild(earTagNode, "animalIdBack_" .. earTagIndex)
-
-                            setShaderParameter(nodeFront, "playScale", characterIndex, 0, numCharacters, 1, false)
-                            setShaderParameter(nodeBack, "playScale", characterIndex, 0, numCharacters, 1, false)
-
-                        end
-
-                        -- farm id
-                
-                        for earTagIndex = 1, 6 do
-
-                            local characterIndex = tonumber(string.sub(farmUniqueId, earTagIndex, earTagIndex))
-
-                            local nodeFront = getChild(earTagNode, "farmIdFront_" .. earTagIndex)
-                            local nodeBack = getChild(earTagNode, "farmIdBack_" .. earTagIndex)
-
-                            setShaderParameter(nodeFront, "playScale", characterIndex, 0, numCharacters, 1, false)
-                            setShaderParameter(nodeBack, "playScale", characterIndex, 0, numCharacters, 1, false)
-
-                        end
-
-                        -- country code
-
-                        for earTagIndex = 1, 2 do
-
-                            local character = string.sub(countryCode, earTagIndex, earTagIndex)
-                            local characterIndex = RealisticLivestock.ALPHABET[character:upper()]
-
-                            local nodeFront = getChild(earTagNode, "areaCodeFront_" .. earTagIndex)
-                            local nodeBack = getChild(earTagNode, "areaCodeBack_" .. earTagIndex)
-
-                            setShaderParameter(nodeFront, "playScale", characterIndex, 0, numCharacters, 1, false)
-                            setShaderParameter(nodeBack, "playScale", characterIndex, 0, numCharacters, 1, false)
-
-                        end
-
-                    end
-
-                end
-
-
-                if visualData.earTagRight ~= nil then
-
-                    local earTagNode = I3DUtil.indexToObject(animalRootNode, visualData.earTagRight)
-
-                    if earTagNode ~= 0 then
-
-                        setShaderParameter(earTagNode, "colorScale", earTagRightR, earTagRightG, earTagRightB, nil, false)
-
-                        for colourI = 0, getNumOfChildren(earTagNode) - 1 do
-
-                            local colourChild = getChildAt(earTagNode, colourI)
-                            setShaderParameter(colourChild, "colorScale", earTagRightTextR, earTagRightTextG, earTagRightTextB, nil, false)
-
-                        end
-
-                        local animalName = animal:getName()
-                        local animalBirthday = animal:getBirthday()
-
-                        if (animalName == "" or animalName == nil) and animalBirthday == nil then
-
-                            setVisibility(earTagNode, false)
-
-                        else
-
-                            if animalBirthday ~= nil then
-
-                                -- DAY
-
-                                local day1FrontNode = getChild(earTagNode, "birthDayFront1")
-                                local day1BackNode = getChild(earTagNode, "birthDayBack1")
-                                local day2FrontNode = getChild(earTagNode, "birthDayFront2")
-                                local day2BackNode = getChild(earTagNode, "birthDayBack2")
-
-                                local day = tostring(animalBirthday.day)
-                                local day1CharacterIndex = tonumber(#day == 1 and 0 or string.sub(day, 1, 1))
-                                local day2CharacterIndex = tonumber(#day == 1 and string.sub(day, 1, 1) or string.sub(day, 2, 2))
-                                
-                                setShaderParameter(day1FrontNode, "playScale", day1CharacterIndex, 0, numCharacters, 1, false)
-                                setShaderParameter(day1BackNode, "playScale", day1CharacterIndex, 0, numCharacters, 1, false)
-                                setShaderParameter(day2FrontNode, "playScale", day2CharacterIndex, 0, numCharacters, 1, false)
-                                setShaderParameter(day2BackNode, "playScale", day2CharacterIndex, 0, numCharacters, 1, false)
-
-                                -- MONTH
-
-                                local month1FrontNode = getChild(earTagNode, "birthMonthFront1")
-                                local month1BackNode = getChild(earTagNode, "birthMonthBack1")
-                                local month2FrontNode = getChild(earTagNode, "birthMonthFront2")
-                                local month2BackNode = getChild(earTagNode, "birthMonthBack2")
-
-                                local month = tostring(animalBirthday.month)
-                                local month1CharacterIndex = tonumber(#month == 1 and 0 or string.sub(month, 1, 1))
-                                local month2CharacterIndex = tonumber(#month == 1 and string.sub(month, 1, 1) or string.sub(month, 2, 2))
-                                
-                                setShaderParameter(month1FrontNode, "playScale", month1CharacterIndex, 0, numCharacters, 1, false)
-                                setShaderParameter(month1BackNode, "playScale", month1CharacterIndex, 0, numCharacters, 1, false)
-                                setShaderParameter(month2FrontNode, "playScale", month2CharacterIndex, 0, numCharacters, 1, false)
-                                setShaderParameter(month2BackNode, "playScale", month2CharacterIndex, 0, numCharacters, 1, false)
-
-                                -- YEAR
-
-                                local year1FrontNode = getChild(earTagNode, "birthYearFront1")
-                                local year1BackNode = getChild(earTagNode, "birthYearBack1")
-                                local year2FrontNode = getChild(earTagNode, "birthYearFront2")
-                                local year2BackNode = getChild(earTagNode, "birthYearBack2")
-
-                                local year = tostring(animalBirthday.year + RealisticLivestock.START_YEAR.PARTIAL)
-                                local year1CharacterIndex = tonumber(#year == 1 and 0 or string.sub(year, 1, 1))
-                                local year2CharacterIndex = tonumber(#year == 1 and string.sub(year, 1, 1) or string.sub(year, 2, 2))
-                                
-                                setShaderParameter(year1FrontNode, "playScale", year1CharacterIndex, 0, numCharacters, 1, false)
-                                setShaderParameter(year1BackNode, "playScale", year1CharacterIndex, 0, numCharacters, 1, false)
-                                setShaderParameter(year2FrontNode, "playScale", year2CharacterIndex, 0, numCharacters, 1, false)
-                                setShaderParameter(year2BackNode, "playScale", year2CharacterIndex, 0, numCharacters, 1, false)
-
-                            end
-
-                            local templateNodeFront = getChild(earTagNode, "animalNameFront")
-                            local templateNodeBack = getChild(earTagNode, "animalNameBack")
-
-                            if animalName ~= "" and animalName ~= nil then
-
-                                local animalNameLength = string.len(animalName)
-
-                                local fnx, fny, fnz = getTranslation(templateNodeFront)
-                                local bnx, bny, bnz = getTranslation(templateNodeBack)
-
-                                local sx, sy, sz
-
-                                local words = string.split(animalName, " ")
-                                local currentWord = 1
-
-                                if #words == 1 then
-                                    fny = fny - 0.012
-                                    bny = bny - 0.012
-                                end
-
-                                local nodeNameCharacterIndex = 1
-
-                                for wordIndex = 1, #words do
-
-                                    local word = words[wordIndex]
-                                    local characterOffset = 0.054 / #word
-                                    local characterScale = 0
-
-                                    if #word > 6 then
-                                
-                                        sx, sy, sz = getScale(templateNodeFront)
-                                        characterScale = math.min((#word - 6) * 0.02, 0.2)
-
-                                    end
-
-                                    for earTagIndex = 1, #word do
-
-                                        local character = string.sub(word, earTagIndex, earTagIndex)
-                                        local characterIndex = RealisticLivestock.ALPHABET[character:upper()]
-
-                                        if wordIndex == 1 and earTagIndex == 1 then
-
-                                            setTranslation(templateNodeFront, fnx, fny, fnz - characterScale * 0.05 + characterOffset)
-                                            setTranslation(templateNodeBack, bnx, bny, bnz + characterScale * 0.05 - characterOffset)
-                                            setShaderParameter(templateNodeFront, "playScale", characterIndex, 0, numCharacters, 1, false)
-                                            setShaderParameter(templateNodeBack, "playScale", characterIndex, 0, numCharacters, 1, false)
-
-                                            if characterScale > 0 then setScale(templateNodeFront, sx, sy - characterScale, sz - characterScale) end
-                                            if characterScale > 0 then setScale(templateNodeBack, sx, sy - characterScale, sz - characterScale) end
-
-                                        else
-
-                                            local fnode = clone(templateNodeFront, true, false, false)
-                                            local bnode = clone(templateNodeBack, true, false, false)
-
-                                            setName(fnode, "animalNameFront_" .. nodeNameCharacterIndex)
-                                            setName(bnode, "animalNameBack_" .. nodeNameCharacterIndex)
-
-                                            nodeNameCharacterIndex = nodeNameCharacterIndex + 1
-
-                                            if earTagIndex == 1 then
-                                                templateNodeFront = fnode
-                                                templateNodeBack = bnode
-                                            end
-
-                                            setTranslation(fnode, fnx, fny - (wordIndex > 1 and (characterScale * 0.05) or 0) - (wordIndex - 1) * 0.032, fnz + characterScale * 0.1 + characterOffset + (earTagIndex - 1) * 0.024)
-                                            setTranslation(bnode, bnx, bny - (wordIndex > 1 and (characterScale * 0.05) or 0) - (wordIndex - 1) * 0.032, bnz - characterScale * 0.1 - characterOffset - (earTagIndex - 1) * 0.024)
-
-                                            if characterScale > 0 then setScale(fnode, sx, sy - characterScale, sz - characterScale) end
-                                            if characterScale > 0 then setScale(bnode, sx, sy - characterScale, sz - characterScale) end
-
-                                            setShaderParameter(fnode, "playScale", characterIndex, 0, numCharacters, 1, false)
-                                            setShaderParameter(bnode, "playScale", characterIndex, 0, numCharacters, 1, false)
-
-                                        end
-
-                                    end
-
-                                end
-
-                            else
-
-                                setVisibility(templateNodeFront, false)
-                                setVisibility(templateNodeBack, false)
-
-                            end
-
-                        end
-
-                    end
-
-                end
-
-            end
+            animal:createVisual(self.husbandryIds[useTempId and tempHusbandryId or i], animalId)
+            animal:setVisualEarTagColours(colours.earTagLeft, colours.earTagLeft_text, colours.earTagRight, colours.earTagRight_text)
 
         else
             animal.id = nil

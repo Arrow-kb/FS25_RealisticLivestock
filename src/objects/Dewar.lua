@@ -23,6 +23,8 @@ function Dewar.new(isServer, isClient)
 	self.isAddedToItemSystem = false
 	self.straws = 0
 
+	self.texts = {}
+
 	return self
 
 end
@@ -400,36 +402,25 @@ end
 function Dewar:updateStrawVisuals()
 
 	local parent = I3DUtil.indexToObject(self.shapeNode, "0|1")
+	
+	set3DTextRemoveSpaces(true)
+	setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_MIDDLE)
+	setTextAlignment(RenderText.ALIGN_CENTER)
+	setTextColor(1, 0.1, 0.1, 1)
+	set3DTextWordsPerLine(1)
+	setTextLineHeightScale(0.75)
+	setTextFont(RealisticLivestock.FONTS.toms_handwritten)
 
-	local straws = tostring(self.straws)
-	local characterIndex = 1
-	local numCharacters = RealisticLivestock.NUM_CHARACTERS
-
-	for i = 1, 4 do
-
-		local child = getChild(parent, "strawAmount" .. i)
-		
-		if #straws == 1 and i ~= 2 then
-			setVisibility(child, false)
-			continue
-		end
-
-		if #straws == 2 and (i == 1 or i == 4) then
-			setVisibility(child, false)
-			continue
-		end
-
-		if #straws == 3 and i == 4 then
-			setVisibility(child, false)
-			continue
-		end
-
-		setVisibility(child, true)
-		setShaderParameter(child, "playScale", tonumber(string.sub(straws, characterIndex, characterIndex)), 0, numCharacters, 1, false)
-
-		characterIndex = characterIndex + 1
-
-	end
+	if self.texts.straws ~= nil then delete3DLinkedText(self.texts.straws) end
+	self.texts.straws = create3DLinkedText(parent, 0.003, 0.01, 0.003, 0, math.rad(-90), 0, 0.025, string.format("%s %s", self.straws, self.straws == 1 and "straw" or "straws"))
+	
+	set3DTextRemoveSpaces(false)
+	setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_BASELINE)
+	setTextAlignment(RenderText.ALIGN_LEFT)
+	setTextColor(1, 1, 1, 1)
+	set3DTextWordsPerLine(0)
+	setTextLineHeightScale(1.1)
+	setTextFont()
 
 end
 
@@ -443,34 +434,26 @@ function Dewar:updateAnimalVisuals()
 	local country = RealisticLivestock.AREA_CODES[self.animal.country].code
 	local farmId = self.animal.farmId
 	local uniqueId = self.animal.uniqueId
+	
+	set3DTextRemoveSpaces(true)
+	setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_MIDDLE)
+	setTextAlignment(RenderText.ALIGN_CENTER)
+	setTextColor(1, 0.1, 0.1, 1)
+	set3DTextWordsPerLine(1)
+	setTextLineHeightScale(1.25)
+	setTextFont(RealisticLivestock.FONTS.toms_handwritten)
 
-	local numCharacters = RealisticLivestock.NUM_CHARACTERS
+	if self.texts.animal ~= nil then delete3DLinkedText(self.texts.animal) end
+	self.texts.animal = create3DLinkedText(parent, -0.01, -0.002, 0.008, 0, math.rad(-170), 0, 0.02, string.format("%s %s %s", country, uniqueId, farmId))
 
-	for i = 1, 2 do
-
-		local child = getChild(parent, "animalCountry" .. i)
-
-		local character = string.sub(country, i, i)
-		local characterIndex = RealisticLivestock.ALPHABET[character:upper()]
-		setShaderParameter(child, "playScale", characterIndex, 0, numCharacters, 1, false)
-
-	end
-
-	for i = 1, 6 do
-
-		local child = getChild(parent, "animalFarm" .. i)
-
-		setShaderParameter(child, "playScale", tonumber(string.sub(farmId, i, i)), 0, numCharacters, 1, false)
-
-	end
-
-	for i = 1, 6 do
-
-		local child = getChild(parent, "animalId" .. i)
-
-		setShaderParameter(child, "playScale", tonumber(string.sub(uniqueId, i, i)), 0, numCharacters, 1, false)
-
-	end
+	set3DTextAutoScale(false)
+	set3DTextRemoveSpaces(false)
+	setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_BASELINE)
+	setTextAlignment(RenderText.ALIGN_LEFT)
+	setTextColor(1, 1, 1, 1)
+	set3DTextWordsPerLine(0)
+	setTextLineHeightScale(1.1)
+	setTextFont()
 
 end
 

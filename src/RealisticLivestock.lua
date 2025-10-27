@@ -4,6 +4,9 @@ local modDirectory = g_currentModDirectory
 local hasLoaded = false
 
 
+RealisticLivestock.FONTS = g_fontManager:loadFontsFromXMLFile(g_currentModDirectory .. "fonts/fonts.xml", g_currentModDirectory)
+
+
 RealisticLivestock.MARKS = {
     ["AI_MANAGER_SELL"] = {
         ["key"] = "AI_MANAGER_SELL",
