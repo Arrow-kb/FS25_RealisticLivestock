@@ -2,26 +2,19 @@
 
 <i3D name="earTags.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
   <Asset>
-    <Export program="GIANTS Editor 64bit" version="10.0.4"/>
+    <Export program="GIANTS Editor 64bit" version="10.0.8"/>
   </Asset>
 
   <Files>
     <File fileId="3" filename="colourShader.xml"/>
     <File fileId="1" filename="earTags_diffuse.dds"/>
-    <File fileId="4" filename="font_normal_white.dds"/>
-    <File fileId="5" filename="offsetUV.xml"/>
   </Files>
 
 
   <Materials>
-    <Material name="Material.001" materialId="5" specularColor="1 1 0" customShaderId="3">
+    <Material name="Material.001" materialId="27" specularColor="1 1 0" customShaderId="3">
       <Texture fileId="1"/>
       <CustomParameter name="colorScale" value="0.8 0.7 0"/>
-    </Material>
-    <Material name="Material.001" materialId="6" specularColor="1 1 0" customShaderId="5">
-      <Texture fileId="4"/>
-      <CustomParameter name="playScale" value="0 0 64 1"/>
-      <CustomParameter name="colorScale" value="0 0 0"/>
     </Material>
   </Materials>
 
@@ -30,35 +23,9 @@
   </Shapes>
 
   <Scene>
-    <Shape name="earTag" scale="1 0.9 0.9" shapeId="1" clipDistance="300" nodeId="37" castsShadows="true" receiveShadows="true" materialIds="5">
-      <Shape name="animalIdBack_1" shapeId="2" clipDistance="300" nodeId="38" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="animalIdBack_2" shapeId="3" clipDistance="300" nodeId="39" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="animalIdBack_3" shapeId="4" clipDistance="300" nodeId="40" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="animalIdBack_4" shapeId="5" clipDistance="300" nodeId="41" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="animalIdBack_5" shapeId="6" clipDistance="300" nodeId="42" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="animalIdBack_6" shapeId="7" clipDistance="300" nodeId="43" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="animalIdFront_1" shapeId="8" clipDistance="300" nodeId="44" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="animalIdFront_2" shapeId="9" clipDistance="300" nodeId="45" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="animalIdFront_3" shapeId="10" clipDistance="300" nodeId="46" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="animalIdFront_4" shapeId="11" clipDistance="300" nodeId="47" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="animalIdFront_5" shapeId="12" clipDistance="300" nodeId="48" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="animalIdFront_6" shapeId="13" clipDistance="300" nodeId="49" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="areaCodeBack_1" shapeId="14" clipDistance="300" nodeId="50" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="areaCodeBack_2" shapeId="15" clipDistance="300" nodeId="51" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="areaCodeFront_1" shapeId="16" clipDistance="300" nodeId="52" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="areaCodeFront_2" shapeId="17" clipDistance="300" nodeId="53" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdBack_1" shapeId="18" clipDistance="300" nodeId="54" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdBack_2" shapeId="19" clipDistance="300" nodeId="55" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdBack_3" shapeId="20" clipDistance="300" nodeId="56" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdBack_4" shapeId="21" clipDistance="300" nodeId="57" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdBack_5" shapeId="22" clipDistance="300" nodeId="58" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdBack_6" shapeId="23" clipDistance="300" nodeId="59" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdFront_1" shapeId="24" clipDistance="300" nodeId="60" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdFront_2" shapeId="25" clipDistance="300" nodeId="61" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdFront_3" shapeId="26" clipDistance="300" nodeId="62" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdFront_4" shapeId="27" clipDistance="300" nodeId="63" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdFront_5" shapeId="28" clipDistance="300" nodeId="64" castsShadows="true" receiveShadows="true" materialIds="6"/>
-      <Shape name="farmIdFront_6" shapeId="29" clipDistance="300" nodeId="65" castsShadows="true" receiveShadows="true" materialIds="6"/>
+    <Shape name="earTag" shapeId="1" nodeId="8" castsShadows="true" receiveShadows="true" doubleSided="true" materialIds="27">
+      <TransformGroup name="back" translation="0.0014762 0 0" rotation="-180 -180 -180" nodeId="9"/>
+      <TransformGroup name="front" translation="-0.001 -8.38843e-10 7.82405e-05" rotation="-180 0 -180" nodeId="10"/>
     </Shape>
   </Scene>
 
