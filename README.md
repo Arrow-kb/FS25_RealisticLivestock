@@ -1,5 +1,7 @@
 # FS25_RealisticLivestock
 
+[![Github All Releases](https://img.shields.io/github/downloads/Arrow-kb/FS25_RealisticLivestock/total.svg)]()
+
 Realistic Livestock mod for FS25.
 
 # Features:
