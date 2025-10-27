@@ -2,12 +2,10 @@
 
 <i3D name="dewar.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
   <Asset>
-    <Export program="GIANTS Editor 64bit" version="10.0.7"/>
+    <Export program="GIANTS Editor 64bit" version="10.0.8"/>
   </Asset>
 
   <Files>
-    <File fileId="7" filename="../../animals/domesticated/offsetUV.xml"/>
-    <File fileId="6" filename="alphabet_handwritten.dds"/>
     <File fileId="2" filename="dewar.dds"/>
   </Files>
 
@@ -15,34 +13,10 @@
   <Materials>
     <Material name="default" materialId="5" diffuseColor="0.501961 0.501961 0.501961 1">
     </Material>
-    <Material name="Material.001" materialId="6" specularColor="1 1 0" customShaderId="7">
-      <Texture fileId="6"/>
-      <CustomParameter name="playScale" value="0 0 64 1"/>
-    </Material>
-    <Material name="Material.001" materialId="7" specularColor="1 1 0" customShaderId="7">
-      <Texture fileId="6"/>
-      <CustomParameter name="playScale" value="10 0 64 1"/>
-    </Material>
-    <Material name="Material.001" materialId="8" specularColor="1 1 0" customShaderId="7">
-      <Texture fileId="6"/>
-      <CustomParameter name="playScale" value="27 0 64 1"/>
-    </Material>
-    <Material name="Material.001" materialId="9" specularColor="1 1 0" customShaderId="7">
-      <Texture fileId="6"/>
-      <CustomParameter name="playScale" value="28 0 64 1"/>
-    </Material>
-    <Material name="Material.001" materialId="10" specularColor="1 1 0" customShaderId="7">
-      <Texture fileId="6"/>
-      <CustomParameter name="playScale" value="29 0 64 1"/>
-    </Material>
-    <Material name="Material.001" materialId="11" specularColor="1 1 0" customShaderId="7">
-      <Texture fileId="6"/>
-      <CustomParameter name="playScale" value="32 0 64 1"/>
-    </Material>
-    <Material name="Material.001" materialId="12" specularColor="1 1 0">
+    <Material name="Material.001" materialId="6" specularColor="1 1 0">
       <Texture fileId="2"/>
     </Material>
-    <Material name="Material.003" materialId="13" diffuseColor="0.8 0.772549 0.0823529 1" specularColor="0.501961 1 0">
+    <Material name="Material.003" materialId="37" diffuseColor="0.8 0.772549 0.0823529 1" specularColor="0.501961 1 0">
     </Material>
   </Materials>
 
@@ -51,39 +25,15 @@
   </Shapes>
 
   <Scene>
-    <Shape name="Cylinder.001" shapeId="1" dynamic="true" collisionFilterGroup="0x4003c" collisionFilterMask="0xfe3ffb83" clipDistance="300" nodeId="24" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="5">
-      <Shape name="Cylinder" scale="1 1.1 1" shapeId="2" clipDistance="3000" nodeId="25" castsShadows="true" receiveShadows="true" doubleSided="true" materialIds="12">
-        <Shape name="stickyNote_animal" translation="0 -0.174137 -0.0170051" scale="1 1.5 1.5" shapeId="3" nodeId="26" castsShadows="true" receiveShadows="true" materialIds="13">
-          <Shape name="tape.002" shapeId="4" nodeId="27" castsShadows="true" receiveShadows="true" materialIds="5"/>
-          <Shape name="tape.003" shapeId="5" nodeId="28" castsShadows="true" receiveShadows="true" materialIds="5"/>
-          <Shape name="animalCountry1" translation="-0.159753 0.378772 -0.0466951" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="29" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalCountry2" translation="-0.154997 0.381773 -0.0365253" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="30" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalFarm1" translation="-0.160783 0.357039 -0.056668" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="31" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalFarm2" translation="-0.15933 0.357502 -0.0474876" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="32" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalFarm3" translation="-0.157966 0.358511 -0.038768" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="33" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalFarm4" translation="-0.156876 0.359896 -0.0296233" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="34" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalFarm5" translation="-0.157249 0.361034 -0.0204013" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="35" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalFarm6" translation="-0.150117 0.362472 -0.0138795" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="36" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalId1" translation="-0.160535 0.332603 -0.0590728" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="37" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalId2" translation="-0.159293 0.335271 -0.0508587" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="38" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalId3" translation="-0.15916 0.334173 -0.0412046" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="39" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalId4" translation="-0.156511 0.337788 -0.0308953" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="40" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalId5" translation="-0.15555 0.338506 -0.0211677" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="41" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="animalId6" translation="-0.153191 0.338834 -0.0120185" rotation="-172.777 -9.05872 -178.52" shapeId="6" clipDistance="300" nodeId="42" castsShadows="false" receiveShadows="true" materialIds="6"/>
+    <Shape name="Cylinder.001" shapeId="1" dynamic="true" collisionFilterGroup="0xffffffff" collisionFilterMask="0xffffffff" nodeId="17" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="5">
+      <Shape name="Cylinder" shapeId="2" nodeId="18" castsShadows="true" receiveShadows="true" doubleSided="true" materialIds="6">
+        <Shape name="stickyNote_animal" translation="-0.143766 0.327067 0.0232108" shapeId="3" nodeId="19" castsShadows="true" receiveShadows="true" materialIds="37">
+          <Shape name="tape.002" translation="0.143766 -0.327067 -0.0232108" shapeId="4" nodeId="20" castsShadows="true" receiveShadows="true" materialIds="5"/>
+          <Shape name="tape.003" translation="0.143766 -0.327067 -0.0232108" shapeId="5" nodeId="21" castsShadows="true" receiveShadows="true" materialIds="5"/>
         </Shape>
-        <Shape name="stickyNote_straws" translation="0 -0.138691 -0.000350773" scale="1.5 1.5 1" shapeId="7" nodeId="43" castsShadows="true" receiveShadows="true" materialIds="13">
-          <Shape name="tape" shapeId="8" nodeId="44" castsShadows="true" receiveShadows="true" materialIds="5"/>
-          <Shape name="tape.001" shapeId="9" nodeId="45" castsShadows="true" receiveShadows="true" materialIds="5"/>
-          <Shape name="strawAmount1" translation="-0.0758399 0.315057 0.133095" rotation="-167.786 -78.8155 176.162" shapeId="6" clipDistance="300" nodeId="46" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="strawAmount2" translation="-0.0667219 0.314847 0.137334" rotation="-161.173 -81.273 169.438" shapeId="6" clipDistance="300" nodeId="47" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="strawAmount3" translation="-0.0569768 0.316038 0.136727" rotation="-150.663 -77.4398 158.671" shapeId="6" clipDistance="300" nodeId="48" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="strawAmount4" translation="-0.0463945 0.319685 0.14915" rotation="-26.7608 -85.1023 33.6781" shapeId="6" clipDistance="300" nodeId="49" castsShadows="false" receiveShadows="true" materialIds="6"/>
-          <Shape name="strawLetter1" translation="-0.0802342 0.279048 0.127438" rotation="-172.131 -72.5577 -179.36" shapeId="6" clipDistance="300" nodeId="50" castsShadows="false" receiveShadows="true" materialIds="9"/>
-          <Shape name="strawLetter2" translation="-0.0736439 0.279088 0.137296" rotation="-161.173 -81.273 169.438" shapeId="6" clipDistance="300" nodeId="51" castsShadows="false" receiveShadows="true" materialIds="10"/>
-          <Shape name="strawLetter3" translation="-0.0657378 0.283019 0.137585" rotation="-150.663 -77.4398 158.671" shapeId="6" clipDistance="300" nodeId="52" castsShadows="false" receiveShadows="true" materialIds="8"/>
-          <Shape name="strawLetter4" translation="-0.0567863 0.289951 0.151303" rotation="-26.7608 -85.1023 33.6781" shapeId="6" clipDistance="300" nodeId="53" castsShadows="false" receiveShadows="true" materialIds="7"/>
-          <Shape name="strawLetter5" translation="-0.047234 0.289172 0.150639" rotation="-26.7608 -85.1023 33.6781" shapeId="6" clipDistance="300" nodeId="54" castsShadows="false" receiveShadows="true" materialIds="11"/>
-          <Shape name="strawLetter6" translation="-0.0373743 0.290811 0.149878" rotation="-26.7608 -85.1023 33.6781" shapeId="6" clipDistance="300" nodeId="55" castsShadows="false" receiveShadows="true" materialIds="9"/>
+        <Shape name="stickyNote_straws" translation="0.000169099 0.270904 0.146153" shapeId="6" nodeId="22" castsShadows="true" receiveShadows="true" materialIds="37">
+          <Shape name="tape" translation="-0.000169099 -0.270904 -0.146153" shapeId="7" nodeId="23" castsShadows="true" receiveShadows="true" materialIds="5"/>
+          <Shape name="tape.001" translation="-0.000169099 -0.270904 -0.146153" shapeId="8" nodeId="24" castsShadows="true" receiveShadows="true" materialIds="5"/>
         </Shape>
       </Shape>
     </Shape>
