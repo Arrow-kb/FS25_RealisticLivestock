@@ -193,3 +193,10 @@ function AnimalItemNew:getInfos()
 	return self.infos
 
 end
+
+
+function AnimalItemNew:getHasAnyDisease()
+
+	return self.animal:getHasAnyDisease()
+
+end

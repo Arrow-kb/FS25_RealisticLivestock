@@ -129,3 +129,10 @@ function RealisticLivestock_AnimalItemStock.new(animal)
 end
 
 AnimalItemStock.new = RealisticLivestock_AnimalItemStock.new
+
+
+function AnimalItemStock:getHasAnyDisease()
+
+	return self.cluster:getHasAnyDisease()
+
+end

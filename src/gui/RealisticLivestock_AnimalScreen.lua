@@ -1877,6 +1877,10 @@ function RealisticLivestock_AnimalScreen:getCellTypeForItemInSection(_, list, _,
 	local a = items[index]
 	local b = items[index - 1]
 
+    if a ~= nil and a:getHasAnyDisease() and index == 1 then return "sectionCell" end
+
+    if a ~= nil and b ~= nil and b:getHasAnyDisease() then return a:getHasAnyDisease() and "defaultCell" or "sectionCell" end
+
 	return (a == nil or b == nil or a:getSubTypeIndex() ~= b:getSubTypeIndex()) and "sectionCell" or "defaultCell"
 
 end
@@ -2050,24 +2054,26 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
 
         if item == nil then return end
 
+        local animal = item.animal or item.cluster
         local subType = g_currentMission.animalSystem:getSubTypeByIndex(item:getSubTypeIndex())
         self.isHorse = subType.typeIndex == AnimalType.HORSE
 
-        if cell.name == "sectionCell" then
-            cell:getAttribute("title"):setText(g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex))
-        end
+        local isDiseased = animal:getHasAnyDisease()
+
+        if cell.name == "sectionCell" then cell:getAttribute("title"):setText(isDiseased and g_i18n:getText("rl_ui_diseasedAnimals") or g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex)) end
 
         self.isHorse = g_currentMission.animalSystem:getSubTypeByIndex(item:getSubTypeIndex()).typeIndex == AnimalType.HORSE
 
         local name = item:getName()
-        local animal = item.animal or item.cluster
 
         local isMarked = animal:getMarked()
         local recentlyBoughtByAI = animal:getRecentlyBoughtByAI()
 
         if cell.name == "defaultCell" then
 
-            if isMarked then
+            if isDiseased then
+                cell:setImageColor(GuiOverlay.STATE_NORMAL, 1, 0.08, 0)
+            elseif isMarked then
                 cell:setImageColor(GuiOverlay.STATE_NORMAL, 1, 0.2, 0)
             else
                 cell:setImageColor(GuiOverlay.STATE_NORMAL, 1, 1, 1)
@@ -2077,7 +2083,9 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
 
             local background = cell:getAttribute("background")
 
-            if isMarked then
+            if isDiseased then
+                background:setImageColor(GuiOverlay.STATE_NORMAL, 1, 0.08, 0)
+            elseif isMarked then
                 background:setImageColor(GuiOverlay.STATE_NORMAL, 1, 0.2, 0)
             else
                 background:setImageColor(GuiOverlay.STATE_NORMAL, 1, 1, 1)
@@ -2085,9 +2093,20 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
 
         end
 
-        if animal:getName() == "" and not self.isHorse and (not self.isBuyMode or (self.controller.trailer ~= nil and self.controller.husbandry ~= nil and self.isBuyMode)) and animal.uniqueId ~= nil then name = string.format("%s %s %s", RealisticLivestock.AREA_CODES[animal.birthday.country].code, animal.farmId, animal.uniqueId) end
+        
+        local name = animal:getName()
+        local identifier = animal:getIdentifiers()
 
-        cell:getAttribute("name"):setText(name)
+        if name == "" then
+            cell:getAttribute("idNoName"):setText(identifier)
+        else
+            cell:getAttribute("name"):setText(name)
+            cell:getAttribute("id"):setText(identifier)
+        end
+
+        cell:getAttribute("id"):setVisible(name ~= "")
+        cell:getAttribute("name"):setVisible(name ~= "")
+        cell:getAttribute("idNoName"):setVisible(name == "")
 
         cell:getAttribute("icon"):setImageFilename(item:getFilename())
         cell:getAttribute("price"):setValue(item:getPrice())

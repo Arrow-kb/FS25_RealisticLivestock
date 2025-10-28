@@ -9,7 +9,16 @@ AnimalScreenBase.getTargetItems = Utils.overwrittenFunction(AnimalScreenBase.get
 
 function RL_AnimalScreenBase.sortAnimals(a, b)
 
-    if a.cluster == nil or b.cluster == nil then return a end
+    if a.cluster == nil or b.cluster == nil then return true end
+
+    local aDisease, bDisease = a.cluster:getHasAnyDisease(), b.cluster:getHasAnyDisease()
+
+    if aDisease or bDisease then
+
+        if aDisease and not bDisease then return true end
+        if bDisease and not aDisease then return false end
+
+    end
 
     if a.cluster.subTypeIndex == b.cluster.subTypeIndex then return a.cluster.age < b.cluster.age end
 
@@ -20,7 +29,16 @@ end
 
 function RL_AnimalScreenBase.sortSaleAnimals(a, b)
 
-    if a.animal == nil or b.animal == nil then return a end
+    if a.animal == nil or b.animal == nil then return true end
+
+    local aDisease, bDisease = a.animal:getHasAnyDisease(), b.animal:getHasAnyDisease()
+
+    if aDisease or bDisease then
+
+        if aDisease and not bDisease then return true end
+        if bDisease and not aDisease then return false end
+
+    end
 
     local aValue = a.animal:getSellPrice()
     local bValue = b.animal:getSellPrice()

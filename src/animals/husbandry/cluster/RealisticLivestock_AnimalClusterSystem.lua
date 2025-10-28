@@ -267,7 +267,7 @@ function RealisticLivestock_AnimalClusterSystem:removeCluster(_, animalIndex)
 
                     if clusterHusbandry.husbandryIds[husbandryIndex] == husbandry then
 
-                        table.remove(animalIds, animalId)
+                        animalIds[animalId] = nil
                         break
 
                     end

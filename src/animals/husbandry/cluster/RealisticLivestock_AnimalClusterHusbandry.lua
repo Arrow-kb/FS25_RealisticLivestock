@@ -78,23 +78,6 @@ end
 AnimalClusterHusbandry.deleteHusbandry = Utils.overwrittenFunction(AnimalClusterHusbandry.deleteHusbandry, RealisticLivestock_AnimalClusterHusbandry.deleteHusbandry)
 
 
-
--- #####################################################################
-
--- NOTES:
-
--- It does not seem to be possible to manually set the position of an
--- animal. setWorldTranslation() has no effect on animals, neither do
--- any other position related functions. On top of that, these functions
--- are engine functions (written in C++ no less) so there is seemingly 
--- NO WAY WHATSOEVER to set their position here. The only animals that
--- are affected by setWorldTranslation() and similar functions, are
--- mounted horses, as they get cloned into vehicles when they are
--- mounted.
-
--- #####################################################################
-
-
 function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, removeAll)
 
     if self.husbandryId == nil or not isHusbandryReady(self.husbandryId) then
@@ -111,8 +94,6 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
 
     if self.animalIdToCluster == nil then self.animalIdToCluster = {} end
 
-
-
     for husbandryId, animalIds in pairs(self.animalIdToCluster) do
         if type(animalIds) ~= "table" then continue end
 
@@ -121,10 +102,11 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
         for animalId, animal in pairs(animalIds) do
 
             if removeAll or animal == nil or animal.isSold or animal.isDead or animal.id == nil or animal.uniqueId == "1-1" or animal.uniqueId == "0-0" or animal.numAnimals <= 0 then
-
+            
                 self.husbandryIdsToVisualAnimalCount[self.husbandryIds[husbandryId]] = math.max(self.husbandryIdsToVisualAnimalCount[self.husbandryIds[husbandryId]] - 1, 0)
                 self.visualAnimalCount = math.max(self.visualAnimalCount - 1, 0)
                 removeHusbandryAnimal(self.husbandryIds[husbandryId], animalId)
+                
                 if animal ~= nil then
                     animal.id = nil
                     animal.idFull = nil
@@ -143,7 +125,7 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
 
     end
 
-
+    
     if removeAll then self.animalIdToCluster = {} end
     if RealisticLivestock_AnimalClusterHusbandry.MAX_HUSBANDRIES <= 0 or self.visualAnimalCount == RealisticLivestock_AnimalClusterHusbandry.MAX_HUSBANDRIES then return end
 
@@ -193,16 +175,7 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
 
                 self.visualAnimalCount = math.max(self.visualAnimalCount - 1, 0)
                 husbandryAnimalCount = husbandryAnimalCount - 1
-
-                if self.animalIdToCluster[tempHusbandryId][tempAnimalId] then
-                    local p = 1
-                    for k, _ in pairs(self.animalIdToCluster[tempHusbandryId]) do
-                        if k == tempAnimalId then break end
-                        p = p + 1
-                    end
-
-                    table.remove(self.animalIdToCluster[tempHusbandryId], p)
-                end
+                self.animalIdToCluster[tempHusbandryId][tempAnimalId] = nil
 
                 if animalId == nil then
                     
@@ -237,12 +210,6 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
             end
         
             if i > #self.husbandryIds or (husbandryAnimalCount >= maxAnimalsPerHusbandry and not useTempId) then break end
-        
-            --if visualAnimalCount > 0 and visualAnimalCount % (maxAnimalsPerHusbandry + 1) == 0 then
-                --i = i + 1
-                --print("----", visualAnimalCount, i, "----")
-                --if i > #self.husbandryIds then break end
-            --end
 
             animalId = addHusbandryAnimal(self.husbandryIds[useTempId and tempHusbandryId or i], visualAnimalIndex - 1)
 
@@ -285,8 +252,6 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
             animal.visualAnimalIndex = visualAnimalIndex
 
             self.animalIdToCluster[useTempId and tempHusbandryId or i][animalId] = animal
-
-            local animalRootNode = getAnimalRootNode(self.husbandryIds[useTempId and tempHusbandryId or i], animalId)
 
             animal:createVisual(self.husbandryIds[useTempId and tempHusbandryId or i], animalId)
             animal:setVisualEarTagColours(colours.earTagLeft, colours.earTagLeft_text, colours.earTagRight, colours.earTagRight_text)
