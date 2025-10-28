@@ -485,8 +485,10 @@
 				<SmoothList profile="fs25_subCategoryList" id="sourceList" focusInit="onOpen" onDoubleClick="onClickSelect" startClipperElementName="startClipper" endClipperElementName="endClipper">
 					<ListItem profile="fs25_subCategoryListItem" name="defaultCell">
 						<Bitmap profile="fs25_subCategoryListItemIcon" name="icon"/>
-						<Text profile="fs25_subCategoryListItemName" name="name"/>
-						<Text profile="fs25_animalSourceListItemPrice" name="price"/>
+						<Text profile="fs25_subCategoryListItemName" name="idNoName"/>
+						<Text profile="fs25_subCategoryListItemName" name="id" position="100px -10px"/>
+						<Text profile="fs25_subCategoryListItemName" name="name" position="100px -30px"/>
+						<Text profile="fs25_animalSourceListItemPrice" name="price" position="100px -50px"/>
 						<Text profile="rl_animalListItemAIPurchase" name="herdsmanPurchase" text="$l10n_rl_ui_herdsmanRecentlyBought"/>
 						<Button profile="rl_checkboxButton" name="checkbox">
 							<ThreePartBitmap profile="rl_checkboxBox"/>
@@ -499,8 +501,10 @@
 						</GuiElement>
 						<Bitmap profile="fs25_subCategoryListItem" position="0px -50px" name="background">
 							<Bitmap profile="fs25_subCategoryListItemIcon" name="icon"/>
-							<Text profile="fs25_subCategoryListItemName" name="name"/>
-							<Text profile="fs25_animalSourceListItemPrice" name="price"/>
+							<Text profile="fs25_subCategoryListItemName" name="idNoName"/>
+							<Text profile="fs25_subCategoryListItemName" name="id" position="100px -10px"/>
+							<Text profile="fs25_subCategoryListItemName" name="name" position="100px -30px"/>
+							<Text profile="fs25_animalSourceListItemPrice" name="price" position="100px -50px"/>
 							<Text profile="rl_animalListItemAIPurchase" name="herdsmanPurchase" text="$l10n_rl_ui_herdsmanRecentlyBought"/>
 							<Button profile="rl_checkboxButton" name="checkbox">
 								<ThreePartBitmap profile="rl_checkboxBox"/>

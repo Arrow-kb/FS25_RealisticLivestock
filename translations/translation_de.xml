@@ -271,6 +271,7 @@
 
 		<text name="rl_ui_healthy" text="Gesund"/>
 		<text name="rl_ui_hasDisease" text="Hat Krankheit"/>
+		<text name="rl_ui_diseasedAnimals" text="Diseased Animals"/>
 
 
 		<text name="rl_mark_aiManager_sell" text="Hirte zum Verkauf gekennzeichnet"/>

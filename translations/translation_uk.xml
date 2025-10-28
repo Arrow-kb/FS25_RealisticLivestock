@@ -266,6 +266,7 @@
 		<text name="rl_mark_aiManager_disease" text="Herdsman marked for treating"/>
 		<text name="rl_mark_aiManager_ai" text="Herdsman marked for artificial insemination"/>
 		<text name="rl_mark_player" text="Marked by player"/>
+		<text name="rl_ui_diseasedAnimals" text="Diseased Animals"/>
 
 
 		<!-- AI - BUYING -->

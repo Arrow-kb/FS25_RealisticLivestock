@@ -262,6 +262,7 @@
 
 		<text name="rl_ui_healthy" text="Healthy"/>
 		<text name="rl_ui_hasDisease" text="Has Disease"/>
+		<text name="rl_ui_diseasedAnimals" text="Diseased Animals"/>
 
 
 		<text name="rl_insemination_male" text="Only females can be artificially inseminated"/>

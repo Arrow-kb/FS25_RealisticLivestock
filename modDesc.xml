@@ -1,6 +1,6 @@
 <modDesc descVersion="103">
     <author>Arrow</author>
-    <version>1.2.1.0</version>
+    <version>1.2.1.1</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -94,6 +94,13 @@ Enhanced Animal Dealer
 - Animals at the dealer have a chance to be pregnant and will all have unique genetic qualities which will impact their price and usefulness
 
 Changelog:
+
+1.2.1.1
+
+- Diseased animals are now in their own group at the top of the animal menu screen
+- Name and id are now both shown in the animal menu screen list
+- Fixed horses not being found properly after riding other horses
+- Fixed several MP sync issues
 
 1.2.1.0
 
