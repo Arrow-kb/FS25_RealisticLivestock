@@ -361,49 +361,54 @@ function RealisticLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, ke
     for _, subTypeKey in xmlFile:iterator(key .. ".subType") do
 
 		local rawName = xmlFile:getString(subTypeKey .. "#subType")
+        local requiredDLC = xmlFile:getString(key .. "#requiredDLC")
 
-		if rawName == nil then
-			Logging.xmlError(xmlFile, "Missing animal subtype. \'%s\'", subTypeKey)
-			break
-		end
+        if requiredDLC == nil or g_modNameToDirectory[g_uniqueDlcNamePrefix .. requiredDLC] ~= nil then
 
-		local name = rawName:upper()
+		    if rawName == nil then
+			    Logging.xmlError(xmlFile, "Missing animal subtype. \'%s\'", subTypeKey)
+			    break
+		    end
 
-		if self.nameToSubTypeIndex[name] ~= nil then continue end
+		    local name = rawName:upper()
 
-		local fillTypeName = xmlFile:getString(subTypeKey .. "#fillTypeName")
-		local fillTypeIndex = g_fillTypeManager:getFillTypeIndexByName(fillTypeName)
+		    if self.nameToSubTypeIndex[name] ~= nil then continue end
 
-		if fillTypeIndex == nil then
-			Logging.xmlError(xmlFile, "FillType \'%s\' for animal subtype \'%s\' not defined!", fillTypeName, subTypeKey)
-			break
-		end
+		    local fillTypeName = xmlFile:getString(subTypeKey .. "#fillTypeName")
+		    local fillTypeIndex = g_fillTypeManager:getFillTypeIndexByName(fillTypeName)
 
-		local subType = {
-			["name"] = name,
-			["subTypeIndex"] = #self.subTypes + 1,
-			["fillTypeIndex"] = fillTypeIndex,
-			["typeIndex"] = animalType.typeIndex,
-			["statsBreedingName"] = xmlFile:getString(subTypeKey .. "#statsBreeding") or animalType.statsBreedingName
-		}
+		    if fillTypeIndex == nil then
+			    Logging.xmlError(xmlFile, "FillType \'%s\' for animal subtype \'%s\' not defined!", fillTypeName, subTypeKey)
+			    break
+		    end
 
-		table.insert(animalType.subTypes, subType.subTypeIndex)
+		    local subType = {
+			    ["name"] = name,
+			    ["subTypeIndex"] = #self.subTypes + 1,
+			    ["fillTypeIndex"] = fillTypeIndex,
+			    ["typeIndex"] = animalType.typeIndex,
+			    ["statsBreedingName"] = xmlFile:getString(subTypeKey .. "#statsBreeding") or animalType.statsBreedingName
+		    }
 
-		if self:loadSubType(animalType, subType, xmlFile, subTypeKey, directory) then
+		    table.insert(animalType.subTypes, subType.subTypeIndex)
 
-			table.insert(self.subTypes, subType)
-			self.nameToSubType[name] = subType
-			self.nameToSubTypeIndex[name] = subType.subTypeIndex
-			self.fillTypeIndexToSubType[fillTypeIndex] = subType
+		    if self:loadSubType(animalType, subType, xmlFile, subTypeKey, directory) then
 
-            local breed = xmlFile:getString(subTypeKey .. "#breed", name)
-            subType.breed = breed
+			    table.insert(self.subTypes, subType)
+			    self.nameToSubType[name] = subType
+			    self.nameToSubTypeIndex[name] = subType.subTypeIndex
+			    self.fillTypeIndexToSubType[fillTypeIndex] = subType
 
-            if animalType.breeds[breed] == nil then animalType.breeds[breed] = {} end
+                local breed = xmlFile:getString(subTypeKey .. "#breed", name)
+                subType.breed = breed
 
-            table.insert(animalType.breeds[breed], subType)
+                if animalType.breeds[breed] == nil then animalType.breeds[breed] = {} end
 
-		end
+                table.insert(animalType.breeds[breed], subType)
+
+		    end
+
+        end
 
 	end
 
