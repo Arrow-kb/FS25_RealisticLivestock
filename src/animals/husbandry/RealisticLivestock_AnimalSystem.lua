@@ -1665,11 +1665,23 @@ function AnimalSystem:createNewAIAnimal(animalTypeIndex)
 
     if animalType == nil then return nil end
 
-    local subTypeIndex = animalType.subTypes[math.random(1, #animalType.subTypes)]
+    local validSubTypes = {}
 
-    if self:getSubTypeByIndex(subTypeIndex).gender == "female" then subTypeIndex = subTypeIndex + 1 end
+    for _, subTypeIndex in pairs(animalType.subTypes) do
 
-    local subType = self:getSubTypeByIndex(subTypeIndex)
+        local subType = self:getSubTypeByIndex(subTypeIndex)
+
+        if subType.gender == "male" then table.insert(validSubTypes, subType) end
+
+    end
+
+    if #validSubTypes == 0 then return nil end
+
+    local subType = validSubTypes[math.random(1, #validSubTypes)]
+
+    if subType == nil then return end
+
+    local subTypeIndex = subType.subTypeIndex
     
     local farmId, farmQuality, farmCountryIndex, lastAnimalId
     local attemptedCountryIndexes = {}
