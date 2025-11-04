@@ -169,6 +169,30 @@
 			<locomotion filename="$dataS/character/animals/domesticated/cow/locomotionBaby.xml"/>
 			<audio eatSoundGroup="eat" yellSoundGroup="yellBaby" yellMinInterval="8000" yellMaxInterval="20000" yellTimerCrowdScale="0.2"/>
 		</animal>
+		<animal visualAnimalIndex="19" name="HIGHLAND_CATTLE_BABY" radius="0.7" handleThreats="false" threatAwarenessRadius="5" slowingDistance="0.5" allowMilkingPlace="true" headOffset="0.8" canEat="false" canDrink="false" canSleep="true" canEatDuringNight="false" canBeCleaned="true" interessDistance="10.0">
+			<statesTimers idleMin="6666" idleMax="19998" sleepMin="120000" sleepMax="180000" restMin="12000" restMax="26666" grazeMin="0" grazeMax="0" chewMin="0" chewMax="0" eatMin="66665" eatMax="93331" wanderMin="5000" wanderMax="10000"/>
+			<assets filename="$dataS/character/animals/domesticated/cow/calf/cattleCalfHighlandBaby.i3d" filenamePosed="$dataS/character/animals/domesticated/cow/calf/cattleCalfHighlandBaby_posed.i3d" animation="$dataS/character/animals/domesticated/cow/highland/animations/young/cattleCalfHighlandBabyAnimations.i3d" skeletonIndex="0" meshIndex="1" proxyIndex="2" shaderIndex="1|2" headIndex="0>0|0|0|0|0|0|0|0">
+				<texture multi="false" tileUIndex="0" tileVIndex="0" numTilesU="1" numTilesV="1" mirrorV="false"/>
+			</assets>
+			<locomotion filename="$dataS/character/animals/domesticated/cow/highland/locomotionBaby.xml"/>
+			<audio eatSoundGroup="eat" yellSoundGroup="yellBaby" yellMinInterval="12000" yellMaxInterval="24000" yellTimerCrowdScale="0.2"/>
+		</animal>
+		<animal visualAnimalIndex="20" name="HIGHLAND_CATTLE_KID" radius="1.1" handleThreats="false" threatAwarenessRadius="5" slowingDistance="0.5" allowMilkingPlace="true" headOffset="0.8" canEat="false" canDrink="false" canSleep="true" canEatDuringNight="false" canBeCleaned="true" interessDistance="10.0">
+			<statesTimers idleMin="6666" idleMax="19998" sleepMin="120000" sleepMax="180000" restMin="12000" restMax="26666" grazeMin="26666" grazeMax="39999" chewMin="9000" chewMax="18000" eatMin="66665" eatMax="93331" wanderMin="5000" wanderMax="10000"/>
+			<assets filename="$dataS/character/animals/domesticated/cow/calf/cattleCalfHighland.i3d" filenamePosed="$dataS/character/animals/domesticated/cow/calf/cattleCalfHighland_posed.i3d" animation="$dataS/character/animals/domesticated/cow/highland/animations/young/cattleCalfHighlandAnimations.i3d" skeletonIndex="0" meshIndex="1" proxyIndex="2" shaderIndex="1|2" headIndex="0>0|0|0|0|0|0|0|0">
+				<texture multi="false" tileUIndex="0" tileVIndex="0" numTilesU="1" numTilesV="1" mirrorV="false"/>
+			</assets>
+			<locomotion filename="$dataS/character/animals/domesticated/cow/highland/locomotionKid.xml"/>
+			<audio eatSoundGroup="eat" yellSoundGroup="yell" yellMinInterval="12000" yellMaxInterval="24000" yellTimerCrowdScale="0.2"/>
+		</animal>
+		<animal visualAnimalIndex="21" name="HIGHLAND_CATTLE" radius="1.8" handleThreats="false" threatAwarenessRadius="5" slowingDistance="0.5" allowMilkingPlace="true" headOffset="0.8" canEat="true" canDrink="true" canSleep="true" canEatDuringNight="true" canBeCleaned="true" interessDistance="10.0">
+			<statesTimers idleMin="6666" idleMax="19998" sleepMin="120000" sleepMax="180000" restMin="12000" restMax="26666" grazeMin="26666" grazeMax="39999" chewMin="9000" chewMax="18000" eatMin="66665" eatMax="93331" wanderMin="5000" wanderMax="10000"/>
+			<assets filename="$dataS/character/animals/domesticated/cow/highland/cattleHighland.i3d" filenamePosed="$dataS/character/animals/domesticated/cow/highland/cattleHighland_posed.i3d" animation="$dataS/character/animals/domesticated/cow/highland/animations/adult/cattleHighlandAnimations.i3d" skeletonIndex="0" meshIndex="1" proxyIndex="2" shaderIndex="1|0" headIndex="0>0|0|0|0|0|0|0|0">
+				<texture multi="false" tileUIndex="0" tileVIndex="0" numTilesU="1" numTilesV="1" mirrorV="false"/>
+			</assets>
+			<locomotion filename="$dataS/character/animals/domesticated/cow/highland/locomotion.xml"/>
+			<audio eatSoundGroup="eat" yellSoundGroup="yell" yellMinInterval="12000" yellMaxInterval="24000" yellTimerCrowdScale="0.2"/>
+		</animal>
 	</animals>
 	<sound>
 		<soundGroup name="walk" volume="1" indoorVolume="0.1" range="12" innerRange="0.4">
