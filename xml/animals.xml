@@ -762,6 +762,86 @@
 				</liquidManure>
 			</output>
 		</subType>
+		<subType subType="COW_HIGHLAND_CATTLE" fillTypeName="COW_HIGHLAND_CATTLE" gender="female" minWeight="35.0" targetWeight="725.0" maxWeight="1200.0" statsBreeding="breedCowsCount" breed="HIGHLAND" requiredDLC="highlandsFishingPack">
+			<visuals>
+				<visual minAge="0" visualAnimalIndex="19" name="$l10n_animal_visual_baby" image="$dataS/character/animals/domesticated/cow/store_highlandCattleBaby.png" canBeBought="true">
+					<description>$l10n_animal_descriptionCowProfit</description>
+					<description>$l10n_animal_descriptionCowFeed</description>
+					<description>$l10n_animal_descriptionWater</description>
+					<description>$l10n_animal_descriptionBuffaloYoung</description>
+					<description>$l10n_animal_descriptionCowReproduction</description>
+				</visual>
+				<visual minAge="6" visualAnimalIndex="20" name="$l10n_animal_visual_kid" image="$dataS/character/animals/domesticated/cow/store_highlandCattleKid.png" canBeBought="true">
+					<description>$l10n_animal_descriptionCowProfit</description>
+					<description>$l10n_animal_descriptionCowFeed</description>
+					<description>$l10n_animal_descriptionWater</description>
+					<description>$l10n_animal_descriptionCowReproduction</description>
+				</visual>
+				<visual minAge="12" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="false">
+					<description>$l10n_animal_descriptionCowProfit</description>
+					<description>$l10n_animal_descriptionCowFeed</description>
+					<description>$l10n_animal_descriptionWater</description>
+					<description>$l10n_animal_descriptionMature</description>
+					<description>$l10n_animal_descriptionCowReproduction</description>
+				</visual>
+				<visual minAge="18" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="true">
+					<description>$l10n_animal_descriptionCowProfit</description>
+					<description>$l10n_animal_descriptionCowFeed</description>
+					<description>$l10n_animal_descriptionWater</description>
+					<description>$l10n_animal_descriptionMature</description>
+					<description>$l10n_animal_descriptionCowReproduction</description>
+				</visual>
+			</visuals>
+			<reproduction minAgeMonth="12" durationMonth="10" minHealthFactor="0.75"/>
+			<buyPrice>
+				<key ageMonth="0" value="300"/>
+				<key ageMonth="24" value="3000"/>
+			</buyPrice>
+			<sellPrice>
+				<key ageMonth="0" value="230"/>
+				<key ageMonth="24" value="3000"/>
+				<key ageMonth="36" value="3500"/>
+				<key ageMonth="60" value="2500"/>
+			</sellPrice>
+			<transportPrice>
+				<key ageMonth="0" value="40"/>
+				<key ageMonth="12" value="100"/>
+				<key ageMonth="18" value="200"/>
+			</transportPrice>
+			<input>
+				<straw>
+					<key ageMonth="0" value="15"/>
+					<key ageMonth="18" value="130"/>
+				</straw>
+				<water>
+					<key ageMonth="0" value="20"/>
+					<key ageMonth="18" value="140"/>
+				</water>
+				<food>
+					<key ageMonth="0" value="80"/>
+					<key ageMonth="18" value="550"/>
+				</food>
+			</input>
+			<output>
+				<milk fillType="MILK">
+					<key ageMonth="0" value="0"/>
+					<key ageMonth="12" value="0"/>
+					<key ageMonth="12" value="100"/>
+					<key ageMonth="36" value="100"/>
+					<key ageMonth="36" value="160"/>
+					<key ageMonth="72" value="160"/>
+					<key ageMonth="120" value="70"/>
+				</milk>
+				<manure>
+					<key ageMonth="0" value="25"/>
+					<key ageMonth="18" value="300"/>
+				</manure>
+				<liquidManure>
+					<key ageMonth="0" value="40"/>
+					<key ageMonth="18" value="250"/>
+				</liquidManure>
+			</output>
+		</subType>
 		<subType subType="COW_WATERBUFFALO" fillTypeName="COW_WATERBUFFALO" gender="female" statsBreeding="breedWaterBuffaloCount" minWeight="35.0" targetWeight="425.0" maxWeight="1200.0" breed="WATER_BUFFALO">
 			<visuals>
 				<visual minAge="0" visualAnimalIndex="13" name="$l10n_animal_visual_baby" image="$dataS/character/animals/domesticated/waterBuffalo/store_waterBuffaloBaby.png" monitor="0|0|0|0|0|0|0|0|0|1|0|1" canBeBought="true" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" marker="0|0|0|4">
