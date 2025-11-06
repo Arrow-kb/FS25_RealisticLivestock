@@ -71,7 +71,7 @@
 
 		<text name="rl_ui_unhealthy" text="Zu ungesund"/>
 		<text name="rl_ui_unhealthyBracketed" text="Nein (zu ungesund)"/>
-		<text name="rl_ui_noMaleAnimal" text="Kein geeignetes männliches Tier"/>
+		<text name="rl_ui_noMaleAnimal" text="Kein reifes männliches Tier"/>
 		<text name="rl_ui_noMaleAnimalBracketed" text="Nein (kein geeignetes männliches Tier)"/>
 		<text name="rl_ui_recoveringLastBirth" text="Erholen von der letzten Geburt"/>
 		<text name="rl_ui_recoveringLastBirthBracketed" text="Nein (erholt sich von der letzten Geburt)"/>
@@ -118,9 +118,9 @@
 		<text name="rl_ui_eggs" text="Eierproduktion"/>
 		<text name="rl_ui_metabolism" text="Stoffwechsel"/>
 		<text name="rl_ui_meat" text="Qualität"/>
-        <text name="rl_ui_meat_github" text="Fleisch Quality"/>
+        <text name="rl_ui_meat_github" text="Fleischqualität"/>
         <text name="rl_ui_quality" text="Qualität"/>
-        <text name="rl_ui_quality_github" text="Fleisch Quality"/>
+        <text name="rl_ui_quality_github" text="Fleischqualität"/>
 		<text name="rl_ui_health" text="Gesundheit"/>
 		<text name="rl_ui_fertility" text="Fruchtbarkeit"/>
 
@@ -132,7 +132,7 @@
 		<text name="rl_ui_genetics_high" text="Hoch"/>
 		<text name="rl_ui_genetics_veryHigh" text="Sehr hoch"/>
 		<text name="rl_ui_genetics_extremelyHigh" text="Extrem hoch"/>
-        <text name="rl_ui_genetics_highest" text="Höchste"/>
+        <text name="rl_ui_genetics_highest" text="Maximum"/>
 
 		<text name="rl_ui_genetics_extremelyBad" text="Extrem schlecht"/>
 		<text name="rl_ui_genetics_veryBad" text="Sehr schlecht"/>
@@ -224,10 +224,10 @@
 		<text name="finance_herdsmanWages" text="Hirtenlöhne"/>
 		<text name="rl_ui_medicine" text="Medizin"/>
 		<text name="finance_medicine" text="Medizin"/>
-		<text name="rl_ui_semenPurchase" text="Kauf von Inseminationsmaterial"/>
-		<text name="rl_ui_semenPurchase_github" text="Samenkauf"/>
-		<text name="finance_semenPurchase" text="Kauf von Inseminationsmaterial"/>
-		<text name="finance_semenPurchase_github" text="Samenkauf"/>
+		<text name="rl_ui_semenPurchase" text="Kauf von Besamungsmaterial"/>
+		<text name="rl_ui_semenPurchase_github" text="Spermienkauf"/>
+		<text name="finance_semenPurchase" text="Kauf von Besamungsmaterial"/>
+		<text name="finance_semenPurchase_github" text="Spermienkauf"/>
 		<text name="rl_ui_noDiseases" text="Keine Krankheiten"/>
 		<text name="rl_ui_onlyDiseases" text="Nur Krankheiten"/>
 		<text name="rl_ui_naming" text="Benennung"/>
