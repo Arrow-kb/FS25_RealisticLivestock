@@ -15,7 +15,7 @@
 
 		<!-- WATER BUFFALOS -->
 
-		<text name="fillType_bull_waterbuffalo" text="Water Buffalo Bullen"/>
+		<text name="fillType_bull_waterbuffalo" text="Wasserbüffelbulle"/>
 
 		<!-- PIGS -->
 
@@ -29,7 +29,7 @@
 
 		<!-- SHEEP -->
 
-		<text name="fillType_ram" text="Ramme"/>
+		<text name="fillType_ram" text="Schafbock"/>
 		<text name="fillType_ram_landrace" text="Bentheimer Landschafbock"/>
 		<text name="fillType_ram_steinschaf" text="Alpiner Steinschafbock"/>
 		<text name="fillType_ram_black_welsh" text="Walliser Schwarznasenschafbock"/>
@@ -65,7 +65,7 @@
 		<text name="rl_button_apply" text="Anwenden"/>
 		<text name="rl_button_confirm" text="Bestätigen"/>
 		<text name="rl_button_recommended" text="Empfohlen"/>
-		<text name="rl_button_cancel" text="Stornieren"/>
+		<text name="rl_button_cancel" text="Abbrechen"/>
 		<text name="rl_button_random" text="Zufällig"/>
 		<text name="rl_dialog_title" text="Maximale Anzahl visueller Tiere"/>
 
@@ -118,6 +118,9 @@
 		<text name="rl_ui_eggs" text="Eierproduktion"/>
 		<text name="rl_ui_metabolism" text="Stoffwechsel"/>
 		<text name="rl_ui_meat" text="Qualität"/>
+        <text name="rl_ui_meat_github" text="Fleisch Quality"/>
+        <text name="rl_ui_quality" text="Qualität"/>
+        <text name="rl_ui_quality_github" text="Fleisch Quality"/>
 		<text name="rl_ui_health" text="Gesundheit"/>
 		<text name="rl_ui_fertility" text="Fruchtbarkeit"/>
 
@@ -129,6 +132,7 @@
 		<text name="rl_ui_genetics_high" text="Hoch"/>
 		<text name="rl_ui_genetics_veryHigh" text="Sehr hoch"/>
 		<text name="rl_ui_genetics_extremelyHigh" text="Extrem hoch"/>
+        <text name="rl_ui_genetics_highest" text="Höchste"/>
 
 		<text name="rl_ui_genetics_extremelyBad" text="Extrem schlecht"/>
 		<text name="rl_ui_genetics_veryBad" text="Sehr schlecht"/>
@@ -153,12 +157,12 @@
 		<text name="rl_ui_monitorFee" text="Monitor-Gebühr"/>
 		<text name="rl_ui_applyMonitor" text="Monitor anwenden"/>
 		<text name="rl_ui_removeMonitor" text="Monitor entfernen"/>
-		<text name="rl_ui_input_food" text="Lebensmittel"/>
+		<text name="rl_ui_input_food" text="Futter"/>
 		<text name="rl_ui_input_water" text="Wasser"/>
 		<text name="rl_ui_input_straw" text="Stroh"/>
 		<text name="rl_ui_output_milk" text="Milch"/>
-		<text name="rl_ui_output_manure" text="Gülle"/>
-		<text name="rl_ui_output_liquidManure" text="Flüssigmist"/>
+		<text name="rl_ui_output_manure" text="Mist"/>
+		<text name="rl_ui_output_liquidManure" text="Gülle"/>
 		<text name="rl_ui_output_pallets_eggs" text="Eier"/>
 		<text name="rl_ui_output_pallets_wool" text="Wolle"/>
 		<text name="rl_ui_output_pallets_goatMilk" text="Ziegenmilch"/>
@@ -184,7 +188,7 @@
 		<text name="rl_ui_formatMonths" text="%s Monate"/>
 		<text name="rl_ui_formatMonth" text="%s Monat"/>
 		<text name="rl_ui_notPregnant" text="Nicht schwanger"/>
-		<text name="rl_ui_any" text="Jeder"/>
+		<text name="rl_ui_any" text="Alle"/>
 		<text name="rl_ui_pregnancy" text="Schwangerschaft"/>
 		<text name="rl_ui_productivity" text="Produktivität"/>
 		<text name="rl_ui_selectAll" text="Alle auswählen"/>
@@ -197,6 +201,7 @@
 
 		<text name="rl_ui_castrated" text="Kastriert"/>
 		<text name="rl_ui_castrate" text="Kastrieren"/>
+
 		<text name="rl_ui_importance" text="Bedeutung"/>
 		<text name="rl_ui_type" text="Typ"/>
 		<text name="rl_ui_date" text="Datum"/>
@@ -229,7 +234,7 @@
 		<text name="rl_ui_alphabetical" text="Alphabetisch"/>
 		<text name="rl_ui_breed" text="Rasse"/>
 		<text name="rl_ui_dontMark" text="Nicht markieren"/>
-		<text name="rl_ui_mark" text="Mark"/>
+		<text name="rl_ui_mark" text="Markieren"/>
 		<text name="rl_ui_unmark" text="Markierung aufheben"/>
 		<text name="rl_ui_favourite" text="Favorit"/>
 		<text name="rl_ui_unFavourite" text="Nicht favorisiert"/>
@@ -241,24 +246,28 @@
 		<text name="rl_ui_semenPurchase_unsuccessful_github" text="Samen konnte nicht gekauft werden."/>
 		<text name="rl_ui_earTag" text="Ohrmarke"/>
 		<text name="rl_ui_species" text="Arten"/>
-		<text name="rl_ui_strawSingle" text="Stroh"/>
-		<text name="rl_ui_strawMultiple" text="Strohhalme"/>
+		<text name="rl_ui_strawSingle" text="Straw"/>
+		<text name="rl_ui_strawMultiple" text="Straws"/>
 		<text name="rl_ui_artificialInsemination" text="Künstliche Befruchtung"/>
 		<text name="rl_ui_semenPurchaseNoPermission" text="Sie benötigen keine Genehmigung, um Tiere zu handeln oder Besamungsmaterial zu kaufen."/>
 		<text name="rl_ui_semenPurchaseNoPermission_github" text="Sie benötigen keine Genehmigung, um Tiere zu handeln oder Sperma zu kaufen."/>
 		<text name="rl_ui_semenPurchaseNoMoney" text="Sie haben nicht genug Geld, um dieses Inseminat zu kaufen."/>
 		<text name="rl_ui_semenPurchaseNoMoney_github" text="Sie haben nicht genug Geld, um dieses Sperma zu kaufen."/>
-		<text name="rl_ui_takeStraw" text="Stroh nehmen"/>
+		<text name="rl_ui_takeStraw" text="Straw nehmen"/>
 		<text name="rl_ui_inseminateAnimal" text="Besamen %s"/>
 		<text name="rl_ui_inseminate" text="Besamen"/>
-		<text name="rl_ui_strawEmpty" text="Dieser Strohhalm ist leer."/>
+		<text name="rl_ui_strawEmpty" text="Dieser Straw ist leer."/>
 		<text name="rl_ui_averageSuccessColon" text="Durchschnittlicher Erfolg: "/>
 		<text name="rl_ui_averageSuccess" text="Durchschnittlicher Erfolg"/>
 		<text name="rl_ui_success" text="Erfolg"/>
 		<text name="rl_ui_save" text="Speichern"/>
-		<text name="rl_ui_load" text="Belastung"/>
+		<text name="rl_ui_load" text="Laden"/>
 		<text name="rl_ui_saveProfile" text="Profil speichern"/>
 		<text name="rl_ui_loadProfile" text="Lastprofil"/>
+
+        <text name="rl_ui_healthy" text="Gesund"/>
+        <text name="rl_ui_hasDisease" text="Hat Krankheit"/>
+        <text name="rl_ui_diseasedAnimals" text="Kranke Tiere"/>
 
 
 		<text name="rl_insemination_male" text="Nur weibliche Tiere können künstlich befruchtet werden."/>
@@ -268,10 +277,6 @@
 		<text name="rl_insemination_recovering" text="Dieses Tier erholt sich noch von seiner letzten Schwangerschaft."/>
 		<text name="rl_insemination_father" text="Inzucht ist nicht erlaubt."/>
 		<text name="rl_insemination_young" text="Dieses Tier ist zu jung, um künstlich befruchtet zu werden."/>
-
-		<text name="rl_ui_healthy" text="Gesund"/>
-		<text name="rl_ui_hasDisease" text="Hat Krankheit"/>
-		<text name="rl_ui_diseasedAnimals" text="Diseased Animals"/>
 
 
 		<text name="rl_mark_aiManager_sell" text="Hirte zum Verkauf gekennzeichnet"/>
@@ -441,27 +446,34 @@
 
 
 
-
 		<!--  SETTINGS  -->
 
 
 		<text name="rl_settings" text="Realistische Viehbestände"/>
 
 		<text name="rl_settings_off" text="Aus"/>
-		<text name="rl_settings_on" text="Auf"/>
+		<text name="rl_settings_on" text="An"/>
 
 		<text name="rl_settings_deathEnabled_label" text="Tierentfernung"/>
+        <text name="rl_settings_deathEnabled_label_github" text="Tod eines Tieres"/>
 		<text name="rl_settings_deathEnabled_tooltip_1" text="Tiere werden nicht aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen entfernt."/>
+        <text name="rl_settings_deathEnabled_tooltip_1_github" text="Tiere sterben nicht aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen"/>
 		<text name="rl_settings_deathEnabled_tooltip_2" text="Tiere werden aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen entfernt."/>
+        <text name="rl_settings_deathEnabled_tooltip_2_github" text="Tiere sterben aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen"/>
 
 		<text name="rl_settings_accidentsChance_label" text="Unfallwahrscheinlichkeit"/>
 		<text name="rl_settings_accidentsChance_tooltip" text="Änderung der Wahrscheinlichkeit, dass Tiere aufgrund von Zufallsunfällen entfernt werden"/>
+        <text name="rl_settings_accidentsChance_tooltip_github" text="Ändere die Wahrscheinlichkeit, dass Tiere aufgrund von Zufallsunfällen sterben"/>
 
-		<text name="rl_settings_foodScale_label" text="Lebensmittelwaage"/>
+		<text name="rl_settings_foodScale_label" text="Futtermenge"/>
 		<text name="rl_settings_foodScale_tooltip" text="Die Menge der von Tieren gefressenen Nahrung verändern"/>
 
 		<text name="rl_settings_maxDealerAnimals_label" text="Maximale Händler-Tiere"/>
 		<text name="rl_settings_maxDealerAnimals_tooltip" text="Ändern Sie die maximale Anzahl der Tiere, die der Tierhändler pro Tierart auf Lager hat"/>
+
+        <text name="rl_settings_resetDealer_label" text="Tierhändler zurücksetzen"/>
+        <text name="rl_settings_resetDealer_tooltip" text="Entfernen Sie alle Tiere des Händlers und füllen Sie den Bestand mit neuen Tieren auf"/>
+        <text name="rl_settings_resetDealer_text" text="Tierhändler zurücksetzen"/>
 
 		<text name="rl_settings_tagColour_label" text="Tag-Farbe ändern"/>
 		<text name="rl_settings_tagColour_tooltip" text="Ändern Sie die Farbe der Ohrmarken."/>
@@ -544,11 +556,11 @@
 
 		<text name="rl_disease_cvm" text="CVM"/>
 
-		<text name="rl_disease_footAndMouth" text="Foot and Mouth"/>
+		<text name="rl_disease_footAndMouth" text="Maul- und Klauenseuche"/>
 
-		<text name="rl_disease_ped" text="Porcine Epidemic Diarrhoea"/>
+		<text name="rl_disease_ped" text="Porzine Epizootische Diarrhoe"/>
 
-		<text name="rl_disease_avianFlu" text="Avian Influenza"/>
+		<text name="rl_disease_avianFlu" text="Geflügelpest"/>
 
 
 
@@ -571,13 +583,13 @@
 		<text name="rl_message_pregnancyDied_github" text="%s Babys starben bei der Geburt"/>
 		<text name="rl_message_death" text="Entfernt aufgrund von %s"/>
 		<text name="rl_message_death_github" text="Gestorben aufgrund von %s"/>
-		<text name="rl_message_diseaseContracted" text="Vertraglich vereinbart %s"/>
+		<text name="rl_message_diseaseContracted" text="An %s erkrankt"/>
 		<text name="rl_message_diseaseCured" text="Geheilt von %s"/>
 		<text name="rl_message_diseaseTreatment_start" text="Behandlung für %s begonnen bei %s"/>
 		<text name="rl_message_diseaseTreatment_resume" text="Behandlung für %s bei %s wieder aufgenommen"/>
 		<text name="rl_message_diseaseTreatment_stop" text="Behandlung für %s abgebrochen"/>
 		<text name="rl_message_nameChange" text="Name von '%s' in '%s' geändert"/>
-		<text name="rl_message_nameAdded" text="Vorname '%s'"/>
+		<text name="rl_message_nameAdded" text="Name zu '%s' geändert"/>
 		<text name="rl_message_nameDeleted" text="Der Name „%s“ wurde entfernt."/>
 		<text name="rl_message_boughtAnimals_single" text="1 Tier wurde für %s gekauft."/>
 		<text name="rl_message_boughtAnimals_multiple" text="%s Tiere wurden für %s gekauft."/>
@@ -594,7 +606,7 @@
 		<text name="rl_message_aiManager_castrated_single" text="Hirte hat 1 Tier kastriert"/>
 		<text name="rl_message_aiManager_castrated_multiple" text="Der Hirte hat %s Tiere kastriert."/>
 		<text name="rl_message_aiManager_named_single" text="Hirte benannte 1 Tier"/>
-		<text name="rl_message_aiManager_named_multiple" text="Hirte namens %s Tiere"/>
+		<text name="rl_message_aiManager_named_multiple" text="Hirte hat %s Tiere benannt"/>
 		<text name="rl_message_aiManager_mark_sell_single" text="Hirte hat 1 Tier zum Verkauf gekennzeichnet"/>
 		<text name="rl_message_aiManager_mark_sell_multiple" text="Der Hirte hat %s Tiere zum Verkauf gekennzeichnet."/>
 		<text name="rl_message_aiManager_mark_castrate_single" text="Hirte hat 1 Tier zur Kastration markiert"/>
@@ -617,6 +629,7 @@
 		<text name="rl_death_health" text="geringe Gesundheit"/>
 		<text name="rl_death_age" text="Alter"/>
 		<text name="rl_death_accident" text="ein Unfall"/>
+
 
 	</texts>
 </l10n>
