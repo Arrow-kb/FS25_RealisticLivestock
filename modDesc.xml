@@ -1,6 +1,6 @@
 <modDesc descVersion="103">
     <author>Arrow</author>
-    <version>1.2.1.1</version>
+    <version>1.2.1.4</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -94,6 +94,20 @@ Enhanced Animal Dealer
 - Animals at the dealer have a chance to be pregnant and will all have unique genetic qualities which will impact their price and usefulness
 
 Changelog:
+
+1.2.1.4
+
+- Compatibility for 1.0.0.6 of FontLibrary
+- Removed access to Highland Cattle if the DLC is not owned
+
+1.2.1.3
+
+- Compatibility for highland cattle
+- Fixed error: attempt to index nil with 'reproductionMinAgeMonth'
+
+1.2.1.2
+
+- Fixed crops not advancing
 
 1.2.1.1
 
@@ -360,9 +374,10 @@ Journal des modifications:
     <iconFilename>icon_RealisticLivestock.dds</iconFilename>
     <multiplayer supported="true"/>
 	<dependencies>
-		<dependency>FS25_FontLibrary</dependency>
+		<dependency version="1.0.0.6">FS25_FontLibrary</dependency>
 	</dependencies>
     <extraSourceFiles>
+		<sourceFile filename="src/gui/MPLoadingScreen.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalCluster.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalClusterHusbandry.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalClusterSystem.lua"/>

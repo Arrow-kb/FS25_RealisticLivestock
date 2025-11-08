@@ -15,6 +15,7 @@ AnimalSystem.BREED_TO_NAME = {
     ["ANGUS"] = "Angus",
     ["LIMOUSIN"] = "Limousin",
     ["HEREFORD"] = "Hereford",
+    ["HIGHLAND"] = "Highland",
     ["WATER_BUFFALO"] = "Water Buffalo",
     ["LANDRACE"] = "Landrace",
     ["BLACK_PIED"] = "Black Pied",
@@ -361,7 +362,7 @@ function RealisticLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, ke
     for _, subTypeKey in xmlFile:iterator(key .. ".subType") do
 
 		local rawName = xmlFile:getString(subTypeKey .. "#subType")
-        local requiredDLC = xmlFile:getString(key .. "#requiredDLC")
+        local requiredDLC = xmlFile:getString(subTypeKey .. "#requiredDLC")
 
         if requiredDLC == nil or g_modNameToDirectory[g_uniqueDlcNamePrefix .. requiredDLC] ~= nil then
 
