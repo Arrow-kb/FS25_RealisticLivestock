@@ -1,75 +1,160 @@
-# FS25_RealisticLivestock
+# 🐄 FS25 Realistic Livestock
 
-[![Github All Releases](https://img.shields.io/github/downloads/Arrow-kb/FS25_RealisticLivestock/total.svg)]()
+<div align="center">
 
-[Requires FS25_FontLibrary](https://github.com/Arrow-kb/FS25_FontLibrary)
+[![Downloads](https://img.shields.io/github/downloads/Arrow-kb/FS25_RealisticLivestock/total.svg?style=for-the-badge&color=brightgreen)](https://github.com/Arrow-kb/FS25_RealisticLivestock/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/Arrow-kb/FS25_RealisticLivestock?style=for-the-badge&color=blue)](https://github.com/Arrow-kb/FS25_RealisticLivestock/releases)
+[![License](https://img.shields.io/github/license/Arrow-kb/FS25_RealisticLivestock?style=for-the-badge)](LICENSE)
 
-Realistic Livestock mod for FS25.
+**A comprehensive livestock overhaul for Farming Simulator 25**
 
-# Features:
-<ins>**Male Animals**</ins>
-- Higher value
-- Required for reproduction
-- No male models (im not a 3d artist)
+[Download Latest Release](https://github.com/Arrow-kb/FS25_RealisticLivestock/releases) • [Report Bug](https://github.com/Arrow-kb/FS25_RealisticLivestock/issues) • [Request Feature](https://github.com/Arrow-kb/FS25_RealisticLivestock/issues)
 
-<ins>**Visual Animals**</ins>
-- The limit of visual animals per husbandry has been increased from 25 in the vanilla game, up to 200 at maximum which can be changed with a slider
+</div>
 
-<ins>**Individual Animals**</ins>
-- All animals are now 100% individual and the archaic cluster system has been scrapped, allowing for more variety in gameplay and animals
-- Every animal has its own unique identifier based on the UK's cattle identification system
-- Every animal has a birthday and a country of origin
-- Every animal can be named
-- Supported animals have ear tags on their left and right ears, detailing their country of origin, farm ID, animal ID, name and birthday, as well as a partial identifier on their behind
-- Supported animals have nose rings
+---
 
-<ins>**Enhanced Pregnancy System**</ins>
-- Animals of different species have varying amounts of potential offspring per each pregnancy (example: cows can have 0-3 calves)
-- Offspring is created inside the mother when she is impregnated instead of at birth
-- Ability to view the number of expected offspring and their due date
-- The reproduction duration is now unique for every animal, not every animal of the same species will take the same length of time to deliver their offspring
+## 📋 Requirements
 
-<ins>**Genetics System**</ins>
-- New genetics system
-- Every animal has several genetic modifiers completely unique to them
-- Current genetics are health, fertility, metabolism, productivity and meat quality
-- Genetics impact several different areas of the animal, such as pregnancy and sale value
+> **⚠️ Important:** This mod requires [FS25_FontLibrary](https://github.com/Arrow-kb/FS25_FontLibrary) to function properly.
 
-<ins>**Weight System**</ins>
-- New weight system
-- Every animal has a weight unique to them, and each day they will gravitate to/from their ideal weight (based on their metabolism) due to how much they eat and drink
-- Weight affects sale value and health, and can unhealthy weight can result in death especially for young animals
+---
 
-<ins>**Enhanced UI**</ins>
-- New family tree visible in the animal screen
-- Lots of additional information is shown in the animal screen and the info box about each animal
+## ✨ Features
 
-<ins>**Enhanced Production**</ins>
-- Supported animals will have their production based on various factors
-- Cows will only produce milk when lactating, and their yield will rise and fall based on their previous pregnancy
-- Sheep will only produce wool in warm months
+### 🐂 Male Animals
+Transform your breeding program with the addition of male animals:
+- **Higher market value** compared to females
+- **Essential for reproduction** - realistic breeding requirements
+- Uses vanilla models (no custom 3D models required)
 
-<ins>**Death and Aging**</ins>
-- Animal aging is no longer limited to 5 years
-- Every animal type has an expected lifespan, and every animal has a chance to die of old age the older they get, but can live past their expected lifespan
-- Animals can die from health, random accidents and bad pregnancies
+### 👀 Visual Animals
+Enhanced animal visualization system:
+- **Increased capacity** from 25 (vanilla) up to **200 visual animals** per husbandry
+- **Adjustable limit** via in-game slider for performance optimization
 
-<ins>**Enhanced Animal Dealer**</ins>
-- The animal dealer has been completely overhauled
-- Every supported country in the world now has several unique farms, which each produce up to 3 types of animals
-- Each farm will send some of their animals to the animal dealer every day
-- Every animal is unique and is no longer a template, and are generated based on the quality of the farm they come from
-- Every animal sent to the dealer will eventually disappear and will no longer be able to be bought, but will be replaced with new ones
-- Most animals are local to your country, but some will be imported from abroad
-- Animals at the dealer have a chance to be pregnant and will all have unique genetic qualities which will impact their price and usefulness
+### 🏷️ Individual Animals
+Every animal is truly unique with comprehensive individual tracking:
+- **100% individual animals** - archaic cluster system completely removed
+- **Unique identifiers** based on the UK's cattle identification system
+- **Birthday and country of origin** for each animal
+- **Customizable names** for your livestock
+- **Physical identification tags**:
+    - Ear tags on left and right ears displaying country, farm ID, animal ID, name, and birthday
+    - Partial identifier marking on hindquarters
+- **Nose rings** on supported animals
 
-# Screenshots
+### 🤰 Enhanced Pregnancy System
+Realistic and dynamic reproduction mechanics:
+- **Species-specific litter sizes** (e.g., cows can have 0-3 calves)
+- **Conception at impregnation** - offspring created when mother is impregnated, not at birth
+- **Pregnancy tracking** - view expected offspring count and due dates
+- **Individual gestation periods** - reproduction duration varies by animal, not by species
 
-![fsScreen_2025_05_07_17_28_58-min](https://github.com/user-attachments/assets/724f08c2-ce0a-48b7-9056-50a8622f5742)
-![screenshot4](https://github.com/user-attachments/assets/333ffa00-1041-457c-b406-2efe4127d5a4)
-![screenshot3](https://github.com/user-attachments/assets/3731d7e0-6bae-411d-957f-5b4496a1607f)
-![screenshot5](https://github.com/user-attachments/assets/cee43caf-9401-421d-8ada-745d4fa41c7a)
+### 🧬 Genetics System
+Deep genetic simulation affecting every aspect of animal performance:
+- **Five genetic traits**:
+    - 💚 **Health** - resistance to disease and injury
+    - 👶 **Fertility** - reproduction success rates
+    - ⚡ **Metabolism** - food consumption and weight regulation
+    - 📈 **Productivity** - milk, wool, and egg production
+    - 🥩 **Meat Quality** - value at slaughter
+- **Inheritance mechanics** - offspring inherit traits from parents
+- **Economic impact** - genetics directly affect sale value and profitability
 
-# In Progress
-- Diseases
-- Message log tab for husbandries
+### ⚖️ Weight System
+Dynamic weight management with real consequences:
+- **Individual weight tracking** for every animal
+- **Daily weight fluctuations** based on food and water consumption
+- **Ideal weight targets** influenced by metabolism genetics
+- **Health consequences** - unhealthy weight affects health and can lead to death
+- **Vulnerable young animals** - juveniles especially susceptible to weight-related health issues
+- **Sale value impact** - weight directly affects market price
+
+### 🖥️ Enhanced UI
+Comprehensive information at your fingertips:
+- **Family tree viewer** - track lineage and breeding lines
+- **Detailed animal screens** - extensive stats and information
+- **Enhanced info boxes** - quick access to vital animal data
+- Clean, intuitive interface design
+
+### 📊 Enhanced Production
+Realistic production cycles based on biological factors:
+- **🥛 Cow milk production**:
+    - Only produce milk when lactating
+    - Yield rises and falls based on lactation curve
+    - Production tied to pregnancy cycle
+- **🧶 Sheep wool production**:
+    - Seasonal wool growth
+    - Only produce wool during warm months
+- **Production affected by genetics and health**
+
+### ⏳ Death and Aging
+Natural lifecycle with meaningful consequences:
+- **No age limits** - animals can live beyond 5 years
+- **Species-specific lifespans** - each animal type has realistic expected lifespan
+- **Progressive mortality** - increasing death chance with age, but can live past expectancy
+- **Multiple death causes**:
+    - 👴 Old age
+    - 💔 Poor health
+    - ⚠️ Random accidents
+    - 🤰 Pregnancy complications
+
+### 🏪 Enhanced Animal Dealer
+Completely reimagined purchasing experience:
+- **Global farm network** - hundreds of unique farms across supported countries
+- **Farm specialization** - each farm produces up to 3 animal types
+- **Daily deliveries** - farms send animals to dealer each day
+- **Time-limited availability** - animals eventually disappear if not purchased
+- **Dynamic inventory** - continuous rotation with new animals
+- **Local and imported stock** - mostly local animals with occasional imports
+- **Unique genetics** - every animal has individual traits affecting price
+- **Pregnant animals available** - chance to purchase pregnant stock
+- **Quality-based pricing** - farm quality affects animal traits and cost
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+
+![Animal Identification Tags](https://github.com/user-attachments/assets/724f08c2-ce0a-48b7-9056-50a8622f5742)
+
+![Animal Details Screen](https://github.com/user-attachments/assets/333ffa00-1041-457c-b406-2efe4127d5a4)
+
+![Detailed Information](https://github.com/user-attachments/assets/3731d7e0-6bae-411d-957f-5b4496a1607f)
+
+![Increased Visual Animals](https://github.com/user-attachments/assets/cee43caf-9401-421d-8ada-745d4fa41c7a)
+
+</div>
+
+---
+
+## 🚧 In Development
+
+The following features are currently being developed:
+
+- 🦠 **Disease System** - Animal health conditions and treatments
+- 📝 **Message Log** - Event tracking and history for husbandries
+
+---
+
+## 💬 Support & Feedback
+
+Found a bug or have a suggestion? Please [open an issue](https://github.com/Arrow-kb/FS25_RealisticLivestock/issues) on GitHub.
+
+---
+
+## 📄 License
+
+This project is licensed under the terms specified in the [LICENSE](LICENSE) file.
+
+---
+
+<div align="center">
+
+**Made with ❤️ for the Farming Simulator community**
+
+⭐ Star this repo if you enjoy the mod!
+
+</div>
