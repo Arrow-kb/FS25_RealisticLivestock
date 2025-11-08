@@ -9,6 +9,8 @@
         <text name="fillType_bull_limousin" text="Limousin Tyr"/>
 		<text name="fillType_cow_hereford" text="Hereford"/>
 		<text name="fillType_bull_hereford" text="Hereford Bull"/>
+		<text name="fillType_cow_highland_cattle" text="Highland Kvæg"/>
+		<text name="fillType_bull_highland_cattle" text="Highland Tyr"/>
         <text name="animal_descriptionBullFeed" text="Tyre kan lide græs, hø og TMR."/>
         <text name="animal_descriptionBullYoung" text="Dette er en han-kalv."/>
         <text name="animal_descriptionBullReproduction" text="Tyre, der er raske og ældre end 12 måneder, kan reproducere."/>

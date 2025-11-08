@@ -9,6 +9,8 @@
 		<text name="fillType_bull_limousin" text="Лимузинский бык"/>
 		<text name="fillType_cow_hereford" text="Hereford"/>
 		<text name="fillType_bull_hereford" text="Hereford Bull"/>
+		<text name="fillType_cow_highland_cattle" text="Хайленд"/>
+		<text name="fillType_bull_highland_cattle" text="Бык Хайленд"/>
 		<text name="animal_descriptionBullFeed" text="Быки любят траву, сено и TMR."/>
 		<text name="animal_descriptionBullYoung" text="Это теленок-самец."/>
 		<text name="animal_descriptionBullReproduction" text="Быки, которые здоровы и старше 12 месяцев, могут размножаться."/>

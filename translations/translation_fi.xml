@@ -10,6 +10,8 @@
 		<text name="fillType_bull_limousin" text="Limousin-sonni"/>
 		<text name="fillType_cow_hereford" text="Hereford"/>
 		<text name="fillType_bull_hereford" text="Hereford-sonni"/>
+		<text name="fillType_cow_highland_cattle" text="Ylämaankarja"/>
+		<text name="fillType_bull_highland_cattle" text="Ylämaankarja-sonni"/>
 		<text name="animal_descriptionBullFeed" text="Sonnit syövät mielellään ruohoa, heinää ja TMR-rehua."/>
 		<text name="animal_descriptionBullYoung" text="Tämä on urospuolinen vasikka."/>
 		<text name="animal_descriptionBullReproduction" text="Terveet, vähintään 12 kuukauden ikäiset sonnit voivat lisääntyä."/>

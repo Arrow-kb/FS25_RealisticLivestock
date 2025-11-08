@@ -9,6 +9,8 @@
 		<text name="fillType_bull_limousin" text="Limousin Bull"/>
 		<text name="fillType_cow_hereford" text="Hereford"/>
 		<text name="fillType_bull_hereford" text="Hereford Bull"/>
+		<text name="fillType_cow_highland_cattle" text="Highland Cattle"/>
+		<text name="fillType_bull_highland_cattle" text="Highland Cattle Bull"/>
 		<text name="animal_descriptionBullFeed" text="Bulls like grass, hay and TMR."/>
 		<text name="animal_descriptionBullYoung" text="This is a male calf."/>
 		<text name="animal_descriptionBullReproduction" text="Bulls that are healthy and older than 12 months can reproduce."/>

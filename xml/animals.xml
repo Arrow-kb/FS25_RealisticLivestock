@@ -304,7 +304,7 @@
 				</food>
 			</input>
 			<output>
-				
+
 				<manure>
 					<key ageMonth="0" value="20"/>
 					<key ageMonth="18" value="175"/>
@@ -764,27 +764,27 @@
 		</subType>
 		<subType subType="COW_HIGHLAND_CATTLE" fillTypeName="COW_HIGHLAND_CATTLE" gender="female" minWeight="35.0" targetWeight="725.0" maxWeight="1200.0" statsBreeding="breedCowsCount" breed="HIGHLAND" requiredDLC="highlandsFishingPack">
 			<visuals>
-				<visual minAge="0" visualAnimalIndex="19" name="$l10n_animal_visual_baby" image="$dataS/character/animals/domesticated/cow/store_highlandCattleBaby.png" canBeBought="true">
+				<visual minAge="0" visualAnimalIndex="19" name="$l10n_animal_visual_baby" image="$dataS/character/animals/domesticated/cow/store_highlandCattleBaby.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" marker="0|0|0|4">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionBuffaloYoung</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="6" visualAnimalIndex="20" name="$l10n_animal_visual_kid" image="$dataS/character/animals/domesticated/cow/store_highlandCattleKid.png" canBeBought="true">
+				<visual minAge="6" visualAnimalIndex="20" name="$l10n_animal_visual_kid" image="$dataS/character/animals/domesticated/cow/store_highlandCattleKid.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" marker="0|0|0|4">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="12" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="false">
+				<visual minAge="12" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="18" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="true">
+				<visual minAge="18" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
@@ -839,6 +839,73 @@
 				<liquidManure>
 					<key ageMonth="0" value="40"/>
 					<key ageMonth="18" value="250"/>
+				</liquidManure>
+			</output>
+		</subType>
+		<subType subType="BULL_HIGHLAND_CATTLE" fillTypeName="BULL_HIGHLAND_CATTLE" gender="male" minWeight="35.0" targetWeight="950.0" maxWeight="1600.0" statsBreeding="breedCowsCount" breed="HIGHLAND" requiredDLC="highlandsFishingPack">
+			<visuals>
+				<visual minAge="0" visualAnimalIndex="19" name="$l10n_animal_visual_baby" image="$dataS/character/animals/domesticated/cow/store_highlandCattleBaby.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" marker="0|0|0|4">
+					<description>$l10n_animal_descriptionBullFeed</description>
+					<description>$l10n_animal_descriptionWater</description>
+					<description>$l10n_animal_descriptionBullYoung</description>
+					<description>$l10n_animal_descriptionBullReproduction</description>
+				</visual>
+				<visual minAge="6" visualAnimalIndex="20" name="$l10n_animal_visual_kid" image="$dataS/character/animals/domesticated/cow/store_highlandCattleKid.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" marker="0|0|0|4">
+					<description>$l10n_animal_descriptionBullFeed</description>
+					<description>$l10n_animal_descriptionWater</description>
+					<description>$l10n_animal_descriptionBullReproduction</description>
+				</visual>
+				<visual minAge="12" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+					<description>$l10n_animal_descriptionBullFeed</description>
+					<description>$l10n_animal_descriptionWater</description>
+					<description>$l10n_animal_descriptionMature</description>
+					<description>$l10n_animal_descriptionBullReproduction</description>
+				</visual>
+				<visual minAge="18" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+					<description>$l10n_animal_descriptionBullFeed</description>
+					<description>$l10n_animal_descriptionWater</description>
+					<description>$l10n_animal_descriptionMature</description>
+					<description>$l10n_animal_descriptionBullReproduction</description>
+				</visual>
+			</visuals>
+			<reproduction supported="false" minAgeMonth="12"/>
+			<buyPrice>
+				<key ageMonth="0" value="350"/>
+				<key ageMonth="24" value="3500"/>
+			</buyPrice>
+			<sellPrice>
+				<key ageMonth="0" value="280"/>
+				<key ageMonth="24" value="3500"/>
+				<key ageMonth="36" value="4000"/>
+				<key ageMonth="60" value="3000"/>
+			</sellPrice>
+			<transportPrice>
+				<key ageMonth="0" value="40"/>
+				<key ageMonth="12" value="150"/>
+				<key ageMonth="18" value="500"/>
+			</transportPrice>
+			<input>
+				<straw>
+					<key ageMonth="0" value="15"/>
+					<key ageMonth="18" value="130"/>
+				</straw>
+				<water>
+					<key ageMonth="0" value="20"/>
+					<key ageMonth="18" value="140"/>
+				</water>
+				<food>
+					<key ageMonth="0" value="80"/>
+					<key ageMonth="18" value="575"/>
+				</food>
+			</input>
+			<output>
+				<manure>
+					<key ageMonth="0" value="25"/>
+					<key ageMonth="18" value="280"/>
+				</manure>
+				<liquidManure>
+					<key ageMonth="0" value="40"/>
+					<key ageMonth="18" value="230"/>
 				</liquidManure>
 			</output>
 		</subType>
