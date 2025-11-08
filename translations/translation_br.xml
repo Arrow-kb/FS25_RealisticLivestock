@@ -9,6 +9,8 @@
 		<text name="fillType_bull_limousin" text="Touro Limousin"/>
 		<text name="fillType_cow_hereford" text="Hereford"/>
 		<text name="fillType_bull_hereford" text="Hereford Bull"/>
+		<text name="fillType_cow_highland_cattle" text="Gado Highland"/>
+		<text name="fillType_bull_highland_cattle" text="Touro Highland"/>
 		<text name="animal_descriptionBullFeed" text="Touros gostam de capim, feno e RMT."/>
 		<text name="animal_descriptionBullYoung" text="Este é um bezerro masculino."/>
 		<text name="animal_descriptionBullReproduction" text="Touros que são saudáveis ​​e mais velhos que 12 meses podem reproduzir."/>
