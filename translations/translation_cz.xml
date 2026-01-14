@@ -9,6 +9,8 @@
 		<text name="fillType_bull_limousin" text="Býk plemene Limousin"/>
 		<text name="fillType_cow_hereford" text="Hereford"/>
 		<text name="fillType_bull_hereford" text="Herefordský býk"/>
+		<text name="fillType_cow_highland_cattle" text="Highland"/>
+		<text name="fillType_bull_highland_cattle" text="Býk plemene Highland"/>
 		<text name="animal_descriptionBullFeed" text="Býci mají rádi trávu, seno a TMR (směsná krmná dávka)."/>
 		<text name="animal_descriptionBullYoung" text="Toto je tele býčka."/>
 		<text name="animal_descriptionBullReproduction" text="Býci, kteří jsou zdraví a starší 12 měsíců, se mohou rozmnožovat."/>

@@ -9,6 +9,8 @@
 		<text name="fillType_bull_limousin" text="Taureau Limousin"/>
 		<text name="fillType_cow_hereford" text="Hereford"/>
 		<text name="fillType_bull_hereford" text="Taureau Hereford"/>
+		<text name="fillType_cow_highland_cattle" text="Highland Cattle"/>
+		<text name="fillType_bull_highland_cattle" text="Taureau Highland"/>
 		<text name="animal_descriptionBullFeed" text="Les taureaux aiment l'herbe, le foin et le TMR."/>
 		<text name="animal_descriptionBullYoung" text="Il s'agit d'un veau mâle."/>
 		<text name="animal_descriptionBullReproduction" text="Les taureaux en bonne santé et âgés de plus de 12 mois peuvent se reproduire."/>

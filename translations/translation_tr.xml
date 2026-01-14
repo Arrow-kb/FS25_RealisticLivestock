@@ -9,6 +9,8 @@
 		<text name="fillType_bull_limousin" text="Limuzin Boğa"/>
 		<text name="fillType_cow_hereford" text="Hereford"/>
 		<text name="fillType_bull_hereford" text="Hereford Bull"/>
+		<text name="fillType_cow_highland_cattle" text="Highland Sığırı"/>
+		<text name="fillType_bull_highland_cattle" text="Highland Boğası"/>
 		<text name="animal_descriptionBullFeed" text="Boğalar çim, kuru ot ve TKT'yi sever."/>
 		<text name="animal_descriptionBullYoung" text="Bu bir erkek buzağı."/>
 		<text name="animal_descriptionBullReproduction" text="Sağlıklı ve 12 aydan büyük boğalar üreyebilir."/>

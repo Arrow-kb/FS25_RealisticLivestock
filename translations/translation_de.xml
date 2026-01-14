@@ -9,6 +9,8 @@
 		<text name="fillType_bull_limousin" text="Limousin Bullen"/>
 		<text name="fillType_cow_hereford" text="Hereford"/>
 		<text name="fillType_bull_hereford" text="Hereford Bullen"/>
+		<text name="fillType_cow_highland_cattle" text="Hochlandrind"/>
+		<text name="fillType_bull_highland_cattle" text="Hochlandrind Bullen"/>
 		<text name="animal_descriptionBullFeed" text="Bullen mögen Gras, Heu und TMR."/>
 		<text name="animal_descriptionBullYoung" text="Das ist ein männliches Kalb."/>
 		<text name="animal_descriptionBullReproduction" text="Bullen, die gesund und älter als 12 Monate sind, können sich fortpflanzen."/>

@@ -9,6 +9,8 @@
         <text name="fillType_bull_limousin" text="Toro Limousine"/>
 		<text name="fillType_cow_hereford" text="Hereford"/>
 		<text name="fillType_bull_hereford" text="Hereford Bull"/>
+		<text name="fillType_cow_highland_cattle" text="Highland Cattle"/>
+		<text name="fillType_bull_highland_cattle" text="Toro Highland"/>
 		<text name="animal_descriptionBullFeed" text="I Tori amano l'erba, il fieno e i mangimi a lunga conservazione"/>
         <text name="animal_descriptionBullYoung" text="Questo è un vitello Maschio"/>
         <text name="animal_descriptionBullReproduction" text="I Tori sani e di età superiore ai 12 mesi possono riprodursi"/>
