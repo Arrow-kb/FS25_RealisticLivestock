@@ -4,6 +4,10 @@ local modDirectory = g_currentModDirectory
 local hasLoaded = false
 
 
+local modXML = XMLFile.load("rlModDesc", modDirectory .. "modDesc.xml")
+RealisticLivestock.VERSION = modXML:getString("modDesc.version")
+modXML:delete()
+
 RealisticLivestock.FONTS = g_fontManager:loadFontsFromXMLFile(g_currentModDirectory .. "fonts/fonts.xml", g_currentModDirectory)
 
 

@@ -2,7 +2,7 @@ Animal = {}
 local Animal_mt = Class(Animal)
 
 
-function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated, diseases, recentlyBoughtByAI, marks, insemination)
+function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated, diseases, recentlyBoughtByAI, marks, insemination, familyTree)
 
     local self = setmetatable({}, Animal_mt)
 
@@ -34,7 +34,15 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
     self.weight = weight or nil
     self.marks = marks or self:getDefaultMarks()
 
-    self.variation = variation or nil
+    self.variation = variation
+
+    if self.variation == nil and self.age >= 0 then
+
+        local visualData = g_currentMission.animalSystem:getVisualByAge(self.subTypeIndex, self.age)
+        local variations = visualData.visualAnimal.variations
+        self.variation = math.random(1, #variations)
+
+    end
 
     self.genetics = genetics
     self.impregnatedBy = impregnatedBy
@@ -281,6 +289,14 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
 
     self.monitor.fee = animalType == nil and 5 or math.max(animalType.navMeshAgentAttributes.height * animalType.navMeshAgentAttributes.radius * 15, 0.25)
 
+    if familyTree ~= nil and not familyTree.skip then
+        if familyTree.data == nil then
+            g_familyTreeManager:createTree(self)
+        else
+            self.familyTree = familyTree.data
+        end
+    end
+
     return self
 
 end
@@ -315,7 +331,7 @@ function Animal:getSupportsMerging()
 end
 
 
-function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
+function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy, skipCreateFamilyTree)
 
     local subTypeIndex
     
@@ -399,7 +415,7 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 
         xmlFile:iterate(pregnancyKey .. ".pregnancies.pregnancy", function (_, pregnanciesKey)
 
-            local child = Animal.loadFromXMLFile(xmlFile, pregnanciesKey, nil, isLegacy)
+            local child = Animal.loadFromXMLFile(xmlFile, pregnanciesKey, nil, isLegacy, true)
 
             table.insert(pregnancy.pregnancies, child)
 
@@ -447,7 +463,17 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
             ["productivity"] = xmlFile:getFloat(key .. ".impregnatedBy#productivity", nil),
             ["quality"] = xmlFile:getFloat(key .. ".impregnatedBy#quality", nil),
             ["health"] = xmlFile:getFloat(key .. ".impregnatedBy#health", nil),
-            ["fertility"] = xmlFile:getFloat(key .. ".impregnatedBy#fertility", nil)
+            ["fertility"] = xmlFile:getFloat(key .. ".impregnatedBy#fertility", nil),
+            ["familyTreeData"] = {
+                ["isOffMap"] = xmlFile:getBool(key .. ".impregnatedBy#isOffMap", true),
+                ["data"] = {
+                    ["motherTree"] = xmlFile:getInt(key .. ".impregnatedBy#motherTree"),
+                    ["motherGeneration"] = xmlFile:getInt(key .. ".impregnatedBy#motherGeneration"),
+                    ["fatherTree"] = xmlFile:getInt(key .. ".impregnatedBy#fatherTree"),
+                    ["fatherGeneration"] = xmlFile:getInt(key .. ".impregnatedBy#fatherGeneration"),
+                    ["member"] = xmlFile:getInt(key .. ".impregnatedBy#member")
+                }
+            }
         }
 
     end
@@ -503,7 +529,8 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
             ["name"] = xmlFile:getString(key .. ".insemination#name"),
             ["subTypeIndex"] = xmlFile:getInt(key .. ".insemination#subTypeIndex"),
             ["genetics"] = {},
-            ["success"] = xmlFile:getFloat(key .. ".insemination#success")
+            ["success"] = xmlFile:getFloat(key .. ".insemination#success"),
+            ["offMapId"] = xmlFile:getInt(key .. ".insemination#offMapId", 0)
         }
 
         insemination.genetics.metabolism = xmlFile:getFloat(key .. ".insemination.genetics#metabolism")
@@ -516,7 +543,23 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 
 
 
-    local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated, diseases, recentlyBoughtByAI, marks, insemination)
+    local familyTree
+
+    if xmlFile:hasProperty(key .. ".familyTree") then
+
+        familyTree = {
+            ["motherTree"] = xmlFile:getInt(key .. ".familyTree#motherTree"),
+            ["motherGeneration"] = xmlFile:getInt(key .. ".familyTree#motherGeneration"),
+            ["fatherTree"] = xmlFile:getInt(key .. ".familyTree#fatherTree"),
+            ["fatherGeneration"] = xmlFile:getInt(key .. ".familyTree#fatherGeneration"),
+            ["member"] = xmlFile:getInt(key .. ".familyTree#member")
+        }
+
+    end
+
+
+
+    local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated, diseases, recentlyBoughtByAI, marks, insemination, { ["skip"] = skipCreateFamilyTree or false, ["data"] = familyTree })
     --local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, impregnatedById, pos, name, dirt, fitness, riding, farmId, weight, metabolism, impregnatedByMetabolism, impregnatedByProductivity, productivity, quality, impregnatedByMeatQuality, impregnatedByHealth, impregnatedByFertility, healthGenetics, fertility, variation, children)
 
     animal:setBirthday(birthday)
@@ -650,6 +693,13 @@ function Animal:saveToXMLFile(xmlFile, key)
         xmlFile:setFloat(key .. ".impregnatedBy#health", self.impregnatedBy.health)
         xmlFile:setFloat(key .. ".impregnatedBy#fertility", self.impregnatedBy.fertility)
         if self.impregnatedBy.productivity ~= nil then xmlFile:setFloat(key .. ".impregnatedBy#productivity", self.impregnatedBy.productivity) end
+        xmlFile:setBool(key .. ".impregnatedBy#isOffMap", self.impregnatedBy.familyTreeData.isOffMap)
+        xmlFile:setInt(key .. ".impregnatedBy#motherTree", self.impregnatedBy.familyTreeData.motherTree or 0)
+        xmlFile:setInt(key .. ".impregnatedBy#motherGeneration", self.impregnatedBy.familyTreeData.motherGeneration or 0)
+        xmlFile:setInt(key .. ".impregnatedBy#fatherTree", self.impregnatedBy.familyTreeData.fatherTree or 0)
+        xmlFile:setInt(key .. ".impregnatedBy#fatherGeneration", self.impregnatedBy.familyTreeData.fatherGeneration or 0)
+        xmlFile:setInt(key .. ".impregnatedBy#member", self.impregnatedBy.familyTreeData.member or 0)
+
     end
 
     if self.genetics ~= nil then
@@ -681,6 +731,7 @@ function Animal:saveToXMLFile(xmlFile, key)
         xmlFile:setString(key .. ".insemination#name", insemination.name)
         xmlFile:setInt(key .. ".insemination#subTypeIndex", insemination.subTypeIndex)
         xmlFile:setFloat(key .. ".insemination#success", insemination.success)
+        xmlFile:setInt(key .. ".insemination#offMapId", insemination.offMapId or 0)
         xmlFile:setFloat(key .. ".insemination.genetics#metabolism", insemination.genetics.metabolism)
         xmlFile:setFloat(key .. ".insemination.genetics#quality", insemination.genetics.quality)
         xmlFile:setFloat(key .. ".insemination.genetics#health", insemination.genetics.health)
@@ -697,6 +748,16 @@ function Animal:saveToXMLFile(xmlFile, key)
     for i, disease in pairs(self.diseases) do
 
         disease:saveToXMLFile(xmlFile, key .. ".diseases.disease(" .. (i - 1) .. ")")
+
+    end
+
+    if self.familyTree ~= nil then
+
+        xmlFile:setInt(key .. ".familyTree#motherTree", self.familyTree.motherTree)
+        xmlFile:setInt(key .. ".familyTree#motherGeneration", self.familyTree.motherGeneration)
+        xmlFile:setInt(key .. ".familyTree#fatherTree", self.familyTree.fatherTree or 0)
+        xmlFile:setInt(key .. ".familyTree#fatherGeneration", self.familyTree.fatherGeneration or 0)
+        xmlFile:setInt(key .. ".familyTree#member", self.familyTree.member)
 
     end
 
@@ -761,6 +822,12 @@ function Animal:writeStream(streamId, connection)
             streamWriteFloat32(streamId, impregnatedBy.quality or 1)
             streamWriteFloat32(streamId, impregnatedBy.health or 1)
             streamWriteFloat32(streamId, impregnatedBy.fertility or 1)
+            streamWriteBool(streamId, impregnatedBy.familyTreeData.isOffMap or true)
+            streamWriteUInt16(streamId, impregnatedBy.familyTreeData.motherTree or 0)
+            streamWriteUInt16(streamId, impregnatedBy.familyTreeData.motherGeneration or 0)
+            streamWriteUInt16(streamId, impregnatedBy.familyTreeData.fatherTree or 0)
+            streamWriteUInt16(streamId, impregnatedBy.familyTreeData.fatherGeneration or 0)
+            streamWriteUInt16(streamId, impregnatedBy.familyTreeData.member or 0)
 
         end
 
@@ -847,6 +914,7 @@ function Animal:writeStream(streamId, connection)
         streamWriteString(streamId, self.insemination.name)
         streamWriteUInt8(streamId, self.insemination.subTypeIndex)
         streamWriteFloat32(streamId, self.insemination.success)
+        streamWriteUInt16(streamId, self.insemination.offMapId or 0)
         streamWriteFloat32(streamId, self.insemination.genetics.metabolism)
         streamWriteFloat32(streamId, self.insemination.genetics.health)
         streamWriteFloat32(streamId, self.insemination.genetics.fertility)
@@ -917,13 +985,30 @@ function Animal:readStream(streamId, connection)
             local health = streamReadFloat32(streamId)
             local fertility = streamReadFloat32(streamId)
 
+            local isOffMap = streamReadBool(streamId)
+            local motherTree = streamReadUInt16(streamId)
+            local motherGeneration = streamReadUInt16(streamId)
+            local fatherTree = streamReadUInt16(streamId)
+            local fatherGeneration = streamReadUInt16(streamId)
+            local member = streamReadUInt16(streamId)
+
             self.impregnatedBy = {
                 ["uniqueId"] = uniqueId,
                 ["metabolism"] = metabolism,
                 ["productivity"] = productivity,
                 ["quality"] = quality,
                 ["health"] = health,
-                ["fertility"] = fertility
+                ["fertility"] = fertility,
+                ["familyTreeData"] = {
+                    ["isOffMap"] = isOffMap,
+                    ["data"] = {
+                        ["motherTree"] = motherTree,
+                        ["motherGeneration"] = motherGeneration,
+                        ["fatherTree"] = fatherTree,
+                        ["fatherGeneration"] = fatherGeneration,
+                        ["member"] = member
+                    }
+                }
             }
 
         end
@@ -955,7 +1040,6 @@ function Animal:readStream(streamId, connection)
             local productivity = streamReadFloat32(streamId)
 
             if productivity ~= nil then genetics.productivity = productivity end
-
             local child = Animal.new(0, health, 0, gender, subTypeIndex, 0, false, false, false, nil, nil, motherId, fatherId, nil, nil, nil, nil, nil, nil, nil, genetics)
 
             table.insert(pregnancy.pregnancies, child)
@@ -1037,7 +1121,8 @@ function Animal:readStream(streamId, connection)
             ["name"] = streamReadString(streamId),
             ["subTypeIndex"] = streamReadUInt8(streamId),
             ["genetics"] = {},
-            ["success"] =streamReadFloat32(streamId)
+            ["success"] = streamReadFloat32(streamId),
+            ["offMapId"] = streamReadUInt16(streamId)
         }
 
         insemination.genetics.metabolism = streamReadFloat32(streamId)
@@ -1171,7 +1256,7 @@ function Animal:clone()
     local impregnatedBy = self.impregnatedBy or nil
     
     --local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, impregnatedBy ~= nil and impregnatedBy.uniqueId or nil, self.pos or nil, self.name or nil, self.dirt or nil, self.fitness or nil, self.riding or nil, self.farmId, self.weight, self.metabolism, impregnatedBy ~= nil and impregnatedBy.metabolism or nil, impregnatedBy ~= nil and impregnatedBy.productivity or nil, self.genetics.productivity or nil, self.genetics.quality, impregnatedBy ~= nil and impregnatedBy.quality or nil, impregnatedBy ~= nil and impregnatedBy.health or nil, impregnatedBy ~= nil and impregnatedBy.fertility or nil, self.genetics.health, self.genetics.fertility, self.variation, self.children)
-    local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, self.pos, self.name, self.dirt, self.fitness, self.riding, self.farmId, self.weight, self.genetics, self.impregnatedBy, self.variation, self.children, self.monitor, self.isCastrated, self.diseases, self.recentlyBoughtByAI, self.marks, self.insemination)
+    local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, self.pos, self.name, self.dirt, self.fitness, self.riding, self.farmId, self.weight, self.genetics, self.impregnatedBy, self.variation, self.children, self.monitor, self.isCastrated, self.diseases, self.recentlyBoughtByAI, self.marks, self.insemination, { ["skip"] = self.familyTree == nil, ["data"] = self.familyTree })
 
     --if self.impregnatedBy ~= nil then
         --newAnimal.impregnatedBy = {
@@ -2248,7 +2333,13 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
                 ["quality"] = insemination.genetics.quality,
                 ["health"] = insemination.genetics.health,
                 ["fertility"] = insemination.genetics.fertility,
-                ["productivity"] = insemination.genetics.productivity
+                ["productivity"] = insemination.genetics.productivity,
+                ["familyTreeData"] = {
+                    ["isOffMap"] = true,
+                    ["data"] = {
+                        ["member"] = insemination.offMapId
+                    }
+                }
             })
 
         else
@@ -2280,12 +2371,18 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 
                 if self.impregnatedBy == nil then
                     self.impregnatedBy = {
-                        uniqueId = "-1",
-                        metabolism = self.genetics.metabolism,
-                        quality = self.genetics.quality,
-                        health = self.genetics.health,
-                        fertility = self.genetics.fertility,
-                        productivity = self.genetics.productivity or nil
+                        ["uniqueId"] = "-1",
+                        ["metabolism"] = self.genetics.metabolism,
+                        ["quality"] = self.genetics.quality,
+                        ["health"] = self.genetics.health,
+                        ["fertility"] = self.genetics.fertility,
+                        ["productivity"] = self.genetics.productivity or nil,
+                        ["familyTreeData"] = {
+                            ["isOffMap"] = true,
+                            ["data"] = {
+                                ["member"] = 0
+                            }
+                        }
                     }
                 end
 
@@ -2347,12 +2444,13 @@ function Animal:createPregnancy(childNum, month, year, father)
     if father == nil then
         
         father = {
-            uniqueId = "-1",
-            metabolism = 1.0,
-            quality = 1.0,
-            health = 1.0,
-            fertility = 1.0,
-            productivity = 1.0
+            ["uniqueId"] = "-1",
+            ["metabolism"] = 1.0,
+            ["quality"] = 1.0,
+            ["health"] = 1.0,
+            ["fertility"] = 1.0,
+            ["productivity"] = 1.0,
+            ["familyTreeData"] = {}
         }
 
         local fatherSubTypeIndex
@@ -2384,6 +2482,17 @@ function Animal:createPregnancy(childNum, month, year, father)
                 father.fertility = animal.genetics.fertility
                 father.productivity = animal.genetics.productivity or nil
                 father.animal = animal
+                
+                father.familyTreeData = {
+                    ["isOffMap"] = false,
+                    ["data"] = {
+                        ["motherTree"] = animal:getMotherFamilyTreeId(),
+                        ["motherGeneration"] = animal:getMotherFamilyTreeGeneration(),
+                        ["fatherTree"] = animal:getFatherFamilyTreeId(),
+                        ["fatherGeneration"] = animal:getFatherFamilyTreeGeneration(),
+                        ["member"] = animal:getFamilyTreeMemberId()
+                    }
+                }
 
                 break
 
@@ -2768,6 +2877,7 @@ function Animal:reproduce(spec, day, month, year, isSaleAnimal)
         if isSaleAnimal then
             animalSystem:addExistingSaleAnimal(child)
         else
+            g_familyTreeManager:addChildToTree(child, self, self.impregnatedBy.familyTreeData)
             self.clusterSystem:addCluster(child)
         end
 
@@ -3434,7 +3544,8 @@ function Animal:setInsemination(animal)
         ["genetics"] = animal.genetics,
         ["name"] = animal.name,
         ["subTypeIndex"] = animal.subTypeIndex,
-        ["success"] = animal.success
+        ["success"] = animal.success,
+        ["offMapId"] = animal.offMapId
     }
 
 end
@@ -3495,5 +3606,63 @@ end
 function Animal:updateVisualMarker()
 
     if self.visualAnimal ~= nil then self.visualAnimal:setMarker() end
+
+end
+
+
+function Animal:getMotherFamilyTreeId()
+
+    if self.familyTree == nil then return nil end
+    
+    return self.familyTree.motherTree
+
+end
+
+
+function Animal:getMotherFamilyTreeGeneration()
+
+    if self.familyTree == nil then return nil end
+
+    return self.familyTree.motherGeneration
+
+end
+
+
+function Animal:getFatherFamilyTreeId()
+
+    if self.familyTree == nil then return nil end
+    
+    return self.familyTree.fatherTree
+
+end
+
+
+function Animal:getFatherFamilyTreeGeneration()
+
+    if self.familyTree == nil then return nil end
+
+    return self.familyTree.fatherGeneration
+
+end
+
+
+function Animal:getFamilyTreeMemberId()
+
+    if self.familyTree == nil then return nil end
+
+    return self.familyTree.member
+
+end
+
+
+function Animal:setFamilyTreeData(member, motherTree, motherGeneration, fatherTree, fatherGeneration)
+
+    self.familyTree = {
+        ["motherTree"] = motherTree,
+        ["motherGeneration"] = motherGeneration,
+        ["fatherTree"] = fatherTree,
+        ["fatherGeneration"] = fatherGeneration,
+        ["member"] = member
+    }
 
 end
