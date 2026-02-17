@@ -14,5 +14,7 @@
 		<slice id="messages_new" uvs="594px 256px 128px 128px"/>
 		<slice id="upload" uvs="0px 512px 256px 256px"/>
 		<slice id="download" uvs="256px 512px 256px 256px"/>
+		<slice id="mouse_point" uvs="0px 768px 256px 256px"/>
+		<slice id="mouse_click" uvs="256px 768px 256px 256px"/>
 	</slices>
 </texture>

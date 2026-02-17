@@ -1,4 +1,22 @@
 <GUIProfiles>
+	
+	<Profile name="rl_scrollingLayout" extends="emptyPanel" with="anchorMiddleCenter">
+		<flowDirection value="vertical"/>
+		<autoValidateLayout value="false"/>
+		<position value="0px -75px"/>
+		<alignmentX value="center"/>
+		<elementSpacing value="30px"/>
+		<height value="85%"/>
+	</Profile>
+	
+	<Profile name="rl_scrollingLayoutHorVer" extends="rl_scrollingLayout" with="anchorMiddleCenter">
+		<flowDirection value="vertical"/>
+		<autoValidateLayout value="false"/>
+		<position value="0px -75px"/>
+		<alignmentX value="center"/>
+		<elementSpacing value="30px"/>
+		<height value="85%"/>
+	</Profile>
 
 	<Profile name="rl_animalFilterListItemName" extends="fs25_textDefault" with="anchorTopCenter">
 		<textAutoWidth value="true"/>

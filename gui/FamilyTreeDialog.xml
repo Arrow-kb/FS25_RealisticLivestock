@@ -1,0 +1,47 @@
+﻿<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+	<GuiElement profile="newLayer"/>
+	<Bitmap profile="dialogFullscreenBg" id="dialogBg"/>
+	<GuiElement profile="rl_familyTreeDialog" id="dialogElement">
+		<ThreePartBitmap profile="fs25_dialogBgMiddle"/>
+		<ThreePartBitmap profile="fs25_dialogBgTop"/>
+		<ThreePartBitmap profile="fs25_dialogBgBottom"/>
+		<Animation profile="fs25_dialogLoading" id="iconLoadingElement"/>
+			
+		<GuiElement profile="rl_familyTreeDialog" id="detailsContainer">
+
+			<TreeLayout profile="rl_scrollingLayoutHorVer" id="layout" sliderVertical="sliderVertical" sliderHorizontal="sliderHorizontal">
+
+				<Bitmap profile="rl_animalInfoAnimalIcon" id="cellTemplate" visible="false"/>
+
+			</TreeLayout>
+
+			<ThreePartBitmap profile="fs25_listSliderBox" position="5px 0px" absoluteSizeOffset="0px 5px" pivot="1 1">
+				<Slider profile="fs25_listSlider" id="sliderVertical" dataElementId="layout"/>
+			</ThreePartBitmap>
+
+			<ThreePartBitmap profile="fs25_listSliderBoxHorizontal" position="0px 5px" absoluteSizeOffset="5px 0px" pivot="1 1">
+				<Slider profile="fs25_listSlider" id="sliderHorizontal" dataElementId="layout" direction="x"/>
+			</ThreePartBitmap>
+				
+		</GuiElement>
+		
+		<BoxLayout profile="fs25_dialogButtonBox">
+			<Button profile="buttonOK" text="$l10n_button_ok" onClick="onClickOk" id="okButton"/>
+		</BoxLayout>
+		
+	</GuiElement>
+	<GUIProfiles>
+
+		<Profile name="fs25_listSliderBoxHorizontal" extends="fs25_listSliderBox" with="anchorBottomStretchingX">
+			<size value="100% 6px"/>
+			<position value="0px 21px"/>
+			<isHorizontal value="true"/>
+		</Profile>
+
+		<Profile name="rl_familyTreeDialog" extends="emptyPanel" with="anchorStretchingYStretchingX">
+			<absoluteSizeOffset value="15px 15px"/>
+			<position value="4px -4px"/>
+		</Profile>
+		
+	</GUIProfiles>
+</GUI>

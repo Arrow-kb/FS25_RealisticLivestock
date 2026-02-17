@@ -51,6 +51,8 @@
 		<ThreePartBitmap profile="rl_sliderBox">
 			<Slider profile="fs25_listSlider" dataElementId="husbandryList"/>
 		</ThreePartBitmap>
+
+		<PieChart id="pieChart" profile="rl_pieChart"/>
 		
 	</GuiElement>
 
@@ -60,6 +62,12 @@
 			<size value="50px 50px"/>
 			<imageSliceId value="realistic_livestock.main_icon"/>
 			<imageColor value="$preset_fs25_colorMainDark"/>
+		</Profile>
+
+		<Profile name="rl_pieChart" extends="baseReference" with="anchorMiddleCenter">
+			<size value="100px 100px"/>
+			<position value="0px -100px"/>
+			<defaultTextProfile value="multiTextOptionText"/>
 		</Profile>
 		
 	</GUIProfiles>

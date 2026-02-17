@@ -769,9 +769,12 @@
 					</GuiElement>
 
 					<BoxLayout profile="fs25_animalParentTabListBox" position="0px 220px" id="parentBox">
+						<Button profile="rl_animalInfoButtonMother" onClick="onClickOpenFamilyTree" id="familyTreeButton" text="Family Tree"/>
+						<!--
 						<Button profile="rl_animalInfoButtonMother" onClick="onClickAnimalInfo" id="motherInfoButton" text="Mother"/>
 						<Button profile="rl_animalInfoButtonFather" onClick="onClickAnimalInfo" id="fatherInfoButton" text="Father"/>
 						<Button profile="rl_animalInfoButtonChildren" onClick="onClickAnimalInfo" id="childInfoButton" text="Children"/>
+						<-->
 					</BoxLayout>
 
 					<GuiElement profile="fs25_animalInfoBox" id="inputBox" position="-410px 0px">
@@ -996,14 +999,6 @@
 		</Profile>
 		<Profile name="rl_geneticsBoxInfo" extends="fs25_animalInfoBox" with="anchorBottomRight">
 			<position value="-15px 220px"/>
-		</Profile>
-		<Profile name="rl_scrollingLayout" extends="emptyPanel" with="anchorMiddleCenter">
-			<flowDirection value="vertical"/>
-			<autoValidateLayout value="false"/>
-			<position value="0px -75px"/>
-			<alignmentX value="center"/>
-			<elementSpacing value="30px"/>
-			<height value="85%"/>
 		</Profile>
 		<Profile name="rl_aiBinaryOption" extends="fs25_settingsBinaryOption" with="anchorTopCenter"/>
 
