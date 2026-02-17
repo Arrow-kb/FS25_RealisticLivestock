@@ -25,6 +25,18 @@ function RealisticLivestock_PlayerInputComponent:update(_)
             local closestNode = self.player.targeter:getClosestTargetedNodeFromType(PlayerInputComponent)
             self.player.hudUpdater:setCurrentRaycastTarget(closestNode)
 
+            if closestNode ~= nil and closestNode ~= 0 then
+
+                if getName(closestNode) == "book" and PlaceableAuctionMart.INSTANCE ~= nil then
+
+                    g_inputBinding:setActionEventText(self.enterActionId, "Sign In")
+                    g_inputBinding:setActionEventActive(self.enterActionId, true)
+                    self.rlInputContext = "signin"
+
+                end
+
+            end
+
             if not canAccess and closestNode ~= nil then
 
                 local husbandryId, animalId = getAnimalFromCollisionNode(closestNode)
@@ -59,6 +71,7 @@ function RealisticLivestock_PlayerInputComponent:update(_)
 
                         g_inputBinding:setActionEventText(self.enterActionId, g_i18n:getText("rl_ui_takeStraw"))
                         g_inputBinding:setActionEventActive(self.enterActionId, true)        
+                        self.rlInputContext = "aiStraw"  
 
                     end
 
@@ -77,16 +90,38 @@ PlayerInputComponent.update = Utils.appendedFunction(PlayerInputComponent.update
 
 function RealisticLivestock_PlayerInputComponent:onInputEnter()
 
-    if g_time <= g_currentMission.lastInteractionTime + 200 or g_currentMission.interactiveVehicleInRange ~= nil or self.rideablePlaceable ~= nil or self.dewar == nil or HandToolAIStraw.numHeldStraws > 10 then return end
+    if g_time <= g_currentMission.lastInteractionTime + 200 or g_currentMission.interactiveVehicleInRange ~= nil or self.rideablePlaceable ~= nil then return end
+    
+    if self.rlInputContext == "aiStraw" then
+        
+        if self.dewar == nil or HandToolAIStraw.numHeldStraws > 10 then return end
 
-    local strawType = g_handToolTypeManager:getTypeByName(modName .. ".aiStraw")
-    local handTool = _G[strawType.className].new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
+        local strawType = g_handToolTypeManager:getTypeByName(modName .. ".aiStraw")
+        local handTool = _G[strawType.className].new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
 
-    handTool:setType(strawType)
-    handTool:setLoadCallback(self.onFinishedLoadStraw, self, { ["animal"] = self.dewar:getAnimal(), ["dewarUniqueId"] = self.dewar:getUniqueId() })
-    handTool:loadNonStoreItem({ ["ownerFarmId"] = g_localPlayer.farmId, ["isRegistered"] = false, ["holder"] = g_localPlayer }, RLHandTools.xmlPaths.aiStraw)
+        handTool:setType(strawType)
+        handTool:setLoadCallback(self.onFinishedLoadStraw, self, { ["animal"] = self.dewar:getAnimal(), ["dewarUniqueId"] = self.dewar:getUniqueId() })
+        handTool:loadNonStoreItem({ ["ownerFarmId"] = g_localPlayer.farmId, ["isRegistered"] = false, ["holder"] = g_localPlayer }, RLHandTools.xmlPaths.aiStraw)
 
-    self.dewar:changeStraws(-1)
+        self.dewar:changeStraws(-1)
+
+    end
+
+    if self.rlInputContext == "signin" then
+
+        if HandToolCatalog.numHeldCatalogs > 1 then return end
+        
+        local catalogType = g_handToolTypeManager:getTypeByName(modName .. ".catalog")
+        local handTool = _G[catalogType.className].new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
+
+        handTool:setType(catalogType)
+        handTool:loadNonStoreItem({ ["ownerFarmId"] = g_localPlayer.farmId, ["isRegistered"] = false, ["holder"] = g_localPlayer }, RLHandTools.xmlPaths.catalog)
+
+        local placeable = PlaceableAuctionMart.INSTANCE
+
+        placeable:signIn(false, g_localPlayer)
+
+    end
 
 end
 
@@ -121,3 +156,67 @@ function RealisticLivestock_PlayerInputComponent.onFinishedRideBlending(superFun
 end
 
 PlayerInputComponent.onFinishedRideBlending = Utils.overwrittenFunction(PlayerInputComponent.onFinishedRideBlending, RealisticLivestock_PlayerInputComponent.onFinishedRideBlending)
+
+
+function RealisticLivestock_PlayerInputComponent:onInputJump(superFunc, eventId, inputValue)
+
+    if g_currentMission.isPlayerFrozen then return end
+
+    superFunc(self, eventId, inputValue)
+
+end
+
+PlayerInputComponent.onInputJump = Utils.overwrittenFunction(PlayerInputComponent.onInputJump, RealisticLivestock_PlayerInputComponent.onInputJump)
+
+
+function RealisticLivestock_PlayerInputComponent:onInputCrouch(superFunc, eventId, inputValue)
+
+    if g_currentMission.isPlayerFrozen then return end
+
+    superFunc(self, eventId, inputValue)
+
+end
+
+PlayerInputComponent.onInputCrouch = Utils.overwrittenFunction(PlayerInputComponent.onInputCrouch, RealisticLivestock_PlayerInputComponent.onInputCrouch)
+
+
+function RealisticLivestock_PlayerInputComponent:onInputLookLeftRight(superFunc, eventId, inputValue, a, b, isMouse)
+
+    if g_currentMission.isPlayerFrozen then return end
+
+    superFunc(self, eventId, inputValue, a, b, isMouse)
+
+end
+
+PlayerInputComponent.onInputLookLeftRight = Utils.overwrittenFunction(PlayerInputComponent.onInputLookLeftRight, RealisticLivestock_PlayerInputComponent.onInputLookLeftRight)
+
+
+function RealisticLivestock_PlayerInputComponent:onInputLookUpDown(superFunc, eventId, inputValue, a, b, isMouse)
+
+    if g_currentMission.isPlayerFrozen then return end
+
+    superFunc(self, eventId, inputValue, a, b, isMouse)
+
+end
+
+PlayerInputComponent.onInputLookUpDown = Utils.overwrittenFunction(PlayerInputComponent.onInputLookUpDown, RealisticLivestock_PlayerInputComponent.onInputLookUpDown)
+
+
+function RealisticLivestock_PlayerInputComponent:onInputMoveForward(superFunc, eventId, inputValue)
+
+    if g_currentMission.isPlayerFrozen then return end
+
+    superFunc(self, eventId, inputValue)
+
+end
+
+PlayerInputComponent.onInputMoveForward = Utils.overwrittenFunction(PlayerInputComponent.onInputMoveForward, RealisticLivestock_PlayerInputComponent.onInputMoveForward)
+
+
+function RealisticLivestock_PlayerInputComponent:onInputMoveSide(superFunc, eventId, inputValue)
+
+    if g_currentMission.isPlayerFrozen then return end
+
+    superFunc(self, eventId, inputValue)
+
+end
