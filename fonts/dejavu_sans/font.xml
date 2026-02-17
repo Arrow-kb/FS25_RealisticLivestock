@@ -1,0 +1,2993 @@
+<?xml version="1.0" ?>
+<font name="dejavu_sans" language="latin">
+  <image width="8192" height="256"/>
+  <cell width="128" height="128"/>
+  <character uvIndex="0" character="!" byte="33" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="5" y="0" width="31" left="29.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="5" y="0" width="31"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5" y="0" width="31" left="29.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="5" y="0" width="31"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="30" y="0" width="28" left="15.0" right="29.0"/>
+      <stroke strokeWidth="1.5" x="29" y="0" width="31"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="29" y="0" width="31" left="14.5" right="30.0"/>
+      <stroke strokeWidth="1.5" x="29" y="0" width="31"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="1" character="&quot;" byte="34" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="46.0" y="0" width="36" left="26.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="49.0" y="0" width="36"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="49.0" y="0" width="36" left="26.0" right="37.5"/>
+      <stroke strokeWidth="1.5" x="49.75" y="0" width="36"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="164" y="0" width="29" left="18.0" right="32.5"/>
+      <stroke strokeWidth="1.5" x="163" y="0" width="32"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="163" y="0" width="32" left="17.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="162" y="0" width="33"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="2" character="#" byte="35" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="92.0" y="0" width="66" left="18.5" right="45.0"/>
+      <stroke strokeWidth="1.5" x="98.0" y="0" width="66"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="98.0" y="0" width="66" left="17.5" right="46.0"/>
+      <stroke strokeWidth="1.5" x="99.5" y="0" width="66"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="270" y="0" width="62" left="7.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="268" y="0" width="65"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="268" y="0" width="65" left="6.0" right="38.5"/>
+      <stroke strokeWidth="1.5" x="267" y="0" width="67"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="3" character="$" byte="36" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="168.0" y="0" width="50" left="22.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="177.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="177.0" y="0" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="179.25" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="401" y="0" width="49" left="8.5" right="33.0"/>
+      <stroke strokeWidth="1.5" x="400" y="0" width="53"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="400" y="0" width="53" left="8.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="399" y="0" width="54"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="4" character="%" byte="37" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="228.0" y="0" width="74" left="15.5" right="48.5"/>
+      <stroke strokeWidth="1.5" x="240.0" y="0" width="74"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="240.0" y="0" width="74" left="14.5" right="49.0"/>
+      <stroke strokeWidth="1.5" x="243.0" y="0" width="74"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="526" y="0" width="62" left="7.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="525" y="0" width="65"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="525" y="0" width="65" left="6.5" right="39.0"/>
+      <stroke strokeWidth="1.5" x="524" y="0" width="66"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="5" character="&amp;" byte="38" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="312.0" y="0" width="61" left="18.5" right="45.5"/>
+      <stroke strokeWidth="1.5" x="327.0" y="0" width="61"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="327.0" y="0" width="61" left="18.0" right="46.5"/>
+      <stroke strokeWidth="1.5" x="330.75" y="0" width="61"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="653" y="0" width="58" left="6.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="652" y="0" width="61"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="652" y="0" width="61" left="6.0" right="36.5"/>
+      <stroke strokeWidth="1.5" x="651" y="0" width="62"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="6" character="'" byte="39" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="383.0" y="0" width="22" left="30.0" right="33.5"/>
+      <stroke strokeWidth="1.5" x="401.0" y="0" width="22"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="401.0" y="0" width="22" left="29.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="405.5" y="0" width="22"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="811" y="0" width="14" left="21.5" right="28.5"/>
+      <stroke strokeWidth="1.5" x="810" y="0" width="18"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="810" y="0" width="18" left="21.0" right="30.0"/>
+      <stroke strokeWidth="1.5" x="809" y="0" width="19"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="7" character="(" byte="40" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="415.0" y="0" width="31" left="27.0" right="36.0"/>
+      <stroke strokeWidth="1.5" x="436.0" y="0" width="31"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="436.0" y="0" width="31" left="26.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="441.25" y="0" width="31"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="927" y="0" width="32" left="15.5" right="31.5"/>
+      <stroke strokeWidth="1.5" x="925" y="0" width="37"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="925" y="0" width="37" left="14.5" right="33.0"/>
+      <stroke strokeWidth="1.5" x="925" y="0" width="37"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="8" character=")" byte="41" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="456.0" y="0" width="31" left="27.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="480.0" y="0" width="31"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="480.0" y="0" width="31" left="26.0" right="36.5"/>
+      <stroke strokeWidth="1.5" x="486.0" y="0" width="31"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1046" y="0" width="33" left="11.0" right="27.5"/>
+      <stroke strokeWidth="1.5" x="1045" y="0" width="36"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1045" y="0" width="36" left="10.5" right="28.5"/>
+      <stroke strokeWidth="1.5" x="1044" y="0" width="37"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="9" character="*" byte="42" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="497.0" y="0" width="39" left="23.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="524.0" y="0" width="39"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="524.0" y="0" width="39" left="22.0" right="41.0"/>
+      <stroke strokeWidth="1.5" x="530.75" y="0" width="39"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1180" y="0" width="40" left="14.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="1179" y="0" width="44"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1179" y="0" width="44" left="13.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="1178" y="0" width="45"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="10" character="+" byte="43" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="546.0" y="0" width="66" left="19.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="576.0" y="0" width="66"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="576.0" y="0" width="66" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="583.5" y="0" width="66"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1297" y="0" width="52" left="8.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="1296" y="0" width="55"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1296" y="0" width="55" left="8.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="1295" y="0" width="56"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="11" character="," byte="44" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="622.0" y="0" width="25" left="28.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="655.0" y="0" width="25"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="655.0" y="0" width="25" left="27.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="663.25" y="0" width="25"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1433" y="0" width="18" left="12.5" right="21.5"/>
+      <stroke strokeWidth="1.5" x="1431" y="0" width="22"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1431" y="0" width="22" left="11.5" right="22.5"/>
+      <stroke strokeWidth="1.5" x="1431" y="0" width="22"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="12" character="-" byte="45" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="657.0" y="0" width="28" left="26.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="693.0" y="0" width="28"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="693.0" y="0" width="28" left="26.0" right="37.5"/>
+      <stroke strokeWidth="1.5" x="702.0" y="0" width="28"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1566" y="0" width="25" left="15.0" right="27.5"/>
+      <stroke strokeWidth="1.5" x="1565" y="0" width="27"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1565" y="0" width="27" left="14.5" right="28.0"/>
+      <stroke strokeWidth="1.5" x="1565" y="0" width="28"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="13" character="." byte="46" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="695.0" y="0" width="25" left="29.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="734.0" y="0" width="25"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="734.0" y="0" width="25" left="28.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="743.75" y="0" width="25"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1694" y="0" width="12" left="15.0" right="21.0"/>
+      <stroke strokeWidth="1.5" x="1692" y="0" width="16"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1692" y="0" width="16" left="14.0" right="22.0"/>
+      <stroke strokeWidth="1.5" x="1692" y="0" width="16"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="14" character="/" byte="47" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="730.0" y="0" width="27" left="25.5" right="38.5"/>
+      <stroke strokeWidth="1.5" x="772.0" y="0" width="27"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="772.0" y="0" width="27" left="24.5" right="39.0"/>
+      <stroke strokeWidth="1.5" x="782.5" y="0" width="27"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1812" y="0" width="48" left="10.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="1810" y="0" width="52"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1810" y="0" width="52" left="9.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="1809" y="0" width="53"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="15" character="0" byte="48" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="767.0" y="0" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="812.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="812.0" y="0" width="50" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="823.25" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1941" y="0" width="47" left="10.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="1940" y="0" width="50"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1940" y="0" width="50" left="10.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="1939" y="0" width="51"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="16" character="1" byte="49" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="827.0" y="0" width="50" left="23.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="875.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="875.0" y="0" width="50" left="23.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="887.0" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2067" y="0" width="40" left="9.5" right="29.5"/>
+      <stroke strokeWidth="1.5" x="2066" y="0" width="44"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2066" y="0" width="44" left="9.0" right="31.0"/>
+      <stroke strokeWidth="1.5" x="2065" y="0" width="45"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="17" character="2" byte="50" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="887.0" y="0" width="50" left="22.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="938.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="938.0" y="0" width="50" left="21.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="950.75" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2191" y="0" width="52" left="7.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="2190" y="0" width="55"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2190" y="0" width="55" left="7.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="2189" y="0" width="56"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="18" character="3" byte="51" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="947.0" y="0" width="50" left="22.0" right="41.0"/>
+      <stroke strokeWidth="1.5" x="1001.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1001.0" y="0" width="50" left="21.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="1014.5" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2321" y="0" width="51" left="8.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="2319" y="0" width="55"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2319" y="0" width="55" left="7.5" right="35.0"/>
+      <stroke strokeWidth="1.5" x="2318" y="0" width="56"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="19" character="4" byte="52" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="1007.0" y="0" width="50" left="21.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="1064.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1064.0" y="0" width="50" left="20.5" right="42.5"/>
+      <stroke strokeWidth="1.5" x="1078.25" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2450" y="0" width="49" left="9.0" right="33.5"/>
+      <stroke strokeWidth="1.5" x="2449" y="0" width="52"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2449" y="0" width="52" left="8.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="2448" y="0" width="53"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="20" character="5" byte="53" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="1067.0" y="0" width="50" left="22.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="1127.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1127.0" y="0" width="50" left="21.5" right="41.5"/>
+      <stroke strokeWidth="1.5" x="1142.0" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2577" y="0" width="51" left="8.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="2575" y="0" width="56"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2575" y="0" width="56" left="7.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="2574" y="0" width="57"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="21" character="6" byte="54" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="1127.0" y="0" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="1190.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1190.0" y="0" width="50" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="1205.75" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2710" y="0" width="48" left="11.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="2708" y="0" width="52"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2708" y="0" width="52" left="10.0" right="36.0"/>
+      <stroke strokeWidth="1.5" x="2708" y="0" width="52"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="22" character="7" byte="55" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="1187.0" y="0" width="50" left="22.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="1253.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1253.0" y="0" width="50" left="21.5" right="41.5"/>
+      <stroke strokeWidth="1.5" x="1269.5" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2840" y="0" width="48" left="12.0" right="36.0"/>
+      <stroke strokeWidth="1.5" x="2839" y="0" width="52"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2839" y="0" width="52" left="11.5" right="37.5"/>
+      <stroke strokeWidth="1.5" x="2838" y="0" width="53"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="23" character="8" byte="56" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="1247.0" y="0" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="1316.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1316.0" y="0" width="50" left="21.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="1333.25" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2963" y="0" width="50" left="9.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="2962" y="0" width="53"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2962" y="0" width="53" left="9.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="2961" y="0" width="54"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="24" character="9" byte="57" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="1307.0" y="0" width="50" left="21.5" right="41.5"/>
+      <stroke strokeWidth="1.5" x="1379.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1379.0" y="0" width="50" left="21.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="1397.0" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3091" y="0" width="49" left="9.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="3090" y="0" width="52"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3090" y="0" width="52" left="9.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="3089" y="0" width="53"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="25" character=":" byte="58" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="1367.0" y="0" width="26" left="30.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="1442.0" y="0" width="26"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1442.0" y="0" width="26" left="29.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="1460.75" y="0" width="26"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3231" y="0" width="23" left="15.5" right="27.0"/>
+      <stroke strokeWidth="1.5" x="3229" y="0" width="26"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3229" y="0" width="26" left="14.5" right="27.5"/>
+      <stroke strokeWidth="1.5" x="3229" y="0" width="26"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="26" character=";" byte="59" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="1403.0" y="0" width="26" left="28.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="1481.0" y="0" width="26"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1481.0" y="0" width="26" left="27.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="1500.5" y="0" width="26"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3353" y="0" width="29" left="12.5" right="27.0"/>
+      <stroke strokeWidth="1.5" x="3351" y="0" width="32"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3351" y="0" width="32" left="11.5" right="27.5"/>
+      <stroke strokeWidth="1.5" x="3351" y="0" width="32"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="27" character="&lt;" byte="60" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="1439.0" y="0" width="66" left="19.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="1520.0" y="0" width="66"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1520.0" y="0" width="66" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="1540.25" y="0" width="66"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3473" y="0" width="58" left="8.5" right="37.5"/>
+      <stroke strokeWidth="1.5" x="3472" y="0" width="61"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3472" y="0" width="61" left="8.0" right="38.5"/>
+      <stroke strokeWidth="1.5" x="3471" y="0" width="62"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="28" character="=" byte="61" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="1515.0" y="0" width="66" left="19.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="1599.0" y="0" width="66"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1599.0" y="0" width="66" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="1620.0" y="0" width="66"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3599" y="0" width="57" left="7.5" right="36.0"/>
+      <stroke strokeWidth="1.5" x="3597" y="0" width="61"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3597" y="0" width="61" left="6.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="3597" y="0" width="61"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="29" character="&gt;" byte="62" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="1591.0" y="0" width="66" left="19.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="1678.0" y="0" width="66"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1678.0" y="0" width="66" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="1699.75" y="0" width="66"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3724" y="0" width="57" left="6.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="3722" y="0" width="61"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3722" y="0" width="61" left="5.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="3721" y="0" width="62"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="30" character="?" byte="63" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="1667.0" y="0" width="42" left="24.0" right="39.5"/>
+      <stroke strokeWidth="1.5" x="1757.0" y="0" width="42"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1757.0" y="0" width="42" left="23.5" right="40.0"/>
+      <stroke strokeWidth="1.5" x="1779.5" y="0" width="42"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3869" y="0" width="38" left="14.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="3867" y="0" width="42"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3867" y="0" width="42" left="13.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="3867" y="0" width="42"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="31" character="@" byte="64" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="1719.0" y="0" width="78" left="15.0" right="48.5"/>
+      <stroke strokeWidth="1.5" x="1812.0" y="0" width="78"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1812.0" y="0" width="78" left="14.0" right="49.5"/>
+      <stroke strokeWidth="1.5" x="1835.25" y="0" width="78"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3974" y="0" width="74" left="3.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="3972" y="0" width="78"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3972" y="0" width="78" left="2.0" right="41.0"/>
+      <stroke strokeWidth="1.5" x="3972" y="0" width="78"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="32" character="A" byte="65" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="1807.0" y="0" width="54" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="1903.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1903.0" y="0" width="54" left="18.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="1927.0" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4104" y="0" width="54" left="4.0" right="31.0"/>
+      <stroke strokeWidth="1.5" x="4103" y="0" width="57"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4103" y="0" width="57" left="3.5" right="32.0"/>
+      <stroke strokeWidth="1.5" x="4102" y="0" width="58"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="33" character="B" byte="66" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="1871.0" y="0" width="54" left="22.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="1970.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1970.0" y="0" width="54" left="21.5" right="43.0"/>
+      <stroke strokeWidth="1.5" x="1994.75" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4239" y="0" width="55" left="7.5" right="35.0"/>
+      <stroke strokeWidth="1.5" x="4238" y="0" width="58"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4238" y="0" width="58" left="7.0" right="36.0"/>
+      <stroke strokeWidth="1.5" x="4237" y="0" width="59"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="34" character="C" byte="67" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="1935.0" y="0" width="55" left="20.0" right="43.0"/>
+      <stroke strokeWidth="1.5" x="2037.0" y="0" width="55"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2037.0" y="0" width="55" left="19.0" right="43.5"/>
+      <stroke strokeWidth="1.5" x="2062.5" y="0" width="55"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4370" y="0" width="58" left="9.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="4369" y="0" width="60"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4369" y="0" width="60" left="8.5" right="38.5"/>
+      <stroke strokeWidth="1.5" x="4368" y="0" width="62"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="35" character="D" byte="68" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2000.0" y="0" width="60" left="20.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="2105.0" y="0" width="60"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2105.0" y="0" width="60" left="20.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="2131.25" y="0" width="60"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4492" y="0" width="62" left="6.0" right="37.0"/>
+      <stroke strokeWidth="1.5" x="4491" y="0" width="64"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4491" y="0" width="64" left="5.5" right="37.5"/>
+      <stroke strokeWidth="1.5" x="4490" y="0" width="65"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="36" character="E" byte="69" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2070.0" y="0" width="49" left="23.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="2178.0" y="0" width="49"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2178.0" y="0" width="49" left="22.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="2205.0" y="0" width="49"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4625" y="0" width="56" left="8.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="4624" y="0" width="60"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4624" y="0" width="60" left="8.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="4623" y="0" width="61"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="37" character="F" byte="70" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2129.0" y="0" width="45" left="24.0" right="40.5"/>
+      <stroke strokeWidth="1.5" x="2240.0" y="0" width="45"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2240.0" y="0" width="45" left="23.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="2267.75" y="0" width="45"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4755" y="0" width="53" left="9.5" right="36.0"/>
+      <stroke strokeWidth="1.5" x="4754" y="0" width="56"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4754" y="0" width="56" left="9.0" right="37.0"/>
+      <stroke strokeWidth="1.5" x="4753" y="0" width="57"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="38" character="G" byte="71" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2184.0" y="0" width="61" left="18.5" right="43.5"/>
+      <stroke strokeWidth="1.5" x="2298.0" y="0" width="61"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2298.0" y="0" width="61" left="17.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="2326.5" y="0" width="61"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4879" y="0" width="60" left="7.5" right="37.5"/>
+      <stroke strokeWidth="1.5" x="4878" y="0" width="63"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4878" y="0" width="63" left="7.0" right="38.5"/>
+      <stroke strokeWidth="1.5" x="4877" y="0" width="64"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="39" character="H" byte="72" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2255.0" y="0" width="59" left="20.5" right="42.5"/>
+      <stroke strokeWidth="1.5" x="2372.0" y="0" width="59"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2372.0" y="0" width="59" left="20.0" right="43.0"/>
+      <stroke strokeWidth="1.5" x="2401.25" y="0" width="59"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5004" y="0" width="64" left="6.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="5003" y="0" width="67"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5003" y="0" width="67" left="5.5" right="39.0"/>
+      <stroke strokeWidth="1.5" x="5002" y="0" width="68"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="40" character="I" byte="73" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2324.0" y="0" width="23" left="29.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="2444.0" y="0" width="23"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2444.0" y="0" width="23" left="29.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="2474.0" y="0" width="23"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5150" y="0" width="28" left="15.0" right="29.0"/>
+      <stroke strokeWidth="1.5" x="5149" y="0" width="31"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5149" y="0" width="31" left="14.5" right="30.0"/>
+      <stroke strokeWidth="1.5" x="5148" y="0" width="32"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="41" character="J" byte="74" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2357.0" y="0" width="27" left="24.0" right="33.5"/>
+      <stroke strokeWidth="1.5" x="2480.0" y="0" width="27"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2480.0" y="0" width="27" left="23.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="2510.75" y="0" width="27"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5262" y="0" width="44" left="7.0" right="29.0"/>
+      <stroke strokeWidth="1.5" x="5260" y="0" width="48"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5260" y="0" width="48" left="6.0" right="30.0"/>
+      <stroke strokeWidth="1.5" x="5260" y="0" width="48"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="42" character="K" byte="75" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2394.0" y="0" width="53" left="22.5" right="45.0"/>
+      <stroke strokeWidth="1.5" x="2520.0" y="0" width="53"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2520.0" y="0" width="53" left="22.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="2551.5" y="0" width="53"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5392" y="0" width="63" left="8.0" right="39.5"/>
+      <stroke strokeWidth="1.5" x="5391" y="0" width="67"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5391" y="0" width="67" left="7.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="5390" y="0" width="68"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="43" character="L" byte="76" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2457.0" y="0" width="44" left="24.5" right="42.5"/>
+      <stroke strokeWidth="1.5" x="2586.0" y="0" width="44"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2586.0" y="0" width="44" left="24.0" right="43.0"/>
+      <stroke strokeWidth="1.5" x="2618.25" y="0" width="44"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5524" y="0" width="39" left="10.0" right="29.5"/>
+      <stroke strokeWidth="1.5" x="5523" y="0" width="42"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5523" y="0" width="42" left="9.5" right="30.5"/>
+      <stroke strokeWidth="1.5" x="5522" y="0" width="43"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="44" character="M" byte="77" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2511.0" y="0" width="68" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="2643.0" y="0" width="68"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2643.0" y="0" width="68" left="18.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="2676.0" y="0" width="68"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5640" y="0" width="72" left="4.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="5639" y="0" width="76"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5639" y="0" width="76" left="3.5" right="41.5"/>
+      <stroke strokeWidth="1.5" x="5638" y="0" width="77"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="45" character="N" byte="78" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2589.0" y="0" width="59" left="20.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="2724.0" y="0" width="59"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2724.0" y="0" width="59" left="20.0" right="43.0"/>
+      <stroke strokeWidth="1.5" x="2757.75" y="0" width="59"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5772" y="0" width="63" left="6.0" right="37.5"/>
+      <stroke strokeWidth="1.5" x="5771" y="0" width="67"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5771" y="0" width="67" left="5.5" right="39.0"/>
+      <stroke strokeWidth="1.5" x="5770" y="0" width="68"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="46" character="O" byte="79" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2658.0" y="0" width="62" left="18.5" right="45.0"/>
+      <stroke strokeWidth="1.5" x="2796.0" y="0" width="62"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2796.0" y="0" width="62" left="17.5" right="45.5"/>
+      <stroke strokeWidth="1.5" x="2830.5" y="0" width="62"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5903" y="0" width="59" left="7.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="5902" y="0" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5902" y="0" width="62" left="7.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="5901" y="0" width="63"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="47" character="P" byte="80" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2730.0" y="0" width="47" left="23.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="2871.0" y="0" width="47"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2871.0" y="0" width="47" left="23.0" right="43.0"/>
+      <stroke strokeWidth="1.5" x="2906.25" y="0" width="47"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6034" y="0" width="53" left="9.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="6033" y="0" width="56"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6033" y="0" width="56" left="8.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="6032" y="0" width="57"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="48" character="Q" byte="81" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2787.0" y="0" width="62" left="18.5" right="45.0"/>
+      <stroke strokeWidth="1.5" x="2931.0" y="0" width="62"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="2931.0" y="0" width="62" left="17.5" right="45.5"/>
+      <stroke strokeWidth="1.5" x="2967.0" y="0" width="62"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6159" y="0" width="59" left="7.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="6158" y="0" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6158" y="0" width="62" left="7.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="6157" y="0" width="63"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="49" character="R" byte="82" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2859.0" y="0" width="54" left="22.0" right="44.5"/>
+      <stroke strokeWidth="1.5" x="3006.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3006.0" y="0" width="54" left="21.5" right="45.0"/>
+      <stroke strokeWidth="1.5" x="3042.75" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6287" y="0" width="53" left="7.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="6286" y="0" width="56"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6286" y="0" width="56" left="7.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="6285" y="0" width="57"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="50" character="S" byte="83" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2923.0" y="0" width="50" left="22.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="3073.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3073.0" y="0" width="50" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="3110.5" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6416" y="0" width="55" left="8.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="6415" y="0" width="58"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6415" y="0" width="58" left="7.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="6414" y="0" width="59"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="51" character="T" byte="84" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="2983.0" y="0" width="50" left="19.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="3136.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3136.0" y="0" width="50" left="19.0" right="44.5"/>
+      <stroke strokeWidth="1.5" x="3174.25" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6556" y="0" width="50" left="14.0" right="39.0"/>
+      <stroke strokeWidth="1.5" x="6554" y="0" width="55"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6554" y="0" width="55" left="13.0" right="40.5"/>
+      <stroke strokeWidth="1.5" x="6554" y="0" width="55"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="52" character="U" byte="85" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="3043.0" y="0" width="57" left="20.5" right="42.5"/>
+      <stroke strokeWidth="1.5" x="3199.0" y="0" width="57"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3199.0" y="0" width="57" left="20.0" right="43.5"/>
+      <stroke strokeWidth="1.5" x="3238.0" y="0" width="57"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6674" y="0" width="58" left="9.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="6672" y="0" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6672" y="0" width="62" left="8.0" right="39.0"/>
+      <stroke strokeWidth="1.5" x="6672" y="0" width="62"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="53" character="V" byte="86" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="3110.0" y="0" width="54" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="3269.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3269.0" y="0" width="54" left="18.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="3308.75" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6811" y="0" width="53" left="13.5" right="40.0"/>
+      <stroke strokeWidth="1.5" x="6810" y="0" width="57"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6810" y="0" width="57" left="13.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="6809" y="0" width="58"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="54" character="W" byte="87" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="3174.0" y="0" width="77" left="13.5" right="49.5"/>
+      <stroke strokeWidth="1.5" x="3336.0" y="0" width="77"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3336.0" y="0" width="77" left="13.0" right="50.5"/>
+      <stroke strokeWidth="1.5" x="3376.5" y="0" width="77"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6924" y="0" width="78" left="6.0" right="45.0"/>
+      <stroke strokeWidth="1.5" x="6923" y="0" width="82"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6923" y="0" width="82" left="5.5" right="46.5"/>
+      <stroke strokeWidth="1.5" x="6922" y="0" width="83"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="55" character="X" byte="88" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="3261.0" y="0" width="54" left="19.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="3426.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3426.0" y="0" width="54" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="3467.25" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7050" y="0" width="67" left="5.0" right="38.5"/>
+      <stroke strokeWidth="1.5" x="7049" y="0" width="71"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7049" y="0" width="71" left="4.5" right="40.0"/>
+      <stroke strokeWidth="1.5" x="7048" y="0" width="72"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="56" character="Y" byte="89" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="3325.0" y="0" width="50" left="19.5" right="43.5"/>
+      <stroke strokeWidth="1.5" x="3493.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3493.0" y="0" width="50" left="19.0" right="44.5"/>
+      <stroke strokeWidth="1.5" x="3535.0" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7198" y="0" width="48" left="15.0" right="39.0"/>
+      <stroke strokeWidth="1.5" x="7196" y="0" width="53"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7196" y="0" width="53" left="14.0" right="40.5"/>
+      <stroke strokeWidth="1.5" x="7196" y="0" width="53"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="57" character="Z" byte="90" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="3385.0" y="0" width="54" left="20.0" right="43.5"/>
+      <stroke strokeWidth="1.5" x="3556.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3556.0" y="0" width="54" left="19.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="3598.75" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7307" y="0" width="66" left="5.5" right="38.5"/>
+      <stroke strokeWidth="1.5" x="7306" y="0" width="69"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7306" y="0" width="69" left="5.0" right="39.5"/>
+      <stroke strokeWidth="1.5" x="7305" y="0" width="70"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="58" character="[" byte="91" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="3449.0" y="0" width="31" left="27.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="3623.0" y="0" width="31"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3623.0" y="0" width="31" left="26.5" right="36.0"/>
+      <stroke strokeWidth="1.5" x="3666.5" y="0" width="31"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7446" y="0" width="40" left="11.0" right="31.0"/>
+      <stroke strokeWidth="1.5" x="7445" y="0" width="44"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7445" y="0" width="44" left="10.5" right="32.5"/>
+      <stroke strokeWidth="1.5" x="7444" y="0" width="45"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="59" character="\" byte="92" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="3490.0" y="0" width="27" left="25.5" right="38.5"/>
+      <stroke strokeWidth="1.5" x="3667.0" y="0" width="27"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3667.0" y="0" width="27" left="24.5" right="39.0"/>
+      <stroke strokeWidth="1.5" x="3711.25" y="0" width="27"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7591" y="0" width="10" left="19.5" right="24.5"/>
+      <stroke strokeWidth="1.5" x="7590" y="0" width="12"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7590" y="0" width="12" left="19.0" right="25.0"/>
+      <stroke strokeWidth="1.5" x="7589" y="0" width="13"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="60" character="]" byte="93" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="3527.0" y="0" width="31" left="27.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="3707.0" y="0" width="31"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3707.0" y="0" width="31" left="27.0" right="36.5"/>
+      <stroke strokeWidth="1.5" x="3752.0" y="0" width="31"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7703" y="0" width="40" left="11.5" right="31.5"/>
+      <stroke strokeWidth="1.5" x="7702" y="0" width="44"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7702" y="0" width="44" left="11.0" right="33.0"/>
+      <stroke strokeWidth="1.5" x="7701" y="0" width="45"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="61" character="^" byte="94" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="3568.0" y="0" width="66" left="19.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="3751.0" y="0" width="66"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3751.0" y="0" width="66" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="3796.75" y="0" width="66"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7830" y="0" width="49" left="11.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="7828" y="0" width="54"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7828" y="0" width="54" left="10.0" right="37.0"/>
+      <stroke strokeWidth="1.5" x="7828" y="0" width="54"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="62" character="_" byte="95" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="3644.0" y="0" width="41" left="21.5" right="41.5"/>
+      <stroke strokeWidth="1.5" x="3830.0" y="0" width="41"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3830.0" y="0" width="41" left="20.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="3876.5" y="0" width="41"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7944" y="0" width="43" left="4.0" right="25.5"/>
+      <stroke strokeWidth="1.5" x="7942" y="0" width="46"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7942" y="0" width="46" left="3.0" right="26.0"/>
+      <stroke strokeWidth="1.5" x="7942" y="0" width="47"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="63" character="`" byte="96" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="3695.0" y="0" width="39" left="25.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="3884.0" y="0" width="39"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3884.0" y="0" width="39" left="24.5" right="35.0"/>
+      <stroke strokeWidth="1.5" x="3931.25" y="0" width="39"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="8106" y="0" width="15" left="21.0" right="28.5"/>
+      <stroke strokeWidth="1.5" x="8105" y="0" width="18"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="8105" y="0" width="18" left="20.5" right="29.5"/>
+      <stroke strokeWidth="1.5" x="8104" y="0" width="19"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="64" character="a" byte="97" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="3744.0" y="0" width="48" left="22.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="3936.0" y="0" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3936.0" y="0" width="48" left="21.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="3984.0" y="0" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="19" y="128" width="44" left="9.5" right="31.5"/>
+      <stroke strokeWidth="1.5" x="17" y="128" width="48"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="17" y="128" width="48" left="8.5" right="32.5"/>
+      <stroke strokeWidth="1.5" x="17" y="128" width="48"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="65" character="b" byte="98" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="3802.0" y="0" width="50" left="23.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="3997.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="3997.0" y="0" width="50" left="22.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="4045.75" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="145" y="128" width="48" left="8.5" right="32.5"/>
+      <stroke strokeWidth="1.5" x="143" y="128" width="52"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="143" y="128" width="52" left="7.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="143" y="128" width="52"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="66" character="c" byte="99" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="3862.0" y="0" width="43" left="23.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="4060.0" y="0" width="43"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4060.0" y="0" width="43" left="22.0" right="40.5"/>
+      <stroke strokeWidth="1.5" x="4109.5" y="0" width="43"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="278" y="128" width="44" left="11.0" right="33.0"/>
+      <stroke strokeWidth="1.5" x="277" y="128" width="47"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="277" y="128" width="47" left="10.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="276" y="128" width="48"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="67" character="d" byte="100" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="3915.0" y="0" width="50" left="21.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="4116.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4116.0" y="0" width="50" left="20.5" right="41.5"/>
+      <stroke strokeWidth="1.5" x="4166.25" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="403" y="128" width="54" left="9.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="402" y="128" width="57"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="402" y="128" width="57" left="9.0" right="37.5"/>
+      <stroke strokeWidth="1.5" x="401" y="128" width="58"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="68" character="e" byte="101" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="3975.0" y="0" width="48" left="22.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="4179.0" y="0" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4179.0" y="0" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="4230.0" y="0" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="532" y="128" width="45" left="10.0" right="32.5"/>
+      <stroke strokeWidth="1.5" x="531" y="128" width="48"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="531" y="128" width="48" left="9.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="530" y="128" width="49"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="69" character="f" byte="102" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4033.0" y="0" width="30" left="25.5" right="39.5"/>
+      <stroke strokeWidth="1.5" x="4240.0" y="0" width="30"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4240.0" y="0" width="30" left="25.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="4291.75" y="0" width="30"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="669" y="128" width="41" left="14.5" right="35.0"/>
+      <stroke strokeWidth="1.5" x="668" y="128" width="45"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="668" y="128" width="45" left="14.0" right="36.5"/>
+      <stroke strokeWidth="1.5" x="667" y="128" width="46"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="70" character="g" byte="103" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4073.0" y="0" width="50" left="21.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="4283.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4283.0" y="0" width="50" left="20.5" right="41.5"/>
+      <stroke strokeWidth="1.5" x="4335.5" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="783" y="128" width="53" left="7.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="782" y="128" width="55"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="782" y="128" width="55" left="7.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="781" y="128" width="57"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="71" character="h" byte="104" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4133.0" y="0" width="50" left="23.0" right="40.5"/>
+      <stroke strokeWidth="1.5" x="4346.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4346.0" y="0" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="4399.25" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="913" y="128" width="47" left="8.5" right="32.0"/>
+      <stroke strokeWidth="1.5" x="911" y="128" width="51"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="911" y="128" width="51" left="7.5" right="33.0"/>
+      <stroke strokeWidth="1.5" x="911" y="128" width="51"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="72" character="i" byte="105" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4193.0" y="0" width="22" left="30.0" right="33.5"/>
+      <stroke strokeWidth="1.5" x="4409.0" y="0" width="22"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4409.0" y="0" width="22" left="29.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="4463.0" y="0" width="22"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1055" y="128" width="28" left="15.5" right="29.5"/>
+      <stroke strokeWidth="1.5" x="1054" y="128" width="31"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1054" y="128" width="31" left="15.0" right="30.5"/>
+      <stroke strokeWidth="1.5" x="1053" y="128" width="32"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="73" character="j" byte="106" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4225.0" y="0" width="24" left="25.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="4444.0" y="0" width="24"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4444.0" y="0" width="24" left="25.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="4498.75" y="0" width="24"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1169" y="128" width="42" left="8.5" right="29.5"/>
+      <stroke strokeWidth="1.5" x="1168" y="128" width="45"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1168" y="128" width="45" left="8.0" right="30.5"/>
+      <stroke strokeWidth="1.5" x="1167" y="128" width="46"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="74" character="k" byte="107" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4259.0" y="0" width="46" left="24.0" right="43.0"/>
+      <stroke strokeWidth="1.5" x="4481.0" y="0" width="46"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4481.0" y="0" width="46" left="23.0" right="43.5"/>
+      <stroke strokeWidth="1.5" x="4536.5" y="0" width="46"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1299" y="128" width="52" left="9.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="1297" y="128" width="56"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1297" y="128" width="56" left="8.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="1297" y="128" width="56"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="75" character="l" byte="108" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4315.0" y="0" width="22" left="30.0" right="33.5"/>
+      <stroke strokeWidth="1.5" x="4540.0" y="0" width="22"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4540.0" y="0" width="22" left="29.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="4596.25" y="0" width="22"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1439" y="128" width="28" left="15.5" right="29.5"/>
+      <stroke strokeWidth="1.5" x="1438" y="128" width="31"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1438" y="128" width="31" left="15.0" right="30.5"/>
+      <stroke strokeWidth="1.5" x="1437" y="128" width="32"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="76" character="m" byte="109" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4347.0" y="0" width="76" left="16.5" right="47.5"/>
+      <stroke strokeWidth="1.5" x="4575.0" y="0" width="76"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4575.0" y="0" width="76" left="15.5" right="48.5"/>
+      <stroke strokeWidth="1.5" x="4632.0" y="0" width="76"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1540" y="128" width="74" left="2.0" right="39.0"/>
+      <stroke strokeWidth="1.5" x="1538" y="128" width="78"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1538" y="128" width="78" left="1.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="1538" y="128" width="78"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="77" character="n" byte="110" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4433.0" y="0" width="50" left="23.0" right="40.5"/>
+      <stroke strokeWidth="1.5" x="4664.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4664.0" y="0" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="4721.75" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1681" y="128" width="47" left="8.5" right="32.0"/>
+      <stroke strokeWidth="1.5" x="1679" y="128" width="51"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1679" y="128" width="51" left="7.5" right="33.0"/>
+      <stroke strokeWidth="1.5" x="1679" y="128" width="51"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="78" character="o" byte="111" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4493.0" y="0" width="48" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="4727.0" y="0" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4727.0" y="0" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="4785.5" y="0" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1812" y="128" width="45" left="10.0" right="32.5"/>
+      <stroke strokeWidth="1.5" x="1811" y="128" width="47"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1811" y="128" width="47" left="9.5" right="33.0"/>
+      <stroke strokeWidth="1.5" x="1810" y="128" width="49"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="79" character="p" byte="112" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4551.0" y="0" width="50" left="23.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="4788.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4788.0" y="0" width="50" left="22.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="4847.25" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1932" y="128" width="53" left="6.0" right="32.5"/>
+      <stroke strokeWidth="1.5" x="1930" y="128" width="57"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1930" y="128" width="57" left="5.0" right="33.5"/>
+      <stroke strokeWidth="1.5" x="1929" y="128" width="58"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="80" character="q" byte="113" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4611.0" y="0" width="50" left="21.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="4851.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4851.0" y="0" width="50" left="20.5" right="41.5"/>
+      <stroke strokeWidth="1.5" x="4911.0" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2067" y="128" width="49" left="9.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="2066" y="128" width="51"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2066" y="128" width="51" left="9.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="2065" y="128" width="53"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="81" character="r" byte="114" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4671.0" y="0" width="33" left="27.5" right="40.0"/>
+      <stroke strokeWidth="1.5" x="4914.0" y="0" width="33"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4914.0" y="0" width="33" left="26.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="4974.75" y="0" width="33"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2202" y="128" width="41" left="13.0" right="33.5"/>
+      <stroke strokeWidth="1.5" x="2200" y="128" width="44"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2200" y="128" width="44" left="12.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="2200" y="128" width="44"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="82" character="s" byte="115" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4714.0" y="0" width="41" left="23.5" right="39.5"/>
+      <stroke strokeWidth="1.5" x="4960.0" y="0" width="41"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="4960.0" y="0" width="41" left="22.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="5021.5" y="0" width="41"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2323" y="128" width="44" left="9.5" right="31.5"/>
+      <stroke strokeWidth="1.5" x="2321" y="128" width="48"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2321" y="128" width="48" left="8.5" right="32.5"/>
+      <stroke strokeWidth="1.5" x="2320" y="128" width="49"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="83" character="t" byte="116" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4765.0" y="0" width="31" left="25.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="5014.0" y="0" width="31"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5014.0" y="0" width="31" left="24.0" right="39.0"/>
+      <stroke strokeWidth="1.5" x="5076.25" y="0" width="31"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2461" y="128" width="34" left="14.5" right="31.5"/>
+      <stroke strokeWidth="1.5" x="2460" y="128" width="37"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2460" y="128" width="37" left="14.0" right="32.5"/>
+      <stroke strokeWidth="1.5" x="2459" y="128" width="38"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="84" character="u" byte="117" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4806.0" y="0" width="50" left="22.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="5058.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5058.0" y="0" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="5121.0" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2580" y="128" width="48" left="10.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="2579" y="128" width="50"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2579" y="128" width="50" left="9.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="2578" y="128" width="52"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="85" character="v" byte="118" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4866.0" y="0" width="46" left="21.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="5121.0" y="0" width="46"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5121.0" y="0" width="46" left="20.5" right="43.0"/>
+      <stroke strokeWidth="1.5" x="5184.75" y="0" width="46"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2716" y="128" width="43" left="14.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="2715" y="128" width="46"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2715" y="128" width="46" left="13.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="2714" y="128" width="47"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="86" character="w" byte="119" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4922.0" y="0" width="64" left="17.5" right="46.0"/>
+      <stroke strokeWidth="1.5" x="5180.0" y="0" width="64"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5180.0" y="0" width="64" left="16.5" right="47.0"/>
+      <stroke strokeWidth="1.5" x="5244.5" y="0" width="64"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2833" y="128" width="62" left="8.5" right="39.5"/>
+      <stroke strokeWidth="1.5" x="2832" y="128" width="65"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2832" y="128" width="65" left="8.0" right="40.5"/>
+      <stroke strokeWidth="1.5" x="2831" y="128" width="66"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="87" character="x" byte="120" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="4996.0" y="0" width="46" left="21.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="5257.0" y="0" width="46"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5257.0" y="0" width="46" left="20.5" right="43.0"/>
+      <stroke strokeWidth="1.5" x="5322.25" y="0" width="46"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2958" y="128" width="56" left="7.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="2957" y="128" width="59"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2957" y="128" width="59" left="6.5" right="36.0"/>
+      <stroke strokeWidth="1.5" x="2956" y="128" width="60"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="88" character="y" byte="121" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="5052.0" y="0" width="46" left="21.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="5316.0" y="0" width="46"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5316.0" y="0" width="46" left="20.5" right="43.0"/>
+      <stroke strokeWidth="1.5" x="5382.0" y="0" width="46"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3085" y="128" width="58" left="6.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="3083" y="128" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3083" y="128" width="62" left="5.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="3082" y="128" width="63"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="89" character="z" byte="122" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="5108.0" y="0" width="41" left="23.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="5375.0" y="0" width="41"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5375.0" y="0" width="41" left="22.0" right="41.0"/>
+      <stroke strokeWidth="1.5" x="5441.75" y="0" width="41"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3217" y="128" width="50" left="8.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="3216" y="128" width="53"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3216" y="128" width="53" left="8.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="3215" y="128" width="54"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="90" character="{" byte="123" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="5159.0" y="0" width="50" left="24.0" right="39.5"/>
+      <stroke strokeWidth="1.5" x="5429.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5429.0" y="0" width="50" left="23.5" right="40.0"/>
+      <stroke strokeWidth="1.5" x="5496.5" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3354" y="128" width="44" left="13.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="3353" y="128" width="48"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3353" y="128" width="48" left="12.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="3353" y="128" width="48"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="91" character="|" byte="124" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="5219.0" y="0" width="26" left="30.0" right="33.5"/>
+      <stroke strokeWidth="1.5" x="5492.0" y="0" width="26"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5492.0" y="0" width="26" left="29.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="5560.25" y="0" width="26"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3482" y="128" width="33" left="13.0" right="29.5"/>
+      <stroke strokeWidth="1.5" x="3480" y="128" width="37"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3480" y="128" width="37" left="12.0" right="30.5"/>
+      <stroke strokeWidth="1.5" x="3480" y="128" width="37"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="92" character="}" byte="125" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="5255.0" y="0" width="50" left="24.0" right="39.5"/>
+      <stroke strokeWidth="1.5" x="5531.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5531.0" y="0" width="50" left="23.5" right="40.0"/>
+      <stroke strokeWidth="1.5" x="5600.0" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3599" y="128" width="44" left="7.5" right="29.5"/>
+      <stroke strokeWidth="1.5" x="3598" y="128" width="47"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3598" y="128" width="47" left="7.0" right="30.5"/>
+      <stroke strokeWidth="1.5" x="3598" y="128" width="47"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="93" character="~" byte="126" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="5315.0" y="0" width="66" left="19.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="5594.0" y="0" width="66"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5594.0" y="0" width="66" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="5663.75" y="0" width="66"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3728" y="128" width="55" left="8.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="3727" y="128" width="57"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3727" y="128" width="57" left="7.5" right="36.0"/>
+      <stroke strokeWidth="1.5" x="3726" y="128" width="59"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="94" character="¡" byte="161" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="5391.0" y="0" width="31" left="29.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="5673.0" y="0" width="31"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5673.0" y="0" width="31" left="29.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="5743.5" y="0" width="31"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3866" y="128" width="28" left="13.0" right="27.0"/>
+      <stroke strokeWidth="1.5" x="3865" y="128" width="30"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3865" y="128" width="30" left="12.5" right="27.5"/>
+      <stroke strokeWidth="1.5" x="3864" y="128" width="32"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="95" character="£" byte="163" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="5432.0" y="0" width="50" left="21.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="5717.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5717.0" y="0" width="50" left="21.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="5788.25" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3983" y="128" width="56" left="7.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="3981" y="128" width="60"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3981" y="128" width="60" left="6.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="3981" y="128" width="60"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="96" character="°" byte="176" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="5492.0" y="0" width="39" left="25.5" right="37.5"/>
+      <stroke strokeWidth="1.5" x="5780.0" y="0" width="39"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5780.0" y="0" width="39" left="25.0" right="38.5"/>
+      <stroke strokeWidth="1.5" x="5852.0" y="0" width="39"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4133" y="128" width="27" left="18.5" right="32.0"/>
+      <stroke strokeWidth="1.5" x="4132" y="128" width="30"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4132" y="128" width="30" left="18.0" right="33.0"/>
+      <stroke strokeWidth="1.5" x="4131" y="128" width="31"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="97" character="±" byte="177" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="5541.0" y="0" width="66" left="19.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="5832.0" y="0" width="66"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5832.0" y="0" width="66" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="5904.75" y="0" width="66"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4234" y="128" width="62" left="5.0" right="36.0"/>
+      <stroke strokeWidth="1.5" x="4233" y="128" width="64"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4233" y="128" width="64" left="4.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="4232" y="128" width="66"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="98" character="²" byte="178" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="5617.0" y="0" width="31" left="25.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="5911.0" y="0" width="31"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5911.0" y="0" width="31" left="25.0" right="37.5"/>
+      <stroke strokeWidth="1.5" x="5984.5" y="0" width="31"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4383" y="128" width="32" left="15.5" right="31.5"/>
+      <stroke strokeWidth="1.5" x="4382" y="128" width="35"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4382" y="128" width="35" left="15.0" right="32.5"/>
+      <stroke strokeWidth="1.5" x="4381" y="128" width="36"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="99" character="³" byte="179" type="numerical">
+    <regular>
+      <stroke strokeWidth="0" x="5658.0" y="0" width="31" left="25.5" right="37.5"/>
+      <stroke strokeWidth="1.5" x="5955.0" y="0" width="31"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5955.0" y="0" width="31" left="25.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="6029.25" y="0" width="31"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4511" y="128" width="33" left="15.5" right="32.0"/>
+      <stroke strokeWidth="1.5" x="4510" y="128" width="35"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4510" y="128" width="35" left="15.0" right="32.5"/>
+      <stroke strokeWidth="1.5" x="4509" y="128" width="37"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="100" character="´" byte="180" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="5699.0" y="0" width="39" left="29.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="5999.0" y="0" width="39"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5999.0" y="0" width="39" left="28.0" right="38.5"/>
+      <stroke strokeWidth="1.5" x="6074.0" y="0" width="39"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4653" y="128" width="24" left="22.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="4652" y="128" width="27"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4652" y="128" width="27" left="22.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="4651" y="128" width="28"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="101" character="¿" byte="191" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="5748.0" y="0" width="42" left="24.0" right="39.0"/>
+      <stroke strokeWidth="1.5" x="6051.0" y="0" width="42"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6051.0" y="0" width="42" left="23.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="6126.75" y="0" width="42"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4754" y="128" width="38" left="9.0" right="28.0"/>
+      <stroke strokeWidth="1.5" x="4752" y="128" width="41"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4752" y="128" width="41" left="8.0" right="28.5"/>
+      <stroke strokeWidth="1.5" x="4752" y="128" width="42"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="102" character="À" byte="192" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="5800.0" y="0" width="54" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="6106.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6106.0" y="0" width="54" left="18.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="6182.5" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4872" y="128" width="54" left="4.0" right="31.0"/>
+      <stroke strokeWidth="1.5" x="4871" y="128" width="57"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4871" y="128" width="57" left="3.5" right="32.0"/>
+      <stroke strokeWidth="1.5" x="4870" y="128" width="58"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="103" character="Á" byte="193" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="5864.0" y="0" width="54" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="6173.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6173.0" y="0" width="54" left="18.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="6250.25" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5000" y="128" width="60" left="4.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="4999" y="128" width="64"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4999" y="128" width="64" left="3.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="4998" y="128" width="65"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="104" character="Â" byte="194" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="5928.0" y="0" width="54" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="6240.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6240.0" y="0" width="54" left="18.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="6318.0" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5128" y="128" width="60" left="4.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="5127" y="128" width="63"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5127" y="128" width="63" left="3.5" right="35.0"/>
+      <stroke strokeWidth="1.5" x="5126" y="128" width="64"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="105" character="Ã" byte="195" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="5992.0" y="0" width="54" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="6307.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6307.0" y="0" width="54" left="18.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="6385.75" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5256" y="128" width="64" left="4.0" right="36.0"/>
+      <stroke strokeWidth="1.5" x="5255" y="128" width="67"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5255" y="128" width="67" left="3.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="5254" y="128" width="68"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="106" character="Ä" byte="196" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6056.0" y="0" width="54" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="6374.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6374.0" y="0" width="54" left="18.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="6453.5" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5384" y="128" width="62" left="4.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="5383" y="128" width="66"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5383" y="128" width="66" left="3.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="5382" y="128" width="66"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="107" character="Å" byte="197" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6120.0" y="0" width="54" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="6441.0" y="0" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6441.0" y="0" width="54" left="18.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="6521.25" y="0" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5512" y="128" width="59" left="4.0" right="33.5"/>
+      <stroke strokeWidth="1.5" x="5511" y="128" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5511" y="128" width="62" left="3.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="5510" y="128" width="64"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="108" character="Æ" byte="198" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6184.0" y="0" width="76" left="13.0" right="48.5"/>
+      <stroke strokeWidth="1.5" x="6508.0" y="0" width="76"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6508.0" y="0" width="76" left="12.0" right="49.0"/>
+      <stroke strokeWidth="1.5" x="6589.0" y="0" width="76"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5637" y="128" width="87" left="0.0" right="43.5"/>
+      <stroke strokeWidth="1.5" x="5637" y="128" width="89"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5637" y="128" width="89" left="0.0" right="44.5"/>
+      <stroke strokeWidth="1.5" x="5637" y="128" width="89"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="109" character="Ç" byte="199" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6270.0" y="0" width="55" left="20.0" right="43.0"/>
+      <stroke strokeWidth="1.5" x="6597.0" y="0" width="55"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6597.0" y="0" width="55" left="19.0" right="43.5"/>
+      <stroke strokeWidth="1.5" x="6678.75" y="0" width="55"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5778" y="128" width="58" left="9.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="5777" y="128" width="60"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5777" y="128" width="60" left="8.5" right="38.5"/>
+      <stroke strokeWidth="1.5" x="5776" y="128" width="62"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="110" character="È" byte="200" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6335.0" y="0" width="49" left="23.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="6665.0" y="0" width="49"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6665.0" y="0" width="49" left="22.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="6747.5" y="0" width="49"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="5905" y="128" width="56" left="8.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="5904" y="128" width="60"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="5904" y="128" width="60" left="8.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="5903" y="128" width="61"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="111" character="É" byte="201" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6394.0" y="0" width="49" left="23.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="6727.0" y="0" width="49"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6727.0" y="0" width="49" left="22.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="6810.25" y="0" width="49"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6033" y="128" width="56" left="8.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="6032" y="128" width="60"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6032" y="128" width="60" left="8.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="6031" y="128" width="61"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="112" character="Ê" byte="202" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6453.0" y="0" width="49" left="23.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="6789.0" y="0" width="49"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6789.0" y="0" width="49" left="22.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="6873.0" y="0" width="49"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6161" y="128" width="56" left="8.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="6160" y="128" width="60"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6160" y="128" width="60" left="8.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="6159" y="128" width="61"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="113" character="Ë" byte="203" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6512.0" y="0" width="49" left="23.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="6851.0" y="0" width="49"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6851.0" y="0" width="49" left="22.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="6935.75" y="0" width="49"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6289" y="128" width="56" left="8.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="6288" y="128" width="60"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6288" y="128" width="60" left="8.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="6287" y="128" width="61"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="114" character="Ì" byte="204" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6571.0" y="0" width="23" left="27.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="6913.0" y="0" width="23"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6913.0" y="0" width="23" left="26.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="6998.5" y="0" width="23"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6430" y="128" width="31" left="15.0" right="30.5"/>
+      <stroke strokeWidth="1.5" x="6429" y="128" width="34"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6429" y="128" width="34" left="14.5" right="31.5"/>
+      <stroke strokeWidth="1.5" x="6428" y="128" width="35"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="115" character="Í" byte="205" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6604.0" y="0" width="23" left="29.0" right="36.0"/>
+      <stroke strokeWidth="1.5" x="6949.0" y="0" width="23"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6949.0" y="0" width="23" left="28.0" right="37.0"/>
+      <stroke strokeWidth="1.5" x="7035.25" y="0" width="23"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6558" y="128" width="38" left="15.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="6557" y="128" width="42"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6557" y="128" width="42" left="14.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="6556" y="128" width="43"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="116" character="Î" byte="206" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6637.0" y="0" width="25" left="26.0" right="37.5"/>
+      <stroke strokeWidth="1.5" x="6985.0" y="0" width="25"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="6985.0" y="0" width="25" left="25.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="7072.0" y="0" width="25"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6686" y="128" width="37" left="15.0" right="33.5"/>
+      <stroke strokeWidth="1.5" x="6685" y="128" width="41"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6685" y="128" width="41" left="14.5" right="35.0"/>
+      <stroke strokeWidth="1.5" x="6684" y="128" width="42"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="117" character="Ï" byte="207" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6672.0" y="0" width="23" left="26.0" right="37.0"/>
+      <stroke strokeWidth="1.5" x="7023.0" y="0" width="23"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7023.0" y="0" width="23" left="25.0" right="37.5"/>
+      <stroke strokeWidth="1.5" x="7110.75" y="0" width="23"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6814" y="128" width="40" left="15.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="6813" y="128" width="43"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6813" y="128" width="43" left="14.5" right="36.0"/>
+      <stroke strokeWidth="1.5" x="6812" y="128" width="44"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="118" character="Ð" byte="208" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6705.0" y="0" width="61" left="16.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="7059.0" y="0" width="61"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7059.0" y="0" width="61" left="15.5" right="45.0"/>
+      <stroke strokeWidth="1.5" x="7147.5" y="0" width="61"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="6924" y="128" width="61" left="6.0" right="36.5"/>
+      <stroke strokeWidth="1.5" x="6922" y="128" width="65"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="6922" y="128" width="65" left="5.0" right="37.5"/>
+      <stroke strokeWidth="1.5" x="6922" y="128" width="65"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="119" character="Ñ" byte="209" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6776.0" y="0" width="59" left="20.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="7133.0" y="0" width="59"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7133.0" y="0" width="59" left="20.0" right="43.0"/>
+      <stroke strokeWidth="1.5" x="7222.25" y="0" width="59"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7052" y="128" width="63" left="6.0" right="37.5"/>
+      <stroke strokeWidth="1.5" x="7051" y="128" width="67"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7051" y="128" width="67" left="5.5" right="39.0"/>
+      <stroke strokeWidth="1.5" x="7050" y="128" width="68"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="120" character="Ò" byte="210" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6845.0" y="0" width="62" left="18.5" right="45.0"/>
+      <stroke strokeWidth="1.5" x="7205.0" y="0" width="62"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7205.0" y="0" width="62" left="17.5" right="45.5"/>
+      <stroke strokeWidth="1.5" x="7295.0" y="0" width="62"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7183" y="128" width="59" left="7.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="7182" y="128" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7182" y="128" width="62" left="7.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="7181" y="128" width="63"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="121" character="Ó" byte="211" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6917.0" y="0" width="62" left="18.5" right="45.0"/>
+      <stroke strokeWidth="1.5" x="7280.0" y="0" width="62"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7280.0" y="0" width="62" left="17.5" right="45.5"/>
+      <stroke strokeWidth="1.5" x="7370.75" y="0" width="62"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7311" y="128" width="59" left="7.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="7310" y="128" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7310" y="128" width="62" left="7.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="7309" y="128" width="63"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="122" character="Ô" byte="212" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="6989.0" y="0" width="62" left="18.5" right="45.0"/>
+      <stroke strokeWidth="1.5" x="7355.0" y="0" width="62"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7355.0" y="0" width="62" left="17.5" right="45.5"/>
+      <stroke strokeWidth="1.5" x="7446.5" y="0" width="62"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7439" y="128" width="59" left="7.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="7438" y="128" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7438" y="128" width="62" left="7.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="7437" y="128" width="63"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="123" character="Õ" byte="213" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7061.0" y="0" width="62" left="18.5" right="45.0"/>
+      <stroke strokeWidth="1.5" x="7430.0" y="0" width="62"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7430.0" y="0" width="62" left="17.5" right="45.5"/>
+      <stroke strokeWidth="1.5" x="7522.25" y="0" width="62"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7567" y="128" width="59" left="7.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="7566" y="128" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7566" y="128" width="62" left="7.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="7565" y="128" width="63"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="124" character="Ö" byte="214" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7133.0" y="0" width="62" left="18.5" right="45.0"/>
+      <stroke strokeWidth="1.5" x="7505.0" y="0" width="62"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7505.0" y="0" width="62" left="17.5" right="45.5"/>
+      <stroke strokeWidth="1.5" x="7598.0" y="0" width="62"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7695" y="128" width="59" left="7.5" right="37.0"/>
+      <stroke strokeWidth="1.5" x="7694" y="128" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7694" y="128" width="62" left="7.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="7693" y="128" width="63"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="125" character="Ù" byte="217" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7205.0" y="0" width="57" left="20.5" right="42.5"/>
+      <stroke strokeWidth="1.5" x="7580.0" y="0" width="57"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7580.0" y="0" width="57" left="20.0" right="43.5"/>
+      <stroke strokeWidth="1.5" x="7673.75" y="0" width="57"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7826" y="128" width="58" left="9.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="7824" y="128" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7824" y="128" width="62" left="8.0" right="39.0"/>
+      <stroke strokeWidth="1.5" x="7824" y="128" width="62"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="126" character="Ú" byte="218" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7272.0" y="0" width="57" left="20.5" right="42.5"/>
+      <stroke strokeWidth="1.5" x="7650.0" y="0" width="57"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7650.0" y="0" width="57" left="20.0" right="43.5"/>
+      <stroke strokeWidth="1.5" x="7744.5" y="0" width="57"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="7954" y="128" width="58" left="9.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="7952" y="128" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="7952" y="128" width="62" left="8.0" right="39.0"/>
+      <stroke strokeWidth="1.5" x="7952" y="128" width="62"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="127" character="Û" byte="219" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7339.0" y="0" width="57" left="20.5" right="42.5"/>
+      <stroke strokeWidth="1.5" x="7720.0" y="0" width="57"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7720.0" y="0" width="57" left="20.0" right="43.5"/>
+      <stroke strokeWidth="1.5" x="7815.25" y="0" width="57"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="8082" y="128" width="58" left="9.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="8080" y="128" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="8080" y="128" width="62" left="8.0" right="39.0"/>
+      <stroke strokeWidth="1.5" x="8080" y="128" width="62"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="128" character="Ü" byte="220" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7406.0" y="0" width="57" left="20.5" right="42.5"/>
+      <stroke strokeWidth="1.5" x="7790.0" y="0" width="57"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7790.0" y="0" width="57" left="20.0" right="43.5"/>
+      <stroke strokeWidth="1.5" x="7886.0" y="0" width="57"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="18" y="256" width="58" left="9.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="16" y="256" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="16" y="256" width="62" left="8.0" right="39.0"/>
+      <stroke strokeWidth="1.5" x="16" y="256" width="62"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="129" character="Ý" byte="221" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7473.0" y="0" width="50" left="19.5" right="43.5"/>
+      <stroke strokeWidth="1.5" x="7860.0" y="0" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7860.0" y="0" width="50" left="19.0" right="44.5"/>
+      <stroke strokeWidth="1.5" x="7956.75" y="0" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="158" y="256" width="48" left="15.0" right="39.0"/>
+      <stroke strokeWidth="1.5" x="156" y="256" width="53"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="156" y="256" width="53" left="14.0" right="40.5"/>
+      <stroke strokeWidth="1.5" x="156" y="256" width="53"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="130" character="ß" byte="223" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7533.0" y="0" width="49" left="23.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="7923.0" y="0" width="49"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7923.0" y="0" width="49" left="22.0" right="43.0"/>
+      <stroke strokeWidth="1.5" x="8020.5" y="0" width="49"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="273" y="256" width="50" left="8.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="271" y="256" width="54"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="271" y="256" width="54" left="7.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="271" y="256" width="54"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="131" character="à" byte="224" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7592.0" y="0" width="48" left="22.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="7985.0" y="0" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="7985.0" y="0" width="48" left="21.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="8083.25" y="0" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="403" y="256" width="44" left="9.5" right="31.5"/>
+      <stroke strokeWidth="1.5" x="401" y="256" width="48"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="401" y="256" width="48" left="8.5" right="32.5"/>
+      <stroke strokeWidth="1.5" x="401" y="256" width="48"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="132" character="á" byte="225" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7650.0" y="0" width="48" left="22.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="8046.0" y="0" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="8046.0" y="0" width="48" left="21.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="8145.0" y="0" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="531" y="256" width="49" left="9.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="529" y="256" width="53"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="529" y="256" width="53" left="8.5" right="35.0"/>
+      <stroke strokeWidth="1.5" x="529" y="256" width="53"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="133" character="â" byte="226" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7708.0" y="0" width="48" left="22.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="8107.0" y="0" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="8107.0" y="0" width="48" left="21.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="5" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="659" y="256" width="44" left="9.5" right="31.5"/>
+      <stroke strokeWidth="1.5" x="657" y="256" width="48"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="657" y="256" width="48" left="8.5" right="32.5"/>
+      <stroke strokeWidth="1.5" x="657" y="256" width="48"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="134" character="ã" byte="227" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7766.0" y="0" width="48" left="22.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="5" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="5" y="128" width="48" left="21.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="66.75" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="787" y="256" width="49" left="9.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="785" y="256" width="52"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="785" y="256" width="52" left="8.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="785" y="256" width="53"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="135" character="ä" byte="228" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7824.0" y="0" width="48" left="22.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="66.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="66.0" y="128" width="48" left="21.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="128.5" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="915" y="256" width="46" left="9.5" right="32.5"/>
+      <stroke strokeWidth="1.5" x="913" y="256" width="51"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="913" y="256" width="51" left="8.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="913" y="256" width="51"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="136" character="å" byte="229" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7882.0" y="0" width="48" left="22.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="127.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="127.0" y="128" width="48" left="21.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="190.25" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1043" y="256" width="46" left="9.5" right="32.5"/>
+      <stroke strokeWidth="1.5" x="1041" y="256" width="50"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1041" y="256" width="50" left="8.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="1041" y="256" width="50"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="137" character="æ" byte="230" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="7940.0" y="0" width="77" left="14.5" right="48.5"/>
+      <stroke strokeWidth="1.5" x="188.0" y="128" width="77"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="188.0" y="128" width="77" left="14.0" right="49.5"/>
+      <stroke strokeWidth="1.5" x="252.0" y="128" width="77"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1156" y="256" width="75" left="2.0" right="39.5"/>
+      <stroke strokeWidth="1.5" x="1154" y="256" width="79"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1154" y="256" width="79" left="1.0" right="40.5"/>
+      <stroke strokeWidth="1.5" x="1154" y="256" width="79"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="138" character="ç" byte="231" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="8027.0" y="0" width="43" left="23.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="278.0" y="128" width="43"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="278.0" y="128" width="43" left="22.0" right="40.5"/>
+      <stroke strokeWidth="1.5" x="342.75" y="128" width="43"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1302" y="256" width="44" left="11.0" right="33.0"/>
+      <stroke strokeWidth="1.5" x="1301" y="256" width="47"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1301" y="256" width="47" left="10.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="1300" y="256" width="48"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="139" character="è" byte="232" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="8080.0" y="0" width="48" left="22.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="334.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="334.0" y="128" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="399.5" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1428" y="256" width="45" left="10.0" right="32.5"/>
+      <stroke strokeWidth="1.5" x="1427" y="256" width="48"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1427" y="256" width="48" left="9.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="1426" y="256" width="49"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="140" character="é" byte="233" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="8138.0" y="0" width="48" left="22.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="395.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="395.0" y="128" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="461.25" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1556" y="256" width="50" left="10.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="1555" y="256" width="53"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1555" y="256" width="53" left="9.5" right="36.0"/>
+      <stroke strokeWidth="1.5" x="1554" y="256" width="54"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="141" character="ê" byte="234" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="5" y="128" width="48" left="22.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="456.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="456.0" y="128" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="523.0" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1684" y="256" width="45" left="10.0" right="32.5"/>
+      <stroke strokeWidth="1.5" x="1683" y="256" width="48"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1683" y="256" width="48" left="9.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="1682" y="256" width="49"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="142" character="ë" byte="235" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="63.0" y="128" width="48" left="22.0" right="42.0"/>
+      <stroke strokeWidth="1.5" x="517.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="517.0" y="128" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="584.75" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1812" y="256" width="48" left="10.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="1811" y="256" width="51"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1811" y="256" width="51" left="9.5" right="35.0"/>
+      <stroke strokeWidth="1.5" x="1810" y="256" width="52"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="143" character="ì" byte="236" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="121.0" y="128" width="25" left="25.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="578.0" y="128" width="25"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="578.0" y="128" width="25" left="24.5" right="35.0"/>
+      <stroke strokeWidth="1.5" x="646.5" y="128" width="25"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="1951" y="256" width="26" left="15.5" right="28.5"/>
+      <stroke strokeWidth="1.5" x="1950" y="256" width="29"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="1950" y="256" width="29" left="15.0" right="29.5"/>
+      <stroke strokeWidth="1.5" x="1949" y="256" width="30"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="144" character="í" byte="237" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="156.0" y="128" width="24" left="29.0" right="38.0"/>
+      <stroke strokeWidth="1.5" x="616.0" y="128" width="24"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="616.0" y="128" width="24" left="28.5" right="38.5"/>
+      <stroke strokeWidth="1.5" x="685.25" y="128" width="24"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2079" y="256" width="38" left="15.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="2078" y="256" width="41"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2078" y="256" width="41" left="15.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="2077" y="256" width="42"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="145" character="î" byte="238" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="190.0" y="128" width="26" left="25.5" right="38.0"/>
+      <stroke strokeWidth="1.5" x="653.0" y="128" width="26"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="653.0" y="128" width="26" left="25.0" right="38.5"/>
+      <stroke strokeWidth="1.5" x="723.0" y="128" width="26"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2207" y="256" width="33" left="15.5" right="32.0"/>
+      <stroke strokeWidth="1.5" x="2206" y="256" width="36"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2206" y="256" width="36" left="15.0" right="33.0"/>
+      <stroke strokeWidth="1.5" x="2205" y="256" width="37"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="146" character="ï" byte="239" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="226.0" y="128" width="24" left="26.0" right="37.5"/>
+      <stroke strokeWidth="1.5" x="692.0" y="128" width="24"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="692.0" y="128" width="24" left="25.5" right="38.0"/>
+      <stroke strokeWidth="1.5" x="762.75" y="128" width="24"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2335" y="256" width="36" left="15.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="2334" y="256" width="39"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2334" y="256" width="39" left="15.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="2333" y="256" width="40"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="147" character="ð" byte="240" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="260.0" y="128" width="48" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="729.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="729.0" y="128" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="800.5" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2452" y="256" width="50" left="10.0" right="35.0"/>
+      <stroke strokeWidth="1.5" x="2451" y="256" width="52"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2451" y="256" width="52" left="9.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="2450" y="256" width="54"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="148" character="ñ" byte="241" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="318.0" y="128" width="50" left="23.0" right="40.5"/>
+      <stroke strokeWidth="1.5" x="790.0" y="128" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="790.0" y="128" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="862.25" y="128" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2577" y="256" width="52" left="8.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="2575" y="256" width="56"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2575" y="256" width="56" left="7.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="2575" y="256" width="56"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="149" character="ò" byte="242" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="378.0" y="128" width="48" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="853.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="853.0" y="128" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="926.0" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2708" y="256" width="45" left="10.0" right="32.5"/>
+      <stroke strokeWidth="1.5" x="2707" y="256" width="47"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2707" y="256" width="47" left="9.5" right="33.0"/>
+      <stroke strokeWidth="1.5" x="2706" y="256" width="49"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="150" character="ó" byte="243" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="436.0" y="128" width="48" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="914.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="914.0" y="128" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="987.75" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2836" y="256" width="49" left="10.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="2835" y="256" width="52"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2835" y="256" width="52" left="9.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="2834" y="256" width="53"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="151" character="ô" byte="244" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="494.0" y="128" width="48" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="975.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="975.0" y="128" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="1049.5" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="2964" y="256" width="45" left="10.0" right="32.5"/>
+      <stroke strokeWidth="1.5" x="2963" y="256" width="47"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="2963" y="256" width="47" left="9.5" right="33.0"/>
+      <stroke strokeWidth="1.5" x="2962" y="256" width="49"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="152" character="õ" byte="245" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="552.0" y="128" width="48" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="1036.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1036.0" y="128" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="1111.25" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3092" y="256" width="49" left="10.0" right="34.5"/>
+      <stroke strokeWidth="1.5" x="3091" y="256" width="51"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3091" y="256" width="51" left="9.5" right="35.0"/>
+      <stroke strokeWidth="1.5" x="3090" y="256" width="53"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="153" character="ö" byte="246" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="610.0" y="128" width="48" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="1097.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1097.0" y="128" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="1173.0" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3220" y="256" width="47" left="10.0" right="33.5"/>
+      <stroke strokeWidth="1.5" x="3219" y="256" width="50"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3219" y="256" width="50" left="9.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="3218" y="256" width="51"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="154" character="÷" byte="247" type="special">
+    <regular>
+      <stroke strokeWidth="0" x="668.0" y="128" width="66" left="19.5" right="44.0"/>
+      <stroke strokeWidth="1.5" x="1158.0" y="128" width="66"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1158.0" y="128" width="66" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="1234.75" y="128" width="66"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3345" y="256" width="52" left="8.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="3344" y="256" width="55"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3344" y="256" width="55" left="8.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="3343" y="256" width="56"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="155" character="ø" byte="248" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="744.0" y="128" width="48" left="21.0" right="42.5"/>
+      <stroke strokeWidth="1.5" x="1237.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1237.0" y="128" width="48" left="20.5" right="43.0"/>
+      <stroke strokeWidth="1.5" x="1314.5" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3470" y="256" width="57" left="7.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="3468" y="256" width="61"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3468" y="256" width="61" left="6.0" right="36.5"/>
+      <stroke strokeWidth="1.5" x="3468" y="256" width="61"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="156" character="ù" byte="249" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="802.0" y="128" width="50" left="22.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="1298.0" y="128" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1298.0" y="128" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="1376.25" y="128" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3604" y="256" width="48" left="10.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="3603" y="256" width="50"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3603" y="256" width="50" left="9.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="3602" y="256" width="52"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="157" character="ú" byte="250" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="862.0" y="128" width="50" left="22.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="1361.0" y="128" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1361.0" y="128" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="1440.0" y="128" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3732" y="256" width="48" left="10.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="3731" y="256" width="52"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3731" y="256" width="52" left="9.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="3730" y="256" width="52"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="158" character="û" byte="251" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="922.0" y="128" width="50" left="22.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="1424.0" y="128" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1424.0" y="128" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="1503.75" y="128" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3860" y="256" width="48" left="10.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="3859" y="256" width="50"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3859" y="256" width="50" left="9.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="3858" y="256" width="52"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="159" character="ü" byte="252" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="982.0" y="128" width="50" left="22.5" right="40.5"/>
+      <stroke strokeWidth="1.5" x="1487.0" y="128" width="50"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1487.0" y="128" width="50" left="22.0" right="41.5"/>
+      <stroke strokeWidth="1.5" x="1567.5" y="128" width="50"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="3988" y="256" width="48" left="10.0" right="34.0"/>
+      <stroke strokeWidth="1.5" x="3987" y="256" width="50"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="3987" y="256" width="50" left="9.5" right="34.5"/>
+      <stroke strokeWidth="1.5" x="3986" y="256" width="52"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="160" character="ý" byte="253" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="1042.0" y="128" width="46" left="21.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="1550.0" y="128" width="46"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1550.0" y="128" width="46" left="20.5" right="43.0"/>
+      <stroke strokeWidth="1.5" x="1631.25" y="128" width="46"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4109" y="256" width="58" left="6.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="4107" y="256" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4107" y="256" width="62" left="5.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="4106" y="256" width="63"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="161" character="ÿ" byte="255" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="1098.0" y="128" width="46" left="21.5" right="42.0"/>
+      <stroke strokeWidth="1.5" x="1609.0" y="128" width="46"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1609.0" y="128" width="46" left="20.5" right="43.0"/>
+      <stroke strokeWidth="1.5" x="1691.0" y="128" width="46"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4237" y="256" width="58" left="6.5" right="35.5"/>
+      <stroke strokeWidth="1.5" x="4235" y="256" width="62"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4235" y="256" width="62" left="5.5" right="36.5"/>
+      <stroke strokeWidth="1.5" x="4234" y="256" width="63"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="162" character="Ā" byte="256" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="1154.0" y="128" width="54" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="1668.0" y="128" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1668.0" y="128" width="54" left="18.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="1750.75" y="128" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4360" y="256" width="63" left="4.0" right="35.5"/>
+      <stroke strokeWidth="1.5" x="4359" y="256" width="65"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4359" y="256" width="65" left="3.5" right="36.0"/>
+      <stroke strokeWidth="1.5" x="4358" y="256" width="66"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="163" character="ā" byte="257" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="1218.0" y="128" width="48" left="22.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="1735.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1735.0" y="128" width="48" left="21.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="1818.5" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4499" y="256" width="46" left="9.5" right="32.5"/>
+      <stroke strokeWidth="1.5" x="4497" y="256" width="50"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4497" y="256" width="50" left="8.5" right="33.5"/>
+      <stroke strokeWidth="1.5" x="4497" y="256" width="50"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="164" character="Ă" byte="258" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="1276.0" y="128" width="54" left="18.5" right="44.5"/>
+      <stroke strokeWidth="1.5" x="1796.0" y="128" width="54"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1796.0" y="128" width="54" left="18.0" right="45.5"/>
+      <stroke strokeWidth="1.5" x="1880.25" y="128" width="54"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4616" y="256" width="65" left="4.0" right="36.5"/>
+      <stroke strokeWidth="1.5" x="4615" y="256" width="68"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4615" y="256" width="68" left="3.5" right="37.5"/>
+      <stroke strokeWidth="1.5" x="4614" y="256" width="68"/>
+    </boldItalic>
+  </character>
+  <character uvIndex="165" character="ă" byte="259" type="alphabetical">
+    <regular>
+      <stroke strokeWidth="0" x="1340.0" y="128" width="48" left="22.0" right="40.0"/>
+      <stroke strokeWidth="1.5" x="1863.0" y="128" width="48"/>
+    </regular>
+    <bold>
+      <stroke strokeWidth="0" x="1863.0" y="128" width="48" left="21.5" right="41.0"/>
+      <stroke strokeWidth="1.5" x="1948.0" y="128" width="48"/>
+    </bold>
+    <italic>
+      <stroke strokeWidth="0" x="4755" y="256" width="47" left="9.5" right="33.0"/>
+      <stroke strokeWidth="1.5" x="4753" y="256" width="51"/>
+    </italic>
+    <boldItalic>
+      <stroke strokeWidth="0" x="4753" y="256" width="51" left="8.5" right="34.0"/>
+      <stroke strokeWidth="1.5" x="4753" y="256" width="51"/>
+    </boldItalic>
+  </character>
+</font>
