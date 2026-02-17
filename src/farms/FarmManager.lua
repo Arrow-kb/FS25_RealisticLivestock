@@ -11,6 +11,7 @@ function RL_FarmManager:loadFromXMLFile(superFunc, path)
     if g_currentMission:getIsServer() then
         local hasData = animalSystem:loadFromXMLFile()
         animalSystem:validateFarms(hasData)
+        g_familyTreeManager:load()
     end
 
     return returnValue

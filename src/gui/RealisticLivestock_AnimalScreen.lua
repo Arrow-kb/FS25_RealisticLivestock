@@ -1321,14 +1321,21 @@ end
 
 AnimalScreen.changeName = RealisticLivestock_AnimalScreen.changeName
 
--- #################################################################################
 
--- NOTES:
+function AnimalScreen:onClickOpenFamilyTree()
 
--- sourceList:setSelectedItem() changes the selected animal in the leftmost animal list
--- targetSelector buttons change the arrow buttons visibility at the top
+    local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
 
--- #################################################################################
+    if item == nil then return end
+
+    local animal = item.animal or item.cluster
+
+    if animal == nil then return end
+
+    FamilyTreeDialog.show(animal)
+
+end
+
 
 function RealisticLivestock_AnimalScreen:onClickAnimalInfo(button)
 
@@ -1639,13 +1646,13 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
                 self.buttonMonitor:setText(g_i18n:getText("rl_ui_" .. (animal.monitor.active and "remove" or "apply") .. "Monitor"))
                 self.buttonMonitor:setDisabled(animal.monitor.removed)
 
-                self.motherInfoButton:setDisabled(animal.motherId == nil or animal.motherId == "-1")
-                self.motherInfoButton:setText(g_i18n:getText("rl_ui_mother") .. " (" .. ((animal.motherId == nil or animal.motherId == "-1") and g_i18n:getText("rl_ui_unknown") or animal.motherId) .. ")")
+                --self.motherInfoButton:setDisabled(animal.motherId == nil or animal.motherId == "-1")
+                --self.motherInfoButton:setText(g_i18n:getText("rl_ui_mother") .. " (" .. ((animal.motherId == nil or animal.motherId == "-1") and g_i18n:getText("rl_ui_unknown") or animal.motherId) .. ")")
 
-                self.fatherInfoButton:setDisabled(animal.fatherId == nil or animal.fatherId == "-1")
-                self.fatherInfoButton:setText(g_i18n:getText("rl_ui_father") .. " (" .. ((animal.fatherId == nil or animal.fatherId == "-1") and g_i18n:getText("rl_ui_unknown") or animal.fatherId) .. ")")
+                --self.fatherInfoButton:setDisabled(animal.fatherId == nil or animal.fatherId == "-1")
+                --self.fatherInfoButton:setText(g_i18n:getText("rl_ui_father") .. " (" .. ((animal.fatherId == nil or animal.fatherId == "-1") and g_i18n:getText("rl_ui_unknown") or animal.fatherId) .. ")")
 
-                self.childInfoButton:setDisabled(not animal.isParent)
+                --self.childInfoButton:setDisabled(not animal.isParent)
 
 
                 for i = 1, #self.inputTitle do

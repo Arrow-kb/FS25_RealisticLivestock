@@ -1,4 +1,7 @@
 local modDirectory = g_currentModDirectory
+local fallbackDependencies = {
+	["FS25_FontLibrary"] = "1.0.0.6"
+}
 
 
 local function getAreVersionsCompatible(version, minVersion)
@@ -38,6 +41,31 @@ function MPLoadingScreen:verifyDependencies(directory)
 
 	xmlFile:delete()
 
+	local hasTamperedWithDependencies = false
+
+	for name, version in pairs(fallbackDependencies) do
+
+		local hasDependencyInXMLFile = false
+
+		for _, dependency in pairs(dependencies) do
+			if dependency.name == name then
+				hasDependencyInXMLFile = true
+				break
+			end
+		end
+
+		if not hasDependencyInXMLFile then
+			hasTamperedWithDependencies = true
+			table.insert(dependencies, {
+				["name"] = name,
+				["minVersion"] = version,
+				["incompatible"] = false,
+				["installed"] = false
+			})
+		end
+
+	end
+
 	for _, dependency in pairs(dependencies) do
 
 		dependency.installed = g_modIsLoaded[dependency.name]
@@ -59,7 +87,7 @@ function MPLoadingScreen:verifyDependencies(directory)
 
 	end
 
-	return dependencies, hasIncompatibleDependency
+	return dependencies, hasIncompatibleDependency, hasTamperedWithDependencies
 
 end
 
@@ -75,7 +103,7 @@ MPLoadingScreen.update = Utils.overwrittenFunction(MPLoadingScreen.update, funct
 
 	if not self.verifiedDependencies then
 
-		local dependencies, isIncompatible = self:verifyDependencies(modDirectory)
+		local dependencies, isIncompatible, hasTamperedWithDependencies = self:verifyDependencies(modDirectory)
 
 		self.verifiedDependencies = true
 
@@ -90,6 +118,8 @@ MPLoadingScreen.update = Utils.overwrittenFunction(MPLoadingScreen.update, funct
 					text = text .. "\n" .. string.format(g_i18n:getText("rl_ui_dependency_missing_installed"), dependency.name, dependency.version, dependency.minVersion)
 				end
 			end
+
+			if hasTamperedWithDependencies then text = text .. "\n\n" .. g_i18n:getText("rl_ui_dependencies_tampered") end
 
 			OnInGameMenuMenu()
 			InfoDialog.show(text, self.dependencyProblemOnQuitOk, self)
