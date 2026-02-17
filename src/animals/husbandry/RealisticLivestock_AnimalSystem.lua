@@ -266,12 +266,15 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
                     ["average"] = averageChildren
                 },
                 ["fertility"] = fertility,
-                ["breeds"] = {}
+                ["breeds"] = {},
+                ["cache"] = {}
 		    }
             
 		end
 
 		if self:loadAnimalConfig(animalType, directory, configFilename) then
+
+            self:addAnimalTypeToCache(animalType)
 
 		    if self:loadSubTypes(animalType, xmlFile, key, directory) then
 
@@ -362,7 +365,7 @@ function RealisticLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, ke
     for _, subTypeKey in xmlFile:iterator(key .. ".subType") do
 
 		local rawName = xmlFile:getString(subTypeKey .. "#subType")
-        local requiredDLC = xmlFile:getString(subTypeKey .. "#requiredDLC")
+        --local requiredDLC = xmlFile:getString(subTypeKey .. "#requiredDLC")
 
         if requiredDLC == nil or g_modNameToDirectory[g_uniqueDlcNamePrefix .. requiredDLC] ~= nil then
 
@@ -409,9 +412,9 @@ function RealisticLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, ke
 
 		    end
 
-        end
+	    end
 
-	end
+    end
 
 	return true
 
@@ -806,7 +809,7 @@ function AnimalSystem:loadFromXMLFile()
 
     xmlFile:iterate("animalSystem.animals.animal", function(_, key)
 
-        local animal = Animal.loadFromXMLFile(xmlFile, key)
+        local animal = Animal.loadFromXMLFile(xmlFile, key, nil, false, true)
 
         if animal ~= nil then
             local animalTypeIndex = animal.animalTypeIndex
@@ -825,12 +828,14 @@ function AnimalSystem:loadFromXMLFile()
 
     xmlFile:iterate("animalSystem.aiAnimals.animal", function(_, key)
 
-        local animal = Animal.loadFromXMLFile(xmlFile, key)
+        local animal = Animal.loadFromXMLFile(xmlFile, key, nil, false, true)
 
         if animal ~= nil then
 
             animal.favouritedBy = {}
             animal.success = xmlFile:getFloat(key .. "#success", 0.65)
+            animal.aiFamilyTreeId = xmlFile:getInt(key .. "#aiFamilyTreeId")
+            if animal.aiFamilyTreeId == nil then animal.aiFamilyTreeId = g_familyTreeManager:setOffMapFatherData(animal) end
             animal.isAIAnimal = true
 
             xmlFile:iterate(key .. ".favourites.player", function(_, favKey)
@@ -939,6 +944,7 @@ function AnimalSystem:saveToXMLFile(path)
         animal:saveToXMLFile(xmlFile, key)
 
         xmlFile:setFloat(key .. "#success", animal.success or 0.65)
+        xmlFile:setInt(key .. "#aiFamilyTreeId", animal.aiFamilyTreeId)
         
         local i = 0
 
@@ -962,7 +968,7 @@ function AnimalSystem:saveToXMLFile(path)
 end
 
 
-function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
+function AnimalSystem:createNewSaleAnimal(animalTypeIndex, minAge)
 
     local animalType = self:getTypeByIndex(animalTypeIndex)
 
@@ -970,6 +976,8 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
 
     local subTypeIndex = animalType.subTypes[math.random(1, #animalType.subTypes)]
     local subType = self:getSubTypeByIndex(subTypeIndex)
+
+    minAge = minAge or 0
     
     local farmId, farmQuality, farmCountryIndex, lastAnimalId
     local attemptedCountryIndexes = {}
@@ -1077,7 +1085,7 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
 
     end
 
-    age = math.clamp(age, 0, maxBuyAge)
+    age = math.clamp(age, minAge, maxBuyAge)
     local viableReproductionMonths = age - (subType.reproductionMinAgeMonth + subType.reproductionDurationMonth)
     local isParent, isPregnant, monthsSinceLastBirth = false, false, 12
     local animalGender = subType.gender
@@ -1786,7 +1794,211 @@ function AnimalSystem:createNewAIAnimal(animalTypeIndex)
     animal.favouritedBy = {}
     animal.success = math.clamp((math.random(35, 50) * genetics.fertility) / 100, 0.5, 1)
     animal.isAIAnimal = true
+    animal.aiFamilyTreeId = g_familyTreeManager:setOffMapFatherData(animal)
 
     return animal
+
+end
+
+
+function AnimalSystem:addAnimalTypeToCache(animalType)
+
+	local animalTypeIndex = animalType.typeIndex
+    animalType.cache = {}
+
+	local splitPath = string.split(animalType.configFilename, "/")
+    local directory = table.concat(splitPath, "/", 1, #splitPath - 1) .. "/"
+
+	local animationI3Ds, locomotionXMLs, animationXMLs = {}, {}, {}
+	
+	local configXml = XMLFile.load("animalHusbandryConfigXML_" .. animalType.groupTitle, animalType.configFilename)
+
+    configXml:iterate("animalHusbandry.animals.animal", function(visualAnimalIndex, key)
+
+	    local animationI3DFilename = Utils.getFilename(configXml:getString(key .. ".assets#animation"), directory)
+        local animationI3D = animationI3Ds[animationI3DFilename]
+
+        if animationI3D == nil then
+		    animationI3D = loadI3DFile(animationI3DFilename, false, false, false)
+            animationI3Ds[animationI3DFilename] = animationI3D
+        end
+
+        local skeletonIndex = string.gsub(configXml:getString(key .. ".assets#skeletonIndex"), ">", "|")
+	    local skeletonNode = I3DUtil.indexToObject(animationI3D, skeletonIndex)
+
+        local shaderIndex = string.gsub(configXml:getString(key .. ".assets#shaderIndex"), ">", "|")
+        local meshIndex = string.gsub(configXml:getString(key .. ".assets#meshIndex"), ">", "|")
+
+	    if skeletonNode == nil then
+
+		    Logging.xmlError(configXml, "Invalid skeleton index %q given at %q. Unable to find node", skeletonIndex, key .. ".assets#skeletonIndex")
+
+	    else
+
+		    local skinNode = getChildAt(skeletonNode, 0)
+		    local animationSet = getAnimCharacterSet(skinNode)
+
+            if animationSet ~= 0 then
+
+                local modelI3D = loadI3DFile(Utils.getFilename(configXml:getString(key .. ".assets#filename"), directory), false, false, false)
+
+                link(getRootNode(), modelI3D)
+
+                local modelSkeletonNode = I3DUtil.indexToObject(modelI3D, skeletonIndex)
+                local modelSkinNode = getChildAt(modelSkeletonNode, 0)
+                setVisibility(modelI3D, false)
+
+                local numTilesU = configXml:getInt(key .. ".assets.texture(0)#numTilesU", 1)
+                local numTilesV = configXml:getInt(key .. ".assets.texture(0)#numTilesV", 1)
+
+                local animationUsesSkeleton = false
+			
+                local animCloneSuccess = cloneAnimCharacterSet(skinNode, modelSkinNode)
+
+                if not animCloneSuccess then
+                    animCloneSuccess = cloneAnimCharacterSet(skeletonNode, modelSkeletonNode)
+                    animationUsesSkeleton = true
+                end
+
+                if animCloneSuccess and animationUsesSkeleton then Logging.warning(string.format("Animation at \'%s\' has no skeleton node, using skin node instead", animationI3DFilename)) end
+
+                local modelAnimationSet = getAnimCharacterSet(animationUsesSkeleton and modelSkeletonNode or modelSkinNode)
+
+                if modelAnimationSet ~= 0 then
+
+                    local cache = {
+                        ["root"] = modelI3D,
+                        ["shader"] = shaderIndex,
+                        ["mesh"] = meshIndex,
+                        ["skeleton"] = skeletonIndex,
+                        ["tiles"] = {
+                            ["x"] = 1 / numTilesU,
+                            ["y"] = 1 / numTilesV
+                        },
+                        ["animation"] = {}
+                    }
+
+                    local locomotionFilename = Utils.getFilename(configXml:getString(key .. ".locomotion#filename"), directory)
+                    local locomotionXML = locomotionXMLs[locomotionFilename]
+                    
+                    if locomotionXML == nil then
+                        locomotionXML = XMLFile.load(string.format("locomotionXML_%s_%s", animalType.groupTitle, visualAnimalIndex), locomotionFilename)
+                        locomotionXMLs[locomotionFilename] = locomotionXML
+                    end
+
+                    local locomotionDirectory = string.sub(locomotionFilename, 1, string.findLast(locomotionFilename, "/"))
+				    local animationFilename = Utils.getFilename(locomotionXML:getString("locomotion.animation#filename"), locomotionDirectory)
+
+                    --locomotionXML:delete()
+
+                    local animation
+
+                    for _, existingCache in pairs(animalType.cache) do
+
+                        if existingCache.animation.filename == animationFilename then
+                            animation = existingCache.animation
+                            break
+                        end
+
+                    end
+                    
+                    if animation == nil then animation = self:loadAnimations(animationFilename, modelAnimationSet, animationUsesSkeleton) end
+
+                    cache.animation = animation
+                
+                    animalType.cache[visualAnimalIndex] = cache
+
+                end
+
+            end
+
+	    end
+
+        --delete(animationI3D)
+
+    end)
+
+    configXml:delete()
+
+end
+
+
+function AnimalSystem:loadAnimations(filename, animationSet, useSkeleton)
+
+    local xmlFile = XMLFile.load(string.format("animationXML_%s_%s", filename, animationSet), filename)
+
+    local cache = {
+        ["clips"] = {},
+        ["filename"] = filename,
+        ["useSkeleton"] = useSkeleton,
+        ["speed"] = 1
+    }
+
+    if animationSet == 0 then return cache end
+
+    xmlFile:iterate("animation.states.state", function(_, key)
+    
+        local stateId = xmlFile:getString(key .. "#id")
+
+        if stateId == "walk" then
+
+            local leftClip = xmlFile:getString(string.format("%s.animation(0)#clipLeft", key))
+            local rightClip = xmlFile:getString(string.format("%s.animation(0)#clipRight", key))
+
+            cache.clips.walkLeft = getAnimClipIndex(animationSet, leftClip)
+            cache.clips.walkRight = getAnimClipIndex(animationSet, rightClip)
+            cache.speed = xmlFile:getFloat(string.format("%s.animation(0)#speed", key))
+
+        elseif stateId == "idle" then
+                
+            local clip = xmlFile:getString(string.format("%s.animation(0)#clip", key))
+            cache.clips.idle = getAnimClipIndex(animationSet, clip)
+
+        end
+
+    end)
+
+    xmlFile:delete()
+
+    return cache
+
+end
+
+
+function AnimalSystem:getVisualAnimalCache(animalTypeIndex, visualAnimalIndex)
+
+    return self.types[animalTypeIndex].cache[visualAnimalIndex]
+
+end
+
+
+function AnimalSystem:createAuctionAnimals()
+
+    local animalTypes = {}
+
+    for i = 1, #self.types do
+
+        if i == AnimalType.CHICKEN then continue end
+
+        local animals = {}
+
+        for j = 1, math.random(0, 5) do
+
+            local animal = self:createNewSaleAnimal(i, 6)
+
+            if animal ~= nil then
+                animal.sale = nil
+                table.insert(animals, animal)
+            end
+
+        end
+
+        if #animals == 0 then continue end
+
+        animalTypes[i] = animals
+
+    end
+
+    return animalTypes
 
 end

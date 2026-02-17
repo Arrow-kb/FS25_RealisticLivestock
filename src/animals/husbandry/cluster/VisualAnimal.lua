@@ -153,6 +153,8 @@ function VisualAnimal:setLeftEarTag()
 
 	if self.nodes.earTagLeft == nil then return end
 
+	print("1")
+
 	for _, nodes in pairs(self.texts.earTagLeft) do
 		for _, node in pairs(nodes) do delete3DLinkedText(node) end
 	end
