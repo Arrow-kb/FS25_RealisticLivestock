@@ -1,0 +1,10 @@
+<placeables>
+	<types>
+		<type name="auctionMart" parent="simplePlaceable">
+		    <specialization name="auctionMart"/>
+		</type>
+	</types>
+	<specializations>
+		<specialization name="auctionMart" className="PlaceableAuctionMart" filename="src/placeables/specializations/PlaceableAuctionMart.lua"/>
+	</specializations>
+</placeables>

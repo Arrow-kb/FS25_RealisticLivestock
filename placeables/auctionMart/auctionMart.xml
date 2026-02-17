@@ -1,0 +1,81 @@
+<placeable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="auctionMart">
+	<storeData>
+		<name>Auction Mart</name>
+		<functions>
+			<function>$l10n_function_garage</function>
+			<function>$l10n_function_animalPenPig</function>
+			<function>$l10n_function_adjustableMeadow</function>
+		</functions>
+		<image>$data/placeables/mapEU/brandless/buildings/farmStable/store_farmStable.png</image>
+		<price>44000</price>
+		<dailyUpkeep>10</dailyUpkeep>
+		<lifetime>1000</lifetime>
+		<rotation>0</rotation>
+		<brand>NONE</brand>
+		<species>PLACEABLE</species>
+		<category>beeHives</category>
+		<brush>
+			<type>placeable</type>
+			<category>animals</category>
+			<tab>bees</tab>
+		</brush>
+		<vertexBufferMemoryUsage>1048576</vertexBufferMemoryUsage>
+		<indexBufferMemoryUsage>217856</indexBufferMemoryUsage>
+		<textureMemoryUsage>2686976</textureMemoryUsage>
+		<instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+		<instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+		<audioMemoryUsage>0</audioMemoryUsage>
+	</storeData>
+	<base>
+		<filename>placeables/auctionMart/auctionMart.i3d</filename>
+		<canBeRenamed>true</canBeRenamed>
+	</base>
+	<placement useRandomYRotation="false" useManualYRotation="true">
+		<testAreas>
+			<testArea startNode="testAreaStart01" endNode="testAreaEnd01"/>
+		</testAreas>
+		<sounds>
+			<place template="largeImp"/>
+		</sounds>
+	</placement>
+	<clearAreas>
+		<clearArea startNode="clearAreaStart01" widthNode="clearAreaWidth01" heightNode="clearAreaHeight01"/>
+	</clearAreas>
+	<leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+		<levelAreas>
+			<levelArea startNode="levelAreaStart01" widthNode="levelAreaWidth01" heightNode="levelAreaHeight01" groundType="dirt"/>
+		</levelAreas>
+		<paintAreas>
+			<paintArea startNode="paintAreaStart01" widthNode="paintAreaWidth01" heightNode="paintAreaHeight01" groundType="animalMud"/>
+		</paintAreas>
+	</leveling>
+	<indoorAreas>
+		<indoorArea startNode="indoorAreaStart01" widthNode="indoorAreaWidth01" heightNode="indoorAreaHeight01"/>
+	</indoorAreas>
+	<tipOcclusionUpdateAreas>
+		<tipOcclusionUpdateArea startNode="tipOcclusionUpdateAreaStart01" endNode="tipOcclusionUpdateAreaEnd01"/>
+	</tipOcclusionUpdateAreas>
+	<ai>
+		<updateAreas>
+			<updateArea startNode="tipOcclusionUpdateAreaStart01" endNode="tipOcclusionUpdateAreaEnd01"/>
+		</updateAreas>
+	</ai>
+	<i3dMappings>
+		<i3dMapping id="clearAreaStart01" node="0>0|0"/>
+		<i3dMapping id="clearAreaWidth01" node="0>0|0|0"/>
+		<i3dMapping id="clearAreaHeight01" node="0>0|0|1"/>
+		<i3dMapping id="levelAreaStart01" node="0>1|0"/>
+		<i3dMapping id="levelAreaWidth01" node="0>1|0|0"/>
+		<i3dMapping id="levelAreaHeight01" node="0>1|0|1"/>
+		<i3dMapping id="paintAreaStart01" node="0>2|0"/>
+		<i3dMapping id="paintAreaWidth01" node="0>2|0|0"/>
+		<i3dMapping id="paintAreaHeight01" node="0>2|0|1"/>
+		<i3dMapping id="testAreaStart01" node="0>3|0"/>
+		<i3dMapping id="testAreaEnd01" node="0>3|0|0"/>
+		<i3dMapping id="indoorAreaStart01" node="0>4|0"/>
+		<i3dMapping id="indoorAreaWidth01" node="0>4|0|0"/>
+		<i3dMapping id="indoorAreaHeight01" node="0>4|0|1"/>
+		<i3dMapping id="tipOcclusionUpdateAreaStart01" node="0>5|0"/>
+		<i3dMapping id="tipOcclusionUpdateAreaEnd01" node="0>5|0|0"/>
+	</i3dMappings>
+</placeable>

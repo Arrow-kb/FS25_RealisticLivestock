@@ -1,6 +1,6 @@
 <modDesc descVersion="103">
     <author>Arrow</author>
-    <version>1.2.1.4</version>
+    <version>1.2.1.2</version>
     <title>
         <en>Realistic Livestock</en>
         <de>Realistischer Viehbestand</de>
@@ -15,16 +15,16 @@ https://github.com/Arrow-kb/FS25_RealisticLivestock
 
 Features:
 
-Artificial Insemination & Dewars
+Assisted Breeding & Dewars
 
-- Buy dewars filled with varying amounts of inseminant from pedigree males around the world
+- Buy dewars filled with varying amounts of male juice from pedigree males around the world
 - New object and handtool
-- Manually inseminate females or do it in the menu
-- Offspring will be very good, but insemination has a risk of failure
+- Manually impregnate females with assisted breeding or do it in the menu
+- Offspring will be very good, but assisted breeding has a risk of failure
 
 Herdsman
 
-- Automatically buy, sell, name, castrate and inseminate animals with a wide range of options and filters
+- Automatically buy, sell, name, castrate and impregnate animals with a wide range of options and filters
 - Pay the herdsman a monthly wage based on his services
 
 Male Animals
@@ -95,16 +95,6 @@ Enhanced Animal Dealer
 
 Changelog:
 
-1.2.1.4
-
-- Compatibility for 1.0.0.6 of FontLibrary
-- Removed access to Highland Cattle if the DLC is not owned
-
-1.2.1.3
-
-- Compatibility for highland cattle
-- Fixed error: attempt to index nil with 'reproductionMinAgeMonth'
-
 1.2.1.2
 
 - Fixed crops not advancing
@@ -123,10 +113,10 @@ Changelog:
 1.2.0.0
 
 - Multiplayer support
-- Added detailed artificial insemination system with new object and handtool
+- Added detailed assisted breeding system with new object and handtool
 - Added animal diseases with in-herd transmission, affects on output, and removal chance for severe diseases
 - Added messages tab
-- Added herdsman tab for automatic animal management (buying, selling, castrating, naming, insemination)
+- Added herdsman tab for automatic animal management (buying, selling, castrating, naming, assisted breeding)
 - Added ability to mark animals
 - Added ability to castrate male animals
 - Added straw and manure to chickens and sheep
@@ -152,16 +142,16 @@ https://github.com/Arrow-kb/FS25_RealisticLivestock
 
 Merkmale:
 
-Künstliche Befruchtung & Dewars
+Assistierte Fortpflanzung & Dewars
 
-- Kaufe Dewars, die mit unterschiedlichen Mengen an Sperma von reinrassigen Männchen aus aller Welt gefüllt sind.
+- Kaufe Dewars, die mit unterschiedlichen Mengen an männlichem Saft von reinrassigen Männchen aus aller Welt gefüllt sind.
 - Neues Objekt und Handwerkzeug.
-- Befruchte Weibchen manuell oder über das Menü.
-- Die Nachkommen werden sehr gut sein, aber die Befruchtung birgt ein Risiko des Scheiterns.
+- Befruchte Weibchen manuell mit assistierter Fortpflanzung oder mache es im Menü.
+- Die Nachkommen werden sehr gut sein, aber die assistierte Fortpflanzung birgt ein Risiko des Scheiterns.
 
 Hirte
 
-- Kaufen, verkaufen, benennen, kastrieren und besamen Sie Tiere automatisch mit einer Vielzahl von Optionen und Filtern.
+- Kaufen, verkaufen, benennen, kastrieren und imprägnieren Sie Tiere automatisch mit einer Vielzahl von Optionen und Filtern.
 - Bezahlen Sie dem Hirten einen monatlichen Lohn für seine Dienste.
 
 Männliche Tiere
@@ -235,10 +225,10 @@ Verbesserter Tierhändler
 1.2.0.0
 
 - Multiplayer-Unterstützung
-- Detailliertes System zur künstlichen Befruchtung mit neuem Objekt und Handwerkzeug hinzugefügt
+- Detailliertes System zur unterstützte Fortpflanzung mit neuem Objekt und Handwerkzeug hinzugefügt
 - Tierkrankheiten mit Übertragung innerhalb der Herde, Auswirkungen auf die Produktion und Entfernungschance für schwere Krankheiten hinzugefügt
 - Registerkarte „Meldungen” hinzugefügt
-- Registerkarte „Hirte” für automatische Tierverwaltung (Kauf, Verkauf, Kastration, Benennung, Befruchtung) hinzugefügt
+- Registerkarte „Hirte” für automatische Tierverwaltung (Kauf, Verkauf, Kastration, Benennung, unterstützte Fortpflanzung) hinzugefügt
 - Möglichkeit zum Markieren von Tieren hinzugefügt
 - Möglichkeit zum Kastrieren männlicher Tiere hinzugefügt
 - Stroh und Mist für Hühner und Schafe hinzugefügt
@@ -264,16 +254,16 @@ https://github.com/Arrow-kb/FS25_RealisticLivestock
 
 Caractéristiques :
 
-Insémination artificielle et Dewars
+Reproduction assistée et Dewars
 
-- Achetez des Dewars remplis de différentes quantités de sperme provenant de mâles de race pure du monde entier
+- Achetez des Dewars remplis de quantités variables de sperme provenant de mâles de race pure du monde entier
 - Nouvel objet et nouvel outil manuel
-- Inséminer manuellement les femelles ou le faire dans le menu
-- La progéniture sera de très bonne qualité, mais l'insémination comporte un risque d'échec
+- Fécondation manuelle des femelles grâce à la reproduction assistée ou via le menu
+- La progéniture sera de très bonne qualité, mais la reproduction assistée comporte un risque d'échec
 
 Berger
 
-- Achetez, vendez, nommez, castrez et inséminez automatiquement les animaux grâce à un large éventail d'options et de filtres
+- Achetez, vendez, nommez, castrez et imprégner automatiquement les animaux grâce à un large éventail d'options et de filtres
 - Versez au berger un salaire mensuel en fonction de ses services
 
 Animaux mâles
@@ -347,10 +337,10 @@ Journal des modifications:
 1.2.0.0
 
 - Prise en charge multijoueur
-- Ajout d'un système d'insémination artificielle détaillé avec un nouvel objet et un nouvel outil manuel
+- Ajout d'un système reproduction assistée artificielle détaillé avec un nouvel objet et un nouvel outil manuel
 - Ajout de maladies animales transmissibles au sein du troupeau, ayant un impact sur la production et pouvant entraîner l'élimination des animaux atteints de maladies graves
 - Ajout d'un onglet « Messages »
-- Ajout d'un onglet « Berger » pour la gestion automatique des animaux (achat, vente, castration, attribution de noms, insémination)
+- Ajout d'un onglet « Berger » pour la gestion automatique des animaux (achat, vente, castration, attribution de noms, reproduction assistée)
 - Ajout de la possibilité de marquer les animaux
 - Ajout de la possibilité de castrer les animaux mâles
 - Ajout de la paille et du fumier pour les poulets et les moutons
@@ -377,7 +367,7 @@ Journal des modifications:
 		<dependency version="1.0.0.6">FS25_FontLibrary</dependency>
 	</dependencies>
     <extraSourceFiles>
-		<sourceFile filename="src/gui/MPLoadingScreen.lua"/>
+        <sourceFile filename="src/gui/MPLoadingScreen.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalCluster.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalClusterHusbandry.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/RealisticLivestock_AnimalClusterSystem.lua"/>
@@ -415,11 +405,14 @@ Journal des modifications:
         <sourceFile filename="src/events/DewarManagerStateEvent.lua"/>
         <sourceFile filename="src/events/HusbandryMessageStateEvent.lua"/>
         <sourceFile filename="src/events/ReturnStrawEvent.lua"/>
+        <sourceFile filename="src/familyTree/FamilyTreeManager.lua"/>
         <sourceFile filename="src/farms/FarmManager.lua"/>
         <sourceFile filename="src/farms/RealisticLivestock_FarmStats.lua"/>
         <sourceFile filename="src/fillTypes/RealisticLivestock_FillTypeManager.lua"/>
 		<sourceFile filename="src/gui/elements/DoubleOptionSliderElement.lua"/>
+		<sourceFile filename="src/gui/elements/PieChartElement.lua"/>
         <sourceFile filename="src/gui/elements/RenderElement.lua"/>
+        <sourceFile filename="src/gui/elements/TreeLayoutElement.lua"/>
         <sourceFile filename="src/gui/elements/TripleOptionElement.lua"/>
         <sourceFile filename="src/gui/RealisticLivestock_AnimalScreen.lua"/>
         <sourceFile filename="src/gui/VisualAnimalsDialog.lua"/>
@@ -430,17 +423,22 @@ Journal des modifications:
         <sourceFile filename="src/gui/AnimalInfoDialog.lua"/>
         <sourceFile filename="src/gui/DiseaseDialog.lua"/>
         <sourceFile filename="src/gui/EarTagColourPickerDialog.lua"/>
+		<sourceFile filename="src/gui/FamilyTreeDialog.lua"/>
 		<sourceFile filename="src/gui/FileExplorerDialog.lua"/>
 		<sourceFile filename="src/gui/InGameMenuSettingsFrame.lua"/>
 		<sourceFile filename="src/gui/ProfileDialog.lua"/>
         <sourceFile filename="src/gui/RL_InfoDisplayKeyValueBox.lua"/>
         <sourceFile filename="src/gui/RealisticLivestock_InGameMenuAnimalsFrame.lua"/>
+        <sourceFile filename="src/gui/SpeechBubble.lua"/>
         <sourceFile filename="src/handTools/specializations/HandToolHorseBrush.lua"/>
         <sourceFile filename="src/handTools/HandTool.lua"/>
         <sourceFile filename="src/handTools/HandToolSystem.lua"/>
         <sourceFile filename="src/handTools/RLHandTools.lua"/>
+		<sourceFile filename="src/npcs/AuctionNPC.lua"/>
+        <sourceFile filename="src/objects/AuctionDigitalDisplay.lua"/>
         <sourceFile filename="src/objects/Dewar.lua"/>
         <sourceFile filename="src/placeables/RealisticLivestock_PlaceableSystem.lua"/>
+		<sourceFile filename="src/placeables/RLPlaceables.lua"/>
         <sourceFile filename="src/player/RealisticLivestock_PlayerHUDUpdater.lua"/>
         <sourceFile filename="src/player/RealisticLivestock_PlayerInputComponent.lua"/>
         <sourceFile filename="src/vehicles/specializations/RealisticLivestock_LivestockTrailer.lua"/>
@@ -454,6 +452,8 @@ Journal des modifications:
         <sourceFile filename="src/AnimalNameChangeEvent.lua"/>
         <sourceFile filename="src/AnimalPregnancyEvent.lua"/>
         <sourceFile filename="src/AnimalUpdateEvent.lua"/>
+		<sourceFile filename="src/AuctionUpdater.lua"/>
+		<sourceFile filename="src/CatalogUpdater.lua"/>
         <sourceFile filename="src/DewarManager.lua"/>
         <sourceFile filename="src/Disease.lua"/>
         <sourceFile filename="src/DiseaseManager.lua"/>
@@ -565,4 +565,7 @@ Journal des modifications:
 		</category>
 		
 	</helpLines>
+	<storeItems>
+		<storeItem xmlFilename="placeables/auctionMart/auctionMart.xml"/>
+	</storeItems>
 </modDesc>

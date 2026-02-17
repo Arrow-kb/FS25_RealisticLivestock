@@ -1,0 +1,12 @@
+<npcNames>
+	<male>
+		<name value="Andrew"/>
+		<name value="Bill"/>
+		<name value="Bob"/>
+	</male>
+	<female>
+		<name value="Lily"/>
+		<name value="Lucy"/>
+		<name value="Sarah"/>
+	</female>
+</npcNames>

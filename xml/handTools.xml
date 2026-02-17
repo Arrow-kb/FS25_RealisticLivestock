@@ -3,8 +3,12 @@
 		<type name="aiStraw" parent="base" xmlFile="objects/straw/straw.xml">
 		    <specialization name="aiStraw"/>
 		</type>
+		<type name="catalog" parent="base" xmlFile="objects/catalog/catalog.xml">
+		    <specialization name="catalog"/>
+		</type>
 	</types>
 	<specializations>
 		<specialization name="aiStraw" className="HandToolAIStraw" filename="src/handTools/specializations/HandToolAIStraw.lua"/>
+		<specialization name="catalog" className="HandToolCatalog" filename="src/handTools/specializations/HandToolCatalog.lua"/>
 	</specializations>
 </handTools>

@@ -224,9 +224,9 @@
 		<text name="finance_herdsmanWages" text="Herdsman Wages"/>
 		<text name="rl_ui_medicine" text="Medicine"/>
 		<text name="finance_medicine" text="Medicine"/>
-		<text name="rl_ui_semenPurchase" text="Inseminant Purchase"/>
+		<text name="rl_ui_semenPurchase" text="Male Juice Purchase"/>
 		<text name="rl_ui_semenPurchase_github" text="Semen Purchase"/>
-		<text name="finance_semenPurchase" text="Inseminant Purchase"/>
+		<text name="finance_semenPurchase" text="Male Juice Purchase"/>
 		<text name="finance_semenPurchase_github" text="Semen Purchase"/>
 		<text name="rl_ui_noDiseases" text="No Diseases"/>
 		<text name="rl_ui_onlyDiseases" text="Only Diseases"/>
@@ -240,22 +240,25 @@
 		<text name="rl_ui_unFavourite" text="Unfavourite"/>
 		<text name="rl_ui_quantity" text="Quantity"/>
 		<text name="rl_ui_dewar" text="Dewar"/>
-		<text name="rl_ui_semenPurchase_successful" text="Artificial inseminant successfully purchased. You can pick it up at the store"/>
+		<text name="rl_ui_semenPurchase_successful" text="Male juice successfully purchased. You can pick it up at the store"/>
 		<text name="rl_ui_semenPurchase_successful_github" text="Semen successfully purchased. You can pick it up at the store"/>
-		<text name="rl_ui_semenPurchase_unsuccessful" text="Artificial inseminant could not be purchased"/>
+		<text name="rl_ui_semenPurchase_unsuccessful" text="Male juice could not be purchased"/>
 		<text name="rl_ui_semenPurchase_unsuccessful_github" text="Semen could not be purchased"/>
 		<text name="rl_ui_earTag" text="Ear Tag"/>
 		<text name="rl_ui_species" text="Species"/>
 		<text name="rl_ui_strawSingle" text="Straw"/>
 		<text name="rl_ui_strawMultiple" text="Straws"/>
-		<text name="rl_ui_artificialInsemination" text="Artificial Insemination"/>
-		<text name="rl_ui_semenPurchaseNoPermission" text="You don't have to permission to trade animals or purchase inseminant."/>
+		<text name="rl_ui_artificialInsemination" text="Assisted Breeding"/>
+		<text name="rl_ui_artificialInsemination_github" text="Artificial Insemination"/>
+		<text name="rl_ui_semenPurchaseNoPermission" text="You don't have to permission to trade animals or purchase male juice."/>
 		<text name="rl_ui_semenPurchaseNoPermission_github" text="You don't have to permission to trade animals or purchase semen."/>
-		<text name="rl_ui_semenPurchaseNoMoney" text="You don't have enough money to purchase this inseminant."/>
+		<text name="rl_ui_semenPurchaseNoMoney" text="You don't have enough money to purchase this male juice."/>
 		<text name="rl_ui_semenPurchaseNoMoney_github" text="You don't have enough money to purchase this semen."/>
 		<text name="rl_ui_takeStraw" text="Take Straw"/>
-		<text name="rl_ui_inseminateAnimal" text="Inseminate %s"/>
-		<text name="rl_ui_inseminate" text="Inseminate"/>
+		<text name="rl_ui_inseminateAnimal" text="Breed %s"/>
+		<text name="rl_ui_inseminateAnimal_github" text="Inseminate %s"/>
+		<text name="rl_ui_inseminate" text="Breed"/>
+		<text name="rl_ui_inseminate_github" text="Inseminate"/>
 		<text name="rl_ui_strawEmpty" text="This straw is empty"/>
 		<text name="rl_ui_averageSuccessColon" text="Average Success: "/>
 		<text name="rl_ui_averageSuccess" text="Average Success"/>
@@ -268,21 +271,21 @@
 		<text name="rl_ui_healthy" text="Healthy"/>
 		<text name="rl_ui_hasDisease" text="Has Disease"/>
 		<text name="rl_ui_diseasedAnimals" text="Diseased Animals"/>
-		
-		
-		<text name="rl_insemination_male" text="Only females can be artificially inseminated"/>
+
+
+		<text name="rl_insemination_male" text="Only females can be impregnated"/>
 		<text name="rl_insemination_pregnant" text="This animal is already pregnant"/>
 		<text name="rl_insemination_animalType" text="Animal must be of the same species as the father"/>
-		<text name="rl_insemination_inseminated" text="This animal has already been artificially inseminated"/>
+		<text name="rl_insemination_inseminated" text="This animal has already been impregnated with assisted breeding"/>
 		<text name="rl_insemination_recovering" text="This animal is still recovering from its previous pregnancy"/>
 		<text name="rl_insemination_father" text="Inbreeding is not permitted"/>
-		<text name="rl_insemination_young" text="This animal is too young to be artificially inseminated"/>
+		<text name="rl_insemination_young" text="This animal is too young to be impregnated with assisted breeding"/>
 		
 		
 		<text name="rl_mark_aiManager_sell" text="Herdsman marked for selling"/>
 		<text name="rl_mark_aiManager_castrate" text="Herdsman marked for castrating"/>
 		<text name="rl_mark_aiManager_disease" text="Herdsman marked for treating"/>
-		<text name="rl_mark_aiManager_ai" text="Herdsman marked for artificial insemination"/>
+		<text name="rl_mark_aiManager_ai" text="Herdsman marked for assisted breeding"/>
 		<text name="rl_mark_player" text="Marked by player"/>
 		
 		
@@ -415,15 +418,17 @@
 
 		<text name="rl_ui_herdsmanTooltip_ai_maxAnimals" text="The herdsman will AI up to %s animals per day"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_mark_1" text="The herdsman will not mark animals to be inseminated"/>
-		<text name="rl_ui_herdsmanTooltip_ai_mark_2" text="The herdsman will mark animals to be inseminated"/>
+		<text name="rl_ui_herdsmanTooltip_ai_mark_1" text="The herdsman will not mark animals for assisted breeding"/>
+		<text name="rl_ui_herdsmanTooltip_ai_mark_1_github" text="The herdsman will not mark animals to be inseminated"/>
+		<text name="rl_ui_herdsmanTooltip_ai_mark_2" text="The herdsman will mark animals for assisted breeding"/>
+		<text name="rl_ui_herdsmanTooltip_ai_mark_2_github" text="The herdsman will mark animals to be inseminated"/>
 
 		<text name="rl_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="The herdsman will AI animals regardless of diseases"/>
 		<text name="rl_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="The herdsman will only AI animals with a disease"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_semen" text="The herdsman will use inseminant from %s"/>
+		<text name="rl_ui_herdsmanTooltip_ai_semen" text="The herdsman will use male juice from %s"/>
 		<text name="rl_ui_herdsmanTooltip_ai_semen_github" text="The herdsman will use semen from %s"/>
-		<text name="rl_ui_herdsmanTooltip_ai_semen_any" text="The herdsman will use any viable inseminant"/>
+		<text name="rl_ui_herdsmanTooltip_ai_semen_any" text="The herdsman will use any viable male juice"/>
 		<text name="rl_ui_herdsmanTooltip_ai_semen_any_github" text="The herdsman will use any viable semen"/>
 
 		<text name="rl_ui_herdsmanTooltip_ai_age_equal" text="The herdsman will only AI animals that are %s old"/>
@@ -574,7 +579,8 @@
 		<text name="rl_messageTitle_name" text="Name"/>
 		<text name="rl_messageTitle_movement" text="Movement"/>
 		<text name="rl_messageTitle_aiManager" text="Herdsman"/>
-		<text name="rl_messageTitle_insemination" text="Artificial Insemination"/>
+		<text name="rl_messageTitle_insemination" text="Assisted Breeding"/>
+		<text name="rl_messageTitle_insemination_github" text="Artificial Insemination"/>
 		
 		<text name="rl_message_pregnancySingle" text="Gave birth to 1 baby"/>
 		<text name="rl_message_pregnancyMultiple" text="Gave birth to %s babies"/>
@@ -613,12 +619,16 @@
 		<text name="rl_message_aiManager_mark_castrate_multiple" text="Herdsman marked %s animals for castrating"/>
 		<text name="rl_message_aiManager_mark_disease_single" text="Herdsman marked 1 animal for treatment"/>
 		<text name="rl_message_aiManager_mark_disease_multiple" text="Herdsman marked %s animals for treatment"/>
-		<text name="rl_message_insemination_success" text="Insemination was successful"/>
-		<text name="rl_message_insemination_fail" text="Insemination was unsuccessful"/>
+		<text name="rl_message_insemination_success" text="Assisted breeding was successful"/>
+		<text name="rl_message_insemination_success_github" text="Insemination was successful"/>
+		<text name="rl_message_insemination_fail" text="Assisted breeding was unsuccessful"/>
+		<text name="rl_message_insemination_fail_github" text="Insemination was unsuccessful"/>
 		<text name="rl_message_aiManager_mark_ai_single" text="Herdsman marked 1 animal for AI"/>
 		<text name="rl_message_aiManager_mark_ai_multiple" text="Herdsman marked %s animals for AI"/>
-		<text name="rl_message_aiManager_ai_single" text="Herdsman inseminated 1 animal"/>
-		<text name="rl_message_aiManager_ai_multiple" text="Herdsman inseminated %s animals"/>
+		<text name="rl_message_aiManager_ai_single" text="Herdsman impregnated 1 animal"/>
+		<text name="rl_message_aiManager_ai_single_github" text="Herdsman inseminated 1 animal"/>
+		<text name="rl_message_aiManager_ai_multiple" text="Herdsman impregnated %s animals"/>
+		<text name="rl_message_aiManager_ai_multiple_github" text="Herdsman inseminated %s animals"/>
 		
 		
 		
@@ -629,6 +639,21 @@
 		<text name="rl_death_health" text="low health"/>
 		<text name="rl_death_age" text="old age"/>
 		<text name="rl_death_accident" text="an accident"/>
+		
+		
+		<!--  AUCTION  -->
+		
+
+		<text name="rl_auction_going_1" text="Going once!"/>
+		<text name="rl_auction_going_2" text="Going twice!"/>
+		<text name="rl_auction_sold" text="Sold!"/>
+		
+		
+		
+		<text name="rl_ui_dependencies_missing" text="RealisticLivestock requires the following dependencies:"/>
+		<text name="rl_ui_dependencies_tampered" text="Do not tamper with the dependencies."/>
+		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
+		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
 		
 		
 	</texts>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="whiteboard.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.10"/>
+  </Asset>
+
+  <Files>
+    <File fileId="1" filename="whiteboard.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="Material.001" materialId="5" specularColor="1 1 0">
+      <Texture fileId="1"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="whiteboard.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <Shape name="whiteboard" translation="0 1.42259 0" scale="0.0541646 1.37906 0.775855" shapeId="1" nodeId="8" castsShadows="true" receiveShadows="true" doubleSided="true" materialIds="5"/>
+  </Scene>
+
+</i3D>

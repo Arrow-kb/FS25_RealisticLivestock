@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="digitalDisplay.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.9"/>
+  </Asset>
+
+  <Files>
+  </Files>
+
+
+  <Materials>
+    <Material name="default" materialId="5" diffuseColor="0.501961 0.501961 0.501961 1">
+    </Material>
+    <Material name="Material.001" materialId="25" diffuseColor="0.0196078 0.0196078 0.0196078 1" specularColor="0.501961 1 0">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="digitalDisplay.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <TransformGroup name="digitalDisplay" nodeId="12">
+      <Shape name="boundary" translation="-2.03971 7.44334e-10 -0.035" shapeId="1" nodeId="13" castsShadows="true" receiveShadows="true" doubleSided="true" materialIds="5"/>
+      <Shape name="display" rotation="0 -0 -180" scale="1.5 1 1" shapeId="2" nodeId="14" castsShadows="true" receiveShadows="true" doubleSided="true" materialIds="5"/>
+      <Shape name="screen" translation="0 0 -0.033126" scale="1.5 1 1" shapeId="3" clipDistance="300" nodeId="15" castsShadows="true" receiveShadows="true" doubleSided="true" materialIds="25"/>
+      <Shape name="struts" translation="-1.14058 0 0.158666" scale="1.5 1 1" shapeId="4" nodeId="16" castsShadows="true" receiveShadows="true" doubleSided="true" materialIds="5"/>
+    </TransformGroup>
+  </Scene>
+
+</i3D>
